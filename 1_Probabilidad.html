@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fundamentos de Probabilidad &#8212; Microeconometria Aplicada</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1_Probabilidad';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fundamentos de Estadística" href="2_Estadistica.html" />
+    <link rel="prev" title="Microeconometría Aplicada" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Microeconometria Aplicada - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Microeconometria Aplicada - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Microeconometría Aplicada
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamentos de Probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1_Probabilidad.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1_Probabilidad.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fundamentos de Probabilidad</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-y-eventos">Espacio Muestral y Eventos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medida-de-probabilidad">Medida de Probabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-probabilidad">Propiedades de Probabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-independientes">Eventos Independientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">Probabilidad Condicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">Teorema de Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">Variables Aleatorias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-distribucion">Funciones de Distribución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-f-x">Propiedades de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-inversa-o-de-cuantiles-de-f-x">Función Inversa (o de Cuantiles) de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-discretas-importantes">Algunas Variables Discretas Importantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-continuas-importantes">Algunas Variables Continuas Importantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-bivariadas">Distribuciónes Bivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-condicional">Distribución Condicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-multivariadas">Distribuciones Multivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-matematica">Esperanza Matemática</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">Varianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covarianza">Covarianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-condicional">Esperanza Condicional</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-de-probabilidad">
+<h1>Fundamentos de Probabilidad<a class="headerlink" href="#fundamentos-de-probabilidad" title="Link to this heading">#</a></h1>
+<p>La probabilidad es un lenguaje matemático para cuantificar la incertidumbre. En este documento presentamos conceptos básicos de probabilidad que son importantes para nuestro curso.</p>
+<section id="espacio-muestral-y-eventos">
+<h2>Espacio Muestral y Eventos<a class="headerlink" href="#espacio-muestral-y-eventos" title="Link to this heading">#</a></h2>
+<p>El <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> es el conjunto de todos los posibles resultados de un experimento aleatorio.</p>
+<p>Los elementos <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span> se concen como <strong>realizaciones</strong> o resultados muestrales.</p>
+<p>Los subconjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span> se conocen como <strong>eventos</strong>.</p>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Se lanza una moneda justa al aire dos veces. Solo hay dos posibles realizaciones en cada lanzamiento: <span class="math notranslate nohighlight">\(C\)</span> ó <span class="math notranslate nohighlight">\(S\)</span>. En este caso</p>
+<div class="math notranslate nohighlight">
+\[\Omega = \{(C,C),(C,S),(S,C),(S,S) \}\]</div>
+</div></section>
+<section id="medida-de-probabilidad">
+<h2>Medida de Probabilidad<a class="headerlink" href="#medida-de-probabilidad" title="Link to this heading">#</a></h2>
+<p>Una <b>medida de probabilidad</b> es una función <span class="math notranslate nohighlight">\(\mathbb{P} : \Omega \rightarrow [0, 1]\)</span> tal que:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(A) \geq 0\)</span>, <span class="math notranslate nohighlight">\(\forall A \subseteq \Omega\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\Omega) = 1\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A_1\)</span>, <span class="math notranslate nohighlight">\(A_2\)</span>, … son subconjuntos disjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span>, entonces</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(\bigcup^{\infty}_{i=1} A_i \right) = \sum_{i = 1}^\infty \mathbb{P}(A_i)\]</div>
+<p>En el ejemplo anterior:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\omega \in \Omega\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{\omega\})\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(S, S)</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(S, C)</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-even"><td><p>(C, S)</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(C, C)</p></td>
+<td><p>1/4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="propiedades-de-probabilidad">
+<h2>Propiedades de Probabilidad<a class="headerlink" href="#propiedades-de-probabilidad" title="Link to this heading">#</a></h2>
+<p>Muchas propiedades de <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> se pueden derivar a partir de los axiomas. En particular,</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\emptyset) = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A \subset B \Rightarrow \mathbb{P}(A) \leq \mathbb{P}(B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq \mathbb{P}(A) \leq 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(A^c) = 1 - \mathbb{P}(A)\)</span></p></li>
+</ol>
+<p>Una propiedad menos obvia está dada por el siguiente lema</p>
+<div class="alert alert-block alert-info">
+<b>LEMA:</b>
+<p>
+<p>Para todo evento <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(A \cup B \right) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}\left(A \cap B \right)\]</div>
+</div></section>
+<section id="eventos-independientes">
+<h2>Eventos Independientes<a class="headerlink" href="#eventos-independientes" title="Link to this heading">#</a></h2>
+<p>Dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes si y solo si</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(A \cap B \right) = \mathbb{P}(A) \cdot \mathbb{P}(B)\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p> 
+<p>¿Cuál es la probabilidad de obtener <span class="math notranslate nohighlight">\(S\)</span> en el primer lanzamiento y <span class="math notranslate nohighlight">\(C\)</span> en el segundo lanzamiento de una moneda justa?</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(S \cap C) = \mathbb{P}(S) \cdot \mathbb{P}(C) = 1/2 \cdot 1/2 = 1/4\]</div>
+<p>Los lanzamientos de una moneda justa son independientes</p>
+</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son eventos disjuntos con probabilidades positivas, estos no son independientes. Note que</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(A \cap B \right) = \mathbb{P}(\emptyset) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A) \cdot \mathbb{P}(B) &gt; 0\]</div>
+</section>
+<section id="probabilidad-condicional">
+<h2>Probabilidad Condicional<a class="headerlink" href="#probabilidad-condicional" title="Link to this heading">#</a></h2>
+<p>Si <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt; 0\)</span> entonces la <strong>probabilidad condicional</strong> de <span class="math notranslate nohighlight">\(A\)</span> dado <span class="math notranslate nohighlight">\(B\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p> 
+<p>¿Cuál es la probabilidad de obtener <span class="math notranslate nohighlight">\(S\)</span> en el segundo lanzamiento de una moneda justa dado que en el primer lanzamiento obtuve <span class="math notranslate nohighlight">\(C\)</span>?</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(S | C) = \frac{\mathbb{P}(S , C)}{\mathbb{P}(C)} = \frac{\mathbb{P}(S) \cdot \mathbb{P}(C)}{\mathbb{P}(C)} = \frac{1/2 \cdot 1/2}{1/2} = 1/2 = P(S)\]</div>
+<p>La realización del primer lanzamiento no ofrece información relevante para el resultado del segundo lanzamiento. Es decir, los eventos son independientes.</p>
+</div><div class="alert alert-block alert-info">
+<b>LEMA:</b>
+<p>
+<p>Si <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes, entonces <span class="math notranslate nohighlight">\(\mathbb{P}(A | B) = \mathbb{P}(A)\)</span>.</p>
+<p>Además, para cualquier pareja de eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> con probabilidad positiva, se tiene que</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A \cap B) = \mathbb{P}(A | B) \cdot \mathbb{P}(B) = \mathbb{P}(B | A) \cdot \mathbb{P}(A)\]</div>
+</div></section>
+<section id="teorema-de-bayes">
+<h2>Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Link to this heading">#</a></h2>
+<div class="alert alert-block alert-info">
+<b>TEOREMA (Ley de Probabilidad Total):</b>
+<p>
+<p>Sea <span class="math notranslate nohighlight">\(A_1, ..., A_k\)</span> una partición de <span class="math notranslate nohighlight">\(\Omega\)</span>. Así, para todo evento <span class="math notranslate nohighlight">\(B\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(B) = \sum_{i = 1}^k \mathbb{P}(B|A_i) \mathbb{P}(A_i)\]</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>TEOREMA (Teorema de Bayes):</b>
+<p>
+<p>Sea <span class="math notranslate nohighlight">\(A_1, ..., A_k\)</span> una partición de <span class="math notranslate nohighlight">\(\Omega\)</span> tal que <span class="math notranslate nohighlight">\(\mathbb{P}(A_i) &gt; 0\)</span> para todo <span class="math notranslate nohighlight">\(i\)</span>. Si <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt; 0\)</span>, entonces para todo <span class="math notranslate nohighlight">\(i \in \{1, ..., k\}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A_i | B) = \frac{\mathbb{P}(B|A_i)\cdot \mathbb{P}(A_i)}{\sum_j \mathbb{P}(B|A_j) \mathbb{P}(A_j)}\]</div>
+</div></section>
+<section id="variables-aleatorias">
+<h2>Variables Aleatorias<a class="headerlink" href="#variables-aleatorias" title="Link to this heading">#</a></h2>
+<p>La econometría hace uso de datos para analizar problemas económicos. Cuál es la relación entre los espacios muestrales y los eventos y los datos? El concepto clave es el de variable aleatoria.</p>
+<p>Una <strong>variable aleatoria</strong> es un mapeo que asigna un valor real <span class="math notranslate nohighlight">\(X(\omega)\)</span> a cada realización <span class="math notranslate nohighlight">\(\omega\)</span>, es decir,</p>
+<div class="math notranslate nohighlight">
+\[X : \Omega \rightarrow \mathbb{R}\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Sea <span class="math notranslate nohighlight">\(X\)</span> el número de veces que se obtiene <span class="math notranslate nohighlight">\(S\)</span> al lanzar una moneda justa dos veces al aire.</p>
+</div><p>Del ejemplo anterior podemos deducir que</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\omega \in \Omega\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(X(\omega)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{\omega\})\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(S, S)</p></td>
+<td><p>2</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(S, C)</p></td>
+<td><p>1</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-even"><td><p>(C, S)</p></td>
+<td><p>1</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(C, C)</p></td>
+<td><p>0</p></td>
+<td><p>1/4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note que al tomar solo las dos últimas columnas obtenemos la <strong>distribución de probabilidad</strong> de <span class="math notranslate nohighlight">\(X\)</span></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(x\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(X = x)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1/2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1/4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="funciones-de-distribucion">
+<h2>Funciones de Distribución<a class="headerlink" href="#funciones-de-distribucion" title="Link to this heading">#</a></h2>
+<p>La <strong>función de distribución acumulada</strong> (FDA) es una función <span class="math notranslate nohighlight">\(F_X : \mathbb{R} \rightarrow [0, 1]\)</span> que se define como</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = P(X \leq x)\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Para el ejemplo anterior, la FDA de <span class="math notranslate nohighlight">\(X\)</span> esta dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+F_X(x) =
+    \left\{\begin{array}{lr}
+    0, &amp; x &lt; 0 \\
+    1/4, &amp; 0 \le x &lt; 1 \\
+    3/4, &amp; 1 \le x &lt; 2 \\    
+    1, &amp; x \geq 2
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Note que esta función es continua por derecha, no-decreciente, y está definida para todo <span class="math notranslate nohighlight">\(x\)</span> en los reales, a pesar de que la variable solo toma valores 0, 1, y 2. Es por esto que <span class="math notranslate nohighlight">\(F_X(1.4) = 3/4\)</span></p>
+</div><p>Una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> es <strong>discreta</strong> si toma valores contables <span class="math notranslate nohighlight">\(\{x_1, x_2\}\)</span>. Definimos la distribución de probabilidad de <span class="math notranslate nohighlight">\(X\)</span> como</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) = P(X = x)\]</div>
+<p>Dos propiedades de esta función son:</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) \geq 0, \forall x \in \mathbb{R}\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_i f_X(x_i) = 1\]</div>
+<p>La FDA de <span class="math notranslate nohighlight">\(X\)</span> se relaciona con <span class="math notranslate nohighlight">\(f_X\)</span> así:</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Para nuesto ejemplo, la distribución de probabilidad de <span class="math notranslate nohighlight">\(X\)</span> esta dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f_X(x) =
+    \left\{\begin{array}{lr}
+    1/4, &amp; x = 0 \\
+    1/2, &amp; x = 1 \\
+    1/4, &amp; x = 2 \\    
+    0, &amp; \text{otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+</div><p>Una variable <span class="math notranslate nohighlight">\(X\)</span> es <strong>continua</strong> si existe una funcion <span class="math notranslate nohighlight">\(f_X\)</span> tal que</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(f_X(x) \geq 0\)</span> para todo <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span></p></li>
+<li><p>Para todo <span class="math notranslate nohighlight">\(a \leq b\)</span> se tiene que</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(a\leq X \leq b) = \int_a^b f_X(x) dx\]</div>
+<p><span class="math notranslate nohighlight">\(f_X\)</span> se conoce como la <strong>función de densidad</strong> de <span class="math notranslate nohighlight">\(X\)</span>. Note además que</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = F(X \leq x) = \int_{-\infty}^x f_X(t) dt\]</div>
+<p>Por lo tanto,</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) = F'_X(x) = \frac{\partial F_X}{\partial x}\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Suponga que <span class="math notranslate nohighlight">\(X\)</span> tiene una función de densidad dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f_X(x) =
+    \left\{\begin{array}{lr}
+    1, &amp; 0 \leq x \leq 1 \\
+    0, &amp; \text{otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Note que <span class="math notranslate nohighlight">\(f_X(x) \geq 0\)</span> y <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span>. Finalmente observe que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+F_X(x) =
+    \left\{\begin{array}{lr}
+    0, &amp; x &lt; 0 \\
+    x, &amp; 0 \leq x \leq 1 \\
+    1, &amp; x &gt; 1
+    \end{array}\right.
+\end{equation*}\]</div>
+</div>
+</section>
+<section id="propiedades-de-f-x">
+<h2>Propiedades de <span class="math notranslate nohighlight">\(F_X\)</span><a class="headerlink" href="#propiedades-de-f-x" title="Link to this heading">#</a></h2>
+<p>Para una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span>, algunas propiedades de <span class="math notranslate nohighlight">\(F_X\)</span> son:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X = x) = F(x) - F(x^-), \text{ donde } F(x^-) = \lim_{y\uparrow x} F(y)\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(x &lt; X \leq y) = F(y) - F(x)\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X &gt; x) = 1 - F(x)\]</div>
+<p>Si <span class="math notranslate nohighlight">\(X\)</span> es continua, entonces</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    F(b) -  F(a) &amp; = \mathbb{P}(a &lt; X &lt; b) =  \mathbb{P}(a \leq X &lt; b)\\
+     &amp; = \mathbb{P}(a &lt; X \leq b) =  \mathbb{P}(a \leq X \leq b)
+\end{align*}\]</div>
+</section>
+<section id="funcion-inversa-o-de-cuantiles-de-f-x">
+<h2>Función Inversa (o de Cuantiles) de <span class="math notranslate nohighlight">\(F_X\)</span><a class="headerlink" href="#funcion-inversa-o-de-cuantiles-de-f-x" title="Link to this heading">#</a></h2>
+<p>La inversa de <span class="math notranslate nohighlight">\(F_X\)</span> está definida por</p>
+<div class="math notranslate nohighlight">
+\[F^{-1}(q) = \inf \left\{x : F(x) &gt; q \right\}\]</div>
+<p>para todo <span class="math notranslate nohighlight">\(q \in [0, 1]\)</span>.</p>
+<p>Note que si <span class="math notranslate nohighlight">\(F\)</span> es estrictamente creciente y continua, entonces <span class="math notranslate nohighlight">\(F^{-1}(q)\)</span> es el unico valor real <span class="math notranslate nohighlight">\(x\)</span> tal que <span class="math notranslate nohighlight">\(F(x) = q\)</span></p>
+</section>
+<section id="algunas-variables-discretas-importantes">
+<h2>Algunas Variables Discretas Importantes<a class="headerlink" href="#algunas-variables-discretas-importantes" title="Link to this heading">#</a></h2>
+<p><strong>Bernoulli</strong>. Si <span class="math notranslate nohighlight">\(X\)</span> es una variable aleatoria que toma valores binarios tal que <span class="math notranslate nohighlight">\(\mathbb{P}(X = 1) = p\)</span> y <span class="math notranslate nohighlight">\(\mathbb{P}(X = 0) = 1-p\)</span>, para algún <span class="math notranslate nohighlight">\(p \in [0, 1]\)</span>, decimos que <span class="math notranslate nohighlight">\(X \sim\)</span> Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>). La función de distribución está dada por <span class="math notranslate nohighlight">\(f(x) = p^x (1- p)^{1-x}\)</span> para <span class="math notranslate nohighlight">\(x \in \{0, 1\}\)</span>.</p>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Definamos <span class="math notranslate nohighlight">\(X\)</span> como sacar <span class="math notranslate nohighlight">\(S\)</span> en el lanzamiento de una moneda justa. Entonces, <span class="math notranslate nohighlight">\(X(S) = 1\)</span>, <span class="math notranslate nohighlight">\(X(C) = 0\)</span> y <span class="math notranslate nohighlight">\(p = 1/2\)</span>.</p>
+<p>Note que</p>
+<div class="math notranslate nohighlight">
+\[f(X = 1) = \mathbb{P}(S) = (1/2)^1 (1-1/2)^{1-1} = 1/2\]</div>
+<div class="math notranslate nohighlight">
+\[f(X = 0) = \mathbb{P}(C) = (1/2)^0 (1-1/2)^{1-0} = 1/2\]</div>
+</div><p><strong>Binomial</strong>. Suponga que tenemos una moneda con probabilidad <span class="math notranslate nohighlight">\(p \in [0, 1]\)</span> de caer en <span class="math notranslate nohighlight">\(S\)</span>. Sea <span class="math notranslate nohighlight">\(X\)</span> la variable que cuenta el número de veces que la moneda cae en <span class="math notranslate nohighlight">\(S\)</span> en <span class="math notranslate nohighlight">\(n\)</span> lanzamientos. La función de distribución está dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f(x) =
+    \left\{\begin{array}{lr}
+    {n \choose x} p^x (1- p)^{1-x} &amp; \text{ para } x = 0, 1, ..., n \\
+    0 &amp; \text{en cualquier otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>En este caso decimos que <span class="math notranslate nohighlight">\(X \sim\)</span> Binomial(<span class="math notranslate nohighlight">\(n, p\)</span>).</p>
+<div class="alert alert-block alert-info">
+<b>TEOREMA:</b>
+<p>
+<p>si <span class="math notranslate nohighlight">\(X_1 \sim\)</span> Binomial(<span class="math notranslate nohighlight">\(n_1, p\)</span>) y <span class="math notranslate nohighlight">\(X_2 \sim\)</span> Binomial(<span class="math notranslate nohighlight">\(n_2, p\)</span>), entonces</p>
+<div class="math notranslate nohighlight">
+\[X_1 + X_2 \sim \text{Binomial(} n_1 + n_2, p \text{)}.\]</div>
+</div><p><strong>Geométrica</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene una distribución geométrica con parámetro <span class="math notranslate nohighlight">\(p\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[f(x) = P(X = k) = p(1-p)^{k-1}, \text{ con } k \geq 1.\]</div>
+<p>Se puede pensar en <span class="math notranslate nohighlight">\(X\)</span> como el número de veces que se requiren para obtener el primer <span class="math notranslate nohighlight">\(S\)</span> cuando se lanza una moneda justa.</p>
+<p><strong>Poisson</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene distribución poisson con parámetro <span class="math notranslate nohighlight">\(\lambda\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[f(x) = e^{-\lambda}\frac{\lambda^x}{x!}, \text{ con } x \geq 0.\]</div>
+</section>
+<section id="algunas-variables-continuas-importantes">
+<h2>Algunas Variables Continuas Importantes<a class="headerlink" href="#algunas-variables-continuas-importantes" title="Link to this heading">#</a></h2>
+<p><strong>Uniforme</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene distribución uniforme con parámetros <span class="math notranslate nohighlight">\(a &lt; b\)</span> si</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f(x) =
+    \left\{\begin{array}{lr}
+    \frac{1}{b-a} &amp; \text{ para } x \in [a, b] \\
+    0 &amp; \text{en cualquier otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Decimos entonces que <span class="math notranslate nohighlight">\(X \sim U(a, b)\)</span></p>
+<p><strong>Normal (o Gausiana)</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene distribución normal con parámetros <span class="math notranslate nohighlight">\(\mu \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span>, si</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{ - \frac{1}{2\sigma^2} (x - \mu) \right\} , \text{ para } x \in \mathbb{R}\]</div>
+<p>Decimos entonces que <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>.</p>
+<p>El parámetro <span class="math notranslate nohighlight">\(\mu\)</span> es el centro (o media) de la distribución y <span class="math notranslate nohighlight">\(\sigma\)</span> es la disperción (o desviación estandar).</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(Z\)</span> se distribuye <strong>normal estandar</strong> si <span class="math notranslate nohighlight">\(\mu = 0\)</span> y <span class="math notranslate nohighlight">\(\sigma = 1\)</span>, en cuyo caso la distribución se denota por <span class="math notranslate nohighlight">\(\phi(z)\)</span> y la FDA por <span class="math notranslate nohighlight">\(\Phi(z)\)</span>.</p>
+<p>Algunas propiedades útiles para variables con distribución normal son:</p>
+<p>Si <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, entonces <span class="math notranslate nohighlight">\(Z = \frac{X - \mu}{\sigma} \sim N(0, 1)\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(Z \sim N(0, 1)\)</span>, entonces <span class="math notranslate nohighlight">\(X = \mu + \sigma Z \sim N(\mu, \sigma^2)\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, entonces <span class="math notranslate nohighlight">\(Y = a X + b \sim N(a \mu + b, a^2 \sigma^2)\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(X_i \sim N(\mu_i, \sigma_i)\)</span>, <span class="math notranslate nohighlight">\(i = 1, ..., n\)</span> son variables independientes, entonces</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n} X_i \sim N\left(\sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma^2_i \right)\]</div>
+<p>Si <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, entonces</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \mathbb{P}(a &lt; X &lt; b) &amp; = \mathbb{P} \left( \frac{a - \mu}{\sigma} &lt; Z &lt; \frac{b - \mu}{\sigma} \right)\\
+     &amp; = \Phi \left(\frac{b - \mu}{\sigma} \right) - \Phi \left(\frac{a - \mu}{\sigma} \right)
+\end{align*}\]</div>
+<p>Ciertas transformaciones de una variable normal dan como resultado otro tipo de distribuciónes.</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(X \sim \chi_n^2\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[X = \sum_{i = 1}^n Z_i^2\]</div>
+<p>donde <span class="math notranslate nohighlight">\(Z_i \sim N(0, 1)\)</span> son <span class="math notranslate nohighlight">\(n\)</span> variables aleatorias independientes<span class="math notranslate nohighlight">\(^*\)</span> y <span class="math notranslate nohighlight">\(n\)</span> representa los grados de libertad.</p>
+<p><span class="math notranslate nohighlight">\(^*\)</span>veremos el concepto de independencia más adelante</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(X \sim t_{n}\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[X = \frac{Z}{\sqrt{\frac{Y}{n}}}, \text{ donde } Y \sim \chi_n^2\]</div>
+<p>Decimos que <span class="math notranslate nohighlight">\(X \sim F_{n_1, n_2}\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[X = \frac{Y_1/n_1}{Y_2/n_2}, \text{ donde } Y_1 \sim \chi^2_{n_1} \text{ y } Y_2 \sim \chi^2_{n_2}\]</div>
+</section>
+<section id="distribuciones-bivariadas">
+<h2>Distribuciónes Bivariadas<a class="headerlink" href="#distribuciones-bivariadas" title="Link to this heading">#</a></h2>
+<p>Para dos variables aleatorias discretas <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> la <strong>distribución de probabilidad conjunta</strong> está dada por <span class="math notranslate nohighlight">\(f(x, y)= \mathbb{P}(X = x, Y = y)\)</span></p>
+<p>La <strong>distribución marginal</strong> de <span class="math notranslate nohighlight">\(X\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X = x) = \sum_y \mathbb{P}(X = x, Y = y)\]</div>
+<p>Supongan que <span class="math notranslate nohighlight">\(X \in \{0, 1\}\)</span> y <span class="math notranslate nohighlight">\(Y \in \{1, 2, 3\}\)</span> con probabilidad conjunta dada por la siguiente tabla:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\((X \backslash Y)\)</span></p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(X = x)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1/9</p></td>
+<td><p>2/9</p></td>
+<td><p>0</p></td>
+<td><p>3/9</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2/9</p></td>
+<td><p>3/9</p></td>
+<td><p>1/9</p></td>
+<td><p>6/9</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathbb{P}(Y = y)\)</span></p></td>
+<td><p>3/9</p></td>
+<td><p>5/9</p></td>
+<td><p>1/9</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Observe que <span class="math notranslate nohighlight">\(\mathbb{P}(X = 1, Y = 2) = 3/9\)</span></p>
+<p>En el caso continuo, una función <span class="math notranslate nohighlight">\(f(x, y)\)</span> es una distribución de densidad si</p>
+<p>(1) <span class="math notranslate nohighlight">\(f(x, y) &gt; 0\)</span> para todo <span class="math notranslate nohighlight">\((x, y)\)</span></p>
+<p>(2) <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) dx dy= 1\)</span></p>
+<p>(3) para todo conjunto <span class="math notranslate nohighlight">\(A \subset \mathbb{R} \times \mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}((X, Y) \in A) = \int\int_A f(x, y) dx dy\]</div>
+<p>La <strong>densidad marginal</strong> <span class="math notranslate nohighlight">\(X\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) = \int f(x, y) dy\]</div>
+<p>En ambos casos definimos la distribución conjunta acumulada como <span class="math notranslate nohighlight">\(F_{X, Y}(x, y) = P(X \leq x, Y \leq y)\)</span></p>
+</section>
+<section id="distribucion-condicional">
+<h2>Distribución Condicional<a class="headerlink" href="#distribucion-condicional" title="Link to this heading">#</a></h2>
+<p>En el caso discreto, la <strong>distribución condicional</strong> de <span class="math notranslate nohighlight">\(X\)</span> dado <span class="math notranslate nohighlight">\(Y = y\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X = x| Y = y) = \frac{\mathbb{P}(X = x, Y = y)}{\mathbb{P}(Y = y)}\]</div>
+<p>En el caso continuo, la <strong>densidad condicional</strong> de <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> es una función <span class="math notranslate nohighlight">\(f_{X|Y}(x|y)\)</span> tal que</p>
+<div class="math notranslate nohighlight">
+\[f_{X|Y}(x|y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}, \text{ si } f_Y(y) &gt; 0\]</div>
+<p>Además, tenemos que</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X \in A | Y = y) = \int_A f_{X|Y}(x|y) dx\]</div>
+</section>
+<section id="distribuciones-multivariadas">
+<h2>Distribuciones Multivariadas<a class="headerlink" href="#distribuciones-multivariadas" title="Link to this heading">#</a></h2>
+<p>Sean <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> variables aleatorias. Definimos el <strong>vector aleatorio</strong> <span class="math notranslate nohighlight">\(X = (X_1, ..., X_n)\)</span>, cuya distribución o <strong>función de densidad multivariada</strong> está dada por <span class="math notranslate nohighlight">\(f(x_1, ..., x_n)\)</span>.</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> son independientes si para todo <span class="math notranslate nohighlight">\(A_1, ..., A_n\)</span></p>
+<div class="math notranslate nohighlight">
+\[P(X_1 \in A_1, ...,  X_n \in A_n) = \prod_{n=1}^{n} P(X_i \in A_i)\]</div>
+<p>Sin embargo, es suficiente mostrar que <span class="math notranslate nohighlight">\(f(x_1, ..., x_n) = \prod_{n=1}^{n} f_{X_i}(x_i)\)</span>. Donde <span class="math notranslate nohighlight">\(f_{X_i}(x_i)\)</span> es la <strong>distribución margina</strong>l de <span class="math notranslate nohighlight">\(X_i\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> son independientes y cada una tiene la misma distribución marginal, entonces decimos que son iid (<strong>independientes e identicamente distribuidas</strong>)</p>
+</section>
+<section id="esperanza-matematica">
+<h2>Esperanza Matemática<a class="headerlink" href="#esperanza-matematica" title="Link to this heading">#</a></h2>
+<p>El <strong>valor esperado</strong>, <strong>media</strong>, o <strong>primer momento</strong> de una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> se define como</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E(X) =
+    \left\{\begin{array}{lr}
+    \sum_x x \cdot \mathbb{P}(X = x) &amp; \text{ si } X \text{ es discreta } \\
+    \int x f(x) dx, &amp; \text{ si } X \text{ es continua }
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son variables aleatorias, entonces para todo <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(b \in \mathbb{R}\)</span> se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[E(X + Y) = E(X) + E(Y)\]</div>
+<div class="math notranslate nohighlight">
+\[E(aX + b) = aE(X) + b\]</div>
+<p>Más aún, si <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes, entonces:</p>
+<div class="math notranslate nohighlight">
+\[E \left(X \cdot Y \right) = E(X) \cdot E(Y)\]</div>
+</section>
+<section id="varianza">
+<h2>Varianza<a class="headerlink" href="#varianza" title="Link to this heading">#</a></h2>
+<p>Para una variable <span class="math notranslate nohighlight">\(X\)</span> con media <span class="math notranslate nohighlight">\(\mu\)</span>, su <strong>varianza</strong> se define como:</p>
+<div class="math notranslate nohighlight">
+\[V(X) = E(X- \mu)^2 = \sigma^2\]</div>
+<p>La <strong>desviación estandar</strong> de <span class="math notranslate nohighlight">\(X\)</span> es <span class="math notranslate nohighlight">\(\sigma = \sqrt{V(X)}\)</span></p>
+<p>Observe que:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(V(X) = E(X^2) - \mu^2\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(b \in \mathbb{R}\)</span>, entonces <span class="math notranslate nohighlight">\(V(aX + b) = a^2 V(X)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes, entonces <span class="math notranslate nohighlight">\(V(X + Y) = V(X) + V(Y)\)</span></p></li>
+</ol>
+</section>
+<section id="covarianza">
+<h2>Covarianza<a class="headerlink" href="#covarianza" title="Link to this heading">#</a></h2>
+<p>La <strong>covarianza</strong> entre <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> se define como</p>
+<div class="math notranslate nohighlight">
+\[Cov(X, Y) = E \left((X - \mu_X) (Y - \mu_Y) \right)\]</div>
+<p>y el <strong>coeficiente de correlación</strong> está dado por</p>
+<div class="math notranslate nohighlight">
+\[\rho(X, Y) = \frac{Cov(X , Y)}{\sigma_X \cdot \sigma_Y}\]</div>
+<p>Observe que</p>
+<div class="math notranslate nohighlight">
+\[Cov(X, Y) = E(X \cdot Y) - E(X) \cdot E(Y)\]</div>
+<div class="math notranslate nohighlight">
+\[-1 \leq \rho(X, Y) \leq 1\]</div>
+<p>Finalmente, note que</p>
+<div class="math notranslate nohighlight">
+\[V(X + Y) = V(X) + V(Y) + 2 \cdot Cov(X, Y)\]</div>
+<div class="math notranslate nohighlight">
+\[V(X - Y) = V(X) + V(Y) - 2 \cdot Cov(X, Y)\]</div>
+</section>
+<section id="esperanza-condicional">
+<h2>Esperanza Condicional<a class="headerlink" href="#esperanza-condicional" title="Link to this heading">#</a></h2>
+<p>La <strong>esperanza condicional</strong> de <span class="math notranslate nohighlight">\(X\)</span> dado <span class="math notranslate nohighlight">\(Y = y\)</span> está dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E(X | Y = y) =
+    \left\{\begin{array}{lr}
+    \sum_x x \cdot \mathbb{P}(X = x | Y = y) &amp; \text{en el caso discreto} \\
+    \int x f(x|y) dx, &amp; \text{en el caso continuo}
+    \end{array}\right.
+\end{equation*}\]</div>
+<div class="alert alert-block alert-info">
+<b>TEOREMA (Ley de Esperanzas Iteradas):</b>
+<p>
+<p>Para dos variables aleatorias <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span>, si existen sus esperanzas, entonces</p>
+<div class="math notranslate nohighlight">
+\[E(E(X | Y)) = E(X)\]</div>
+</div><p><strong>Demostración</strong>. Usando la definición de esperanza condicional y el hecho que <span class="math notranslate nohighlight">\(f(x,y) = f(x|y) f(y)\)</span> tenemos que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    E(E(X|Y)) &amp; = \int E(X | Y = y) f_Y(y) dy = \int\int x f(x|y) dx f(y) dy \\
+     &amp; = \int\int x f(x|y) f(y) dy dx = \int\int x f(x,y) dy dx \\
+     &amp; = \int x \left( \int f(x, y) dy \right) dx = \int x f(x) dx = E(X)
+\end{align*}\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Microeconometría Aplicada</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_Estadistica.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fundamentos de Estadística</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-y-eventos">Espacio Muestral y Eventos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medida-de-probabilidad">Medida de Probabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-probabilidad">Propiedades de Probabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-independientes">Eventos Independientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">Probabilidad Condicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">Teorema de Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">Variables Aleatorias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-distribucion">Funciones de Distribución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-f-x">Propiedades de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-inversa-o-de-cuantiles-de-f-x">Función Inversa (o de Cuantiles) de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-discretas-importantes">Algunas Variables Discretas Importantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-continuas-importantes">Algunas Variables Continuas Importantes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-bivariadas">Distribuciónes Bivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-condicional">Distribución Condicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-multivariadas">Distribuciones Multivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-matematica">Esperanza Matemática</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">Varianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covarianza">Covarianza</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-condicional">Esperanza Condicional</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Montano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
