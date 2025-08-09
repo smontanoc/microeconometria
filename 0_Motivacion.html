@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Microeconometría &#8212; Microeconometria Aplicada</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '0_Motivacion';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Microeconometria Aplicada - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Microeconometria Aplicada - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Microeconometría Aplicada
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_1.html">Taller 1</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F0_Motivacion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/0_Motivacion.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Microeconometría</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspectos-diferenciadores">Aspectos Diferenciadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-el-analisis-empirico">Herramientas para el Análisis Empírico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-1">Aplicación 1</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="microeconometria">
+<h1>Microeconometría<a class="headerlink" href="#microeconometria" title="Link to this heading">#</a></h1>
+<p>La microeconometría se ocupa de analizar el comportamiento económico de individuos, hogares y empresas mediante métodos estadísticos y modelos de regresión.</p>
+<p>El análisis microeconométrico utiliza comúnmente datos a nivel individual, ya sean de corte transversal o panel, que se obtienen de registros administrativos, encuestas, censos o experimentos sociales.</p>
+<p>Estudios empíricos iniciales en microeconometría analizaron el presupuesto del hogar, funciones de producción, y la demanda del consumidor. Contribuciones más reciente han abarcado modelos de elección discreta y variables truncadas y censuradas.</p>
+<section id="aspectos-diferenciadores">
+<h2>Aspectos Diferenciadores<a class="headerlink" href="#aspectos-diferenciadores" title="Link to this heading">#</a></h2>
+<p>En microeconometría:</p>
+<ol class="arabic simple">
+<li><p>Los datos usados tienen un bajo nivel de agregación, lo que implica considerar en el análisis empírico el grado de <strong>heterogenidad</strong> de invididuos y firmas.</p></li>
+</ol>
+<p></p>
+<ol class="arabic simple" start="2">
+<li><p>Buena parte de la <strong>información</strong> a nivel individual es <strong>discreta</strong>. Esto se debe en muchos casos la información se recolecta a partir de preguntas con respuestas categóricas, lo implica que el uso de <strong>modelos no lineales</strong> podría ser más apropiado para analizar datos de nivel micro.</p></li>
+</ol>
+<p></p>
+<ol class="arabic simple" start="3">
+<li><p>Los datos pueden presentar <strong>gran variación</strong> tanto en el corte transversal como en la dimensión temporal. Por ejemplo, un individuo puede no participar del mercado laboral en una semana, pero ese estado puede cambiar de una semana a otra. El cambio de comportamiento (saltos), la no participación de una actividad (huecos), y la incidencia de la no participación (esquinas), requiren considerar modelos de respuesta no lineal y discreta.</p></li>
+</ol>
+<p></p>
+<ol class="arabic simple" start="4">
+<li><p>El análisis empírico a partir de datos de nivel micro usualmente require <strong>menos supuestos</strong>, y por lo tanto puede considerarse como más realista.</p></li>
+</ol>
+<p></p>
+<ol class="arabic simple" start="5">
+<li><p>Los datos micro pueden ser usados para estudiar relaciones causales entre variables de interés, a partir de <strong>modelos de forma reducida</strong>, o para estimar parámetros fundamentales a partir de <strong>modelos estructurales</strong> que se fundamentan en una teoría económica.</p></li>
+</ol>
+<p></p>
+<ol class="arabic simple" start="6">
+<li><p>La heterogeneidad a nivel individual hace importante controlar por <strong>factores de confusión</strong> y <strong>efectos fijos o aleatorios</strong>.</p></li>
+</ol>
+</section>
+<section id="herramientas-para-el-analisis-empirico">
+<h2>Herramientas para el Análisis Empírico<a class="headerlink" href="#herramientas-para-el-analisis-empirico" title="Link to this heading">#</a></h2>
+<p>Este curso provee una serie de herramientas o modelos económetricos que le permitirán estudiar problemas de su interés haciendo uso de datos de nivel individual o micro. Se hará énfasis en modelos de forma reducida.</p>
+<p>Estos modelos pueden ser muy poderosos para analizar todo tipo de relaciones. Consideremos el siguiente ejemplo:</p>
+</section>
+<section id="aplicacion-1">
+<h2>Aplicación 1<a class="headerlink" href="#aplicacion-1" title="Link to this heading">#</a></h2>
+<p>Un econometrista está interesado en estudiar la relación entre dos variables <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> a partir de un conjunto de datos de nivel individual <span class="math notranslate nohighlight">\(\{x_i, y_i\}_{i = 1}^n\)</span>.</p>
+<p>Suponga que la <strong>relación desconocida</strong> está dada por <span class="math notranslate nohighlight">\(y = f(x) = 10 + 2 x\)</span>. Sin embargo, el econometrista observa</p>
+<div class="math notranslate nohighlight">
+\[y_i = f(x_i) + \varepsilon_i, \text{ donde } \varepsilon_i \sim N(0, 0.09)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+<span class="n">fx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">x</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span>
+
+<span class="n">datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Datos y Relación Desconocida&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Datos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f(x) no conocida&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="kc">NA</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/3ceb9363b05a12fdaa2a6a344c2e053a15a5d3b7f5e4c650b93deb00d9809cdd.png"><img alt="_images/3ceb9363b05a12fdaa2a6a344c2e053a15a5d3b7f5e4c650b93deb00d9809cdd.png" src="_images/3ceb9363b05a12fdaa2a6a344c2e053a15a5d3b7f5e4c650b93deb00d9809cdd.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model1</span><span class="p">)</span>
+
+<span class="nf">predict</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">se.fit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x, data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.46248 -0.34214 -0.00809  0.32451  1.50878 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 10.01844    0.04390  228.22   &lt;2e-16 ***
+x            1.97140    0.03834   51.42   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.4986 on 498 degrees of freedom
+Multiple R-squared:  0.8415,	Adjusted R-squared:  0.8412 
+F-statistic:  2644 on 1 and 498 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+<div class="output text_html"><dl>
+	<dt>$fit</dt>
+		<dd><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>1</dt><dd>10.0212688624038</dd><dt>2</dt><dd>10.028825535921</dd><dt>3</dt><dd>10.0401736401462</dd><dt>4</dt><dd>10.0482156880605</dd><dt>5</dt><dd>10.0647081092959</dd><dt>6</dt><dd>10.0667872358738</dd><dt>7</dt><dd>10.0692988570669</dd><dt>8</dt><dd>10.0788375562113</dd><dt>9</dt><dd>10.0800553986231</dd><dt>10</dt><dd>10.0805017982441</dd><dt>11</dt><dd>10.081020280454</dd><dt>12</dt><dd>10.0892741357497</dd><dt>13</dt><dd>10.101429472068</dd><dt>14</dt><dd>10.1052012281152</dd><dt>15</dt><dd>10.1225123629192</dd><dt>16</dt><dd>10.1229402381383</dd><dt>17</dt><dd>10.1320562102298</dd><dt>18</dt><dd>10.1458850438968</dd><dt>19</dt><dd>10.1464519554055</dd><dt>20</dt><dd>10.1481944581938</dd><dt>21</dt><dd>10.1563424676331</dd><dt>22</dt><dd>10.1580282359407</dd><dt>23</dt><dd>10.1595431884978</dd><dt>24</dt><dd>10.1661867785574</dd><dt>25</dt><dd>10.1712599741289</dd><dt>26</dt><dd>10.1729668620356</dd><dt>27</dt><dd>10.174438759289</dd><dt>28</dt><dd>10.178578257624</dd><dt>29</dt><dd>10.1797942557658</dd><dt>30</dt><dd>10.1900853050546</dd><dt>31</dt><dd>10.1909544142866</dd><dt>32</dt><dd>10.2084224368851</dd><dt>33</dt><dd>10.224281219658</dd><dt>34</dt><dd>10.2504578840575</dd><dt>35</dt><dd>10.2587292530327</dd><dt>36</dt><dd>10.2609837247928</dd><dt>37</dt><dd>10.2611763853656</dd><dt>38</dt><dd>10.264575775139</dd><dt>39</dt><dd>10.2657523404208</dd><dt>40</dt><dd>10.2885503692803</dd><dt>41</dt><dd>10.2981950308677</dd><dt>42</dt><dd>10.3165717020467</dd><dt>43</dt><dd>10.3226350897362</dd><dt>44</dt><dd>10.3397865148015</dd><dt>45</dt><dd>10.3539295931577</dd><dt>46</dt><dd>10.3541827070452</dd><dt>47</dt><dd>10.3724535424658</dd><dt>48</dt><dd>10.3727072952841</dd><dt>49</dt><dd>10.3776389548412</dd><dt>50</dt><dd>10.3847587208983</dd><dt>51</dt><dd>10.3905160772801</dd><dt>52</dt><dd>10.391298684835</dd><dt>53</dt><dd>10.3946257138644</dd><dt>54</dt><dd>10.3952607238248</dd><dt>55</dt><dd>10.3966715325047</dd><dt>56</dt><dd>10.410300311077</dd><dt>57</dt><dd>10.4108947792286</dd><dt>58</dt><dd>10.4261603019432</dd><dt>59</dt><dd>10.4298726245781</dd><dt>60</dt><dd>10.4488835446922</dd><dt>61</dt><dd>10.458389422441</dd><dt>62</dt><dd>10.4662606325726</dd><dt>63</dt><dd>10.467440589879</dd><dt>64</dt><dd>10.4768695315521</dd><dt>65</dt><dd>10.4804975823416</dd><dt>66</dt><dd>10.4838787038362</dd><dt>67</dt><dd>10.4955705886099</dd><dt>68</dt><dd>10.5084106080829</dd><dt>69</dt><dd>10.5096732601039</dd><dt>70</dt><dd>10.5201224484266</dd><dt>71</dt><dd>10.5226890920229</dd><dt>72</dt><dd>10.5245160107833</dd><dt>73</dt><dd>10.5291846245681</dd><dt>74</dt><dd>10.5338949790749</dd><dt>75</dt><dd>10.5357866492444</dd><dt>76</dt><dd>10.5392589771864</dd><dt>77</dt><dd>10.5505332518612</dd><dt>78</dt><dd>10.551492991034</dd><dt>79</dt><dd>10.5515276429294</dd><dt>80</dt><dd>10.55153936584</dd><dt>81</dt><dd>10.5665769775477</dd><dt>82</dt><dd>10.5684911828785</dd><dt>83</dt><dd>10.5796261174044</dd><dt>84</dt><dd>10.5916201503291</dd><dt>85</dt><dd>10.610678563378</dd><dt>86</dt><dd>10.6121950526737</dd><dt>87</dt><dd>10.6122875553426</dd><dt>88</dt><dd>10.6164762036096</dd><dt>89</dt><dd>10.6307418391663</dd><dt>90</dt><dd>10.6514819271432</dd><dt>91</dt><dd>10.6669033122419</dd><dt>92</dt><dd>10.6744282650503</dd><dt>93</dt><dd>10.6751993516555</dd><dt>94</dt><dd>10.6827881764253</dd><dt>95</dt><dd>10.6838053248116</dd><dt>96</dt><dd>10.6933316960808</dd><dt>97</dt><dd>10.6950836029017</dd><dt>98</dt><dd>10.7120758424085</dd><dt>99</dt><dd>10.7145149045687</dd><dt>100</dt><dd>10.716698248464</dd><dt>101</dt><dd>10.7342748222767</dd><dt>102</dt><dd>10.7521362747499</dd><dt>103</dt><dd>10.7735352619042</dd><dt>104</dt><dd>10.774260552964</dd><dt>105</dt><dd>10.7804270884963</dd><dt>106</dt><dd>10.7848356528737</dd><dt>107</dt><dd>10.7914272582051</dd><dt>108</dt><dd>10.7950766011784</dd><dt>109</dt><dd>10.7989304625817</dd><dt>110</dt><dd>10.8153824255466</dd><dt>111</dt><dd>10.8159885495945</dd><dt>112</dt><dd>10.8201464144347</dd><dt>113</dt><dd>10.8420598023533</dd><dt>114</dt><dd>10.8435743225305</dd><dt>115</dt><dd>10.847557403089</dd><dt>116</dt><dd>10.8724810820491</dd><dt>117</dt><dd>10.8773433028688</dd><dt>118</dt><dd>10.8798045623647</dd><dt>119</dt><dd>10.8892865802726</dd><dt>120</dt><dd>10.8903281539903</dd><dt>121</dt><dd>10.8933122433628</dd><dt>122</dt><dd>10.9189540593778</dd><dt>123</dt><dd>10.9198097428018</dd><dt>124</dt><dd>10.9226335661252</dd><dt>125</dt><dd>10.924996039215</dd><dt>126</dt><dd>10.9278395078231</dd><dt>127</dt><dd>10.9295143206715</dd><dt>128</dt><dd>10.9312184040761</dd><dt>129</dt><dd>10.9352210886092</dd><dt>130</dt><dd>10.9359889089563</dd><dt>131</dt><dd>10.936227681786</dd><dt>132</dt><dd>10.9639511332838</dd><dt>133</dt><dd>10.9652379177928</dd><dt>134</dt><dd>10.9669003935861</dd><dt>135</dt><dd>10.9784752594772</dd><dt>136</dt><dd>10.9835228565083</dd><dt>137</dt><dd>11.0106678746296</dd><dt>138</dt><dd>11.0282932385167</dd><dt>139</dt><dd>11.0413767750637</dd><dt>140</dt><dd>11.0420840668198</dd><dt>141</dt><dd>11.0450554427555</dd><dt>142</dt><dd>11.0605601862857</dd><dt>143</dt><dd>11.0761968910489</dd><dt>144</dt><dd>11.1068259021885</dd><dt>145</dt><dd>11.1103977013674</dd><dt>146</dt><dd>11.1106947050242</dd><dt>147</dt><dd>11.1266445657239</dd><dt>148</dt><dd>11.1313964176816</dd><dt>149</dt><dd>11.1413143892436</dd><dt>150</dt><dd>11.1524296160605</dd><dt>151</dt><dd>11.1524505768449</dd><dt>152</dt><dd>11.1545811905929</dd><dt>153</dt><dd>11.1581410300163</dd><dt>154</dt><dd>11.1677937021062</dd><dt>155</dt><dd>11.1680808390564</dd><dt>156</dt><dd>11.1713394024325</dd><dt>157</dt><dd>11.1858133404315</dd><dt>158</dt><dd>11.203209230869</dd><dt>159</dt><dd>11.2049411004175</dd><dt>160</dt><dd>11.2079841889864</dd><dt>161</dt><dd>11.2082281145723</dd><dt>162</dt><dd>11.211458749514</dd><dt>163</dt><dd>11.2347414394815</dd><dt>164</dt><dd>11.2719611443746</dd><dt>165</dt><dd>11.2910726345764</dd><dt>166</dt><dd>11.2922364799954</dd><dt>167</dt><dd>11.3023887426917</dd><dt>168</dt><dd>11.3041410286482</dd><dt>169</dt><dd>11.3083681669851</dd><dt>170</dt><dd>11.3095386082625</dd><dt>171</dt><dd>11.314161465976</dd><dt>172</dt><dd>11.315010416759</dd><dt>173</dt><dd>11.3354290729938</dd><dt>174</dt><dd>11.3359299029055</dd><dt>175</dt><dd>11.3479895345571</dd><dt>176</dt><dd>11.3492119862668</dd><dt>177</dt><dd>11.3623750366447</dd><dt>178</dt><dd>11.3780172999219</dd><dt>179</dt><dd>11.4004464646928</dd><dt>180</dt><dd>11.4013426128133</dd><dt>181</dt><dd>11.4131749925849</dd><dt>182</dt><dd>11.4132985577537</dd><dt>183</dt><dd>11.4497743709909</dd><dt>184</dt><dd>11.4534339598064</dd><dt>185</dt><dd>11.471815170515</dd><dt>186</dt><dd>11.475343402144</dd><dt>187</dt><dd>11.4793549619393</dd><dt>188</dt><dd>11.485055235917</dd><dt>189</dt><dd>11.4963647197157</dd><dt>190</dt><dd>11.4973596643402</dd><dt>191</dt><dd>11.4978944181703</dd><dt>192</dt><dd>11.5009560348131</dd><dt>193</dt><dd>11.5088883601402</dd><dt>194</dt><dd>11.522895679481</dd><dt>195</dt><dd>11.5356299017516</dd><dt>196</dt><dd>11.5643808291803</dd><dt>197</dt><dd>11.5648692972507</dd><dt>198</dt><dd>11.5701244228467</dd><dt>199</dt><dd>11.5799382909238</dd><dt>200</dt><dd>11.5840054551369</dd><dt>201</dt><dd>⋯</dd><dt>202</dt><dd>12.4006429412552</dd><dt>203</dt><dd>12.401299853872</dd><dt>204</dt><dd>12.4031515954594</dd><dt>205</dt><dd>12.4116589850884</dd><dt>206</dt><dd>12.4366711789082</dd><dt>207</dt><dd>12.4640362765446</dd><dt>208</dt><dd>12.4873881775847</dd><dt>209</dt><dd>12.489055327854</dd><dt>210</dt><dd>12.5051920032773</dd><dt>211</dt><dd>12.5093580392708</dd><dt>212</dt><dd>12.5140219693994</dd><dt>213</dt><dd>12.5286678504579</dd><dt>214</dt><dd>12.533846932278</dd><dt>215</dt><dd>12.534107363575</dd><dt>216</dt><dd>12.5415174006479</dd><dt>217</dt><dd>12.5580136031416</dd><dt>218</dt><dd>12.5632161381268</dd><dt>219</dt><dd>12.5731481377073</dd><dt>220</dt><dd>12.5821047241154</dd><dt>221</dt><dd>12.5850664555015</dd><dt>222</dt><dd>12.6119826657261</dd><dt>223</dt><dd>12.6252717727356</dd><dt>224</dt><dd>12.6272046016127</dd><dt>225</dt><dd>12.6320136424631</dd><dt>226</dt><dd>12.6402644022494</dd><dt>227</dt><dd>12.6446154197126</dd><dt>228</dt><dd>12.6531572914063</dd><dt>229</dt><dd>12.6532414209611</dd><dt>230</dt><dd>12.6604275348362</dd><dt>231</dt><dd>12.6634571654671</dd><dt>232</dt><dd>12.6676396254694</dd><dt>233</dt><dd>12.6686380153629</dd><dt>234</dt><dd>12.678035674215</dd><dt>235</dt><dd>12.6907274424746</dd><dt>236</dt><dd>12.6924019698238</dd><dt>237</dt><dd>12.7001749755639</dd><dt>238</dt><dd>12.7041119594716</dd><dt>239</dt><dd>12.7089489058063</dd><dt>240</dt><dd>12.7123327023645</dd><dt>241</dt><dd>12.7158345276097</dd><dt>242</dt><dd>12.7178090026543</dd><dt>243</dt><dd>12.7249652483527</dd><dt>244</dt><dd>12.7516305809475</dd><dt>245</dt><dd>12.7587413138456</dd><dt>246</dt><dd>12.761164218218</dd><dt>247</dt><dd>12.7679006395919</dd><dt>248</dt><dd>12.7706399018987</dd><dt>249</dt><dd>12.7750522952705</dd><dt>250</dt><dd>12.804719391568</dd><dt>251</dt><dd>12.8095467438433</dd><dt>252</dt><dd>12.8280948366555</dd><dt>253</dt><dd>12.8340137176699</dd><dt>254</dt><dd>12.8380771281649</dd><dt>255</dt><dd>12.85288317062</dd><dt>256</dt><dd>12.8548380820823</dd><dt>257</dt><dd>12.8556756496162</dd><dt>258</dt><dd>12.8613622324828</dd><dt>259</dt><dd>12.8632712207971</dd><dt>260</dt><dd>12.8673806324704</dd><dt>261</dt><dd>12.873248321912</dd><dt>262</dt><dd>12.875915990926</dd><dt>263</dt><dd>12.8870082850861</dd><dt>264</dt><dd>12.8874984569719</dd><dt>265</dt><dd>12.8903227062491</dd><dt>266</dt><dd>12.8990305604026</dd><dt>267</dt><dd>12.9003935475023</dd><dt>268</dt><dd>12.9058036220685</dd><dt>269</dt><dd>12.915502339401</dd><dt>270</dt><dd>12.9224454934304</dd><dt>271</dt><dd>12.9253743510947</dd><dt>272</dt><dd>12.92696402642</dd><dt>273</dt><dd>12.9270752168955</dd><dt>274</dt><dd>12.9333599950098</dd><dt>275</dt><dd>12.9396476400504</dd><dt>276</dt><dd>12.9462821336088</dd><dt>277</dt><dd>12.9511430490269</dd><dt>278</dt><dd>12.9522280204637</dd><dt>279</dt><dd>12.9592577248243</dd><dt>280</dt><dd>12.9612289005628</dd><dt>281</dt><dd>12.96776758572</dd><dt>282</dt><dd>12.9914037457678</dd><dt>283</dt><dd>12.9962090081139</dd><dt>284</dt><dd>13.0118422868864</dd><dt>285</dt><dd>13.012560827863</dd><dt>286</dt><dd>13.0231975102323</dd><dt>287</dt><dd>13.0394834650333</dd><dt>288</dt><dd>13.0452700433172</dd><dt>289</dt><dd>13.0502396246999</dd><dt>290</dt><dd>13.0577482168417</dd><dt>291</dt><dd>13.0582349214265</dd><dt>292</dt><dd>13.0592833471257</dd><dt>293</dt><dd>13.0643115513232</dd><dt>294</dt><dd>13.0667521364519</dd><dt>295</dt><dd>13.0750199325557</dd><dt>296</dt><dd>13.0813358778224</dd><dt>297</dt><dd>13.0914500708945</dd><dt>298</dt><dd>13.1034933712557</dd><dt>299</dt><dd>13.1058885335485</dd><dt>300</dt><dd>13.1141667875534</dd><dt>301</dt><dd>13.1160932014188</dd><dt>302</dt><dd>13.1195643010715</dd><dt>303</dt><dd>13.1200830889767</dd><dt>304</dt><dd>13.129046210655</dd><dt>305</dt><dd>13.1302364349177</dd><dt>306</dt><dd>13.130635130463</dd><dt>307</dt><dd>13.1469933321756</dd><dt>308</dt><dd>13.1585829760944</dd><dt>309</dt><dd>13.1611392242139</dd><dt>310</dt><dd>13.1630717180195</dd><dt>311</dt><dd>13.1800227152805</dd><dt>312</dt><dd>13.187121494849</dd><dt>313</dt><dd>13.1983393076904</dd><dt>314</dt><dd>13.2115831919889</dd><dt>315</dt><dd>13.2246723742603</dd><dt>316</dt><dd>13.2299054438932</dd><dt>317</dt><dd>13.2364619309832</dd><dt>318</dt><dd>13.2373334362055</dd><dt>319</dt><dd>13.2410729712317</dd><dt>320</dt><dd>13.2444852112246</dd><dt>321</dt><dd>13.2469559041291</dd><dt>322</dt><dd>13.2486122164437</dd><dt>323</dt><dd>13.2513496950687</dd><dt>324</dt><dd>13.2540697564046</dd><dt>325</dt><dd>13.2659724543615</dd><dt>326</dt><dd>13.2713752950565</dd><dt>327</dt><dd>13.28010261732</dd><dt>328</dt><dd>13.2920938842987</dd><dt>329</dt><dd>13.3065504463188</dd><dt>330</dt><dd>13.3190566566022</dd><dt>331</dt><dd>13.3333967487059</dd><dt>332</dt><dd>13.3346475079857</dd><dt>333</dt><dd>13.3396450490149</dd><dt>334</dt><dd>13.3487729661738</dd><dt>335</dt><dd>13.3629248894982</dd><dt>336</dt><dd>13.3793758628548</dd><dt>337</dt><dd>13.3805396981757</dd><dt>338</dt><dd>13.3880084544538</dd><dt>339</dt><dd>13.3925343066889</dd><dt>340</dt><dd>13.3941509309384</dd><dt>341</dt><dd>13.4078151426275</dd><dt>342</dt><dd>13.4187550426224</dd><dt>343</dt><dd>13.432502616415</dd><dt>344</dt><dd>13.4404813982505</dd><dt>345</dt><dd>13.4626030867753</dd><dt>346</dt><dd>13.4719765507152</dd><dt>347</dt><dd>13.4761464138672</dd><dt>348</dt><dd>13.4779875552629</dd><dt>349</dt><dd>13.5058221247138</dd><dt>350</dt><dd>13.5074941394861</dd><dt>351</dt><dd>13.5085789135521</dd><dt>352</dt><dd>13.5182679505328</dd><dt>353</dt><dd>13.5196981942745</dd><dt>354</dt><dd>13.5240769161792</dd><dt>355</dt><dd>13.5557674841466</dd><dt>356</dt><dd>13.5599317851126</dd><dt>357</dt><dd>13.5629959124963</dd><dt>358</dt><dd>13.5713250211665</dd><dt>359</dt><dd>13.5723712188701</dd><dt>360</dt><dd>13.5896214487014</dd><dt>361</dt><dd>13.593175322935</dd><dt>362</dt><dd>13.6120563721111</dd><dt>363</dt><dd>13.6248742878847</dd><dt>364</dt><dd>13.6303997968587</dd><dt>365</dt><dd>13.6408673856528</dd><dt>366</dt><dd>13.6524143286175</dd><dt>367</dt><dd>13.6620217174081</dd><dt>368</dt><dd>13.666412096127</dd><dt>369</dt><dd>13.6686395510306</dd><dt>370</dt><dd>13.6736346097772</dd><dt>371</dt><dd>13.6759395488049</dd><dt>372</dt><dd>13.6896567871567</dd><dt>373</dt><dd>13.7051848057593</dd><dt>374</dt><dd>13.7089587007557</dd><dt>375</dt><dd>13.7204609066335</dd><dt>376</dt><dd>13.7231995318454</dd><dt>377</dt><dd>13.7489606397208</dd><dt>378</dt><dd>13.7803087692615</dd><dt>379</dt><dd>13.7834850675489</dd><dt>380</dt><dd>13.7894415711195</dd><dt>381</dt><dd>13.790136666275</dd><dt>382</dt><dd>13.7925072490119</dd><dt>383</dt><dd>13.7983531679896</dd><dt>384</dt><dd>13.801424429182</dd><dt>385</dt><dd>13.8093528667624</dd><dt>386</dt><dd>13.8146600064627</dd><dt>387</dt><dd>13.817510461081</dd><dt>388</dt><dd>13.8253062755474</dd><dt>389</dt><dd>13.8258596510877</dd><dt>390</dt><dd>13.8327598737441</dd><dt>391</dt><dd>13.8371917517499</dd><dt>392</dt><dd>13.8465665100754</dd><dt>393</dt><dd>13.854063696936</dd><dt>394</dt><dd>13.8581851151831</dd><dt>395</dt><dd>13.8626660806967</dd><dt>396</dt><dd>13.8758151746604</dd><dt>397</dt><dd>13.8861991498179</dd><dt>398</dt><dd>13.903867415702</dd><dt>399</dt><dd>13.907627755452</dd><dt>400</dt><dd>13.9413277588089</dd><dt>401</dt><dd>13.9436234930109</dd></dl>
+</dd>
+	<dt>$se.fit</dt>
+		<dd><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0.0438509264265646</li><li>0.0437244435324138</li><li>0.0435347416405267</li><li>0.0434004832635837</li><li>0.0431256165359154</li><li>0.0430910103106561</li><li>0.0430492189358441</li><li>0.0428906383972611</li><li>0.0428704073675771</li><li>0.0428629925783442</li><li>0.042854381079757</li><li>0.0427173791057064</li><li>0.0425159178766884</li><li>0.0424534784450104</li><li>0.0421673525391834</li><li>0.0421602898870528</li><li>0.0420099281006372</li><li>0.0417822339340362</li><li>0.0417729101003576</li><li>0.0417442568407762</li><li>0.0416103775174577</li><li>0.0415827003627561</li><li>0.0415578340217519</li><li>0.0414488576686694</li><li>0.0413657192859523</li><li>0.0413377625425328</li><li>0.041313660885794</li><li>0.0412459094590217</li><li>0.041226015856492</li><li>0.0410578148220227</li><li>0.0410436228773533</li><li>0.0407588207200098</li><li>0.0405009892681442</li><li>0.0400769737063395</li><li>0.0399434053427591</li><li>0.03990703442696</li><li>0.0399039269715074</li><li>0.0398491157197462</li><li>0.0398301529485951</li><li>0.0394635361270595</li><li>0.0393089156741166</li><li>0.0390151059906389</li><li>0.0389183968094093</li><li>0.0386454747139366</li><li>0.0384211429900282</li><li>0.0384171342064144</li><li>0.0381283285300262</li><li>0.0381243253921639</li><li>0.0380465682940737</li><li>0.0379344580837096</li><li>0.0378439284341289</li><li>0.0378316314393389</li><li>0.0377793780966741</li><li>0.0377694091978035</li><li>0.0377472662220566</li><li>0.0375337194125617</li><li>0.0375244197522313</li><li>0.0372860444483496</li><li>0.0372282026709182</li><li>0.0369327852842317</li><li>0.0367855739534721</li><li>0.0366639357960112</li><li>0.0366457215781648</li><li>0.0365003650155469</li><li>0.0364445263401799</li><li>0.0363925341296248</li><li>0.0362130905174095</li><li>0.0360166495309439</li><li>0.0359973677217898</li><li>0.0358380470105371</li><li>0.0357989809215007</li><li>0.0357711903975668</li><li>0.0357002352448283</li><li>0.0356287369815585</li><li>0.0356000493313672</li><li>0.0355474294459726</li><li>0.0353769274641016</li><li>0.0353624380537464</li><li>0.0353619149790704</li><li>0.0353617380214318</li><li>0.0351352291142805</li><li>0.0351064657127609</li><li>0.0349394659246926</li><li>0.0347601931861393</li><li>0.0344766591031672</li><li>0.0344541691664725</li><li>0.0344527976693536</li><li>0.034390735685183</li><li>0.034179977020367</li><li>0.0338752797173566</li><li>0.0336500662575971</li><li>0.0335405966360986</li><li>0.0335293951070051</li><li>0.0334193113923285</li><li>0.0334045785927811</li><li>0.0332668489286244</li><li>0.0332415706232228</li><li>0.0329972097660728</li><li>0.0329622574958926</li><li>0.0329309962103549</li><li>0.0326802538929696</li><li>0.0324271527578116</li><li>0.0321262438595066</li><li>0.0321160900290398</li><li>0.0320298815031348</li><li>0.031968382791925</li><li>0.0318766398747536</li><li>0.0318259561207181</li><li>0.0317725162548885</li><li>0.0315453684048877</li><li>0.0315370305630905</li><li>0.0314798944375132</li><li>0.0311805023170485</li><li>0.0311599192152764</li><li>0.0311058552328094</li><li>0.0307698270071605</li><li>0.0307047364372918</li><li>0.0306718460215782</li><li>0.0305455055692466</li><li>0.0305316634396998</li><li>0.0304920457082701</li><li>0.030154074853925</li><li>0.0301428734653661</li><li>0.0301059436878919</li><li>0.0300750896220512</li><li>0.0300380048869646</li><li>0.030016188084156</li><li>0.0299940100067047</li><li>0.0299419960612558</li><li>0.0299320312258698</li><li>0.0299289332548772</li><li>0.0295719848757504</li><li>0.0295555512733281</li><li>0.0295343375510471</li><li>0.0293872000803665</li><li>0.0293233459193188</li><li>0.0289832397863847</li><li>0.0287654422146386</li><li>0.0286053520876142</li><li>0.0285967366366557</li><li>0.0285605865829941</li><li>0.028373116482411</li><li>0.028186055126996</li><li>0.0278256285671314</li><li>0.027784124504668</li><li>0.0277806783719114</li><li>0.027596755852248</li><li>0.0275423988245814</li><li>0.0274296019650181</li><li>0.0273042542406537</li><li>0.0273040189365095</li><li>0.0272801220210431</li><li>0.027240288798263</li><li>0.0271328737751622</li><li>0.0271296918934256</li><li>0.0270936368838333</li><li>0.0269347059082869</li><li>0.0267463608629471</li><li>0.0267277716777368</li><li>0.0266951799792399</li><li>0.0266925714762528</li><li>0.0266580791115442</li><li>0.0264125858040995</li><li>0.0260316930539312</li><li>0.0258418105567353</li><li>0.025830374823685</li><li>0.0257312493459912</li><li>0.0257142549780837</li><li>0.0256733983847245</li><li>0.0256621207657369</li><li>0.0256177270554983</li><li>0.0256096004447559</li><li>0.0254165904925537</li><li>0.0254119158823569</li><li>0.0253002259929056</li><li>0.0252889981769733</li><li>0.0251692053295687</li><li>0.0250295089211009</li><li>0.0248343324108731</li><li>0.0248266615568662</li><li>0.0247263074224388</li><li>0.0247252685776681</li><li>0.02442701206436</li><li>0.0243980254519765</li><li>0.0242550677577856</li><li>0.0242281342288078</li><li>0.0241977110689189</li><li>0.024154848424653</li><li>0.0240710933065059</li><li>0.0240638072598993</li><li>0.0240598967394005</li><li>0.0240375822815853</li><li>0.0239803590118702</li><li>0.0238814099180059</li><li>0.0237938036266992</li><li>0.0236043703358686</li><li>0.0236012532369891</li><li>0.023567934415088</li><li>0.0235067753073855</li><li>0.0234818371042742</li><li>⋯</li><li>0.023866283625383</li><li>0.0238708441068451</li><li>0.0238837315386644</li><li>0.0239435467240393</li><li>0.0241251202910655</li><li>0.0243333634515159</li><li>0.0245188041498421</li><li>0.0245323111423564</li><li>0.02466486848931</li><li>0.0246996231226646</li><li>0.0247387882568272</li><li>0.0248635263805905</li><li>0.0249082663547748</li><li>0.0249105247468626</li><li>0.0249751274579023</li><li>0.025121318022194</li><li>0.0251680953726481</li><li>0.0252582814534844</li><li>0.0253405977391484</li><li>0.0253680221624989</li><li>0.0256218457361344</li><li>0.0257501652790687</li><li>0.0257689913501842</li><li>0.0258160101250673</li><li>0.0258972671250786</li><li>0.0259404150173899</li><li>0.0260257146687174</li><li>0.0260265586742531</li><li>0.0260989291162572</li><li>0.0261296040717781</li><li>0.0261721102828304</li><li>0.0261822840457438</li><li>0.0262785578358096</li><li>0.0264100284203552</li><li>0.0264274977009505</li><li>0.0265089616632215</li><li>0.0265504557116103</li><li>0.0266016480499163</li><li>0.0266375998200231</li><li>0.026674925529453</li><li>0.026696024907496</li><li>0.0267728192403612</li><li>0.0270633508915757</li><li>0.0271419739313271</li><li>0.02716887268123</li><li>0.0272439482222584</li><li>0.0272745974065267</li><li>0.0273241131046076</li><li>0.0276616469758673</li><li>0.0277173168888043</li><li>0.0279331201342605</li><li>0.0280026130592994</li><li>0.0280504949033165</li><li>0.0282261488911378</li><li>0.0282494790338618</li><li>0.0282594844208134</li><li>0.0283275692433993</li><li>0.0283504854092435</li><li>0.0283999181685584</li><li>0.0284707416117535</li><li>0.0285030334513212</li><li>0.0286379218665535</li><li>0.0286439054543459</li><li>0.0286784188151468</li><li>0.0287852312207175</li><li>0.0288020041849608</li><li>0.0288687246658426</li><li>0.0289889069392482</li><li>0.0290753898968582</li><li>0.0291119821144526</li><li>0.0291318703977696</li><li>0.0291332622112611</li><li>0.0292120835908288</li><li>0.0292912390433747</li><li>0.0293750816385296</li><li>0.0294367182565463</li><li>0.0294504995557992</li><li>0.0295400002122691</li><li>0.0295651616377992</li><li>0.0296488278691092</li><li>0.0299538197955319</li><li>0.0300163070411873</li><li>0.0302207064467835</li><li>0.030230141387254</li><li>0.0303702176304746</li><li>0.0305861579853209</li><li>0.0306633055187534</li><li>0.0307297350845509</li><li>0.0308304073999911</li><li>0.0308369454694081</li><li>0.0308510344895407</li><li>0.0309187024709748</li><li>0.0309516051348276</li><li>0.0310633471227324</li><li>0.0311489983389488</li><li>0.0312866740531902</li><li>0.0314514274845487</li><li>0.03148429845774</li><li>0.0315981738754382</li><li>0.0316247323076105</li><li>0.0316726421407583</li><li>0.0316798088401531</li><li>0.031803878590111</li><li>0.0318203894045296</li><li>0.031825921966013</li><li>0.032053712971383</li><li>0.032216027462012</li><li>0.0322519301234498</li><li>0.0322790964315289</li><li>0.0325182763834861</li><li>0.0326189095015684</li><li>0.0327784900787684</li><li>0.032967756849303</li><li>0.0331557171738945</li><li>0.0332311120700736</li><li>0.0333257718662065</li><li>0.0333383707742359</li><li>0.0333924750241398</li><li>0.0334419055340026</li><li>0.033477733121288</li><li>0.033501768485546</li><li>0.033541523113681</li><li>0.0335810617843681</li><li>0.0337545091479176</li><li>0.0338334691038967</li><li>0.0339613136875929</li><li>0.034137566496819</li><li>0.0343509578283064</li><li>0.0345363430229714</li><li>0.0347497905699894</li><li>0.0347684516436364</li><li>0.0348430836694189</li><li>0.0349796837360571</li><li>0.0351921905725174</li><li>0.0354403050470727</li><li>0.0354579016541689</li><li>0.0355709611050638</li><li>0.0356395854222718</li><li>0.035664118521292</li><li>0.0358719104239022</li><li>0.0360388224992438</li><li>0.0362492526201097</li><li>0.0363717244904139</li><li>0.0367125789358739</li><li>0.0368575706523388</li><li>0.0369221776834761</li><li>0.0369507246525702</li><li>0.0373838232686051</li><li>0.037409929132057</li><li>0.0374268715326207</li><li>0.0375783849904917</li><li>0.0376007788662076</li><li>0.0376693831223065</li><li>0.0381678874091246</li><li>0.0382336487440987</li><li>0.0382820737544272</li><li>0.0384138644063773</li><li>0.038430434603569</li><li>0.0387041715727977</li><li>0.0387606871336595</li><li>0.0390616229704849</li><li>0.039266563976277</li><li>0.0393550671858544</li><li>0.0395229863763969</li><li>0.0397086072841559</li><li>0.0398633546175507</li><li>0.0399341623558705</li><li>0.0399701083805586</li><li>0.0400507702500236</li><li>0.0400880158201578</li><li>0.0403099922743414</li><li>0.0405619226393224</li><li>0.0406232543316744</li><li>0.0408104287938798</li><li>0.0408550483502417</li><li>0.0412757688673188</li><li>0.0417901227626964</li><li>0.0418423816707759</li><li>0.041940452392515</li><li>0.0419519026752302</li><li>0.04199096246432</li><li>0.0420873458290933</li><li>0.0421380171771222</li><li>0.0422689342469116</li><li>0.0423566550798591</li><li>0.0424037985655655</li><li>0.0425328351749255</li><li>0.0425420003282102</li><li>0.0426563462986751</li><li>0.0427298493662783</li><li>0.0428854861820499</li><li>0.0430101030169822</li><li>0.0430786651118371</li><li>0.0431532537984545</li><li>0.043372399605275</li><li>0.0435457431725838</li><li>0.0438412488350243</li><li>0.0439042317268807</li><li>0.0444700681908233</li><li>0.0445087038790528</li></ol>
+</dd>
+	<dt>$df</dt>
+		<dd>498</dd>
+	<dt>$residual.scale</dt>
+		<dd>0.498553716756183</dd>
+</dl>
+</div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspectos-diferenciadores">Aspectos Diferenciadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-el-analisis-empirico">Herramientas para el Análisis Empírico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-1">Aplicación 1</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Montano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
