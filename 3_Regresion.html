@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -383,7 +383,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-simple-o-univariada">Regresión Simple o Univariada</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-del-modelo">Supuestos del Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linealidad-en-parametros">Linealidad en Parámetros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-multicolinealidad-o-rango-completo">No Multicolinealidad o Rango Completo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homoscedasticidad">Homoscedasticidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-autocorrelacion">No Autocorrelación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-normal-de-los-errores">Distribución Normal de los Errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional-o-exogenidad">Independencia Condicional o Exogenidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-ordinarios-mco">Mínimos Cuadrados Ordinarios (MCO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-relacion-entre-aprendizaje-y-recursos-economicos">Aplicacion : Relación entre Aprendizaje y Recursos Económicos</a></li>
 </ul>
             </nav>
         </div>
@@ -418,7 +426,12 @@ Y = r(x) + \varepsilon
 <p>En su versión más simple, <span class="math notranslate nohighlight">\(X\)</span> es unidimensional y asumimos que <span class="math notranslate nohighlight">\(r(x)\)</span> es lineal. Así,</p>
 <div class="math notranslate nohighlight">
 \[r(x) = \beta_0 + \beta_1 x.\]</div>
-<p>Inicialmente también asumiremos que <span class="math notranslate nohighlight">\(\mathbb{V}(\varepsilon | X = x) = \sigma^2\)</span> no depende de <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>El modelo regresión lineal simple se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
+\]</div>
+<p>Observe que los parámetros desconocidos en este modelo son el intercepto <span class="math notranslate nohighlight">\(\beta_0\)</span> y la pendiente <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
 <div class="alert alert-block alert-warning"> 
 <b>EJEMPLO:</b>
 <p>
@@ -430,21 +443,75 @@ Y = r(x) + \varepsilon
 \[H_0: \beta &lt; 0\]</div>
 <div class="math notranslate nohighlight">
 \[H_1: \beta \geq 0\]</div>
-</div><p>El modelo regresión lineal simple se define como:</p>
+</div></section>
+<section id="supuestos-del-modelo">
+<h2>Supuestos del Modelo<a class="headerlink" href="#supuestos-del-modelo" title="Link to this heading">#</a></h2>
+<p>Para estimar el modelo de regresión suponemos:</p>
+<ul class="simple">
+<li><p>Linealidad en los parámetros</p></li>
+<li><p>No multicolinealidad o Rango Completo</p></li>
+<li><p>Homoscedasticidad</p></li>
+<li><p>No autocorrelación</p></li>
+<li><p>Distribución Normal de los Errores</p></li>
+<li><p>Independencia Condicional o Exogenidad</p></li>
+</ul>
+<p>Algunos de estos supuestos hace que el modelo sea <strong>estimable</strong>, otros nos permiten hacer <strong>inferencia</strong> sobre los parámetros</p>
+</section>
+<section id="linealidad-en-parametros">
+<h2>Linealidad en Parámetros<a class="headerlink" href="#linealidad-en-parametros" title="Link to this heading">#</a></h2>
+<p>Este supuesto es necesario para que el modelo sea <strong>estimable</strong>.</p>
+<p>Se refiere a la forma funcional de la función de regresión <span class="math notranslate nohighlight">\(r(x) = \beta_0 + \beta_1 X_i\)</span>.</p>
+<p>Note que nos interesa estimar <span class="math notranslate nohighlight">\(\beta_k\)</span>, no <span class="math notranslate nohighlight">\(\beta_k^2\)</span>, o <span class="math notranslate nohighlight">\(\ln(\beta_k)\)</span>, o cualquier otra función <span class="math notranslate nohighlight">\(g(\beta_k)\)</span>.</p>
+<p>Finalmente, el modelo debe ser lineal en sus variables originales o después de alguna transformación.</p>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Suponga queremos estimar el parámetro <span class="math notranslate nohighlight">\(\beta\)</span> de la función <span class="math notranslate nohighlight">\(y = A X^\beta e^\varepsilon\)</span>. ¿Podemos usar el modelo de regresión lineal?</p>
+<p>Sí, note que podemos utilizar la siguiente transformación:</p>
 <div class="math notranslate nohighlight">
-\[
-Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
-\]</div>
+\[\ln y_i = \alpha + \beta \cdot X_i + \varepsilon_i, \text{ con } \alpha = \ln A\]</div>
+<p>¿Qué pasa si <span class="math notranslate nohighlight">\(y = A X^\beta e^\varepsilon + u\)</span> ?</p>
+</div></section>
+<section id="no-multicolinealidad-o-rango-completo">
+<h2>No Multicolinealidad o Rango Completo<a class="headerlink" href="#no-multicolinealidad-o-rango-completo" title="Link to this heading">#</a></h2>
+<p>Este supuesto es necesario para que el modelo sea <strong>estimable</strong>.</p>
+<p>El supuesto hace referencia a la información que aportan diferentes covariables. En primer lugar, este supuesto señala que:</p>
 <div class="math notranslate nohighlight">
-\[\mathbb{E}(\varepsilon_i | X_i) = 0\]</div>
+\[|\rho(X_{1i}, X_{2i})| \neq 1\]</div>
+<p>Adicionalmente, es necesario que el número de observaciones en los datos <span class="math notranslate nohighlight">\(n\)</span> sea mayor al número de parámetros <span class="math notranslate nohighlight">\(k\)</span> que queremos estimar.</p>
+<p>Este supuesto será más relevante cuando estudiemos el modelo de regresión múltiple.</p>
+</section>
+<section id="homoscedasticidad">
+<h2>Homoscedasticidad<a class="headerlink" href="#homoscedasticidad" title="Link to this heading">#</a></h2>
+<p>Este supuesto es sobre la varianza y nos facilita realizar pruebas de hipótesis</p>
+<p>El supuesto establece que:</p>
 <div class="math notranslate nohighlight">
-\[\mathbb{V}(\varepsilon_i | X_i) = \sigma^2\]</div>
-<p>Observe que los parámetros desconocidos en este modelo son el intercepto <span class="math notranslate nohighlight">\(\beta_0\)</span>, la pendiente <span class="math notranslate nohighlight">\(\beta_1\)</span>, y la varianza <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
-<p>Note que a partir de los supuestos anteriores podemos determinar que:</p>
+\[V(\varepsilon_i | X_i) = \sigma^2\]</div>
+<p>La violación de este supuesto se conoce como <strong>heteroscedasticidad</strong>. En un modelo <strong>heteroscedástico</strong>  $<span class="math notranslate nohighlight">\(V(\varepsilon_i | X_i) = \sigma_i^2\)</span>$.</p>
+</section>
+<section id="no-autocorrelacion">
+<h2>No Autocorrelación<a class="headerlink" href="#no-autocorrelacion" title="Link to this heading">#</a></h2>
+<p>Este supuesto establece que:</p>
 <div class="math notranslate nohighlight">
-\[\mathbb{E}(Y_i | X_i) = \mathbb{E}(\beta_0 + \beta_1 X_i | X_i) = \beta_0 + \beta_1 X_i\]</div>
+\[Cov(\varepsilon_i, \varepsilon_j | X) = 0 \text{ para todo } i \neq j\]</div>
+<p>La violación de este supuesto se conoce como <strong>autocorrelación</strong>.</p>
+</section>
+<section id="distribucion-normal-de-los-errores">
+<h2>Distribución Normal de los Errores<a class="headerlink" href="#distribucion-normal-de-los-errores" title="Link to this heading">#</a></h2>
+<p>Este supuesto se hace sobre los errores entonces también afecta las pruebas de hipótesis.</p>
+<p>El supuesto señala que:</p>
 <div class="math notranslate nohighlight">
-\[\mathbb{V}(Y_i | X_i) = \mathbb{V}(\varepsilon_i | X_i) = \sigma^2\]</div>
+\[\varepsilon_i | X_i \sim N(0, \sigma^2)\]</div>
+<p>Observe que por el teorema del límite central este supuesto no es tan fuerte, y si muy útil para determinar ciertos estadísticos.</p>
+</section>
+<section id="independencia-condicional-o-exogenidad">
+<h2>Independencia Condicional o Exogenidad<a class="headerlink" href="#independencia-condicional-o-exogenidad" title="Link to this heading">#</a></h2>
+<p>Este supuesto es necesario para tener consistencia e insesgamiento en los estimadores de <span class="math notranslate nohighlight">\(\beta_k\)</span>.</p>
+<p>El supuesto dice que:</p>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i | X_i) = 0\]</div>
+<p>Es decir, <span class="math notranslate nohighlight">\(X_i\)</span> es una variable exogena. Observe que cuando este supuesto se cumple también podemos decir que <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> y <span class="math notranslate nohighlight">\(X_i\)</span> son independientes.</p>
+<p>Este supuesto garantiza que los efectos encontrados se puedan se interpretados como estimaciones <strong>causales</strong>.</p>
 </section>
 <section id="minimos-cuadrados-ordinarios-mco">
 <h2>Mínimos Cuadrados Ordinarios (MCO)<a class="headerlink" href="#minimos-cuadrados-ordinarios-mco" title="Link to this heading">#</a></h2>
@@ -457,16 +524,104 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 \[\frac{\partial\mathcal{L}}{\partial\beta_0} =  \sum_i (-2) \cdot ({Y_i} - \beta_0 - \beta_1 X_i) = 0\]</div>
 <div class="math notranslate nohighlight">
 \[\frac{\partial\mathcal{L}}{\partial\beta_1} =  \sum_i (-2 X_i) \cdot ({Y_i} - \beta_0 - \beta_1 X_i) = 0\]</div>
+<p>Estas ecuaciones se conocen como <strong>ecuaciones normales</strong>.</p>
 <p>A partir de estas condiciones obtenemos los siguientes <strong>estimadores</strong>:</p>
 <div class="math notranslate nohighlight">
 \[\hat\beta_0 = \overline Y - \hat\beta_1 \overline X\]</div>
 <div class="math notranslate nohighlight">
 \[\hat\beta_1 = \frac{\sum_i (X_i - \overline X)(Y_i - \overline Y)}{\sum_i (X_i - \overline X)^2} = \frac{\mathbb{\hat Cov}(X, Y)}{\mathbb{\hat V}(X)}\]</div>
 <p>De esta manera, la <strong>linea ajustada</strong> está dada por <span class="math notranslate nohighlight">\(\hat r(x) = \hat\beta_0 + \hat\beta_1 x\)</span>, y los <strong>valores predichos</strong> se definen como <span class="math notranslate nohighlight">\(\hat Y_i = \hat r(X_i)\)</span></p>
-<p>Definimos además el <strong>residual</strong> como $<span class="math notranslate nohighlight">\(\hat \varepsilon_i = Y_i - \hat Y_i = Y_i - \left(\hat\beta_0 + \hat\beta_1 X_i \right)\)</span>$</p>
-<p>Un estimador insesgado de <span class="math notranslate nohighlight">\(\sigma^2\)</span> es</p>
-<div class="math notranslate nohighlight">
-\[\hat \sigma^2 = \left(\frac{1}{n-2} \right) \sum_{i = 1}^{n} {\hat\varepsilon_i}^2\]</div>
+<p>Definimos además el <strong>residual</strong> como $<span class="math notranslate nohighlight">\(e_i = Y_i - \hat Y_i = Y_i - \left(\hat\beta_0 + \hat\beta_1 X_i \right)\)</span>$</p>
+</section>
+<section id="aplicacion-relacion-entre-aprendizaje-y-recursos-economicos">
+<h2>Aplicacion : Relación entre Aprendizaje y Recursos Económicos<a class="headerlink" href="#aplicacion-relacion-entre-aprendizaje-y-recursos-economicos" title="Link to this heading">#</a></h2>
+<p>Vamos a usar datos de las pruebas PISA, que toman estudiantes de 15 años de diversos paises, para estudiar la relación entre aprendizaje y recursos económicos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span>
+<span class="w">  </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;ALB&quot;</span><span class="p">,</span><span class="s">&quot;ARE&quot;</span><span class="p">,</span><span class="s">&quot;ARG&quot;</span><span class="p">,</span><span class="s">&quot;AUS&quot;</span><span class="p">,</span><span class="s">&quot;AUT&quot;</span><span class="p">,</span><span class="s">&quot;BEL&quot;</span><span class="p">,</span><span class="s">&quot;BGR&quot;</span><span class="p">,</span><span class="s">&quot;BRA&quot;</span><span class="p">,</span><span class="s">&quot;BRN&quot;</span><span class="p">,</span><span class="s">&quot;CAN&quot;</span><span class="p">,</span><span class="s">&quot;CHE&quot;</span><span class="p">,</span><span class="s">&quot;CHL&quot;</span><span class="p">,</span><span class="s">&quot;COL&quot;</span><span class="p">,</span><span class="s">&quot;CRI&quot;</span><span class="p">,</span><span class="s">&quot;CZE&quot;</span><span class="p">,</span><span class="s">&quot;DEU&quot;</span><span class="p">,</span><span class="s">&quot;DNK&quot;</span><span class="p">,</span><span class="s">&quot;DOM&quot;</span><span class="p">,</span><span class="s">&quot;ESP&quot;</span><span class="p">,</span><span class="s">&quot;EST&quot;</span><span class="p">,</span><span class="s">&quot;FIN&quot;</span><span class="p">,</span><span class="s">&quot;FRA&quot;</span><span class="p">,</span><span class="s">&quot;GBR&quot;</span><span class="p">,</span><span class="s">&quot;GEO&quot;</span><span class="p">,</span><span class="s">&quot;GRC&quot;</span><span class="p">,</span><span class="s">&quot;GTM&quot;</span><span class="p">,</span><span class="s">&quot;HKG&quot;</span><span class="p">,</span><span class="s">&quot;HRV&quot;</span><span class="p">,</span><span class="s">&quot;HUN&quot;</span><span class="p">,</span><span class="s">&quot;IDN&quot;</span><span class="p">,</span><span class="s">&quot;IRL&quot;</span><span class="p">,</span><span class="s">&quot;ISL&quot;</span><span class="p">,</span><span class="s">&quot;ISR&quot;</span><span class="p">,</span><span class="s">&quot;ITA&quot;</span><span class="p">,</span><span class="s">&quot;JAM&quot;</span><span class="p">,</span><span class="s">&quot;JOR&quot;</span><span class="p">,</span><span class="s">&quot;JPN&quot;</span><span class="p">,</span><span class="s">&quot;KAZ&quot;</span><span class="p">,</span><span class="s">&quot;KHM&quot;</span><span class="p">,</span><span class="s">&quot;KOR&quot;</span><span class="p">,</span><span class="s">&quot;KSV&quot;</span><span class="p">,</span><span class="s">&quot;LTU&quot;</span><span class="p">,</span><span class="s">&quot;LVA&quot;</span><span class="p">,</span><span class="s">&quot;MAC&quot;</span><span class="p">,</span><span class="s">&quot;MAR&quot;</span><span class="p">,</span><span class="s">&quot;MDA&quot;</span><span class="p">,</span><span class="s">&quot;MEX&quot;</span><span class="p">,</span><span class="s">&quot;MKD&quot;</span><span class="p">,</span><span class="s">&quot;MLT&quot;</span><span class="p">,</span><span class="s">&quot;MNE&quot;</span><span class="p">,</span><span class="s">&quot;MNG&quot;</span><span class="p">,</span><span class="s">&quot;MYS&quot;</span><span class="p">,</span><span class="s">&quot;NLD&quot;</span><span class="p">,</span><span class="s">&quot;NOR&quot;</span><span class="p">,</span><span class="s">&quot;NZL&quot;</span><span class="p">,</span><span class="s">&quot;PAN&quot;</span><span class="p">,</span><span class="s">&quot;PER&quot;</span><span class="p">,</span><span class="s">&quot;PHL&quot;</span><span class="p">,</span><span class="s">&quot;POL&quot;</span><span class="p">,</span><span class="s">&quot;PRT&quot;</span><span class="p">,</span><span class="s">&quot;PRY&quot;</span><span class="p">,</span><span class="s">&quot;PSE&quot;</span><span class="p">,</span><span class="s">&quot;QAT&quot;</span><span class="p">,</span><span class="s">&quot;QAZ&quot;</span><span class="p">,</span><span class="s">&quot;QUR&quot;</span><span class="p">,</span><span class="s">&quot;ROU&quot;</span><span class="p">,</span><span class="s">&quot;SAU&quot;</span><span class="p">,</span><span class="s">&quot;SGP&quot;</span><span class="p">,</span><span class="s">&quot;SLV&quot;</span><span class="p">,</span><span class="s">&quot;SRB&quot;</span><span class="p">,</span><span class="s">&quot;SVK&quot;</span><span class="p">,</span><span class="s">&quot;SVN&quot;</span><span class="p">,</span><span class="s">&quot;SWE&quot;</span><span class="p">,</span><span class="s">&quot;TAP&quot;</span><span class="p">,</span><span class="s">&quot;THA&quot;</span><span class="p">,</span><span class="s">&quot;TUR&quot;</span><span class="p">,</span><span class="s">&quot;URY&quot;</span><span class="p">,</span><span class="s">&quot;USA&quot;</span><span class="p">,</span><span class="s">&quot;UZB&quot;</span><span class="p">,</span><span class="s">&quot;VNM&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="n">math</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">368.25405</span><span class="p">,</span><span class="m">433.82986</span><span class="p">,</span><span class="m">388.54898</span><span class="p">,</span><span class="m">487.16594</span><span class="p">,</span><span class="m">490.87702</span><span class="p">,</span><span class="m">494.01554</span><span class="p">,</span><span class="m">418.33838</span><span class="p">,</span><span class="m">381.13655</span><span class="p">,</span><span class="m">440.66541</span><span class="p">,</span><span class="m">484.52203</span><span class="p">,</span><span class="m">506.45947</span><span class="p">,</span><span class="m">428.55602</span><span class="p">,</span><span class="m">390.80082</span><span class="p">,</span><span class="m">384.34594</span><span class="p">,</span><span class="m">499.37027</span><span class="p">,</span><span class="m">477.74352</span><span class="p">,</span><span class="m">478.7986</span><span class="p">,</span><span class="m">339.82878</span><span class="p">,</span><span class="m">481.86548</span><span class="p">,</span><span class="m">512.71336</span><span class="p">,</span><span class="m">475.32395</span><span class="p">,</span><span class="m">468.24401</span><span class="p">,</span><span class="m">481.82223</span><span class="p">,</span><span class="m">390.46145</span><span class="p">,</span><span class="m">433.54079</span><span class="p">,</span><span class="m">345.55713</span><span class="p">,</span><span class="m">546.03005</span><span class="p">,</span><span class="m">462.98476</span><span class="p">,</span><span class="m">479.72656</span><span class="p">,</span><span class="m">379.03128</span><span class="p">,</span><span class="m">492.17959</span><span class="p">,</span><span class="m">459.27331</span><span class="p">,</span><span class="m">457.12382</span><span class="p">,</span><span class="m">474.03372</span><span class="p">,</span><span class="m">371.40991</span><span class="p">,</span><span class="m">360.30719</span><span class="p">,</span><span class="m">534.92948</span><span class="p">,</span><span class="m">446.01273</span><span class="p">,</span><span class="m">327.40929</span><span class="p">,</span><span class="m">531.09303</span><span class="p">,</span><span class="m">352.41048</span><span class="p">,</span><span class="m">471.54378</span><span class="p">,</span><span class="m">482.58027</span><span class="p">,</span><span class="m">552.05427</span><span class="p">,</span><span class="m">363.36233</span><span class="p">,</span><span class="m">415.52394</span><span class="p">,</span><span class="m">395.40581</span><span class="p">,</span><span class="m">390.49863</span><span class="p">,</span><span class="m">468.9976</span><span class="p">,</span><span class="m">406.00521</span><span class="p">,</span><span class="m">423.92532</span><span class="p">,</span><span class="m">409.49151</span><span class="p">,</span><span class="m">491.04093</span><span class="p">,</span><span class="m">468.47831</span><span class="p">,</span><span class="m">478.87437</span><span class="p">,</span><span class="m">353.49833</span><span class="p">,</span><span class="m">394.15257</span><span class="p">,</span><span class="m">354.16683</span><span class="p">,</span><span class="m">494.4546</span><span class="p">,</span><span class="m">475.57748</span><span class="p">,</span><span class="m">340.78028</span><span class="p">,</span><span class="m">364.66173</span><span class="p">,</span><span class="m">411.98931</span><span class="p">,</span><span class="m">398.33636</span><span class="p">,</span><span class="m">444.34014</span><span class="p">,</span><span class="m">435.55027</span><span class="p">,</span><span class="m">389.20505</span><span class="p">,</span><span class="m">573.98391</span><span class="p">,</span><span class="m">345.12158</span><span class="p">,</span><span class="m">439.81693</span><span class="p">,</span><span class="m">468.62039</span><span class="p">,</span><span class="m">471.70524</span><span class="p">,</span><span class="m">482.4206</span><span class="p">,</span><span class="m">533.87613</span><span class="p">,</span><span class="m">414.58713</span><span class="p">,</span><span class="m">451.8851</span><span class="p">,</span><span class="m">409.28728</span><span class="p">,</span><span class="m">462.80969</span><span class="p">,</span><span class="m">363.90947</span><span class="p">,</span><span class="m">468.83368</span><span class="p">),</span>
+<span class="w">  </span><span class="n">read</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">358.8281</span><span class="p">,</span><span class="m">419.71994</span><span class="p">,</span><span class="m">412.83373</span><span class="p">,</span><span class="m">498.79545</span><span class="p">,</span><span class="m">484.0255</span><span class="p">,</span><span class="m">481.7429</span><span class="p">,</span><span class="m">405.41276</span><span class="p">,</span><span class="m">413.32812</span><span class="p">,</span><span class="m">427.66587</span><span class="p">,</span><span class="m">490.52696</span><span class="p">,</span><span class="m">481.54308</span><span class="p">,</span><span class="m">465.12644</span><span class="p">,</span><span class="m">419.17929</span><span class="p">,</span><span class="m">415.22553</span><span class="p">,</span><span class="m">500.25072</span><span class="p">,</span><span class="m">483.0404</span><span class="p">,</span><span class="m">477.21655</span><span class="p">,</span><span class="m">353.15524</span><span class="p">,</span><span class="m">480.86845</span><span class="p">,</span><span class="m">513.84343</span><span class="p">,</span><span class="m">477.53438</span><span class="p">,</span><span class="m">467.01198</span><span class="p">,</span><span class="m">490.44853</span><span class="p">,</span><span class="m">375.03115</span><span class="p">,</span><span class="m">442.52392</span><span class="p">,</span><span class="m">375.55029</span><span class="p">,</span><span class="m">504.42272</span><span class="p">,</span><span class="m">475.74213</span><span class="p">,</span><span class="m">479.98543</span><span class="p">,</span><span class="m">372.90122</span><span class="p">,</span><span class="m">516.88935</span><span class="p">,</span><span class="m">436.02972</span><span class="p">,</span><span class="m">473.09826</span><span class="p">,</span><span class="m">480.65205</span><span class="p">,</span><span class="m">400.32092</span><span class="p">,</span><span class="m">341.46512</span><span class="p">,</span><span class="m">515.07793</span><span class="p">,</span><span class="m">404.15901</span><span class="p">,</span><span class="m">321.2015</span><span class="p">,</span><span class="m">517.97604</span><span class="p">,</span><span class="m">338.17407</span><span class="p">,</span><span class="m">466.72213</span><span class="p">,</span><span class="m">474.2778</span><span class="p">,</span><span class="m">510.36214</span><span class="p">,</span><span class="m">337.91559</span><span class="p">,</span><span class="m">412.49955</span><span class="p">,</span><span class="m">415.23693</span><span class="p">,</span><span class="m">360.23238</span><span class="p">,</span><span class="m">448.79677</span><span class="p">,</span><span class="m">405.80333</span><span class="p">,</span><span class="m">377.88235</span><span class="p">,</span><span class="m">389.52229</span><span class="p">,</span><span class="m">456.80425</span><span class="p">,</span><span class="m">476.63287</span><span class="p">,</span><span class="m">500.62093</span><span class="p">,</span><span class="m">387.40349</span><span class="p">,</span><span class="m">411.3118</span><span class="p">,</span><span class="m">345.80676</span><span class="p">,</span><span class="m">495.10716</span><span class="p">,</span><span class="m">480.06531</span><span class="p">,</span><span class="m">376.70185</span><span class="p">,</span><span class="m">348.16283</span><span class="p">,</span><span class="m">414.6251</span><span class="p">,</span><span class="m">366.71778</span><span class="p">,</span><span class="m">431.63915</span><span class="p">,</span><span class="m">436.35943</span><span class="p">,</span><span class="m">383.16603</span><span class="p">,</span><span class="m">542.47853</span><span class="p">,</span><span class="m">367.1504</span><span class="p">,</span><span class="m">440.34278</span><span class="p">,</span><span class="m">450.99055</span><span class="p">,</span><span class="m">455.30676</span><span class="p">,</span><span class="m">487.52261</span><span class="p">,</span><span class="m">504.32483</span><span class="p">,</span><span class="m">396.81118</span><span class="p">,</span><span class="m">454.84742</span><span class="p">,</span><span class="m">430.33206</span><span class="p">,</span><span class="m">501.33838</span><span class="p">,</span><span class="m">335.69292</span><span class="p">,</span><span class="m">461.27979</span><span class="p">),</span>
+<span class="w">  </span><span class="n">scie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">376.45612</span><span class="p">,</span><span class="m">434.89017</span><span class="p">,</span><span class="m">416.65516</span><span class="p">,</span><span class="m">507.91081</span><span class="p">,</span><span class="m">494.86606</span><span class="p">,</span><span class="m">494.80982</span><span class="p">,</span><span class="m">421.72777</span><span class="p">,</span><span class="m">405.9808</span><span class="p">,</span><span class="m">444.34865</span><span class="p">,</span><span class="m">500.98817</span><span class="p">,</span><span class="m">500.80958</span><span class="p">,</span><span class="m">461.86337</span><span class="p">,</span><span class="m">420.46238</span><span class="p">,</span><span class="m">410.20256</span><span class="p">,</span><span class="m">510.04275</span><span class="p">,</span><span class="m">495.53081</span><span class="p">,</span><span class="m">481.59372</span><span class="p">,</span><span class="m">361.725</span><span class="p">,</span><span class="m">491.143</span><span class="p">,</span><span class="m">528.51191</span><span class="p">,</span><span class="m">498.51606</span><span class="p">,</span><span class="m">481.40229</span><span class="p">,</span><span class="m">492.73984</span><span class="p">,</span><span class="m">385.03211</span><span class="p">,</span><span class="m">445.14657</span><span class="p">,</span><span class="m">374.28158</span><span class="p">,</span><span class="m">524.42376</span><span class="p">,</span><span class="m">482.90977</span><span class="p">,</span><span class="m">492.44187</span><span class="p">,</span><span class="m">395.31191</span><span class="p">,</span><span class="m">504.3107</span><span class="p">,</span><span class="m">447.24463</span><span class="p">,</span><span class="m">464.2001</span><span class="p">,</span><span class="m">480.90591</span><span class="p">,</span><span class="m">394.72014</span><span class="p">,</span><span class="m">373.75317</span><span class="p">,</span><span class="m">546.25504</span><span class="p">,</span><span class="m">440.96584</span><span class="p">,</span><span class="m">341.14726</span><span class="p">,</span><span class="m">531.3388</span><span class="p">,</span><span class="m">353.75366</span><span class="p">,</span><span class="m">479.50271</span><span class="p">,</span><span class="m">493.00024</span><span class="p">,</span><span class="m">543.14931</span><span class="p">,</span><span class="m">364.28557</span><span class="p">,</span><span class="m">418.00956</span><span class="p">,</span><span class="m">410.76032</span><span class="p">,</span><span class="m">381.67947</span><span class="p">,</span><span class="m">468.78635</span><span class="p">,</span><span class="m">404.08089</span><span class="p">,</span><span class="m">411.62124</span><span class="p">,</span><span class="m">417.15835</span><span class="p">,</span><span class="m">486.63188</span><span class="p">,</span><span class="m">478.18198</span><span class="p">,</span><span class="m">503.74646</span><span class="p">,</span><span class="m">383.48177</span><span class="p">,</span><span class="m">410.52702</span><span class="p">,</span><span class="m">355.28466</span><span class="p">,</span><span class="m">504.86972</span><span class="p">,</span><span class="m">487.69184</span><span class="p">,</span><span class="m">371.42047</span><span class="p">,</span><span class="m">367.63747</span><span class="p">,</span><span class="m">428.26692</span><span class="p">,</span><span class="m">381.6494</span><span class="p">,</span><span class="m">453.79679</span><span class="p">,</span><span class="m">436.78672</span><span class="p">,</span><span class="m">390.96302</span><span class="p">,</span><span class="m">560.97909</span><span class="p">,</span><span class="m">374.21203</span><span class="p">,</span><span class="m">447.30452</span><span class="p">,</span><span class="m">467.28861</span><span class="p">,</span><span class="m">486.88349</span><span class="p">,</span><span class="m">494.4219</span><span class="p">,</span><span class="m">526.40753</span><span class="p">,</span><span class="m">429.0165</span><span class="p">,</span><span class="m">475.16645</span><span class="p">,</span><span class="m">435.88107</span><span class="p">,</span><span class="m">497.41058</span><span class="p">,</span><span class="m">355.05556</span><span class="p">,</span><span class="m">472.23249</span><span class="p">),</span>
+<span class="w">  </span><span class="n">econ_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-.74391004</span><span class="p">,</span><span class="n">.</span><span class="m">32525118</span><span class="p">,</span><span class="m">-.67148081</span><span class="p">,</span><span class="n">.</span><span class="m">39335586</span><span class="p">,</span><span class="n">.</span><span class="m">09302247</span><span class="p">,</span><span class="n">.</span><span class="m">1154232</span><span class="p">,</span><span class="m">-.27047491</span><span class="p">,</span><span class="m">-.97523877</span><span class="p">,</span><span class="m">-.27116078</span><span class="p">,</span><span class="n">.</span><span class="m">3339245</span><span class="p">,</span><span class="n">.</span><span class="m">1809795</span><span class="p">,</span><span class="m">-.24284266</span><span class="p">,</span><span class="m">-.96515588</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="m">-.01307006</span><span class="p">,</span><span class="m">-.12423293</span><span class="p">,</span><span class="n">.</span><span class="m">34054443</span><span class="p">,</span><span class="m">-.71082132</span><span class="p">,</span><span class="n">.</span><span class="m">02354851</span><span class="p">,</span><span class="n">.</span><span class="m">18467558</span><span class="p">,</span><span class="n">.</span><span class="m">19358048</span><span class="p">,</span><span class="m">-.05861012</span><span class="p">,</span><span class="n">.</span><span class="m">11972009</span><span class="p">,</span><span class="m">-.44695238</span><span class="p">,</span><span class="m">-.13303286</span><span class="p">,</span><span class="m">-1.4975343</span><span class="p">,</span><span class="m">-.45290783</span><span class="p">,</span><span class="m">-.1523256</span><span class="p">,</span><span class="n">.</span><span class="m">06026681</span><span class="p">,</span><span class="m">-1.4481847</span><span class="p">,</span><span class="n">.</span><span class="m">34413547</span><span class="p">,</span><span class="n">.</span><span class="m">38376268</span><span class="p">,</span><span class="n">.</span><span class="m">25381603</span><span class="p">,</span><span class="m">-.09725531</span><span class="p">,</span><span class="m">-.57839371</span><span class="p">,</span><span class="m">-.80391485</span><span class="p">,</span><span class="m">-.02354713</span><span class="p">,</span><span class="m">-.26977891</span><span class="p">,</span><span class="m">-2.0669077</span><span class="p">,</span><span class="n">.</span><span class="m">23721704</span><span class="p">,</span><span class="m">-.3564011</span><span class="p">,</span><span class="n">.</span><span class="m">03484754</span><span class="p">,</span><span class="m">-.00981672</span><span class="p">,</span><span class="m">-.44904569</span><span class="p">,</span><span class="m">-1.8117468</span><span class="p">,</span><span class="m">-.50431186</span><span class="p">,</span><span class="m">-.92555928</span><span class="p">,</span><span class="m">-.26902116</span><span class="p">,</span><span class="n">.</span><span class="m">04917327</span><span class="p">,</span><span class="m">-.1922437</span><span class="p">,</span><span class="m">-.73720841</span><span class="p">,</span><span class="m">-.66233746</span><span class="p">,</span><span class="n">.</span><span class="m">23876144</span><span class="p">,</span><span class="n">.</span><span class="m">52544167</span><span class="p">,</span><span class="n">.</span><span class="m">22389294</span><span class="p">,</span><span class="m">-.96079427</span><span class="p">,</span><span class="m">-1.1207972</span><span class="p">,</span><span class="m">-1.3333803</span><span class="p">,</span><span class="m">-.06879525</span><span class="p">,</span><span class="m">-.2048969</span><span class="p">,</span><span class="m">-1.2130009</span><span class="p">,</span><span class="m">-.91617362</span><span class="p">,</span><span class="n">.</span><span class="m">11453604</span><span class="p">,</span><span class="m">-.46005621</span><span class="p">,</span><span class="m">-.29700884</span><span class="p">,</span><span class="m">-.28406969</span><span class="p">,</span><span class="m">-.27803347</span><span class="p">,</span><span class="n">.</span><span class="m">29037254</span><span class="p">,</span><span class="m">-1.3106626</span><span class="p">,</span><span class="m">-.20093189</span><span class="p">,</span><span class="m">-.25804407</span><span class="p">,</span><span class="n">.</span><span class="m">15198116</span><span class="p">,</span><span class="n">.</span><span class="m">33239471</span><span class="p">,</span><span class="m">-.28002015</span><span class="p">,</span><span class="m">-.96258429</span><span class="p">,</span><span class="m">-1.2274957</span><span class="p">,</span><span class="m">-.81679644</span><span class="p">,</span><span class="n">.</span><span class="m">04198107</span><span class="p">,</span><span class="m">-.68010732</span><span class="p">,</span><span class="m">-1.3159208</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">na.omit</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">econ_index</span><span class="p">,</span><span class="w"> </span><span class="n">datos</span><span class="o">$</span><span class="n">read</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Economic Index&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Reading Test Scores - PISA 2022&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/f5bdadd8571530eb62a502023c2b2c832605103a50228ab6c12f2d334c88ffe3.png"><img alt="_images/f5bdadd8571530eb62a502023c2b2c832605103a50228ab6c12f2d334c88ffe3.png" src="_images/f5bdadd8571530eb62a502023c2b2c832605103a50228ab6c12f2d334c88ffe3.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">read</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">econ_index</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = read ~ econ_index, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-98.150 -20.616   3.319  24.557  91.063 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  460.878      5.218  88.331  &lt; 2e-16 ***
+econ_index    68.896      7.821   8.809  2.8e-13 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 39.54 on 77 degrees of freedom
+Multiple R-squared:  0.5019,	Adjusted R-squared:  0.4955 
+F-statistic:  77.6 on 1 and 77 DF,  p-value: 2.797e-13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Prediccion</span>
+<span class="n">model_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">se.fit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">,</span><span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.99</span><span class="p">))</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">model_fit</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;yhat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lwr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;upr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;se&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;df&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;residuals&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">model_fit</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 5 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>yhat</th><th scope=col>lwr</th><th scope=col>upr</th><th scope=col>se</th><th scope=col>df</th><th scope=col>residuals</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>409.6258</td><td>395.3168</td><td>423.9347</td><td>5.417594</td><td>77</td><td>39.54123</td></tr>
+	<tr><th scope=row>2</th><td>483.2867</td><td>465.0712</td><td>501.5022</td><td>6.896686</td><td>77</td><td>39.54123</td></tr>
+	<tr><th scope=row>3</th><td>414.6158</td><td>401.1048</td><td>428.1269</td><td>5.115512</td><td>77</td><td>39.54123</td></tr>
+	<tr><th scope=row>4</th><td>487.9789</td><td>468.6670</td><td>507.2907</td><td>7.311772</td><td>77</td><td>39.54123</td></tr>
+	<tr><th scope=row>5</th><td>467.2871</td><td>452.4118</td><td>482.1624</td><td>5.632037</td><td>77</td><td>39.54123</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">econ_index</span><span class="p">,</span><span class="w"> </span><span class="n">datos</span><span class="o">$</span><span class="n">read</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Economic Index&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Reading Test Scores - PISA 2022&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">econ_index</span><span class="p">,</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">yhat</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/85ee123493fdbaafa747cfb2fa085b2b779051694743eb5887242a48a192def1.png"><img alt="_images/85ee123493fdbaafa747cfb2fa085b2b779051694743eb5887242a48a192def1.png" src="_images/85ee123493fdbaafa747cfb2fa085b2b779051694743eb5887242a48a192def1.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
 </section>
 </section>
 
@@ -535,7 +690,15 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-simple-o-univariada">Regresión Simple o Univariada</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-del-modelo">Supuestos del Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linealidad-en-parametros">Linealidad en Parámetros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-multicolinealidad-o-rango-completo">No Multicolinealidad o Rango Completo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homoscedasticidad">Homoscedasticidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-autocorrelacion">No Autocorrelación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-normal-de-los-errores">Distribución Normal de los Errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional-o-exogenidad">Independencia Condicional o Exogenidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-ordinarios-mco">Mínimos Cuadrados Ordinarios (MCO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-relacion-entre-aprendizaje-y-recursos-economicos">Aplicacion : Relación entre Aprendizaje y Recursos Económicos</a></li>
 </ul>
   </nav></div>
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -442,7 +442,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/677c8f8c7837aeaa7c0bcd864c213c56f62f5f42eb41436ef8711771ab3944de.png"><img alt="_images/677c8f8c7837aeaa7c0bcd864c213c56f62f5f42eb41436ef8711771ab3944de.png" src="_images/677c8f8c7837aeaa7c0bcd864c213c56f62f5f42eb41436ef8711771ab3944de.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/9bb5c5b289d1be19974e08a791ace53e5293980b8d0d1a2f097ea13d981fd431.png"><img alt="_images/9bb5c5b289d1be19974e08a791ace53e5293980b8d0d1a2f097ea13d981fd431.png" src="_images/9bb5c5b289d1be19974e08a791ace53e5293980b8d0d1a2f097ea13d981fd431.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -463,7 +463,7 @@ document.write(`
 <span class="c1">#Prediccion</span>
 <span class="n">model_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">se.fit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">,</span><span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.99</span><span class="p">))</span>
 <span class="nf">names</span><span class="p">(</span><span class="n">model_fit</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;yhat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lwr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;upr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;se&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;df&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;residuals&#39;</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">model_fit</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -471,20 +471,21 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Estimaciones de MCO: b0 = 9.915 , b1 = 2.019&quot;
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">Error</span>: object &#39;estimates&#39; not found
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="o">.</span><span class="n">handleSimpleError</span><span class="p">(</span><span class="n">function</span> <span class="p">(</span><span class="n">cnd</span><span class="p">)</span> 
- <span class="o">.</span> <span class="p">{</span>
- <span class="o">.</span>     <span class="n">watcher</span><span class="err">$</span><span class="n">capture_plot_and_output</span><span class="p">()</span>
- <span class="o">.</span>     <span class="n">cnd</span> <span class="o">&lt;-</span> <span class="n">sanitize_call</span><span class="p">(</span><span class="n">cnd</span><span class="p">)</span>
- <span class="o">.</span>     <span class="n">watcher</span><span class="err">$</span><span class="n">push</span><span class="p">(</span><span class="n">cnd</span><span class="p">)</span>
- <span class="o">.</span>     <span class="n">switch</span><span class="p">(</span><span class="n">on_error</span><span class="p">,</span> <span class="k">continue</span> <span class="o">=</span> <span class="n">invokeRestart</span><span class="p">(</span><span class="s2">&quot;eval_continue&quot;</span><span class="p">),</span> 
- <span class="o">.</span>         <span class="n">stop</span> <span class="o">=</span> <span class="n">invokeRestart</span><span class="p">(</span><span class="s2">&quot;eval_stop&quot;</span><span class="p">),</span> <span class="n">error</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
- <span class="o">.</span> <span class="p">},</span> <span class="s2">&quot;object &#39;estimates&#39; not found&quot;</span><span class="p">,</span> <span class="n">base</span><span class="p">::</span><span class="n">quote</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">envir</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 5 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>yhat</th><th scope=col>lwr</th><th scope=col>upr</th><th scope=col>se</th><th scope=col>df</th><th scope=col>residuals</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>9.915539</td><td>9.744649</td><td>10.08643</td><td>0.06608924</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>2</th><td>9.917544</td><td>9.746783</td><td>10.08831</td><td>0.06603975</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>3</th><td>9.922188</td><td>9.751723</td><td>10.09265</td><td>0.06592522</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>4</th><td>9.923880</td><td>9.753523</td><td>10.09424</td><td>0.06588350</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>5</th><td>9.933702</td><td>9.763970</td><td>10.10343</td><td>0.06564151</td><td>498</td><td>0.7483613</td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -501,7 +502,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/df3df24345ba90218afc8fb9fb5f5e58a66bcd4620e821ea312aeef8b67f3a3b.png"><img alt="_images/df3df24345ba90218afc8fb9fb5f5e58a66bcd4620e821ea312aeef8b67f3a3b.png" src="_images/df3df24345ba90218afc8fb9fb5f5e58a66bcd4620e821ea312aeef8b67f3a3b.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/8af3e86b01df65fe93eb379fe565a15f41f01e1e867ca757647e9cea273ba07c.png"><img alt="_images/8af3e86b01df65fe93eb379fe565a15f41f01e1e867ca757647e9cea273ba07c.png" src="_images/8af3e86b01df65fe93eb379fe565a15f41f01e1e867ca757647e9cea273ba07c.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -525,7 +526,7 @@ Coefficients:
 (Intercept)  9.91466    0.06611  149.97   &lt;2e-16 ***
 x            2.01859    0.05777   34.94   &lt;2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.7484 on 498 degrees of freedom
 Multiple R-squared:  0.7103,	Adjusted R-squared:  0.7097 
@@ -567,7 +568,7 @@ F-statistic:  1221 on 1 and 498 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/fe729b58865f49d2a1fb03e37d1a11af5b2d3aeabc95f1d7425090c5cec41fb7.png"><img alt="_images/fe729b58865f49d2a1fb03e37d1a11af5b2d3aeabc95f1d7425090c5cec41fb7.png" src="_images/fe729b58865f49d2a1fb03e37d1a11af5b2d3aeabc95f1d7425090c5cec41fb7.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/fe923427cee1c1da7c40c7f6738b8285024e0c6d4f923bacfa07d7acd4d93333.png"><img alt="_images/fe923427cee1c1da7c40c7f6738b8285024e0c6d4f923bacfa07d7acd4d93333.png" src="_images/fe923427cee1c1da7c40c7f6738b8285024e0c6d4f923bacfa07d7acd4d93333.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -587,7 +588,7 @@ F-statistic:  1221 on 1 and 498 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/02134751f100da1f23d3cb2f149481451f552d0f4b4d9705e04b266094475726.png"><img alt="_images/02134751f100da1f23d3cb2f149481451f552d0f4b4d9705e04b266094475726.png" src="_images/02134751f100da1f23d3cb2f149481451f552d0f4b4d9705e04b266094475726.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/300c4363e5324c311b5ea5d59c89ea1efe696e7bd6a895586d43915d4414a809.png"><img alt="_images/300c4363e5324c311b5ea5d59c89ea1efe696e7bd6a895586d43915d4414a809.png" src="_images/300c4363e5324c311b5ea5d59c89ea1efe696e7bd6a895586d43915d4414a809.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
