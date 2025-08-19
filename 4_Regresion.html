@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Recursos &#8212; Microeconometria Aplicada</title>
+    <title>Modelo de Regresión Multiple &#8212; Microeconometria Aplicada</title>
   
   
   
@@ -57,9 +57,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Recursos';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '4_Regresion';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="prev" title="Modelo de Regresión Lineal" href="3_Regresion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,10 +181,10 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelo de Regresión Multiple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1.html">Taller 1</a></li>
@@ -257,7 +259,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRecursos.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F4_Regresion.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +289,7 @@
       
       
       
-      <li><a href="_sources/Recursos.ipynb" target="_blank"
+      <li><a href="_sources/4_Regresion.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -358,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -369,11 +373,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Recursos</h1>
+    <h1>Modelo de Regresión Multiple</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-de-regresion-en-forma-matricial">Supuestos de Regresión en forma Matricial</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -383,18 +395,95 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="recursos">
-<h1>Recursos<a class="headerlink" href="#recursos" title="Link to this heading">#</a></h1>
-<p>Aqui hay algunas páginas web que he encontrado útiles:</p>
-<ul class="simple">
-<li><p>https://daviddalpiaz.github.io/r4sl/hypothesis-tests-in-r.html</p></li>
-<li><p>https://www.probabilitycourse.com/</p></li>
-<li><p>https://www.r-tutor.com/</p></li>
-<li><p>https://www.r-tutor.com/elementary-statistics</p></li>
-<li><p>Regression Methods: https://online.stat.psu.edu/stat501/lesson/2</p></li>
-<li><p>https://online.stat.psu.edu/stat500/</p></li>
-<li><p>Applied Time Series: https://online.stat.psu.edu/stat510/Lesson01</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="modelo-de-regresion-multiple">
+<h1>Modelo de Regresión Multiple<a class="headerlink" href="#modelo-de-regresion-multiple" title="Link to this heading">#</a></h1>
+<p>Ahora consideramos una regresión con múltiples covariables o predictores:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_{1,i} + ... + \beta_{k-1} x_{k-1, i}\]</div>
+<p>Observe que queremos estimar <span class="math notranslate nohighlight">\(k\)</span> parámetros (<span class="math notranslate nohighlight">\(\beta_0\)</span> incluido)</p>
+<p>Para esto debemos (re)-escribir la ecuación anterior en forma matricial, así:</p>
+<div class="math notranslate nohighlight">
+\[Y = X\beta + \varepsilon\]</div>
+<p>El modelo coonsta de <span class="math notranslate nohighlight">\(N\)</span> observaciones, <span class="math notranslate nohighlight">\(k\)</span> parámetros, y <span class="math notranslate nohighlight">\(k-1\)</span> variables</p>
+<p>Entonces definimos cuatro matrices de la forma:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_{[N \times 1]} = X_{[N \times K]} \, \beta_{[K \times 1]} + \varepsilon_{[N \times 1]}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 &amp; x_{11} &amp; x_{21} &amp; \dots &amp; x_{k-1,1} \\
+1 &amp; x_{12} &amp; x_{22} &amp; \dots &amp; x_{k-1,2} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; x_{1N} &amp; x_{2N} &amp; \dots &amp; x_{k-1,N}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+\beta_0 \\
+\beta_1 \\
+\vdots \\
+\beta_K
+\end{bmatrix}
++
+\begin{bmatrix}
+\varepsilon_1 \\
+\varepsilon_2 \\
+\vdots \\
+\varepsilon_n
+\end{bmatrix}
+\end{split}\]</div>
+<p>Tenemos de esta manera <span class="math notranslate nohighlight">\(n\)</span> <strong>ecuaciones</strong></p>
+<section id="supuestos-de-regresion-en-forma-matricial">
+<h2>Supuestos de Regresión en forma Matricial<a class="headerlink" href="#supuestos-de-regresion-en-forma-matricial" title="Link to this heading">#</a></h2>
+<p>¿Cómo se ven los supuestos sobre el error cuando tenemos matrices?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\varepsilon \varepsilon' =
+\begin{bmatrix}
+\varepsilon_1 \\
+\varepsilon_2 \\
+\vdots \\
+\varepsilon_n
+\end{bmatrix}
+\begin{bmatrix}
+\varepsilon_1 &amp; \varepsilon_2 &amp; \dots &amp; \varepsilon_n
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+=
+\begin{bmatrix}
+\varepsilon_1^2 &amp; \varepsilon_1\varepsilon_2 &amp; \dots &amp; \varepsilon_1\varepsilon_n \\
+\varepsilon_2\varepsilon_1 &amp; \varepsilon_2^2 &amp; \dots &amp; \varepsilon_2\varepsilon_n \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\varepsilon_n\varepsilon_1 &amp; \varepsilon_n\varepsilon_2 &amp; \dots &amp; \varepsilon_n^2
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\Rightarrow \; E[\varepsilon \varepsilon'] = ??
+\]</div>
+<p>Observe que bajo homoscedasticidad y no autocorrelación:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+E[\varepsilon \varepsilon'] =
+\begin{bmatrix}
+\sigma^2 &amp; 0 &amp; \dots &amp; 0 \\
+0 &amp; \sigma^2 &amp; \dots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \dots &amp; \sigma^2
+\end{bmatrix}
+= \sigma^2 I_n
+\end{split}\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,12 +516,45 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="3_Regresion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelo de Regresión Lineal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_Probabilidad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-de-regresion-en-forma-matricial">Supuestos de Regresión en forma Matricial</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

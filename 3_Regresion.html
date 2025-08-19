@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3_Regresion';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="next" title="Modelo de Regresión Multiple" href="4_Regresion.html" />
     <link rel="prev" title="Qué es la Microeconometría?" href="0_Motivacion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,6 +184,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelo de Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1.html">Taller 1</a></li>
@@ -392,6 +393,26 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional-o-exogenidad">Independencia Condicional o Exogenidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-ordinarios-mco">Mínimos Cuadrados Ordinarios (MCO)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-relacion-entre-aprendizaje-y-recursos-economicos">Aplicacion : Relación entre Aprendizaje y Recursos Económicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuales-de-la-regresion-e-i-y-i-hat-y-i">Residuales de la Regresión: <span class="math notranslate nohighlight">\(e_i = Y_i - \hat Y_i\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-los-estimadores-hat-beta-k">Propiedades de los estimadores <span class="math notranslate nohighlight">\(\hat\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-en-regresion-simple">Inferencia en Regresión Simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-hipotesis-sobre-hat-beta-k">Pruebas de Hipótesis sobre <span class="math notranslate nohighlight">\(\hat\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-de-hat-beta-k">Varianza de <span class="math notranslate nohighlight">\(\hat\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-de-los-errores">Varianza de los Errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-hipotesis-individuales">Pruebas de Hipótesis Individuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-de-confianza-para-beta-k">Intervalo de confianza para <span class="math notranslate nohighlight">\(\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficiente-de-determinacion-r-2">Coeficiente de Determinación: <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-significancia-global">Prueba de Significancia Global</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-e-inferencia-para-hat-y-i">Predicción e Inferencia para <span class="math notranslate nohighlight">\(\hat Y_i\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-media">Predicción Media</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-individual">Predicción Individual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion">Aplicación:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-coeficientes">Interpretación de Coeficientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lin-lin">Lin-Lin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-lin">Log-Lin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lin-log">Lin-Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-log">Log-Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-por-maxima-verosimilitud">Estimación por Máxima Verosimilitud</a></li>
 </ul>
             </nav>
         </div>
@@ -411,11 +432,9 @@ document.write(`
 \[
 r(x) = \mathbb{E}(Y | X = x) = \int y f(y|x) dy.
 \]</div>
-<p>Nuestro objetivo es estimar <span class="math notranslate nohighlight">\(r(x)\)</span> usando datos de la forma:</p>
+<p>Nuestro objetivo es estimar <span class="math notranslate nohighlight">\(r(x)\)</span> usando datos de la forma</p>
 <div class="math notranslate nohighlight">
-\[
-(Y_1, X_1), ..., (Y_n, X_n) \sim F_{X, Y}.
-\]</div>
+\[\{Y_i , X_i\}_{i = 1}^n\]</div>
 <p>Definamos el error <span class="math notranslate nohighlight">\(\varepsilon = Y - r(x)\)</span>. De esta manera, podemos escribir:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -461,8 +480,7 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 <h2>Linealidad en Parámetros<a class="headerlink" href="#linealidad-en-parametros" title="Link to this heading">#</a></h2>
 <p>Este supuesto es necesario para que el modelo sea <strong>estimable</strong>.</p>
 <p>Se refiere a la forma funcional de la función de regresión <span class="math notranslate nohighlight">\(r(x) = \beta_0 + \beta_1 X_i\)</span>.</p>
-<p>Note que nos interesa estimar <span class="math notranslate nohighlight">\(\beta_k\)</span>, no <span class="math notranslate nohighlight">\(\beta_k^2\)</span>, o <span class="math notranslate nohighlight">\(\ln(\beta_k)\)</span>, o cualquier otra función <span class="math notranslate nohighlight">\(g(\beta_k)\)</span>.</p>
-<p>Finalmente, el modelo debe ser lineal en sus variables originales o después de alguna transformación.</p>
+<p>Note que nos interesa estimar <span class="math notranslate nohighlight">\(\beta_k\)</span>, no <span class="math notranslate nohighlight">\(\beta_k^2\)</span>, <span class="math notranslate nohighlight">\(\ln(\beta_k)\)</span>, o cualquier otra función <span class="math notranslate nohighlight">\(g(\beta_k)\)</span>.</p>
 <div class="alert alert-block alert-warning"> 
 <b>EJEMPLO:</b>
 <p>
@@ -478,16 +496,20 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 <p>El supuesto hace referencia a la información que aportan diferentes covariables. En primer lugar, este supuesto señala que:</p>
 <div class="math notranslate nohighlight">
 \[|\rho(X_{1i}, X_{2i})| \neq 1\]</div>
-<p>Adicionalmente, es necesario que el número de observaciones en los datos <span class="math notranslate nohighlight">\(n\)</span> sea mayor al número de parámetros <span class="math notranslate nohighlight">\(k\)</span> que queremos estimar.</p>
-<p>Este supuesto será más relevante cuando estudiemos el modelo de regresión múltiple.</p>
+<p>Donde <span class="math notranslate nohighlight">\(\rho\)</span> es el coeficiente de correlación. Este supuesto será más relevante cuando estudiemos el modelo de regresión múltiple.</p>
+<p>Adicionalmente, es necesario que el número de observaciones en los datos <span class="math notranslate nohighlight">\(n\)</span> sea mayor al número de parámetros <span class="math notranslate nohighlight">\(k\)</span> que queremos estimar. Es decir</p>
+<div class="math notranslate nohighlight">
+\[n \geq k\]</div>
 </section>
 <section id="homoscedasticidad">
 <h2>Homoscedasticidad<a class="headerlink" href="#homoscedasticidad" title="Link to this heading">#</a></h2>
 <p>Este supuesto es sobre la varianza y nos facilita realizar pruebas de hipótesis</p>
 <p>El supuesto establece que:</p>
 <div class="math notranslate nohighlight">
-\[V(\varepsilon_i | X_i) = \sigma^2\]</div>
-<p>La violación de este supuesto se conoce como <strong>heteroscedasticidad</strong>. En un modelo <strong>heteroscedástico</strong>  $<span class="math notranslate nohighlight">\(V(\varepsilon_i | X_i) = \sigma_i^2\)</span>$.</p>
+\[V(\varepsilon_i | X) = \sigma^2\]</div>
+<p>La violación de este supuesto se conoce como <strong>heteroscedasticidad</strong>. En un modelo <strong>heteroscedástico</strong></p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i | X) = \sigma_i^2\]</div>
 </section>
 <section id="no-autocorrelacion">
 <h2>No Autocorrelación<a class="headerlink" href="#no-autocorrelacion" title="Link to this heading">#</a></h2>
@@ -501,17 +523,19 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 <p>Este supuesto se hace sobre los errores entonces también afecta las pruebas de hipótesis.</p>
 <p>El supuesto señala que:</p>
 <div class="math notranslate nohighlight">
-\[\varepsilon_i | X_i \sim N(0, \sigma^2)\]</div>
-<p>Observe que por el teorema del límite central este supuesto no es tan fuerte, y si muy útil para determinar ciertos estadísticos.</p>
+\[\varepsilon_i | X \sim N(0, \sigma^2)\]</div>
+<p>Observe que por el teorema del límite central este supuesto no es tan fuerte, y si muy útil para determinar cómo se distribuyen ciertos estadísticos.</p>
 </section>
 <section id="independencia-condicional-o-exogenidad">
 <h2>Independencia Condicional o Exogenidad<a class="headerlink" href="#independencia-condicional-o-exogenidad" title="Link to this heading">#</a></h2>
-<p>Este supuesto es necesario para tener consistencia e insesgamiento en los estimadores de <span class="math notranslate nohighlight">\(\beta_k\)</span>.</p>
-<p>El supuesto dice que:</p>
+<p>Para que los estimadores de <span class="math notranslate nohighlight">\(\beta_k\)</span> sean insesgados y consistentes suponemos que</p>
 <div class="math notranslate nohighlight">
-\[E(\varepsilon_i | X_i) = 0\]</div>
-<p>Es decir, <span class="math notranslate nohighlight">\(X_i\)</span> es una variable exogena. Observe que cuando este supuesto se cumple también podemos decir que <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> y <span class="math notranslate nohighlight">\(X_i\)</span> son independientes.</p>
-<p>Este supuesto garantiza que los efectos encontrados se puedan se interpretados como estimaciones <strong>causales</strong>.</p>
+\[E(\varepsilon_i | X) = E(\varepsilon_i)\]</div>
+<p>Observe que combinado con el supuesto anterior tenemos que:</p>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i | X) = 0\]</div>
+<p>Según este supuesto <span class="math notranslate nohighlight">\(\varepsilon\)</span> es indepente de <span class="math notranslate nohighlight">\(X\)</span>. En otras palabras <span class="math notranslate nohighlight">\(X\)</span> es una variable exogena.</p>
+<p>Este supuesto garantiza que los efectos encontrados pueden se interpretados como estimaciones <strong>causales</strong>.</p>
 </section>
 <section id="minimos-cuadrados-ordinarios-mco">
 <h2>Mínimos Cuadrados Ordinarios (MCO)<a class="headerlink" href="#minimos-cuadrados-ordinarios-mco" title="Link to this heading">#</a></h2>
@@ -521,9 +545,9 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 <p>donde <span class="math notranslate nohighlight">\(\mathcal{L}(\beta_0, \beta_1) = \sum_i {\varepsilon_i}^2 = \sum_i ({Y_i} - \beta_0 - \beta_1 X_i)^2\)</span></p>
 <p>Las condiciones de primer orden (CPO) de este problema estan dadas por:</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial\mathcal{L}}{\partial\beta_0} =  \sum_i (-2) \cdot ({Y_i} - \beta_0 - \beta_1 X_i) = 0\]</div>
+\[\frac{\partial\mathcal{L}}{\partial\beta_0} \bigg|_{(\hat\beta_0, \hat\beta_1)} = \sum_i (-2) \cdot ({Y_i} - \beta_0 - \beta_1 X_i) \bigg|_{(\hat\beta_0, \hat\beta_1)} = 0\]</div>
 <div class="math notranslate nohighlight">
-\[\frac{\partial\mathcal{L}}{\partial\beta_1} =  \sum_i (-2 X_i) \cdot ({Y_i} - \beta_0 - \beta_1 X_i) = 0\]</div>
+\[\frac{\partial\mathcal{L}}{\partial\beta_1} \bigg|_{(\hat\beta_0, \hat\beta_1)} = \sum_i (-2 X_i) \cdot ({Y_i} - \beta_0 - \beta_1 X_i) \bigg|_{(\hat\beta_0, \hat\beta_1)} = 0\]</div>
 <p>Estas ecuaciones se conocen como <strong>ecuaciones normales</strong>.</p>
 <p>A partir de estas condiciones obtenemos los siguientes <strong>estimadores</strong>:</p>
 <div class="math notranslate nohighlight">
@@ -622,6 +646,642 @@ F-statistic:  77.6 on 1 and 77 DF,  p-value: 2.797e-13
 </a>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Predecir los errores</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">datos</span><span class="o">$</span><span class="n">read</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">yhat</span>
+
+<span class="c1">#Estimacion de la función de densidad</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/577122ab02d42f3d5a47b233a99e1e165ca3e8893078010e5506d600546ed3cb.png"><img alt="_images/577122ab02d42f3d5a47b233a99e1e165ca3e8893078010e5506d600546ed3cb.png" src="_images/577122ab02d42f3d5a47b233a99e1e165ca3e8893078010e5506d600546ed3cb.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="residuales-de-la-regresion-e-i-y-i-hat-y-i">
+<h2>Residuales de la Regresión: <span class="math notranslate nohighlight">\(e_i = Y_i - \hat Y_i\)</span><a class="headerlink" href="#residuales-de-la-regresion-e-i-y-i-hat-y-i" title="Link to this heading">#</a></h2>
+<p>Observe que a partir de las ecuaciones normales tenemos que</p>
+<div class="math notranslate nohighlight">
+\[\sum_i ({Y_i} - \hat\beta_0 - \hat\beta_1 X_i) = \sum_i e_i = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_i (X_i) \cdot ({Y_i} - \hat\beta_0 - \hat\beta_1 X_i) = \sum_i e_i \cdot X_i = 0\]</div>
+<p>Lo anterior indica que:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\sum_i e_i}{n} = \bar e = 0 \hspace{5pt} \Rightarrow \hspace{5pt} \bar Y = \bar{\hat Y}\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_i e_i \cdot X_i = 0 \hspace{5pt} \Rightarrow \hspace{5pt} \mathbb{\hat Cov}(e_i, X_i) = \sum_i (e_i - \bar e) \cdot (X_i - \bar X) = 0\]</div>
+</section>
+<section id="propiedades-de-los-estimadores-hat-beta-k">
+<h2>Propiedades de los estimadores <span class="math notranslate nohighlight">\(\hat\beta_k\)</span><a class="headerlink" href="#propiedades-de-los-estimadores-hat-beta-k" title="Link to this heading">#</a></h2>
+<p>Queremos evaluar si <span class="math notranslate nohighlight">\(\hat\beta_1\)</span> es un buen estimador de <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
+<p>La primera pregunta que nos hacemos es ¿<span class="math notranslate nohighlight">\(E(\hat\beta_1) = \beta_1\)</span>? Es decir, queremos ver si <span class="math notranslate nohighlight">\(\hat\beta_1\)</span> es un estimador insesgado.</p>
+<p>Note que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \hat\beta_1 &amp; = \frac{\sum_i (X_i - \overline X)(Y_i - \overline Y)}{\sum_i (X_i - \overline X)^2}\\
+     &amp; = \frac{\sum_i (X_i - \overline X)(\beta_0 + \beta_1 X_i + \varepsilon_i - \beta_0 - \beta_1 \bar X - \bar \varepsilon)}{\sum_i (X_i - \overline X)^2}\\
+    &amp; = \beta_1 + \frac{\sum_i (X_i - \overline X)(\varepsilon_i - \overline \varepsilon)}{\sum_i (X_i - \overline X)^2}\\
+    &amp; = \beta_1 + \frac{\sum_i (X_i - \overline X) \cdot \varepsilon_i}{\sum_i (X_i - \overline X)^2} \\     
+\end{align*}\]</div>
+<p>Si tomamos la esperanza de esta exprensión tenemos:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    E(\hat\beta_1) &amp; = \beta_1 + E \left(\frac{\sum_i (X_i - \overline X) \cdot \varepsilon_i}{\sum_i (X_i - \overline X)^2}\right) \\    
+\end{align*}\]</div>
+<p>A partir del supuesto de <strong>independencia condicional</strong>, para todo <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> y <span class="math notranslate nohighlight">\(X_j\)</span> son independientes. Es decir,</p>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i \cdot X_j) = E(\varepsilon_i) \cdot E(X_j) = 0\]</div>
+<p>Debido a esto:</p>
+<div class="math notranslate nohighlight">
+\[E\left(\sum_i (X_i - \overline X) \cdot \varepsilon_i\right) = \sum_i E(X_i \varepsilon_i) - \sum_i E(\overline X \varepsilon_i) = \sum_i E(X_i) E(\varepsilon_i) - \sum_i E(\overline X) E(\varepsilon_i) = 0\]</div>
+<p>De esta manera, el estimador <span class="math notranslate nohighlight">\(\hat\beta_1\)</span>, que obtuvimos por el método MCO, es insesgado. Así,</p>
+<div class="math notranslate nohighlight">
+\[E(\hat\beta_1) = \beta_1\]</div>
+<p>Es <span class="math notranslate nohighlight">\(\beta_0\)</span> un estimador insesgado?</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    E(\hat\beta_0) &amp; =E \left(\overline Y - \hat\beta_1 \overline X \right)\\
+     &amp; = E\left(\beta_0 + \beta_1 \overline X + \overline\varepsilon - \hat\beta_1 \overline X\right)\\
+     &amp; = \beta_0 + \beta_1 E(\overline X) + E(\overline\varepsilon) - \beta_1 E(\overline X)\\
+     &amp; = \beta_0 \\
+\end{align*}\]</div>
+</section>
+<section id="inferencia-en-regresion-simple">
+<h2>Inferencia en Regresión Simple<a class="headerlink" href="#inferencia-en-regresion-simple" title="Link to this heading">#</a></h2>
+<p>Luego de estimar el modelo, y saber que en promedio nuestros estimadores de MCO encuentran los verdaderos parámetros que se desconocen, queremos determinar si</p>
+<ol class="arabic simple">
+<li><p>existe una relación <strong>estádisticamente significativa</strong> entre <span class="math notranslate nohighlight">\(Y\)</span> y <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p>nuestro modelo tiene un buen ajuste (o poder predictivo)</p></li>
+</ol>
+<p>Con este objetivo en mente,</p>
+<ol class="arabic simple">
+<li><p>realizaremos pruebas de hipotesis individuales y conjuntas</p></li>
+<li><p>computaremos el coeficiente de determinación <span class="math notranslate nohighlight">\(R^2\)</span>.</p></li>
+</ol>
+</section>
+<section id="pruebas-de-hipotesis-sobre-hat-beta-k">
+<h2>Pruebas de Hipótesis sobre <span class="math notranslate nohighlight">\(\hat\beta_k\)</span><a class="headerlink" href="#pruebas-de-hipotesis-sobre-hat-beta-k" title="Link to this heading">#</a></h2>
+<p>Debido al supuesto de <strong>normalidad de los errores</strong>, <span class="math notranslate nohighlight">\(\varepsilon_i | X \sim N(0, \sigma^2)\)</span>, es posible probar que</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_k | X \sim N(\beta_k, \sigma^2_\beta)\]</div>
+<p>Sin entrar en detalles, recuerde que la suma de variables normales da como resultado una variable que se distribuye normal. Esta es la idea fundamental detrás de la demostración de que nuestros estimadores de MCO son normales.</p>
+<p>La hipotesis que queremos considerar en general toma la siguiente forma:</p>
+<div class="math notranslate nohighlight">
+\[H_0 : \beta_k = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \beta_k \neq 0\]</div>
+<p>Note que bajo la hipótesis nula (<span class="math notranslate nohighlight">\(H_0\)</span>) el parámetro <span class="math notranslate nohighlight">\(\beta_k\)</span> es cero, y queremos saber si podemos rechazar dicha hipotesis con un nivel de significancia <span class="math notranslate nohighlight">\(\alpha \in \{0.1, 0.05, 0.01\}\)</span>.</p>
+<p>Para probar esta hipótesis podemoslos usar el siguiente estadístico:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\hat\beta_k - \beta_k}{\sigma_\beta}\]</div>
+<p>Sin embargo, desconocemos <span class="math notranslate nohighlight">\(\sigma_\beta\)</span>. Esto implica que debemos estimarlo.</p>
+</section>
+<section id="varianza-de-hat-beta-k">
+<h2>Varianza de <span class="math notranslate nohighlight">\(\hat\beta_k\)</span><a class="headerlink" href="#varianza-de-hat-beta-k" title="Link to this heading">#</a></h2>
+<p>Recuerde <span class="math notranslate nohighlight">\(\hat\beta_1 = \frac{\mathbb{\hat Cov}(X, Y)}{\mathbb{\hat V}(X)} = \beta_1 + \frac{\sum_i (X_i - \overline X) \cdot \varepsilon_i}{\sum_i (X_i - \overline X)^2}\)</span>. De esta manera,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    V(\hat\beta_1 | X) &amp; = E \left(\hat\beta_1 - E(\hat\beta_1) | X \right)^2 = E \left(\hat\beta_1 - \beta_1 | X \right)^2 = E \left(\frac{\sum_i (X_i - \overline X) \cdot \varepsilon_i}{\sum_i (X_i - \overline X)^2} | X \right)^2 \\ 
+    &amp; = \left(\frac{1}{\sum_i (X_i - \overline X)^2}\right)^2 E \left(\sum_i (X_i - \overline X) \cdot \varepsilon_i | X \right)^2 \\
+    &amp; = \left(\frac{1}{\sum_i (X_i - \overline X)^2}\right)^2 E \left(\sum_i (X_i - \overline X)^2 \cdot \varepsilon_i^2 + 2 \sum_{i &lt; j} (X_i - \overline X) (X_j - \overline X) \varepsilon_i \varepsilon_j | X \right) \\
+    &amp; = \left(\frac{1}{\sum_i (X_i - \overline X)^2}\right)^2 \left(\sum_i (X_i - \overline X)^2 \cdot E(\varepsilon_i^2 | X) \right) \\ 
+    &amp; = \frac{\sigma^2}{\sum_i (X_i - \overline X)^2} = \frac{\sigma^2}{S^2_X (n-1)} \\
+\end{align*}\]</div>
+<p>Note que para estimar esta varianza debemos encontrar un estimador para <span class="math notranslate nohighlight">\(\sigma^2\)</span></p>
+</section>
+<section id="varianza-de-los-errores">
+<h2>Varianza de los Errores<a class="headerlink" href="#varianza-de-los-errores" title="Link to this heading">#</a></h2>
+<p>Antes de encontrar un estimador para <span class="math notranslate nohighlight">\(\sigma^2\)</span>, note que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    V(Y_i | X_i) &amp; = V(\beta_0 + \beta_1 X_i + \varepsilon_i | X) \\
+    &amp; = V(\beta_0 + \beta_1 X_i | X) + V(\varepsilon_i | X) + 2 \cdot Cov(\beta_0 + \beta_1 X_i, \varepsilon_i | X) \\
+    &amp; = V(\varepsilon_i | X) = \sigma^2 \\
+\end{align*}\]</div>
+<p>Más aún, observe que</p>
+<div class="math notranslate nohighlight">
+\[Y_i | X \sim N(\beta_0 + \beta_1 X_i, \sigma^2)\]</div>
+<p>Ahora, ya que <span class="math notranslate nohighlight">\(E(\varepsilon_i) = 0\)</span>, podemos mostrar que</p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i | X) = E(\varepsilon_i^2)\]</div>
+<p>Un estimador para <span class="math notranslate nohighlight">\(\sigma^2\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[\hat\sigma^2 = \frac{\sum_i e_i^2}{n-K} = \frac{\sum_i (Y_i - \hat Y_i)^2}{n-K} = \frac{\sum_i (Y_i - \hat\beta_0 - \hat\beta_1 X_i)^2}{n-K} \]</div>
+<p>Donde <span class="math notranslate nohighlight">\(K\)</span> es el número de parámetros que debemos estimar. En este caso <span class="math notranslate nohighlight">\(K = 2\)</span>.</p>
+</section>
+<section id="pruebas-de-hipotesis-individuales">
+<h2>Pruebas de Hipótesis Individuales<a class="headerlink" href="#pruebas-de-hipotesis-individuales" title="Link to this heading">#</a></h2>
+<p>Para nuestra prueba de hipótesis</p>
+<div class="math notranslate nohighlight">
+\[H_0 : \beta_1 = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \beta_1 \neq 0\]</div>
+<p>Usaremos el siguiente estadístico de prueba</p>
+<div class="math notranslate nohighlight">
+\[T = \frac{\hat\beta_1 - \beta_1}{\text{ee}(\hat\beta_1)}\]</div>
+<p>Donde el error estandar de <span class="math notranslate nohighlight">\(\hat\beta_1\)</span> se define como:</p>
+<div class="math notranslate nohighlight">
+\[\text{ee}(\hat\beta_1) = \sqrt{ \frac{\sum_i e_i^2/n-K}{\sum_i (X_i - \overline X)^2}}\]</div>
+<p>Observe que nuestro estadístico <span class="math notranslate nohighlight">\(T \sim t_{n-K}\)</span>. Esto se debe a que <span class="math notranslate nohighlight">\(\hat\beta_1 \sim N(\beta_1, \sigma_{\beta_1})\)</span> y <span class="math notranslate nohighlight">\(\sum_i e_i^2 \sim \chi^2_{n-K}\)</span></p>
+</section>
+<section id="intervalo-de-confianza-para-beta-k">
+<h2>Intervalo de confianza para <span class="math notranslate nohighlight">\(\beta_k\)</span><a class="headerlink" href="#intervalo-de-confianza-para-beta-k" title="Link to this heading">#</a></h2>
+<p>Nuestro intervalo de confianza para el parámetro desconocido <span class="math notranslate nohighlight">\(\beta_k\)</span> está dado por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    IC &amp; = \left(\beta_k - t_{\alpha/2 \hspace{2pt},\hspace{2pt} n-K}\cdot\sqrt{ \frac{\sum_i e_i^2/n-K}{\sum_i (X_i - \overline X)^2}} \hspace{5pt} , \hspace{5pt} \beta_k + t_{\alpha/2 \hspace{2pt},\hspace{2pt} n - K}\cdot\sqrt{ \frac{\sum_i e_i^2/n-K}{\sum_i (X_i - \overline X)^2}} \right)
+\end{align*}\]</div>
+<p>Cuando <span class="math notranslate nohighlight">\(n\)</span> es grande, si <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, entonces <span class="math notranslate nohighlight">\(|t_{\alpha/2 \hspace{2pt},\hspace{2pt} n-K}| \approx 1.96\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="c1">#Precio</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#Cantidades</span>
+<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#b0 y b1</span>
+<span class="n">b1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cov</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nf">var</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">b0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b1</span><span class="o">*</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Beta 0 = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">b0</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="s">&#39; Beta 1 = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)))</span>
+
+<span class="c1">#Errores estandar de b1</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&#39;Yhat :&#39;</span><span class="p">)</span>
+<span class="n">yhat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">b0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="n">yhat</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&#39;Residuales :&#39;</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">yhat</span><span class="p">;</span><span class="w"> </span><span class="n">e</span>
+<span class="n">var_b1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="m">-2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="m">-1</span><span class="p">))</span>
+<span class="n">ee_b1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">var_b1</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Error Estandar B1 = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">ee_b1</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Beta 0 = 11.57751 Beta 1 = -0.84802&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Yhat :&quot;
+</pre></div>
+</div>
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>8.1854103343465</li><li>9.03343465045593</li><li>3.09726443768997</li><li>2.24924012158055</li><li>6.48936170212766</li><li>3.94528875379939</li></ol>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Residuales :&quot;
+</pre></div>
+</div>
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>-0.185410334346503</li><li>-0.0334346504559271</li><li>0.902735562310031</li><li>-0.249240121580547</li><li>0.51063829787234</li><li>-0.945288753799391</li></ol>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Error Estandar B1 = 0.09707&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Estadistico T</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&#39;Estadistico T = &#39;</span><span class="p">)</span>
+<span class="bp">T</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">b1</span><span class="o">/</span><span class="n">ee_b1</span><span class="p">;</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+
+<span class="c1">#Intervalo de Confianza</span>
+<span class="n">alpha</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.05</span>
+<span class="n">low</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="m">-2</span><span class="p">))</span><span class="o">*</span><span class="n">ee_b1</span>
+<span class="n">up</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="m">-2</span><span class="p">))</span><span class="o">*</span><span class="n">ee_b1</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;IC = (&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; , &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;)&#39;</span><span class="p">))</span>
+
+<span class="c1">#P-valor</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&#39;P-valor =&#39;</span><span class="p">)</span>
+<span class="nf">round</span><span class="p">((</span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">pt</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="bp">T</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="m">-2</span><span class="p">))</span><span class="o">*</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Estadistico T = &quot;
+</pre></div>
+</div>
+<div class="output text_html">-8.73583</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;IC = (-1.11755 , -0.5785)&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;P-valor =&quot;
+</pre></div>
+</div>
+<div class="output text_html">0.000946</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Residuals:
+       1        2        3        4        5        6 
+-0.18541 -0.03343  0.90274 -0.24924  0.51064 -0.94529 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 11.57751    0.75506  15.333 0.000106 ***
+x           -0.84802    0.09707  -8.736 0.000946 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.7188 on 4 degrees of freedom
+Multiple R-squared:  0.9502,	Adjusted R-squared:  0.9377 
+F-statistic: 76.31 on 1 and 4 DF,  p-value: 0.0009461
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="coeficiente-de-determinacion-r-2">
+<h2>Coeficiente de Determinación: <span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#coeficiente-de-determinacion-r-2" title="Link to this heading">#</a></h2>
+<p>Una segunda forma de evaluar nuestro modelo es sabiendo qué tanto de <span class="math notranslate nohighlight">\(\boldsymbol{Y}\)</span> puede <span class="math notranslate nohighlight">\(\boldsymbol{X}\)</span> explicar.</p>
+<p>Para saber esto debemos hacer lo siguiente:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+Y_i  &amp;= \hat Y_i + e_i \\
+Y_i -\bar{Y} &amp;= \hat Y_i -\bar{Y} + e_i \\
+\sum_i (Y_i -\bar{Y})^2 &amp;= \sum_i (\hat Y_i -\bar{Y} + e_i)^2 \\
+\sum_i (Y_i -\bar{Y})^2 &amp;= \sum_i (\hat Y_i -\bar{Y})^2 + \sum_i e_i^2 + 2 \sum_i e_i (\hat Y_i -\bar{Y}) \\
+\sum_i (Y_i -\bar{Y})^2 &amp;= \sum_i (\hat Y_i -\bar{Y})^2 + \sum_i e_i^2
+\end{align*}\]</div>
+<p>Esto es así porque</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\sum_i e_i (\hat Y_i -\bar{Y}) &amp;= \sum_i e_i \hat Y_i - \bar{Y}\sum e_i \\
+&amp;= \sum_i e_i(\hat \beta_0 + \hat \beta_1 X_i) - \bar{Y}\sum e_i = 0
+\end{align*}\]</div>
+<p>Es decir, a partir de nuestros estimadores de MCO</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\underbrace{\sum_i (Y_i -\bar{Y})^2}_{\text{Varianza Total } (SST)} &amp;= \sum_i (\hat Y_i -\bar{Y})^2 + \sum_i e_i^2 \\
+&amp;= \underbrace{\sum_i (\hat Y_i -\bar{Y})^2}_{\text{Varianza Explicada } (SSR)} + \underbrace{\sum_i (Y_i - \hat Y_i)^2}_{\text{Varianza No Explicada } (SSE)}
+\end{align*}\]</div>
+<p>Luego podemos definir:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+R^2 &amp;= \frac{SSR}{SST} = 1 - \frac{SSE}{SST} \\
+&amp;= \frac{\sum_i (\hat Y_i -\bar{Y})^2}{\sum_i (Y_i -\bar{Y})^2} = 1 - \frac{\sum_i (Y_i - \hat Y_i)^2}{\sum_i (Y_i -\bar{Y})^2}
+\end{align*}\]</div>
+<p>Observe que el coeficiente de determinación está acodato, es decir,</p>
+<div class="math notranslate nohighlight">
+\[0 \leq R^2 \leq 1\]</div>
+<p>Este estadístico <strong>mide qué tanto de la varianza de <span class="math notranslate nohighlight">\(Y\)</span> es explicada por la covariable <span class="math notranslate nohighlight">\(X\)</span></strong></p>
+<div class="alert alert-block alert-danger"> 
+<b>Nota:</b>
+<p>
+<p>En el modelo de regresión lineal, el coeficiente de determinación crece a medida que se incluyen más variables explicativas o covariables.</p>
+</div>
+<p>Para el modelo de regresión simple podemos demostar que</p>
+<div class="math notranslate nohighlight">
+\[\rho_{Y,X}^2 = R^2\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\rho_{Y,X}\)</span> es el coeficiente de correlación entre <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Coeficiente de Determinación, R2</span>
+<span class="n">SST</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="n">SSR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">yhat</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="n">SSE</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">yhat</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+
+<span class="n">R2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">SSR</span><span class="o">/</span><span class="n">SST</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;R-cuadrado = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">R2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)))</span>
+
+<span class="c1">#Coficiente de Correlacion entre X y Y</span>
+<span class="n">rho</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cov</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nf">sd</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Coeficiente de Correlacion = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">rho</span><span class="o">^</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;R-cuadrado = 0.9502&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Coeficiente de Correlacion = 0.9502&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Residuals:
+       1        2        3        4        5        6 
+-0.18541 -0.03343  0.90274 -0.24924  0.51064 -0.94529 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 11.57751    0.75506  15.333 0.000106 ***
+x           -0.84802    0.09707  -8.736 0.000946 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.7188 on 4 degrees of freedom
+Multiple R-squared:  0.9502,	Adjusted R-squared:  0.9377 
+F-statistic: 76.31 on 1 and 4 DF,  p-value: 0.0009461
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prueba-de-significancia-global">
+<h2>Prueba de Significancia Global<a class="headerlink" href="#prueba-de-significancia-global" title="Link to this heading">#</a></h2>
+<p>La idea de esta prueba es evaluar si todas las covariables que incluimos en el modelo pueden explicar conjuntamente la variable <span class="math notranslate nohighlight">\(Y\)</span></p>
+<p>La prueba de signifiancia global se define como:</p>
+<div class="math notranslate nohighlight">
+\[H_0 : \beta_1 = \beta_2 = ... = \beta_K = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \text{ al menos un } \beta_k \text{ es diferente de 0}\]</div>
+<p>Esta es una prueba de ‘cola derecha,’ por lo tanto la zona de rechazo siempre va a ser a la derecha e igual a <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>Observe que en el modelo de regresión univariada (o simple), esta prueba es equivalente a:</p>
+<div class="math notranslate nohighlight">
+\[H_0 : \beta_1 = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \beta_1 \neq 0\]</div>
+<p>Para evaluar esta prueba de hipótesis debemos plantear un nuevo estadístico.</p>
+<p>Antes de plantear el estadístico de prueba debemos construir los <strong>cuadrados medios</strong>.</p>
+<p>Los cuadrados medios se definen <strong>como la correspondiente suma de cuadrados dividido por sus grados de libertad</strong>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Suma de Cuadrados</p></th>
+<th class="head"><p>G.L.</p></th>
+<th class="head"><p>Cuadrados Medios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Modelo</strong></p></td>
+<td><p>$<span class="math notranslate nohighlight">\(\sum(\hat{Y}_i - \bar{Y})^2\)</span>$</p></td>
+<td><p>$<span class="math notranslate nohighlight">\(K-1\)</span>$</p></td>
+<td><p>$<span class="math notranslate nohighlight">\(\dfrac{\sum(\hat{Y}_i - \bar{Y})^2}{K-1}\)</span>$</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Residuales</strong></p></td>
+<td><p>$<span class="math notranslate nohighlight">\(\sum(Y_i - \hat Y_i)^2\)</span>$</p></td>
+<td><p>$<span class="math notranslate nohighlight">\(N-K\)</span>$</p></td>
+<td><p>$<span class="math notranslate nohighlight">\(\dfrac{\sum(Y_i - \hat Y_i)^2}{N-K}\)</span>$</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Total</strong></p></td>
+<td><p>$<span class="math notranslate nohighlight">\(\sum(Y_i - \bar{Y})^2\)</span>$</p></td>
+<td><p>$<span class="math notranslate nohighlight">\(N-1\)</span>$</p></td>
+<td><p>$<span class="math notranslate nohighlight">\(\dfrac{\sum(Y_i - \bar{Y})^2}{N-1}\)</span>$</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Vamos a llamar los cuadrados medios como:</p>
+<div class="math notranslate nohighlight">
+\[MSR = SSR/K-1\]</div>
+<div class="math notranslate nohighlight">
+\[MSE = SSE/N-K\]</div>
+<div class="math notranslate nohighlight">
+\[MST = SST/N-1\]</div>
+<p>Con base en estos estadísticos podemos calcular nuestro estadístico de prueba:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+F_{K-1,N-K} &amp;= \frac{MSR}{MSE} \\
+&amp;= \frac{\frac{\sum(\hat Y_i - \bar{Y})^2}{K-1}}{\frac{\sum(Y_i - \hat Y_i)^2}{N-K}}
+\end{align*}\]</div>
+<p>Observe que</p>
+<div class="math notranslate nohighlight">
+\[MSE = \frac{\sum(Y_i - \hat Y_i)^2}{N-K} = \hat{\sigma}^2\]</div>
+<p><span class="math notranslate nohighlight">\(MSE\)</span> es lo mismo que el estimador de la varianza de los errores. Entonces el <strong>error estándar del modelo</strong> es igual a:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma} = \sqrt{MSE} = \sqrt{\frac{\sum(y_i - \hat{y}_i)^2}{N-K}}\]</div>
+<p>También en regresión simple:</p>
+<div class="math notranslate nohighlight">
+\[T^2 = F\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Estadistico F</span>
+<span class="n">MSR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">SSR</span><span class="o">/</span><span class="p">(</span><span class="m">2-1</span><span class="p">)</span>
+<span class="n">MSE</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">SSE</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+
+<span class="bp">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MSR</span><span class="o">/</span><span class="n">MSE</span><span class="p">;</span><span class="w"> </span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Estadistico F = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="bp">F</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)))</span>
+
+<span class="c1">#T al cuadrado</span>
+<span class="bp">T</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">b1</span><span class="o">/</span><span class="n">ee_b1</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;T-cuadrado = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="bp">T</span><span class="o">^</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Estadistico F = 76.3147&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;T-cuadrado = 76.3147&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Residuals:
+       1        2        3        4        5        6 
+-0.18541 -0.03343  0.90274 -0.24924  0.51064 -0.94529 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 11.57751    0.75506  15.333 0.000106 ***
+x           -0.84802    0.09707  -8.736 0.000946 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.7188 on 4 degrees of freedom
+Multiple R-squared:  0.9502,	Adjusted R-squared:  0.9377 
+F-statistic: 76.31 on 1 and 4 DF,  p-value: 0.0009461
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prediccion-e-inferencia-para-hat-y-i">
+<h2>Predicción e Inferencia para <span class="math notranslate nohighlight">\(\hat Y_i\)</span><a class="headerlink" href="#prediccion-e-inferencia-para-hat-y-i" title="Link to this heading">#</a></h2>
+<p>Después de evaluar nuestro modelo podemos usarlo y hacer predicciones:</p>
+<div class="math notranslate nohighlight">
+\[\hat Y_i = \hat\beta_0 + \hat\beta_1 X_i\]</div>
+<p>Es decir, a partir de las observaciones <span class="math notranslate nohighlight">\(X_i\)</span> podemos intentar predecir el valor <span class="math notranslate nohighlight">\(Y_i\)</span>.</p>
+<p>Observe que <span class="math notranslate nohighlight">\(\hat Y_i\)</span> es una variable aleatoria y debemos hacer inferencia sobre este resultado.</p>
+<p>Se pueden computar dos tipos de intervalos de confianza:</p>
+<ol class="arabic simple">
+<li><p>Un intervalo sobre la predicción media o <span class="math notranslate nohighlight">\(E(Y|X)\)</span></p></li>
+<li><p>Un intervalo para hacer predicción sobre un valor individual <span class="math notranslate nohighlight">\(\hat Y_i\)</span></p></li>
+</ol>
+</section>
+<section id="prediccion-media">
+<h2>Predicción Media<a class="headerlink" href="#prediccion-media" title="Link to this heading">#</a></h2>
+<p>Cuando hacemos predicción sobre la media estamos interesados en sacar un intervalo para el <span class="math notranslate nohighlight">\(E[Y_0|X_0] = \beta_0 + \beta_1 X_0 \)</span>.</p>
+<p>Para esto recordemos primero que <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> es un estimador de <span class="math notranslate nohighlight">\(E[Y|X]\)</span>.</p>
+<p>Necesitamos entonces la distribución de <span class="math notranslate nohighlight">\(\hat{y}_i\)</span>. Podemos demostrar que:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y}_0 \sim N(\beta_0 + \beta_1 x_0,Var(\hat{y}_0))\]</div>
+<p>Donde</p>
+<div class="math notranslate nohighlight">
+\[Var(\hat{y}_0) = \sigma^2 \left[ \frac{1}{n} + \frac{ (x_0 - \bar{x})^2}{\sum x_i^2}\right]\]</div>
+<p>Entonces reemplazando con <span class="math notranslate nohighlight">\(s^2\)</span>, podemos construir un estimador <span class="math notranslate nohighlight">\(t\)</span> tal que:</p>
+<div class="math notranslate nohighlight">
+\[t_{n-K} = \frac{\hat{y}_0 - (\beta_0 + \beta_1 x_0)}{ee(\hat{y}_0)}\]</div>
+<p>Podemos también sacar un IC:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} \pm t_{\alpha/2} ee(\hat{y}_0)\]</div>
+</section>
+<section id="prediccion-individual">
+<h2>Predicción Individual<a class="headerlink" href="#prediccion-individual" title="Link to this heading">#</a></h2>
+<p>Queremos sacar un intervalo para un punto en particular <span class="math notranslate nohighlight">\(y_0 = \beta_1 + \beta_2 x_0 + \epsilon_0\)</span></p>
+<p><strong>Este intervalo va a ser más grande!</strong></p>
+<p>En este caso, <span class="math notranslate nohighlight">\(\hat{y}_0\)</span> será de nuevo nuestro estimador, pero la varianza va a estar dada por la varianza del error de predicción:</p>
+<div class="math notranslate nohighlight">
+\[Var(y_0 - \hat{y}_0) = \sigma^2 \left[ 1 + \frac{1}{n} + \frac{ (x_0 - \bar{x})^2}{\sum x_i^2}\right]\]</div>
+<p>Y el estadístico de prueba estará dado por:</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{y_0 - \hat{y}_0}{ee(y_0 - \hat{y}_0)}\]</div>
+</section>
+<section id="aplicacion">
+<h2>Aplicación:<a class="headerlink" href="#aplicacion" title="Link to this heading">#</a></h2>
+<p>Considere la siguiente regresión sobre el precio de un vehículo usado, y una predicción de un vehículo con 40,000 Km:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\hat{p} = 6533 - 0.0312(Kilometraje) &amp; \hspace{25pt} \bar{x} = 36,009 \\
+S^2 = 22983 \hspace{76pt}  &amp; \hspace{25pt} n = 100 \\
+\sum x_i^2 =  4,309,340,160 \hspace{34pt} &amp; \hspace{25pt} t_{0.025} = -1.984\\
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Calcule un intervalo de confianza (al 95%) sobre la predicción del precio de <strong>un</strong> vehículo con 40,000 km.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	&amp;\hat{y} \pm t_{\alpha/2} S \sqrt{ 1 + \frac{1}{n} + \frac{ (x_0 - \bar{x})^2}{\sum x_i^2}} \\
+	&amp;5,285 \pm 1.984 (151.6) \sqrt{ 1 + \frac{1}{100} + \frac{ (40000 - 36009)^2}{4,309,340,160}} \\
+	&amp;5,285 \pm 303
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Calcule un intervalo de confianza (al 95%) sobre la predicción \textbf{de un lote} de vehículos con 40,000 km cada uno.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;\hat{p} \pm t_{\alpha/2} S \sqrt{ \frac{1}{n} + \frac{ (x_0 - \bar{x})^2}{\sum x_i^2}} \\
+&amp;5,285 \pm 1.984 (151.6) \sqrt{ \frac{1}{100} + \frac{ (40000 - 36009)^2}{4,309,340,160}} \\
+&amp;5,285 \pm 35
+\end{align*}	\]</div>
+</section>
+<section id="interpretacion-de-coeficientes">
+<h2>Interpretación de Coeficientes<a class="headerlink" href="#interpretacion-de-coeficientes" title="Link to this heading">#</a></h2>
+<p>Uno de los supuestos del modelo de regresión lineal es que es lineal en los parámetros.</p>
+<p><strong>Pero los modelos de regresión sí pueden ser no lineales en las variables</strong>.</p>
+<p>La forma funcional de las variables determinará la <strong>interpretación de los parámetros</strong>.</p>
+<p>Vamos a ver cuatro tipos de modelos:</p>
+<ul class="simple">
+<li><p>Lin-Lin</p></li>
+<li><p>Log-Lin</p></li>
+<li><p>Lin-log</p></li>
+<li><p>Log-Log</p></li>
+</ul>
+</section>
+<section id="lin-lin">
+<h2>Lin-Lin<a class="headerlink" href="#lin-lin" title="Link to this heading">#</a></h2>
+<p>Un modelo Lin-Lin es de la forma:</p>
+<div class="math notranslate nohighlight">
+\[X_i = \beta_0 + \beta_1 X_i + \varepsilon\]</div>
+<p>Observe que si diferenciamos <span class="math notranslate nohighlight">\(Y_i\)</span> con respecto a <span class="math notranslate nohighlight">\(X_i\)</span> obtenemos</p>
+<div class="math notranslate nohighlight">
+\[\frac{d Y_i}{d X_i} = \beta_1\]</div>
+<p><strong>Interpretación</strong>: Si <span class="math notranslate nohighlight">\(X\)</span> aumenta en 1 unidad, entonces <span class="math notranslate nohighlight">\(Y\)</span> cambia en <span class="math notranslate nohighlight">\(\beta_1\)</span> unidades.</p>
+<p>Los modelos Lin-Lin son los más fáciles de interpretar</p>
+</section>
+<section id="log-lin">
+<h2>Log-Lin<a class="headerlink" href="#log-lin" title="Link to this heading">#</a></h2>
+<p>Los modelos Log -Lin son de la forma:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\ln(Y_i) &amp;= \beta_0 + \beta_1 X_i + \varepsilon_i \\
+\frac{1}{Y_i}\frac{d Y_i}{d X_i} &amp;= \beta_1 \\
+\frac{d Y_i/y_i}{d X_i} &amp;= \beta_1 \\		 
+\frac{\Delta Y_i/Y_i}{\Delta X_i} &amp;= \beta_1 \\
+\end{align*}\]</div>
+<p>Otra forma de decir esto es:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\text{Cambio relativo en Y}}{\text{Cambio absoluto en X}} = \beta_1\]</div>
+<p>Note que <span class="math notranslate nohighlight">\(100*\frac{\Delta Y}{Y}\)</span> es un cambio porcentual! Entonces:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta Y_i/Y_i}{\Delta X_i} *100 = \beta_1 *100\]</div>
+<p><strong>Interpretación</strong>: Ante un incremento de una unidad en X, Y cambia en <span class="math notranslate nohighlight">\(100*\beta_1\%\)</span> (<strong>semielasticidad</strong>)</p>
+</section>
+<section id="lin-log">
+<h2>Lin-Log<a class="headerlink" href="#lin-log" title="Link to this heading">#</a></h2>
+<p>Los modelos Lin-Log son de la forma:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
+\frac{d Y_i}{d X_i} &amp;= \beta_1 \frac{1}{X_i}\\
+\frac{d Y_i}{d X_i/X_i} &amp;= \beta_1 \\		 
+\frac{\Delta Y_i}{\Delta X_i/X_i} &amp;= \beta_1 \\
+\end{align*}\]</div>
+<p>Otra forma de decir esto es:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\text{Cambio absoluto en y}}{\text{Cambio relativo en x}} = \beta_1\]</div>
+<p>Noten que <span class="math notranslate nohighlight">\(100*\frac{\Delta X}{X}\)</span> es un cambio porcentual! Entonces:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta y_i}{\Delta x_i/x_i} \frac{1}{100} = \beta_1 \frac{1}{100}\]</div>
+<p><strong>Interpretación</strong> : Ante un incremento del 1% en X, Y cambia en <span class="math notranslate nohighlight">\(\frac{1}{100}*\beta_1\)</span> unidades</p>
+</section>
+<section id="log-log">
+<h2>Log-Log<a class="headerlink" href="#log-log" title="Link to this heading">#</a></h2>
+<p>El modelo Log-Log se presenta de esta forma:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\ln(y_i) &amp;= \beta_0 + \beta_1 \ln(x_i) + \epsilon_i \\
+\frac{d y_i}{d x_i} \frac{1}{y_i} &amp;= \beta_1 \frac{1}{x_i} \\
+\frac{d y_i}{d x_i} \frac{x_i}{y_i} &amp;= \beta_1  \text{ ¿Qué es esto?} 	
+\end{align*}\]</div>
+<p><strong>Interpretación</strong>: Ante un aumento en 1% en X, Y cambia en <span class="math notranslate nohighlight">\(\beta_1\%\)</span></p>
+</section>
+<section id="estimacion-por-maxima-verosimilitud">
+<h2>Estimación por Máxima Verosimilitud<a class="headerlink" href="#estimacion-por-maxima-verosimilitud" title="Link to this heading">#</a></h2>
+<p>Para estimar los coeficientes <span class="math notranslate nohighlight">\(\beta_k\)</span> también podemos usar el método de máxima verosimilitud.</p>
+<p>Recuerde que asumimos que <span class="math notranslate nohighlight">\(\varepsilon_i | X \sim N(0, \sigma^2)\)</span>. Est que implica que</p>
+<div class="math notranslate nohighlight">
+\[Y_i | X \sim N(\mu_i, \sigma^2)\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\mu_i = \beta_0 + \beta_1 X_i\)</span>. Ya que asumimos que <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> y <span class="math notranslate nohighlight">\(\varepsilon_j\)</span> son independientes para todo <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span>, la función de verosimilitud está dada por</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}(\beta_0, \beta_1, \sigma^2) = f(Y_1, Y_2,..., Y_n) = \prod_{i = 1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp \left\{ - \frac{1}{2\sigma^2} (Y_i - \beta_0 - \beta_1 X_i)^2 \right\}\]</div>
+<p>Si tomamos el logaritmo de la función de verosimilitud obtenemos:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{l}(\beta_0, \beta_1, \sigma^2) =  - \frac{n}{2} \ln(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i = 1}^n (Y_i - \beta_0 - \beta_1 X_i)^2\]</div>
+<p>Maximizando <span class="math notranslate nohighlight">\(\mathcal{l}(\beta_0, \beta_1, \sigma^2)\)</span> respecto a <span class="math notranslate nohighlight">\(\beta_0\)</span> y <span class="math notranslate nohighlight">\(\beta_1\)</span>, encontramos que</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_0 = \overline Y - \hat\beta_1 \overline X\]</div>
+<div class="math notranslate nohighlight">
+\[\hat\beta_1 = \frac{\sum_i (X_i - \overline X)(Y_i - \overline Y)}{\sum_i (X_i - \overline X)^2} = \frac{\mathbb{\hat Cov}(X, Y)}{\mathbb{\hat V}(X)}\]</div>
+<p>Observe que estos son precisamente los estimadores que obtuvimos a través de MCO, y ya conocemos las propiedades de estos estimadores.</p>
 </section>
 </section>
 
@@ -665,11 +1325,11 @@ F-statistic:  77.6 on 1 and 77 DF,  p-value: 2.797e-13
       </div>
     </a>
     <a class="right-next"
-       href="1_Probabilidad.html"
+       href="4_Regresion.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+        <p class="prev-next-title">Modelo de Regresión Multiple</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -699,6 +1359,26 @@ F-statistic:  77.6 on 1 and 77 DF,  p-value: 2.797e-13
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional-o-exogenidad">Independencia Condicional o Exogenidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-ordinarios-mco">Mínimos Cuadrados Ordinarios (MCO)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-relacion-entre-aprendizaje-y-recursos-economicos">Aplicacion : Relación entre Aprendizaje y Recursos Económicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residuales-de-la-regresion-e-i-y-i-hat-y-i">Residuales de la Regresión: <span class="math notranslate nohighlight">\(e_i = Y_i - \hat Y_i\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-los-estimadores-hat-beta-k">Propiedades de los estimadores <span class="math notranslate nohighlight">\(\hat\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-en-regresion-simple">Inferencia en Regresión Simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-hipotesis-sobre-hat-beta-k">Pruebas de Hipótesis sobre <span class="math notranslate nohighlight">\(\hat\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-de-hat-beta-k">Varianza de <span class="math notranslate nohighlight">\(\hat\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-de-los-errores">Varianza de los Errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-hipotesis-individuales">Pruebas de Hipótesis Individuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-de-confianza-para-beta-k">Intervalo de confianza para <span class="math notranslate nohighlight">\(\beta_k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficiente-de-determinacion-r-2">Coeficiente de Determinación: <span class="math notranslate nohighlight">\(R^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-significancia-global">Prueba de Significancia Global</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-e-inferencia-para-hat-y-i">Predicción e Inferencia para <span class="math notranslate nohighlight">\(\hat Y_i\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-media">Predicción Media</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion-individual">Predicción Individual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion">Aplicación:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-de-coeficientes">Interpretación de Coeficientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lin-lin">Lin-Lin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-lin">Log-Lin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lin-log">Lin-Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-log">Log-Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-por-maxima-verosimilitud">Estimación por Máxima Verosimilitud</a></li>
 </ul>
   </nav></div>
 
