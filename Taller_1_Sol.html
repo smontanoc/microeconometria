@@ -59,9 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Taller_1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Taller_1_Sol';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Fundamentos de Estadística" href="2_Estadistica.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,13 +180,13 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Taller 1</a></li>
 </ul>
 
     </div>
@@ -259,7 +258,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTaller_1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTaller_1_Sol.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -289,7 +288,7 @@
       
       
       
-      <li><a href="_sources/Taller_1.ipynb" target="_blank"
+      <li><a href="_sources/Taller_1_Sol.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -384,15 +383,25 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-1">Pregunta 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-2">Pregunta 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-3">Pregunta 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-4">Pregunta 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-5">Pregunta 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-6">Pregunta 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-7">Pregunta 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-8">Pregunta 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-9">Pregunta 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-10">Pregunta 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Solución</a></li>
 </ul>
             </nav>
         </div>
@@ -415,6 +424,11 @@ document.write(`
 \[f(x) = \frac{x + 2}{25}\]</div>
 <p>cumple las propiedades de una distribución de probabilidad para la variable discreta <span class="math notranslate nohighlight">\(X\)</span>, que toma valores en <span class="math notranslate nohighlight">\(\{1, 2, 3, 4, 5\}\)</span>.</p>
 </section>
+<section id="solucion">
+<h2>Solución<a class="headerlink" href="#solucion" title="Link to this heading">#</a></h2>
+<p>Evaluamos la función <span class="math notranslate nohighlight">\(f(x)\)</span> para cada uno de los valores que toma la variable <span class="math notranslate nohighlight">\(X\)</span>. De esta manera, <span class="math notranslate nohighlight">\(f(1) = \frac{3}{25}\)</span>, <span class="math notranslate nohighlight">\(f(2) = \frac{4}{25}\)</span>, <span class="math notranslate nohighlight">\(f(3) = \frac{5}{25}\)</span>, <span class="math notranslate nohighlight">\(f(4) = \frac{6}{25}\)</span>, y <span class="math notranslate nohighlight">\(f(5) = \frac{7}{25}\)</span>. Sumamos luego cada uno esto valores y determinamos que <span class="math notranslate nohighlight">\(f(1) + f(2) + f(3) + f(4) + f(5) = 1\)</span>.</p>
+<p>Dado que <span class="math notranslate nohighlight">\(\forall x, f(x) \geq 0\)</span> y <span class="math notranslate nohighlight">\(\sum_{x \in X} f(x) = 1\)</span>, entonces podemos concluri que la función <span class="math notranslate nohighlight">\(f(x)\)</span> es una distribución de probabilidad para la variable <span class="math notranslate nohighlight">\(X\)</span> que toma valores <span class="math notranslate nohighlight">\(x \in \{1,2,3,4,5\}\)</span>.</p>
+</section>
 <section id="pregunta-2">
 <h2>Pregunta 2<a class="headerlink" href="#pregunta-2" title="Link to this heading">#</a></h2>
 <p>Suponga que la variable discreta <span class="math notranslate nohighlight">\(X\)</span> tiene la siguiente función de distribución</p>
@@ -428,6 +442,28 @@ f(x) =
 \end{equation*}\]</div>
 <p>Calcule <span class="math notranslate nohighlight">\(F(x), E(X), E(X^2),\)</span> y <span class="math notranslate nohighlight">\(V(X)\)</span></p>
 </section>
+<section id="id1">
+<h2>Solución<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Sea <span class="math notranslate nohighlight">\(k \in \{1, ..., n\}\)</span>, entonces</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+F(x) =
+    \left\{\begin{array}{lr}
+    0, &amp; x &lt; 1 \\
+    \frac{k}{n}, &amp; k \leq x &lt; k + 1 \\
+    1, &amp; x &gt; n
+    \end{array}\right.
+\end{equation*}\]</div>
+<div class="math notranslate nohighlight">
+\[E(X) = \frac{n + 1}{2}\]</div>
+<div class="math notranslate nohighlight">
+\[E(X^2) = \sum_{x=1}^m x^2 \cdot \frac{1}{n} = \frac{1}{n} \sum_{x=1}^n x^2 = \frac{1}{n} \cdot \frac{n(n+1)(2n+1)}{6} = \frac{(n+1)(2n+1)}{6}\]</div>
+<div class="math notranslate nohighlight">
+\[V(X) = E(X^2) - E(X)^2 = \frac{(n+1)(2n+1)}{6} - \left(\frac{n+1}{2}\right)^2 = \frac{(n+1)\left[2(2n+1) - 3(n+1)\right]}{12}\]</div>
+<p>De manera más resumida:</p>
+<div class="math notranslate nohighlight">
+\[V(X) = \frac{(n+1)(n-1)}{12} = \frac{n^2 - 1}{12}\]</div>
+</section>
 <section id="pregunta-3">
 <h2>Pregunta 3<a class="headerlink" href="#pregunta-3" title="Link to this heading">#</a></h2>
 <p>La función de densidad de probabilidad de la variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> está dada por:</p>
@@ -440,6 +476,22 @@ f(x) =
     \end{array}\right.
 \end{equation*}\]</div>
 <p>Encuentre el valor la constante <span class="math notranslate nohighlight">\(c\)</span>. Calcule <span class="math notranslate nohighlight">\(P(X &lt; \frac{1}{4}), E(X), \text{ y } V(X)\)</span></p>
+</section>
+<section id="id2">
+<h2>Solución<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Sabemos que:</p>
+<div class="math notranslate nohighlight">
+\[1 = \int_{-\infty}^{\infty} f(x)\,dx = \int_0^1 cx^2 \, dx = \left. \frac{c x^3}{3} \right|_0^1 = \frac{c}{3}\]</div>
+<p>Entonces <span class="math notranslate nohighlight">\(c = 3\)</span></p>
+<p>Calculemos ahora <span class="math notranslate nohighlight">\(P(X &lt; \tfrac{1}{4}), E(X), \text{ y } V(X)\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[ P(X &lt; \tfrac{1}{4}) = \int_{-\infty}^{1/4} f(x)\,dx = \int_0^{1/4} 3x^2 \, dx = \left. x^3 \right|_0^{1/4} = \frac{1}{64}\]</div>
+<div class="math notranslate nohighlight">
+\[E[X] = \int_{-\infty}^{\infty} x f(x)\,dx = \int_0^1 3x^3 \, dx = \left. \frac{3x^4}{4} \right|_0^1 = \frac{3}{4}\]</div>
+<div class="math notranslate nohighlight">
+\[E[X^2] = \int_{-\infty}^{\infty} x^2 f(x)\,dx = \int_0^1 3x^4 \, dx = \left. \frac{3x^5}{5} \right|_0^1 = \frac{3}{5}\]</div>
+<div class="math notranslate nohighlight">
+\[V(X) = E[X^2] - (E[X])^2 = \frac{3}{5} - \left(\frac{3}{4}\right)^2 = \frac{3}{80}\]</div>
 </section>
 <section id="pregunta-4">
 <h2>Pregunta 4<a class="headerlink" href="#pregunta-4" title="Link to this heading">#</a></h2>
@@ -468,11 +520,55 @@ f(x) =
 </div>
 <p>Calcule <span class="math notranslate nohighlight">\(Cov(X, Y)\)</span>. ¿Son <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> independientes?</p>
 </section>
+<section id="id3">
+<h2>Solución<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[E[X] = \sum_{x} x \, P(X = x)
+= (-1)\cdot \tfrac{1}{4} + 0 \cdot \tfrac{1}{6} + 1\cdot\left(\tfrac{1}{12}+\tfrac{1}{2}\right)
+= -\tfrac{1}{4} + \tfrac{7}{12}
+= \tfrac{1}{3}\]</div>
+<div class="math notranslate nohighlight">
+\[
+E[Y] = \sum_{y} y \, P(Y = y)
+= 0 \cdot \left(0+\tfrac{1}{6}+\tfrac{1}{12}\right) 
++ 1\cdot\left(\tfrac{1}{4}+0+\tfrac{1}{2}\right)
+= \tfrac{3}{4}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E[XY] = \sum_{x,y} x y \, P(X = x, Y = y)
+= (-1)(1)\tfrac{1}{4} + (1)(1)\tfrac{1}{2}
+= -\tfrac{1}{4} + \tfrac{1}{2}
+= \tfrac{1}{4}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(X,Y) = E[XY] - E[X]E[Y]
+= \tfrac{1}{4} - \tfrac{1}{3}\cdot \tfrac{3}{4}
+= \tfrac{1}{4} - \tfrac{1}{4}
+= 0
+\]</div>
+<p>Veamos que <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> no son independientes. Por definición, si <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes entonces <span class="math notranslate nohighlight">\(P(X = x, Y = y) = P(X = x) \cdot P(Y = y)\)</span>. Sin embargo, note que <span class="math notranslate nohighlight">\(P(X = 0, Y = 0) = \frac{1}{6}\)</span> pero <span class="math notranslate nohighlight">\(P(X = 0) \cdot P(Y = 0) = \frac{1}{6} \cdot \frac{1}{4} = \frac{1}{24}\)</span>. Luego, no son independientes.</p>
+</section>
 <section id="pregunta-5">
 <h2>Pregunta 5<a class="headerlink" href="#pregunta-5" title="Link to this heading">#</a></h2>
 <p>Una urna cotiene 20 bolas rojas y 30 bolas verdes. Seleccionamos 10 bolas aleatoriamente sin remplazo.</p>
 <p>¿Cuál es la probabilídad de que 4 de las bolas seleccionadas sean rojas?</p>
 <p>Dado que hay al menos 3 rojas entre las seleccionadas, ¿cuál es la probabilídad de que 4 sean rojas?</p>
+</section>
+<section id="id4">
+<h2>Solución<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>Sea <span class="math notranslate nohighlight">\(X\)</span> el número de bolas rojas en 10 extracciones sin reemplazo de una urna con 20 rojas y 30 verdes. Entonces</p>
+<div class="math notranslate nohighlight">
+\[P(X = 4) = \frac{{20 \choose 4} \cdot {30 \choose 10 - 4}}{{50 \choose 10}}\]</div>
+<p>Ahora, note que</p>
+<div class="math notranslate nohighlight">
+\[P(X = 4 | X \geq 3) =  \frac{P(X = 4, X \geq 3)}{P(X \geq 3)} = \frac{P(X = 4)}{1 - P(X \leq 2)}\]</div>
+<p>Luego,</p>
+<div class="math notranslate nohighlight">
+\[P(X = 4 | X \geq 3) = \frac{P(X = 4)}{1 - P(X = 0) - P(X = 1) - P(X = 2)}\]</div>
+<div class="math notranslate nohighlight">
+\[P(X = 4 | X \geq 3) = \frac{{20 \choose 4} \cdot {30 \choose 10 - 4}}{{50 \choose 10} -  {30 \choose 10} - {20 \choose 1} \cdot {30 \choose 9} - {20 \choose 2} \cdot {30 \choose 8}}\]</div>
 </section>
 <section id="pregunta-6">
 <h2>Pregunta 6<a class="headerlink" href="#pregunta-6" title="Link to this heading">#</a></h2>
@@ -482,15 +578,57 @@ f(x) =
 <p>Así, la probabilidad de que el producto dure más de 2 años es <span class="math notranslate nohighlight">\(P(T \geq 2) = e^{-\frac{2}{5}} = 0.6703\)</span>. Usted usa la bombilla sin problema alguno por más de 5 años, ¿cuál es la probabilídad de que la bombilla deje de funcionar en el sexto año?</p>
 <p>(<em>Sugerencia:</em> use la definición de probabilidad condicional)</p>
 </section>
+<section id="id5">
+<h2>Solución<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>Estamos interesados en calcular <span class="math notranslate nohighlight">\(P(5 \leq T \leq 6 | T \geq 5)\)</span></p>
+<p>Note que <span class="math notranslate nohighlight">\(P(5 \leq T \leq 6) = P(T \geq 5) - P(T \geq 6)\)</span>. Entonces,</p>
+<div class="math notranslate nohighlight">
+\[P(5 \leq T \leq 6 | T \geq 5) = \frac{e^{-\frac{5}{5}} - e^{-\frac{6}{5}}}{e^{-\frac{5}{5}}}\]</div>
+</section>
 <section id="pregunta-7">
 <h2>Pregunta 7<a class="headerlink" href="#pregunta-7" title="Link to this heading">#</a></h2>
 <p>El estadístico <span class="math notranslate nohighlight">\(s^2 = \sum_{i = 1}^{n} \frac{(X_i - \bar X)^2}{n}\)</span> es un estimador de <span class="math notranslate nohighlight">\(V(X) = \sigma^2\)</span>.</p>
 <p>Encuentre el sesgo de <span class="math notranslate nohighlight">\(s^2\)</span>. (Recuerde que usando los supuestos necesarios se puede demostrar que <span class="math notranslate nohighlight">\(E(\bar X) = \mu\)</span>.)</p>
 <p>Encuentre el error cuadrático medio (<span class="math notranslate nohighlight">\(ECM\)</span>) de <span class="math notranslate nohighlight">\(s^2\)</span>, donde <span class="math notranslate nohighlight">\(ECM = E \left(\hat\theta - E(\hat\theta)\right)^2\)</span>.</p>
 </section>
+<section id="id6">
+<h2>Solución<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Note que:</p>
+<div class="math notranslate nohighlight">
+\[s^2 = \sum_{i = 1}^{n} \frac{(X_i - \bar X)^2}{n} = \frac{1}{n} \left(\sum_i X_i^2 - n \overline X^2\right)\]</div>
+<div class="math notranslate nohighlight">
+\[E(\overline X^2) = E(\overline X)^2 + V(\overline X) = \mu^2 + \frac{\sigma^2}{n}\]</div>
+<div class="math notranslate nohighlight">
+\[E(s^2) = \frac{1}{n} \left(\sum_i E(X_i^2) - n E(\overline X^2) \right) = \frac{1}{n} \left( n(\mu^2 + \sigma^2) - n\left(\mu^2 + \frac{\sigma^2}{n} \right) \right) = \frac{n-1}{n} \sigma^2\]</div>
+<p>De esta manera, el sesgo del estimador <span class="math notranslate nohighlight">\(s^2\)</span> está dado por:</p>
+<div class="math notranslate nohighlight">
+\[\texttt{bias}(s^2) = E(s^2) - \sigma^2 = - \frac{\sigma^2}{n}\]</div>
+<p>Ahora, note que:</p>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{n-1}{n} \sum_{i = 1}^n \frac{(X - \bar{X_n})^2}{n-1} = \frac{n-1}{n} S_n^2\]</div>
+<div class="math notranslate nohighlight">
+\[V(s^2) = \left(\frac{n-1}{n}\right)^2 V(S_n^2)\]</div>
+<p>Ya que <span class="math notranslate nohighlight">\(\frac{n-1}{\sigma^2} S^2_n \sim \chi^2_{n-1}\)</span> sabemos que <span class="math notranslate nohighlight">\(V\left(\frac{n-1}{\sigma^2} S^2_n\right) = 2(n-1)\)</span>. Lo anterior implica que <span class="math notranslate nohighlight">\(V(S^2_n) = \frac{2\sigma^4}{n-1}\)</span>.</p>
+<p>Así,</p>
+<div class="math notranslate nohighlight">
+\[V(s^2) = \left(\frac{n-1}{n}\right)^2 \frac{2\sigma^4}{n-1} = \frac{2(n-1)\sigma^4}{n^2}\]</div>
+<p>Ahora, recuerde que para todo estimador <span class="math notranslate nohighlight">\(\hat\theta_n\)</span>, <span class="math notranslate nohighlight">\(ECM = \texttt{bias}^2(\hat\theta_n) + V_\theta(\hat\theta_n)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ECM = \frac{\sigma^4}{n^2} + \frac{2(n-1)\sigma^4}{n^2} = \frac{\sigma^4 (2n-1)}{n^2}\]</div>
+</section>
 <section id="pregunta-8">
 <h2>Pregunta 8<a class="headerlink" href="#pregunta-8" title="Link to this heading">#</a></h2>
 <p>Suponga una muestra aleatoria de una población normal con valores <span class="math notranslate nohighlight">\([18, 22, 22, 19, 20, 17, 19, 20, 23, 18]\)</span> y varianza <span class="math notranslate nohighlight">\(\sigma^2 = 6.25\)</span>. Construya un intervalo de confianza del 95% para la media de la población <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+</section>
+<section id="id7">
+<h2>Solución<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>A partir de estos datos se tiene que <span class="math notranslate nohighlight">\(\overline X = 19.8\)</span> y <span class="math notranslate nohighlight">\(\text{ee}(\overline X) = \sqrt{\sigma^2/n} \approx 0.79\)</span>. Note además que con <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, <span class="math notranslate nohighlight">\(|z_{0.025}| \approx 1.96\)</span>.</p>
+<p>Recuerde además que:</p>
+<div class="math notranslate nohighlight">
+\[IC_\mu = \left(\overline X_n - z_{\alpha/2} \cdot \sigma/\sqrt n \hspace{5pt} , \hspace{5pt} \overline X_n + z_{\alpha/2} \cdot \sigma/\sqrt n \right)\]</div>
+<p>Con esta información podemos determinar que con una confianza del 95%, el parámetro <span class="math notranslate nohighlight">\(\mu\)</span> está en el siguiente intervalo:</p>
+<div class="math notranslate nohighlight">
+\[IC_\mu = \left(19.8 - 1.96 * 0.79 \hspace{5pt} , \hspace{5pt}  19.8 + 1.96 * 0.79\right) = (18.25 \hspace{2pt} , \hspace{2pt} 21.35)\]</div>
 </section>
 <section id="pregunta-9">
 <h2>Pregunta 9<a class="headerlink" href="#pregunta-9" title="Link to this heading">#</a></h2>
@@ -500,6 +638,37 @@ f(x) =
 <li><p>Realice una prueba de hipótesis en el que evalúe si usted debe o no abrir la filial.</p></li>
 <li><p>Suponganlo que se desconoce <span class="math notranslate nohighlight">\(\sigma^2\)</span>, pero usted estima <span class="math notranslate nohighlight">\(S^2 = 15\)</span>. Evalúe la hipótesis nuevamente.</p></li>
 </ul>
+</section>
+<section id="id8">
+<h2>Solución<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>El teorema del límite central señala que una variable aleatoria normalizada converge una variable con distribución normal estandar (i.e., con media 0 y varianza 1) cuando aumenta el tamaño muestral <span class="math notranslate nohighlight">\(n\)</span>. Así, utilizando este teorema podemos determinar la distribución de nuestro estadístico de prueba para hacer inferencia sobre un parámetro desconocido.</p></li>
+<li><p>Queremos probar la siguiente hipótesis:</p>
+<p><span class="math notranslate nohighlight">\(H_0: \mu = 90\)</span><br />
+<span class="math notranslate nohighlight">\(H_1: \mu &gt; 90\)</span></p>
+</li>
+</ul>
+<p>Con un nivel significancia de <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, el valor crítico es <span class="math notranslate nohighlight">\(z_{0.95} \approx 1.645\)</span>. De esta manera rechazamos <span class="math notranslate nohighlight">\(H_0\)</span> si nuestro estadístico de prueba <span class="math notranslate nohighlight">\(Z &gt; 1.645\)</span> (i.e, esta es nuestra región de rechazo).</p>
+<p>Usando los datos del ejercicio, el valor de nuestro estadístico es</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}
+= \frac{84.5 - 90}{\sqrt{14.5/49}}
+= -10.11
+\]</div>
+<p>Ya que <span class="math notranslate nohighlight">\(-10.11 &lt; 1.645\)</span>, concluimos que no existe evidencia suficiente para rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(\sigma^2\)</span> es desconocido, podemos usar el estadístico de prueba <span class="math notranslate nohighlight">\(T = \frac{\overline X - \mu}{S/\sqrt{n}} \sim t_{n-1}\)</span>.</p></li>
+</ul>
+<p>Con un nivel significancia de <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, el valor crítico es <span class="math notranslate nohighlight">\(t_{0.95, 48} \approx 1.68\)</span>.</p>
+<p>Usando los datos del ejercicio, el valor de nuestro estadístico es</p>
+<div class="math notranslate nohighlight">
+\[
+T = \frac{\bar{X} - \mu}{S/\sqrt{n}}
+= \frac{84.5 - 90}{\sqrt{15/49}}
+= -9.94
+\]</div>
+<p>Ya que <span class="math notranslate nohighlight">\(-9.94 &lt; 1.68\)</span>, concluimos que no existe evidencia suficiente para rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
 </section>
 <section id="pregunta-10">
 <h2>Pregunta 10<a class="headerlink" href="#pregunta-10" title="Link to this heading">#</a></h2>
@@ -528,6 +697,39 @@ f(x) =
 </a>
 <p>¿Hay suficiente evidencia para concluir que la media entre hombres y mujeres son diferentes?</p>
 <p>Para contestar esta pregunta asuma un nivel de significancia <span class="math notranslate nohighlight">\(\alpha= 0.05\)</span>. Suponga inicialmente que <span class="math notranslate nohighlight">\(\sigma^2_X = \sigma^2_Y = \sigma^2\)</span>. ¿Cómo cambia su conclusión si asume que <span class="math notranslate nohighlight">\(\sigma^2_X \neq \sigma^2_Y\)</span>?</p>
+</section>
+<section id="id9">
+<h2>Solución<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>Queremos probar la siguiente hipotesis:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \mu_X - \mu_Y = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1: \mu_X - \mu_Y \neq 0\]</div>
+<ul class="simple">
+<li><p>Si asumumos que <span class="math notranslate nohighlight">\(\sigma_X^2 = \sigma_Y^2 = \sigma^2\)</span>, el estadístico de prueba que podemos usar es:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[T = \frac{\overline X - \overline Y}{S_p \sqrt{\frac{1}{n} + \frac{1}{m}}}, \hspace{5pt} \text{ donde } S_p = \sqrt{\frac{(n-1) S_X^2 + (m-1) S_Y^2}{n + m - 2}}\]</div>
+<p>Sabemos que <span class="math notranslate nohighlight">\(T \sim t_{n+m-2}\)</span>. Con un nivel de significancia <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, el valor crítico que define nuestra región de rechazo es <span class="math notranslate nohighlight">\(t_{61 \hspace{1pt},\hspace{1pt} 0.025} \approx -1.9996\)</span>.</p>
+<p>De esta manera, si <span class="math notranslate nohighlight">\(T &lt; -1.9996\)</span> ó <span class="math notranslate nohighlight">\(T &gt; 1.9996\)</span>, entonces no rechazamos <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<p>Note que:</p>
+<div class="math notranslate nohighlight">
+\[S_p = \sqrt{\frac{(33) (20.1)^2 + (28) (12.2)^2}{61}} = \sqrt{286.88} = 16.93\]</div>
+<div class="math notranslate nohighlight">
+\[T = \frac{105.5 - 90.9}{16.93 \sqrt{\frac{1}{34} + \frac{1}{29}}} = 3.4116\]</div>
+<p>Ya que <span class="math notranslate nohighlight">\(T = 3.4116 &gt; t_{61 \hspace{1pt},\hspace{1pt} 0.975} = 1.9996\)</span>, entonces rechazamos <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<ul class="simple">
+<li><p>Si asumimos que <span class="math notranslate nohighlight">\(\sigma_X^2 \neq \sigma_Y^2\)</span>, entonces podemos usar el siguiente estadístico:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[T = \frac{\overline X - \overline Y}{\sqrt{\frac{S_X^2}{n} + \frac{S_Y^2}{m}}} \sim t_{\nu}, \hspace{5pt} \text{ donde } \nu = \frac{\left( \frac{S_X^2}{n} + \frac{S_Y^2}{m} \right)^2}{\frac{(S_X^2/n)^2}{n-1} + \frac{(S_Y^2/m)^2}{m-1}}\]</div>
+<p>Observe que:</p>
+<div class="math notranslate nohighlight">
+\[T = \frac{105.5 - 90.9}{\sqrt{\frac{20.1^2}{34} + \frac{12.2^2}{29}}} \approx 3.54\]</div>
+<div class="math notranslate nohighlight">
+\[\nu = \frac{\left( \frac{20.1^2}{34} + \frac{12.2^2}{29} \right)^2}{\frac{(20.1^2/34)^2}{33} + \frac{(12.2^2/29)^2}{28}} \approx 55.47\]</div>
+<p>El valor crítico que define nuestra región de rechazo es <span class="math notranslate nohighlight">\(t_{55, 0.025} \approx -2.004\)</span>.</p>
+<p>Ya que <span class="math notranslate nohighlight">\(T = 3.54 &gt; t_{55, 0.975} = 2.004\)</span>, entonces rechazamos <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 </section>
 </section>
 
@@ -561,6 +763,15 @@ f(x) =
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="2_Estadistica.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fundamentos de Estadística</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -578,15 +789,25 @@ f(x) =
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-1">Pregunta 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-2">Pregunta 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-3">Pregunta 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-4">Pregunta 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-5">Pregunta 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-6">Pregunta 6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-7">Pregunta 7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-8">Pregunta 8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-9">Pregunta 9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Solución</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-10">Pregunta 10</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Solución</a></li>
 </ul>
   </nav></div>
 
