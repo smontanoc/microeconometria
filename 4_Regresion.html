@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -188,6 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_2.html">Taller 2</a></li>
 </ul>
 
     </div>
@@ -460,9 +461,6 @@ document.write(`
 <span class="n">wage1</span><span class="o">$</span><span class="n">ln_wage</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">wage</span><span class="p">)</span><span class="w"> </span><span class="c1">#Limpiar Datos</span>
 <span class="n">wage1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">wage1</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">ln_wage</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
 <span class="n">wage1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">wage1</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
-
-<span class="n">full_model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">wage</span><span class="p">)</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">educ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">exper</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">expersq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">female</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wage1</span><span class="p">)</span><span class="w"> </span><span class="c1">#Correr modelo</span>
-<span class="nf">summary</span><span class="p">(</span><span class="n">full_model</span><span class="p">)</span><span class="w"> </span><span class="c1">#Presentar resultados</span>
 </pre></div>
 </div>
 </div>
@@ -475,7 +473,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	C:\Users\smontano\AppData\Local\Temp\RtmpSojtct\downloaded_packages
+	C:\Users\smontano\AppData\Local\Temp\RtmpwNEneg\downloaded_packages
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -488,7 +486,17 @@ document.write(`
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
 <ol class=list-inline><li>'wage'</li><li>'educ'</li><li>'exper'</li><li>'tenure'</li><li>'nonwhite'</li><li>'female'</li><li>'married'</li><li>'numdep'</li><li>'smsa'</li><li>'northcen'</li><li>'south'</li><li>'west'</li><li>'construc'</li><li>'ndurman'</li><li>'trcommpu'</li><li>'trade'</li><li>'services'</li><li>'profserv'</li><li>'profocc'</li><li>'clerocc'</li><li>'servocc'</li><li>'lwage'</li><li>'expersq'</li><li>'tenursq'</li></ol>
-</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">full_model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">wage</span><span class="p">)</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">educ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">exper</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">expersq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">female</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wage1</span><span class="p">)</span><span class="w"> </span><span class="c1">#Correr modelo</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">full_model</span><span class="p">)</span><span class="w"> </span><span class="c1">#Presentar resultados</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
 lm(formula = log(wage) ~ educ + exper + expersq + female, data = wage1)
 
 Residuals:
@@ -526,9 +534,7 @@ F-statistic: 86.54 on 4 and 512 DF,  p-value: &lt; 2.2e-16
 <span class="n">model_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">se.fit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">,</span><span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.99</span><span class="p">))</span>
 <span class="nf">names</span><span class="p">(</span><span class="n">model_fit</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;yhat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lwr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;upr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;se&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;df&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;residuals&#39;</span><span class="p">)</span>
 
-<span class="nf">plot</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">,</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">wage</span><span class="p">),</span><span class="w"> </span>
-<span class="w">     </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Relación Salarios y Experiencia&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">     </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Experiencia&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Log(Wage)&#39;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">,</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">wage</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Relación Salarios y Experiencia&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Experiencia&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Log(Wage)&#39;</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">),</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">yhat</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">),</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">lwr</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">),</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">upr</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">exper</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
@@ -561,11 +567,8 @@ F-statistic: 86.54 on 4 and 512 DF,  p-value: &lt; 2.2e-16
 <span class="n">males</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span>
 <span class="n">females</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">3</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span>
 
-<span class="n">colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;#FDAE61&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#66BD63&quot;</span><span class="p">)</span>
-<span class="n">markers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span><span class="p">,</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">wage</span><span class="p">),</span><span class="w"> </span>
-<span class="w">     </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">markers</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">female</span><span class="p">)],</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colors</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">female</span><span class="p">)],</span>
-<span class="w">     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Relación Salarios y Educación&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Años de Educación&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Log(Wage)&#39;</span><span class="p">)</span>
+<span class="n">colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;#FDAE61&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#66BD63&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">markers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span><span class="p">,</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">wage</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">markers</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">female</span><span class="p">)],</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colors</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">female</span><span class="p">)],</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Relación Salarios y Educación&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Años de Educación&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Log(Wage)&#39;</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span><span class="p">),</span><span class="w"> </span><span class="n">males</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#FDAE61&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span><span class="p">),</span><span class="w"> </span><span class="n">females</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">wage1</span><span class="o">$</span><span class="n">educ</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#66BD63&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
@@ -825,8 +828,6 @@ X'X =
 <span class="n">XY</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">%*%</span><span class="n">Y</span>
 
 <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XX1</span><span class="o">%*%</span><span class="n">XY</span><span class="p">;</span><span class="w"> </span><span class="n">b</span>
-
-<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">Y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -838,7 +839,16 @@ X'X =
 	<tr><th scope=row>x2</th><td>-0.8480243</td></tr>
 </tbody>
 </table>
-</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">Y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
 lm(formula = Y ~ x2)
 
 Residuals:
@@ -1071,22 +1081,22 @@ lm(formula = log(wage) ~ educ + exper + expersq + female + noise,
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--1.16280 -0.27733 -0.02028  0.25509  1.19672 
+-1.18090 -0.28475 -0.02003  0.25937  1.19638 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.3103475  0.1116927   2.779  0.00566 ** 
-educ         0.0910675  0.0075163  12.116  &lt; 2e-16 ***
-exper        0.0377752  0.0048239   7.831 2.82e-14 ***
-expersq     -0.0006674  0.0001082  -6.166 1.42e-09 ***
-female      -0.3311116  0.0360902  -9.175  &lt; 2e-16 ***
-noise       -0.0017762  0.0604553  -0.029  0.97657    
+(Intercept)  0.2596970  0.1148583   2.261   0.0242 *  
+educ         0.0915975  0.0075025  12.209  &lt; 2e-16 ***
+exper        0.0380728  0.0048175   7.903 1.68e-14 ***
+expersq     -0.0006747  0.0001080  -6.250 8.67e-10 ***
+female      -0.3292962  0.0360162  -9.143  &lt; 2e-16 ***
+noise        0.0839783  0.0625043   1.344   0.1797    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.4063 on 511 degrees of freedom
-Multiple R-squared:  0.4034,	Adjusted R-squared:  0.3975 
-F-statistic:  69.1 on 5 and 511 DF,  p-value: &lt; 2.2e-16
+Residual standard error: 0.4056 on 511 degrees of freedom
+Multiple R-squared:  0.4055,	Adjusted R-squared:  0.3997 
+F-statistic:  69.7 on 5 and 511 DF,  p-value: &lt; 2.2e-16
 </pre></div>
 </div>
 </div>
@@ -1139,7 +1149,7 @@ F-statistic:  69.1 on 5 and 511 DF,  p-value: &lt; 2.2e-16
 <li><p><span class="math notranslate nohighlight">\(r\)</span> es una <strong>matriz de constantes</strong> o valores hipoteticos, y que tiene dimensión <span class="math notranslate nohighlight">\(J \times 1\)</span>. Note que esta puede ser una matriz de ceros.</p></li>
 <li><p><span class="math notranslate nohighlight">\(S^2\)</span> es la varianza del modelo</p></li>
 </ul>
-<p>Considere las siguientes hipótesis:</p>
+<p>Considere la siguiente hipótesis:</p>
 <div class="math notranslate nohighlight">
 \[H_0: \beta_j = c\]</div>
 <div class="math notranslate nohighlight">
@@ -1158,6 +1168,7 @@ R\beta - r = [0 ... 0 \hspace{4pt} 1 \hspace{4pt} 0 ... 0]
 \hat\beta_{k-1} \\
 \end{bmatrix} - c
 \end{split}\]</div>
+<p>Considere la siguiente hipótesis:</p>
 <div class="math notranslate nohighlight">
 \[H_0: \beta_j = \beta_l\]</div>
 <div class="math notranslate nohighlight">
@@ -1197,7 +1208,12 @@ Y =
 1 &amp; 11 &amp; 0.430 \\
 1 &amp; 6 &amp; 0.076 \\
 1 &amp; 9 &amp; 0.883 \\
-\end{bmatrix} \hspace{2pt},\hspace{2pt} (X'X)^{-1} = 
+\end{bmatrix}
+\end{split}\]</div>
+<p>Entonces</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(X'X)^{-1} = 
 \begin{bmatrix}
 1.4407 &amp; -0.1120 &amp; -0.8204 \\
 -0.1120 &amp; 0.0192 &amp; -0.0452 \\
@@ -1221,10 +1237,8 @@ Y =
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;car&#39;</span><span class="p">);</span><span class="w"> </span><span class="nf">library</span><span class="p">(</span><span class="s">&#39;car&#39;</span><span class="p">)</span>
-
 <span class="n">x3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.401</span><span class="p">,</span><span class="w"> </span><span class="m">0.764</span><span class="p">,</span><span class="w"> </span><span class="m">0.889</span><span class="p">,</span><span class="w"> </span><span class="m">0.430</span><span class="p">,</span><span class="w"> </span><span class="m">0.076</span><span class="p">,</span><span class="w"> </span><span class="m">0.883</span><span class="p">)</span>
 <span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">Y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x3</span><span class="p">);</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<span class="nf">linearHypothesis</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">hypothesis.matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">rhs</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1237,7 +1251,7 @@ Y =
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	C:\Users\smontano\AppData\Local\Temp\RtmpSojtct\downloaded_packages
+	C:\Users\smontano\AppData\Local\Temp\RtmpwNEneg\downloaded_packages
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1267,6 +1281,15 @@ Multiple R-squared:  0.9521,	Adjusted R-squared:  0.9202
 F-statistic: 29.83 on 2 and 3 DF,  p-value: 0.01047
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">linearHypothesis</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">hypothesis.matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">rhs</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
 <caption>A anova: 2 × 6</caption>
 <thead>
@@ -1468,11 +1491,7 @@ X =
 <p>Observe que la sumatoria no inicia en la categoria 1 porque debemos fijar una <strong>grupo de comparación</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span>
-<span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">profocc</span><span class="o">==</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span>
-<span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">clerocc</span><span class="o">==</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span>
-<span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">servocc</span><span class="o">==</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">4</span>
-
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">profocc</span><span class="o">==</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">clerocc</span><span class="o">==</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="n">wage1</span><span class="o">$</span><span class="n">occup</span><span class="p">[</span><span class="n">wage1</span><span class="o">$</span><span class="n">servocc</span><span class="o">==</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">4</span>
 <span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">wage</span><span class="p">)</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">educ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">exper</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">expersq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">female</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">I</span><span class="p">(</span><span class="n">occup</span><span class="o">==</span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">I</span><span class="p">(</span><span class="n">occup</span><span class="o">==</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">I</span><span class="p">(</span><span class="n">occup</span><span class="o">==</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">I</span><span class="p">(</span><span class="n">occup</span><span class="o">==</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wage1</span><span class="p">))</span>
 </pre></div>
 </div>
