@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -359,7 +359,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -375,6 +377,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-y-estadistica">Probabilidad y Estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#econometria">Econometría</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-causal">Inferencia Causal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aprendizaje-estadistico">Aprendizaje Estadístico</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,18 +397,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="recursos">
+  <section class="tex2jax_ignore mathjax_ignore" id="recursos">
 <h1>Recursos<a class="headerlink" href="#recursos" title="Link to this heading">#</a></h1>
-<p>Aqui hay algunas páginas web que he encontrado útiles:</p>
+<section id="probabilidad-y-estadistica">
+<h2>Probabilidad y Estadística<a class="headerlink" href="#probabilidad-y-estadistica" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>https://daviddalpiaz.github.io/r4sl/hypothesis-tests-in-r.html</p></li>
-<li><p>https://www.probabilitycourse.com/</p></li>
-<li><p>https://www.r-tutor.com/</p></li>
-<li><p>https://www.r-tutor.com/elementary-statistics</p></li>
-<li><p>Regression Methods: https://online.stat.psu.edu/stat501/lesson/2</p></li>
-<li><p>https://online.stat.psu.edu/stat500/</p></li>
-<li><p>Applied Time Series: https://online.stat.psu.edu/stat510/Lesson01</p></li>
+<li><p><a class="reference external" href="https://www.probabilitycourse.com/">Probability Course</a> by Pishro-Nik (UMass)</p></li>
+<li><p><a class="reference external" href="https://daviddalpiaz.github.io/stat400sp18/">Statistics and Probability</a> by David Dalpiaz (UIUC)</p></li>
+<li><p><a class="reference external" href="https://www.r-tutor.com/elementary-statistics">Elementary Statistics</a> at R Tutorial</p></li>
+<li><p><a class="reference external" href="https://online.stat.psu.edu/stat500/">Applied Statistics</a> at Penn State</p></li>
 </ul>
+</section>
+<section id="econometria">
+<h2>Econometría<a class="headerlink" href="#econometria" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/edrubin/EC421S25">Introduction to Econometrics</a> by Ed Rubin (U of Oregon)</p></li>
+<li><p><a class="reference external" href="https://www.econometrics-with-r.org/">Introduction to Econometrics with R</a> by Hanck, Arnold, Gerber y Schmelzer</p></li>
+<li><p><a class="reference external" href="https://sites.northwestern.edu/iac879/teaching/e-lectures-econ480/">Advanced Econometrics</a> by Ivan Canay (Northwestern)</p></li>
+<li><p><a class="reference external" href="https://sites.northwestern.edu/iac879/teaching/e-lectures-econ481/">Topics in Econometrics</a> by Ivan Canay (Northwestern)</p></li>
+<li><p><a class="reference external" href="https://edrub.in/ARE212/notes.html">Multiple Equation Estimation</a> by Ed Rubin (Berkeley)</p></li>
+<li><p><a class="reference external" href="https://online.stat.psu.edu/stat510/Lesson01">Applied Time Series</a> at Penn State</p></li>
+<li><p><a class="reference external" href="https://online.stat.psu.edu/stat501/lesson/2">Regression Methods</a> at Penn State</p></li>
+</ul>
+</section>
+<section id="inferencia-causal">
+<h2>Inferencia Causal<a class="headerlink" href="#inferencia-causal" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/edrubin/EC607S25">Econometrics III</a> by Ed Rubin (U of Oregon)</p></li>
+<li><p><a class="reference external" href="https://github.com/paulgp/applied-methods-phd">Applied Methods</a> by Paul Goldsmith-Pinkham (Yale-SOM)</p></li>
+</ul>
+</section>
+<section id="aprendizaje-estadistico">
+<h2>Aprendizaje Estadístico<a class="headerlink" href="#aprendizaje-estadistico" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://daviddalpiaz.github.io/r4sl/">R for Statistical Learning</a> by David Dalpiaz (UIUC)</p></li>
+<li><p><a class="reference external" href="https://stat385.org/">Statistical Programming Methods</a> by David Dalpiaz (UIUC)</p></li>
+<li><p><a class="reference external" href="https://github.com/edrubin/EC524W25">Econometrics - Machine Learning</a> by Ed Rubin (U of Oregon)</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -434,6 +473,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-y-estadistica">Probabilidad y Estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#econometria">Econometría</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-causal">Inferencia Causal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aprendizaje-estadistico">Aprendizaje Estadístico</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
