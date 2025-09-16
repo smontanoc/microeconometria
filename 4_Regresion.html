@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '4_Regresion';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="next" title="Evaluación de Supuestos" href="5_Supuestos.html" />
     <link rel="prev" title="Modelo de Regresión Lineal" href="3_Regresion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -185,6 +185,8 @@
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelo de Regresión Multiple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -419,14 +421,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-gauss-markov">Teorema de Gauss-Markov</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demostacion-del-teorema-de-gauss-markov">Demostación del Teorema de Gauss-Markov</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion-del-teorema-de-gauss-markov">Demostración del Teorema de Gauss-Markov</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violacion-de-supuestos">Violación de Supuestos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad">Multicolinealidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-identificar-multicolinealidad">¿Cómo identificar multicolinealidad?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-normalidad-de-errores">No-normalidad de Errores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">No-normalidad de Errores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-normalidad">Pruebas de Normalidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroscedasticidad">Heteroscedasticidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-nos-interesa-la-heteroscedasticidad">¿Por qué nos interesa la heteroscedasticidad?</a></li>
 </ul>
             </nav>
         </div>
@@ -477,7 +471,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	C:\Users\smontano\AppData\Local\Temp\RtmpsrPYuc\downloaded_packages
+	C:\Users\smontano\AppData\Local\Temp\Rtmpq08Qzl\downloaded_packages
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1084,23 +1078,23 @@ lm(formula = log(wage) ~ educ + exper + expersq + female + noise,
     data = wage1)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--1.1753 -0.2811 -0.0142  0.2544  1.1765 
+     Min       1Q   Median       3Q      Max 
+-1.16978 -0.27463 -0.02081  0.25523  1.18248 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.3483564  0.1128116   3.088  0.00212 ** 
-educ         0.0910813  0.0074928  12.156  &lt; 2e-16 ***
-exper        0.0378139  0.0048134   7.856 2.36e-14 ***
-expersq     -0.0006640  0.0001079  -6.155 1.52e-09 ***
-female      -0.3324260  0.0360133  -9.231  &lt; 2e-16 ***
-noise       -0.0831441  0.0647686  -1.284  0.19983    
+(Intercept)  0.2945035  0.1137148   2.590  0.00988 ** 
+educ         0.0911575  0.0075066  12.144  &lt; 2e-16 ***
+exper        0.0378379  0.0048217   7.847 2.51e-14 ***
+expersq     -0.0006688  0.0001080  -6.191 1.23e-09 ***
+female      -0.3311857  0.0360492  -9.187  &lt; 2e-16 ***
+noise        0.0278812  0.0606946   0.459  0.64616    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.4057 on 511 degrees of freedom
-Multiple R-squared:  0.4053,	Adjusted R-squared:  0.3995 
-F-statistic: 69.65 on 5 and 511 DF,  p-value: &lt; 2.2e-16
+Residual standard error: 0.4063 on 511 degrees of freedom
+Multiple R-squared:  0.4036,	Adjusted R-squared:  0.3978 
+F-statistic: 69.17 on 5 and 511 DF,  p-value: &lt; 2.2e-16
 </pre></div>
 </div>
 </div>
@@ -1255,7 +1249,7 @@ Y =
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	C:\Users\smontano\AppData\Local\Temp\RtmpsrPYuc\downloaded_packages
+	C:\Users\smontano\AppData\Local\Temp\Rtmpq08Qzl\downloaded_packages
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1747,325 +1741,6 @@ Var(b) = (D + A)Var(\varepsilon)(D + A)' \\
 Var(b) \geq Var(\hat{\beta}) = \sigma^2 (X'X)^{-1}
 \]</div>
 </section>
-<section id="violacion-de-supuestos">
-<h2>Violación de Supuestos<a class="headerlink" href="#violacion-de-supuestos" title="Link to this heading">#</a></h2>
-<p>Debido al <strong>Teorema de Gauss-Markov</strong>, queremos que los supuestos del modelo se cumplan.</p>
-<p>En las siguintes clases consideraremos las implicaciones de la <strong>violación de supuestos</strong>:</p>
-<ul class="simple">
-<li><p>¿Cómo identificamos si se está violando un supuesto?</p></li>
-<li><p>¿Qué debemos hacer cuando no se cumple alguno de los supuestos?</p></li>
-<li><p>¿Cómo solucionamos el problema?</p></li>
-</ul>
-</section>
-<section id="multicolinealidad">
-<h2>Multicolinealidad<a class="headerlink" href="#multicolinealidad" title="Link to this heading">#</a></h2>
-<p>Si se presenta una fuerte correlación entre dos o más variables de la matrix <span class="math notranslate nohighlight">\(X\)</span>, es posible que se viole el supuesto de <strong>no multicolinealidad</strong>.</p>
-<p>Suponga que queremos estimar el modelo:</p>
-<div class="math notranslate nohighlight">
-\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_i\]</div>
-<p>Si <span class="math notranslate nohighlight">\(x_2\)</span> se puede escribir como una <strong>combinación lineal</strong> de la variable <span class="math notranslate nohighlight">\(x_1\)</span>, entonces la multicolinealidad es <strong>perfecta</strong> y el modelo <strong>no es estimable</strong>. Ejemplo:</p>
-<div class="math notranslate nohighlight">
-\[x_{2i} = c_1 + c_2 x_{1i}, \hspace{5pt}\text{con}\hspace{5pt} c_1, c_2 \in \mathbb{R}\]</div>
-<p>Si existe una <strong>correlación fuerte</strong> (pero no perfecta) entre <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>, la multicolinealidad es <strong>imperfecta</strong>. En este caso, el modelo es <strong>estimable</strong>, pero la precisión de nuestros estimadores se ve comprometida. Esto afecta los intervalos de confianza y las pruebas de hipótesis (o significancia estadística).</p>
-</section>
-<section id="como-identificar-multicolinealidad">
-<h2>¿Cómo identificar multicolinealidad?<a class="headerlink" href="#como-identificar-multicolinealidad" title="Link to this heading">#</a></h2>
-<p>En nuestro modelo con 2 variables independientes, se puede mostrar que</p>
-<div class="math notranslate nohighlight">
-\[V(\hat\beta_1) = \frac{\sigma^2}{\sum_{i = 1}^n x^2_{1i} (1 - \rho_{1, 2})}\]</div>
-<p>donde <span class="math notranslate nohighlight">\(\rho_{1, 2}\)</span> es el coeficiente de correlación entre <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
-<p>Observe que si la correlación entre ambas variables es cercana a 1, <span class="math notranslate nohighlight">\(V(\hat\beta_1)\)</span> es muy grande y, por lo tanto, es difícil rechazar la hipotesis nula <span class="math notranslate nohighlight">\(H_0: \beta_1 = 0\)</span>.</p>
-<p>Podemos sospechar que existe multicolinealidad cuando tenemos <strong>pruebas individuales no significativas</strong>, pero el estadístico <span class="math notranslate nohighlight">\(F\)</span> y coeficiente de determinacion <span class="math notranslate nohighlight">\(R^2\)</span> son muy grandes.</p>
-<p>También podemos calcular <span class="math notranslate nohighlight">\(|\rho_{1, 2}|\)</span> y determinar si este valor es cercano a 1.</p>
-<p><strong>Solución</strong>: excluir una de las variables!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1.4</span><span class="p">,</span><span class="w"> </span><span class="m">1.2</span><span class="p">,</span><span class="w"> </span><span class="m">1.8</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1.8</span><span class="p">,</span><span class="w"> </span><span class="m">2.1</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="p">)</span><span class="w"> </span><span class="c1">#Salarios</span>
-<span class="n">s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="c1">#educacion</span>
-<span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#mujer=1, hombre=0</span>
-<span class="n">s_mp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">s</span>
-<span class="n">s_imp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-
-<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">s</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-lm(formula = w ~ s)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--0.4350 -0.1113  0.0150  0.1163  0.3100 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.41500    0.16490   2.517    0.036 *  
-s            0.45500    0.04972   9.152 1.64e-05 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.2223 on 8 degrees of freedom
-Multiple R-squared:  0.9128,	Adjusted R-squared:  0.9019 
-F-statistic: 83.75 on 1 and 8 DF,  p-value: 1.639e-05
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cor</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">s_mp</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Correlacion entre s y s_mp = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rho</span><span class="p">))</span>
-<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s_mp</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Correlacion entre s y s_mp = 1&quot;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-lm(formula = w ~ s + s_mp)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--0.4350 -0.1113  0.0150  0.1163  0.3100 
-
-Coefficients: (1 not defined because of singularities)
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.41500    0.16490   2.517    0.036 *  
-s            0.45500    0.04972   9.152 1.64e-05 ***
-s_mp              NA         NA      NA       NA    
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.2223 on 8 degrees of freedom
-Multiple R-squared:  0.9128,	Adjusted R-squared:  0.9019 
-F-statistic: 83.75 on 1 and 8 DF,  p-value: 1.639e-05
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cor</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">s_imp</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Correlacion entre s y s_imp = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rho</span><span class="p">))</span>
-<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s_imp</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Correlacion entre s y s_imp = 0.981265558383595&quot;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-lm(formula = w ~ s + s_imp)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.44235 -0.07456  0.00765  0.08868  0.31000 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept)   0.4518     0.1833   2.465   0.0432 *
-s             0.3006     0.2694   1.116   0.3013  
-s_imp         0.1471     0.2518   0.584   0.5775  
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.2321 on 7 degrees of freedom
-Multiple R-squared:  0.9169,	Adjusted R-squared:  0.8931 
-F-statistic:  38.6 on 2 and 7 DF,  p-value: 0.0001657
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="no-normalidad-de-errores">
-<h2>No-normalidad de Errores<a class="headerlink" href="#no-normalidad-de-errores" title="Link to this heading">#</a></h2>
-<p>Nuestro modelo asume que los errores se distribuyen normales, es decir</p>
-<div class="math notranslate nohighlight">
-\[
-\varepsilon \sim N(0, \sigma^2 I)
-\]</div>
-<ul class="simple">
-<li><p>Debido al <strong>Teorema del Límite Central</strong> es un supuesto muy razonable.</p></li>
-<li><p>No tiene implicaciones graves.</p></li>
-<li><p>No es necesario en la demostración de <strong>Gauss-Markov</strong>.</p></li>
-<li><p>Sin embargo, es útil para determinar la distribución de los <strong>estadísticos</strong> usados en las pruebas de significancia.</p></li>
-</ul>
-</section>
-<section id="id4">
-<h2>No-normalidad de Errores<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>Para evaluar si el supuesto se cumple o no se puede hacer un procedimiento muy sencillo.</p>
-<ul class="simple">
-<li><p>Computamos los residuales y los graficamos.</p></li>
-<li><p>Generalmente, estos residuales van a tener una distribución muy parecida a la normal.</p></li>
-<li><p>Debido a que incluimos una constante en nuestra regresión, los residuales casi siempre tienen media cero.</p></li>
-</ul>
-<p>Adicionalmente, se puede hacer un test para evaluar la normalidad de la variable.</p>
-<p>Este supuesto se cumplir a a medida que aumentemos el tamaño de muestra.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">wage</span><span class="p">)</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">educ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">exper</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">expersq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">female</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wage1</span><span class="p">)</span>
-<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">residuals</span>
-
-<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
-<span class="nf">hist</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Residuals&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">probability</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w"> </span><span class="c1">#Histograma de esiduales</span>
-<span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Densidad estimada de los residuales</span>
-<span class="nf">curve</span><span class="p">(</span><span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">),</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">)),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">#Distribucion normal</span>
-<span class="nf">qqnorm</span><span class="p">(</span><span class="nf">rstandard</span><span class="p">(</span><span class="n">model</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="c1">##Q-Q plot</span>
-<span class="nf">abline</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/deb63551e4cd8041cfea3f01646909ca642eb913b54cdaed63105c9f74d7a41f.png"><img alt="_images/deb63551e4cd8041cfea3f01646909ca642eb913b54cdaed63105c9f74d7a41f.png" src="_images/deb63551e4cd8041cfea3f01646909ca642eb913b54cdaed63105c9f74d7a41f.png" style="width: 420px; height: 420px;" />
-</a>
-</div>
-</div>
-</section>
-<section id="pruebas-de-normalidad">
-<h2>Pruebas de Normalidad<a class="headerlink" href="#pruebas-de-normalidad" title="Link to this heading">#</a></h2>
-<p>Algunas pruebas estadísticas nos permiten evaluar si una variable se distribuye normal o no. En general, bajo la hipotesis nula se asume que la variable se distribuye normal, es decir:</p>
-<div class="math notranslate nohighlight">
-\[H_0: X \sim N(\mu_X, \sigma_X^2)\]</div>
-<div class="math notranslate nohighlight">
-\[H_1: X \text{ no se distribuye normal }\]</div>
-<p>Ejemplo de pruebas:</p>
-<ol class="arabic simple">
-<li><p>Shapiro-Wilk (recomendada): Prueba paramétrica que compara la densidad estimada y la densidad teorica</p></li>
-<li><p>Kolmogorov-Smirnov: Compara la distribución acumulada de los datos y la distribución teorica</p></li>
-<li><p>Jarque-Bera</p></li>
-<li><p>Anderson-Darling</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">shapiro.test</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="nf">ks.test</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pnorm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Shapiro-Wilk normality test
-
-data:  e
-W = 0.99396, p-value = 0.03765
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in ks.test.default(e, &quot;pnorm&quot;, mean = mean(e), sd = sd(e)):
-&quot;ties should not be present for the Kolmogorov-Smirnov test&quot;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Asymptotic one-sample Kolmogorov-Smirnov test
-
-data:  e
-D = 0.033669, p-value = 0.6011
-alternative hypothesis: two-sided
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="heteroscedasticidad">
-<h2>Heteroscedasticidad<a class="headerlink" href="#heteroscedasticidad" title="Link to this heading">#</a></h2>
-<p>Uno de los supuestos de nuestro modelo es que la varianza de los errores es constante. Es decir,</p>
-<div class="math notranslate nohighlight">
-\[V(\varepsilon_i) = \sigma^2\]</div>
-<p>En un modelo <strong>heteroscedastico</strong>,</p>
-<div class="math notranslate nohighlight">
-\[V(\varepsilon_i) = \sigma_{i}^2 \hspace{5pt}\text{donde}\hspace{5pt} \sigma_{i}^2 \neq \sigma_{j}^2 \hspace{5pt}\text{para algún}\hspace{5pt} i \neq j\]</div>
-<p>En la práctica es común que nuestros errores no tengan varianza constante.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;scales&quot;</span><span class="p">);</span><span class="w"> </span><span class="nf">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
-<span class="nf">set.seed</span><span class="p">(</span><span class="m">080925</span><span class="p">)</span>
-<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">))</span>
-<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/smontano/AppData/Local/R/win-library/4.3&#39;
-(as &#39;lib&#39; is unspecified)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  There is a binary version available but the source version is later:
-       binary source needs_compilation
-scales  1.3.0  1.4.0             FALSE
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>installing the source package &#39;scales&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
-<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/85934a7fe8891e9e6cdc2e455be35170699eaf2022eebf4fec5a335ddff5259a.png"><img alt="_images/85934a7fe8891e9e6cdc2e455be35170699eaf2022eebf4fec5a335ddff5259a.png" src="_images/85934a7fe8891e9e6cdc2e455be35170699eaf2022eebf4fec5a335ddff5259a.png" style="width: 420px; height: 420px;" />
-</a>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">))</span><span class="w"> </span>
-<span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">500</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">500</span><span class="p">))</span>
-
-<span class="n">markers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">17</span><span class="p">)</span>
-<span class="n">colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;#66BD63&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#FDAE61&quot;</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">markers</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">f</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">f</span><span class="p">)],</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/d6548c485e8bce861dd31b34ee12ba023211c103ec8596b978854b055b51b240.png"><img alt="_images/d6548c485e8bce861dd31b34ee12ba023211c103ec8596b978854b055b51b240.png" src="_images/d6548c485e8bce861dd31b34ee12ba023211c103ec8596b978854b055b51b240.png" style="width: 420px; height: 420px;" />
-</a>
-</div>
-</div>
-</section>
-<section id="por-que-nos-interesa-la-heteroscedasticidad">
-<h2>¿Por qué nos interesa la heteroscedasticidad?<a class="headerlink" href="#por-que-nos-interesa-la-heteroscedasticidad" title="Link to this heading">#</a></h2>
-<p>Recordemos que en regresión simple encontramos que:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    \hat\beta_1 &amp; = \frac{\widehat{Cov(x, y)}}{\widehat{V(x)}} = \frac{\sum_i (X_i - \overline X)(Y_i - \overline Y)}{\sum_i (X_i - \overline X)^2}\\
-    &amp; = \beta_1 + \frac{\sum_i (X_i - \overline X) \cdot \varepsilon_i}{\sum_i (X_i - \overline X)^2} \\     
-\end{align*}\]</div>
-<p>Si asumimos que <span class="math notranslate nohighlight">\(E(\varepsilon_i | X) = 0\)</span>, podemos concluir que <span class="math notranslate nohighlight">\(E(\hat\beta_1) = \beta_1\)</span>. Es decir, <strong>nuestros estimadores seguirán siendo insesgados</strong> a pesar de que la varianza de los errores no es constante.</p>
-<p>Si asumimos que <span class="math notranslate nohighlight">\(Cov(\varepsilon_i, \varepsilon_j) = 0\)</span>, podemos mostrar que:</p>
-<div class="math notranslate nohighlight">
-\[ee(\hat\beta_1) = \sqrt{V(\hat\beta_1)} = \sqrt{\frac{\sigma_i^2}{\sum_i (X_i - \overline X)^2}}\]</div>
-<p>La <strong>heteroscedasticidad</strong> afecta los errores estándar de nuestros estimadores.</p>
-<p><strong>En presencia de heteroscedasticidad</strong>, asumir que la varianza de los errores es constantes implica que nuestros <strong>errores estandar</strong> están <strong>sesgados</strong>.</p>
-<p>Por lo tanto,</p>
-<ul class="simple">
-<li><p>los intervalos de confianza son incorrectos, y</p></li>
-<li><p>las pruebas de significancia (<span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(F\)</span>) no son validas</p></li>
-</ul>
-<p><strong>Solución</strong>:</p>
-<ol class="arabic simple">
-<li><p><strong>Probar</strong> que hay presencia de heteroscedasticidad</p></li>
-</ol>
-<ul class="simple">
-<li><p>Prueba de Goldfeld-Quandt</p></li>
-<li><p>Prueba de Breusch-Pagan</p></li>
-<li><p>Prueba de White</p></li>
-</ul>
-<ol class="arabic simple" start="2">
-<li><p><strong>Corrección</strong> de los estimadores de la varianza</p></li>
-</ol>
-<ul class="simple">
-<li><p>Evitar error de especificación</p></li>
-<li><p>Mínimos Cuadrados Ponderados</p></li>
-<li><p>Erorres estándar robustos</p></li>
-</ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2108,11 +1783,11 @@ scales  1.3.0  1.4.0             FALSE
       </div>
     </a>
     <a class="right-next"
-       href="1_Probabilidad.html"
+       href="5_Supuestos.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+        <p class="prev-next-title">Evaluación de Supuestos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2167,14 +1842,6 @@ scales  1.3.0  1.4.0             FALSE
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-gauss-markov">Teorema de Gauss-Markov</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demostacion-del-teorema-de-gauss-markov">Demostación del Teorema de Gauss-Markov</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demostracion-del-teorema-de-gauss-markov">Demostración del Teorema de Gauss-Markov</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violacion-de-supuestos">Violación de Supuestos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad">Multicolinealidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-identificar-multicolinealidad">¿Cómo identificar multicolinealidad?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-normalidad-de-errores">No-normalidad de Errores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">No-normalidad de Errores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-normalidad">Pruebas de Normalidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroscedasticidad">Heteroscedasticidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-nos-interesa-la-heteroscedasticidad">¿Por qué nos interesa la heteroscedasticidad?</a></li>
 </ul>
   </nav></div>
 

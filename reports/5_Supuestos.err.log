@@ -1,0 +1,55 @@
+Traceback (most recent call last):
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 641, in run_until_complete
+    return future.result()
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+model <- lm(log(wage) ~ educ + exper + expersq + female, data = wage1)
+e <- model$residuals
+
+par(mfrow=c(1,2))
+hist(e, xlab = "Residuals", probability = T, ylim = c(0, 1)) #Histograma de esiduales
+lines(density(e, na.rm=T), lwd = 2, col = "red") # Densidad estimada de los residuales
+curve(dnorm(x, mean = mean(e, na.rm=T), sd = sd(e, na.rm=T)), lty = 2, lwd = 2, add = TRUE, col = "blue") #Distribucion normal
+qqnorm(rstandard(model), col="red", pch=20) ##Q-Q plot
+abline(a=0, b=1, col="blue", lty=2, lwd=2)
+------------------
+
+
+Error in eval(mf, parent.frame()): object 'wage1' not found
+Traceback:
+
+1. eval(mf, parent.frame())
+2. eval(mf, parent.frame())
+3. stats::model.frame(formula = log(wage) ~ educ + exper + expersq + 
+ .     female, data = wage1, drop.unused.levels = TRUE)
+4. model.frame.default(formula = log(wage) ~ educ + exper + expersq + 
+ .     female, data = wage1, drop.unused.levels = TRUE)
+5. is.data.frame(data)
+6. .handleSimpleError(function (cnd) 
+ . {
+ .     watcher$capture_plot_and_output()
+ .     cnd <- sanitize_call(cnd)
+ .     watcher$push(cnd)
+ .     switch(on_error, continue = invokeRestart("eval_continue"), 
+ .         stop = invokeRestart("eval_stop"), error = NULL)
+ . }, "object 'wage1' not found", base::quote(eval(mf, parent.frame())))
+

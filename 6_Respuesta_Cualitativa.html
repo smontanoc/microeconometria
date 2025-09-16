@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Recursos &#8212; Microeconometria Aplicada</title>
+    <title>Variables de Respuesta Cualitativa &#8212; Microeconometria Aplicada</title>
   
   
   
@@ -57,9 +57,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Recursos';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '6_Respuesta_Cualitativa';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="prev" title="Evaluación de Supuestos" href="5_Supuestos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,12 +181,12 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variables de Respuesta Cualitativa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -260,7 +262,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRecursos.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F6_Respuesta_Cualitativa.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -290,7 +292,7 @@
       
       
       
-      <li><a href="_sources/Recursos.ipynb" target="_blank"
+      <li><a href="_sources/6_Respuesta_Cualitativa.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -374,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Recursos</h1>
+    <h1>Variables de Respuesta Cualitativa</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -384,10 +386,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-y-estadistica">Probabilidad y Estadística</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#econometria">Econometría</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-causal">Inferencia Causal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aprendizaje-estadistico">Aprendizaje Estadístico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-probabilidad-lineal">Modelo de Probabilidad Lineal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas-y-limitaciones">Ventajas y Limitaciones</a></li>
 </ul>
             </nav>
         </div>
@@ -399,42 +399,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="recursos">
-<h1>Recursos<a class="headerlink" href="#recursos" title="Link to this heading">#</a></h1>
-<section id="probabilidad-y-estadistica">
-<h2>Probabilidad y Estadística<a class="headerlink" href="#probabilidad-y-estadistica" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.probabilitycourse.com/">Probability Course</a> by Pishro-Nik (UMass)</p></li>
-<li><p><a class="reference external" href="https://daviddalpiaz.github.io/stat400sp18/">Statistics and Probability</a> by David Dalpiaz (UIUC)</p></li>
-<li><p><a class="reference external" href="https://www.r-tutor.com/elementary-statistics">Elementary Statistics</a> at R Tutorial</p></li>
-<li><p><a class="reference external" href="https://online.stat.psu.edu/stat500/">Applied Statistics</a> at Penn State</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-de-respuesta-cualitativa">
+<h1>Variables de Respuesta Cualitativa<a class="headerlink" href="#variables-de-respuesta-cualitativa" title="Link to this heading">#</a></h1>
+<p>Hasta ahora hemos considerado modelos de regresión cuya variable dependiente <span class="math notranslate nohighlight">\(y_i\)</span> es continua.</p>
+<p>Sin embargo, es posible que estemos interesados en estudiar la relación de un conjunto de regresores <span class="math notranslate nohighlight">\(x_j\)</span> y una variable cualitativa <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
+<p>Inicialmente consideraremos el caso en que esta variable es binaria, es decir, <span class="math notranslate nohighlight">\(y_i \in \{0, 1\}\)</span>.</p>
+<section id="modelo-de-probabilidad-lineal">
+<h2>Modelo de Probabilidad Lineal<a class="headerlink" href="#modelo-de-probabilidad-lineal" title="Link to this heading">#</a></h2>
+<p>El <strong>Modelo de Probabilidad Lineal (MPL)</strong> es una forma sencilla de modelar variables dependientes binarias.</p>
+<p>Considere <span class="math notranslate nohighlight">\(y_i \in \{0,1\}\)</span> tal que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_i &amp;= E[y_i | X]  + \varepsilon_i \\
+    &amp;= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \varepsilon_i \\
+\end{align*}\]</div>
+<p>Observe que</p>
+<div class="math notranslate nohighlight">
+\[ E[y_i | X] = P[y_i = 1 | X] = p_i \]</div>
+<p>De esta manera, <span class="math notranslate nohighlight">\(\beta_j\)</span> es el cambio (o efecto) de <span class="math notranslate nohighlight">\(x_j\)</span> en la probabilidad que <span class="math notranslate nohighlight">\(y_i = 1\)</span>, manteniendo constante los demás regresores.</p>
+<p>Para estimar este modelo usarémos el método MCO y <strong>errores estándar robustos</strong>. La razón por la que usamos errores robustos es que el modelo de probabilidad es heteroscedastico por definición. Veamos:</p>
+<p>Observe que <span class="math notranslate nohighlight">\(\varepsilon_i = y_i - p_i\)</span>, luego</p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i | X) = V( y_i - p_i | X) = V(y_i | X)\]</div>
+<p>Ya que <span class="math notranslate nohighlight">\(y_i\)</span> es una variable binaria (o Bernoulli), sabemos que</p>
+<div class="math notranslate nohighlight">
+\[V(y_i | X) = p_i (1 - p_i)\]</div>
+<p>Ya que <em>(i)</em> <span class="math notranslate nohighlight">\(V(y_i | X) = V(\varepsilon_i | X)\)</span> y <em>(ii)</em> <span class="math notranslate nohighlight">\(p_i = E[y_i | X]\)</span> depende de las variables independientes, nuestro modelo MPL es heteroscedastico.</p>
 </section>
-<section id="econometria">
-<h2>Econometría<a class="headerlink" href="#econometria" title="Link to this heading">#</a></h2>
+<section id="ventajas-y-limitaciones">
+<h2>Ventajas y Limitaciones<a class="headerlink" href="#ventajas-y-limitaciones" title="Link to this heading">#</a></h2>
+<p><strong>Ventajas</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/edrubin/EC421S25">Introduction to Econometrics</a> by Ed Rubin (U of Oregon)</p></li>
-<li><p><a class="reference external" href="https://www.econometrics-with-r.org/">Introduction to Econometrics with R</a> by Hanck, Arnold, Gerber y Schmelzer</p></li>
-<li><p><a class="reference external" href="https://sites.northwestern.edu/iac879/teaching/e-lectures-econ480/">Advanced Econometrics</a> by Ivan Canay (Northwestern)</p></li>
-<li><p><a class="reference external" href="https://sites.northwestern.edu/iac879/teaching/e-lectures-econ481/">Topics in Econometrics</a> by Ivan Canay (Northwestern)</p></li>
-<li><p><a class="reference external" href="https://edrub.in/ARE212/notes.html">Multiple Equation Estimation</a> by Ed Rubin (Berkeley)</p></li>
-<li><p><a class="reference external" href="https://online.stat.psu.edu/stat510/Lesson01">Applied Time Series</a> at Penn State</p></li>
-<li><p><a class="reference external" href="https://online.stat.psu.edu/stat501/lesson/2">Regression Methods</a> at Penn State</p></li>
+<li><p>Sencillo de estimar con MCO.</p></li>
+<li><p>Interpretación directa:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\beta_j\)</span> indica el <strong>cambio en la probabilidad</strong> de <span class="math notranslate nohighlight">\(y_i = 1\)</span> ante un cambio unitario en <span class="math notranslate nohighlight">\(x_j\)</span>.</p></li>
 </ul>
-</section>
-<section id="inferencia-causal">
-<h2>Inferencia Causal<a class="headerlink" href="#inferencia-causal" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/edrubin/EC607S25">Econometrics III</a> by Ed Rubin (U of Oregon)</p></li>
-<li><p><a class="reference external" href="https://github.com/paulgp/applied-methods-phd">Applied Methods</a> by Paul Goldsmith-Pinkham (Yale-SOM)</p></li>
+</li>
 </ul>
-</section>
-<section id="aprendizaje-estadistico">
-<h2>Aprendizaje Estadístico<a class="headerlink" href="#aprendizaje-estadistico" title="Link to this heading">#</a></h2>
+<p><strong>Limitaciones</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://daviddalpiaz.github.io/r4sl/">R for Statistical Learning</a> by David Dalpiaz (UIUC)</p></li>
-<li><p><a class="reference external" href="https://stat385.org/">Statistical Programming Methods</a> by David Dalpiaz (UIUC)</p></li>
-<li><p><a class="reference external" href="https://github.com/edrubin/EC524W25">Econometrics - Machine Learning</a> by Ed Rubin (U of Oregon)</p></li>
+<li><p>La predicción <span class="math notranslate nohighlight">\(\hat{P}(y_i =1 \mid X)\)</span> puede quedar <strong>fuera del intervalo [0,1]</strong>.</p></li>
+<li><p>Supone una relación estrictamente lineal.</p></li>
+<li><p>Heterocedasticidad en el error:
+$<span class="math notranslate nohighlight">\(
+V(u_i \mid X_i) = P(y_i=1 \mid X_i) \cdot [1 - P(y_i=1 \mid X_i)]
+\)</span>$</p></li>
 </ul>
 </section>
 </section>
@@ -469,6 +479,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="5_Supuestos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Evaluación de Supuestos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_Probabilidad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -485,10 +513,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-y-estadistica">Probabilidad y Estadística</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#econometria">Econometría</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferencia-causal">Inferencia Causal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aprendizaje-estadistico">Aprendizaje Estadístico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-probabilidad-lineal">Modelo de Probabilidad Lineal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas-y-limitaciones">Ventajas y Limitaciones</a></li>
 </ul>
   </nav></div>
 
