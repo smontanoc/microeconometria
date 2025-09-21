@@ -22,6 +22,16 @@ plot(x, e, col = alpha("ivory4", 0.5), ylim = c(-9, 3), pch = 19, xlab = "x", yl
 points(x, u, col = alpha("maroon", 0.5), pch = 18) 
 legend("bottomleft", legend=c("e", "u"), col=c("ivory4", "maroon"), pch=c(19, 18), cex=0.8)
 
+
+model_het <- lm(y ~ x)
+summary(model_het)
+
+x2 <- x^2
+model_hom <- lm(y ~ x + x2)
+summary(model_hom)
+
+
+
 #Error de especificación: variable dependiente
 x <- runif(1000, 0, 1)
 e <- runif(1000, 0, 2)
@@ -34,6 +44,14 @@ plot(x, log(y), col = alpha("ivory4", 0.5), pch = 19,
      ylim = c(-10, 20), xlab = "x", ylab = " ")
 points(x, y, col = alpha("maroon", 0.5), pch = 18) 
 legend("topleft", legend=c("log(y)", "y"), col=c("ivory4", "maroon"), pch=c(19, 18), cex=0.8)
+
+model_het <- lm(y ~ x)
+summary(model_het)
+
+
+model_hom <- lm(log(y) ~ x)
+summary(model_hom)
+
 
 ####################################################################
 #Errores Estandar Robustos
