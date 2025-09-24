@@ -6,8 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Microeconometria Aplicada</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modelo de Cortes Transversales Repetidos &#8212; Microeconometria Aplicada</title>
   
   
   
@@ -56,9 +57,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '7_RepeatedCross';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="prev" title="Variables de Respuesta Cualitativa" href="6_Respuesta_Cualitativa.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,14 +181,14 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelo de Cortes Transversales Repetidos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -262,7 +265,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F7_RepeatedCross.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -274,6 +277,54 @@
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/7_RepeatedCross.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -315,7 +366,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -326,11 +379,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Modelo de Cortes Transversales Repetidos</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cortes-transversales-agrupados">Cortes Transversales Agrupados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-clave-de-los-datos-transversales-repetidos">Características clave de los datos transversales repetidos</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -340,13 +402,165 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <section class="tex2jax_ignore mathjax_ignore" id="modelo-de-cortes-transversales-repetidos">
+<h1>Modelo de Cortes Transversales Repetidos<a class="headerlink" href="#modelo-de-cortes-transversales-repetidos" title="Link to this heading">#</a></h1>
+<p>Un <strong>corte transversal</strong> es una “fotografía” de individuos (seleccionados aleatoriamente) en un solo punto en el tiempo. Este es el tipo de datos del que hemos hablado hasta ahora. Observe que usamos <span class="math notranslate nohighlight">\(i\)</span> para <code class="docutils literal notranslate"><span class="pre">indexar</span></code> individuos:</p>
+<div class="math notranslate nohighlight">
+\[
+Salario_i = \beta_0 + \beta_1 educ_i + \beta_2 exper_i + \beta_3 mujer_i + u_i
+\]</div>
+<p>Esta regresión la podemos estimar usando datos que se ven de la siguiente manera:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(i\)</span></p></th>
+<th class="head"><p>salario</p></th>
+<th class="head"><p>educ</p></th>
+<th class="head"><p>exper</p></th>
+<th class="head"><p>mujer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3.10</p></td>
+<td><p>11</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>3.24</p></td>
+<td><p>12</p></td>
+<td><p>22</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>5.30</p></td>
+<td><p>12</p></td>
+<td><p>7</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<section id="cortes-transversales-agrupados">
+<h2>Cortes Transversales Agrupados<a class="headerlink" href="#cortes-transversales-agrupados" title="Link to this heading">#</a></h2>
+<p>Los <strong>“cortes transversal repetidos”</strong> son múltiples “fotografías” de diferentes grupos de individuos (seleccionados aleatoriamente) en varios puntos en el tiempo.</p>
+<div class="math notranslate nohighlight">
+\[
+Salario_i = \beta_0 + \beta_1 educ_i + \beta_2 exper_i + \beta_3 mujer_i + {\color{red}\mu_t} + u_i
+\]</div>
+<p>Observe que aún podemos controlar el hecho de que las observaciones provienen de distintos años utilizando variables binarias, representadas por <span class="math notranslate nohighlight">\(\mu_t\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(t\)</span></p></th>
+<th class="head"><p>salario</p></th>
+<th class="head"><p>educ</p></th>
+<th class="head"><p>exper</p></th>
+<th class="head"><p>mujer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3.10</p></td>
+<td><p>11</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>1</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>1</p></td>
+<td><p>5.30</p></td>
+<td><p>12</p></td>
+<td><p>7</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>101</p></td>
+<td><p>2</p></td>
+<td><p>1.20</p></td>
+<td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>2</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>200</p></td>
+<td><p>2</p></td>
+<td><p>2.60</p></td>
+<td><p>10</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="caracteristicas-clave-de-los-datos-transversales-repetidos">
+<h2>Características clave de los datos transversales repetidos<a class="headerlink" href="#caracteristicas-clave-de-los-datos-transversales-repetidos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Muestra nueva en cada periodo de tiempo</strong> (<span class="math notranslate nohighlight">\(t\)</span>)</p>
+<ul>
+<li><p>Cada encuesta representa una sección transversal independiente.</p></li>
+<li><p>No se siguen los mismos individuos a lo largo de las distintas oleadas.</p></li>
+</ul>
+</li>
+<li><p><strong>Tendencias a nivel poblacional a lo largo del tiempo</strong></p>
+<ul>
+<li><p>Permite estudiar cómo cambia la distribución de características como ingresos, actitudes o comportamientos en la población.</p></li>
+<li><p>No posibilita observar trayectorias individuales.</p></li>
+</ul>
+</li>
+<li><p><strong>Consistencia en el diseño de la muestra</strong></p>
+<ul>
+<li><p>Para que las comparaciones entre oleadas sean válidas, se deben mantener constantes varios aspectos</p>
+<ol class="arabic simple">
+<li><p>Métodos de muestreo.</p></li>
+<li><p>Diseño del cuestionario.</p></li>
+<li><p>Definiciones de las variables clave.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -358,12 +572,46 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="6_Respuesta_Cualitativa.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Variables de Respuesta Cualitativa</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_Probabilidad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cortes-transversales-agrupados">Cortes Transversales Agrupados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-clave-de-los-datos-transversales-repetidos">Características clave de los datos transversales repetidos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

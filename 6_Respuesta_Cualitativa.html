@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '6_Respuesta_Cualitativa';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="next" title="Modelo de Cortes Transversales Repetidos" href="7_RepeatedCross.html" />
     <link rel="prev" title="Evaluación de Supuestos" href="5_Supuestos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -187,6 +187,8 @@
 <li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Variables de Respuesta Cualitativa</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -387,9 +389,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Variables de Respuesta Cualitativa</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-empleabilidad-y-genero">Aplicación: Empleabilidad y Género</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-probabilidad-lineal">Modelo de Probabilidad Lineal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas-y-limitaciones">Ventajas y Limitaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-probabilidad-no-lineales">Modelos de Probabilidad No-lineales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-logit">Modelo Logit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-probit">Modelo Probit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-verosimilitud">Función de Verosimilitud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud">Estimación de Máxima Verosimilitud</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud-versus-mco">Estimación de Máxima Verosimilitud versus MCO</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efectos-marginales">Efectos Marginales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-en-la-media-y-efecto-promedio">Efecto en la Media y Efecto Promedio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-r-cuadrado">Pseudo R-cuadrado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porcentaje-de-predicciones-correctas">Porcentaje de predicciones correctas</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -402,30 +421,173 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="variables-de-respuesta-cualitativa">
 <h1>Variables de Respuesta Cualitativa<a class="headerlink" href="#variables-de-respuesta-cualitativa" title="Link to this heading">#</a></h1>
-<p>Hasta ahora hemos considerado modelos de regresión cuya variable dependiente <span class="math notranslate nohighlight">\(y_i\)</span> es continua.</p>
-<p>Sin embargo, es posible que estemos interesados en estudiar la relación de un conjunto de regresores <span class="math notranslate nohighlight">\(x_j\)</span> y una variable cualitativa <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
-<p>Inicialmente consideraremos el caso en que esta variable es binaria, es decir, <span class="math notranslate nohighlight">\(y_i \in \{0, 1\}\)</span>.</p>
+<p>Hasta ahora hemos cubierto modelos de regresión cuya variable dependiente <span class="math notranslate nohighlight">\(y_i\)</span> es continua.</p>
+<p>Sin embargo, es posible que estemos interesados en estudiar la relación entre una variable cualitativa <span class="math notranslate nohighlight">\(y_i\)</span> y un conjunto de <span class="math notranslate nohighlight">\(k\)</span> variables explicativas <span class="math notranslate nohighlight">\(x_{ji}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, ..., k\}\)</span>.</p>
+<p>Inicialmente consideraremos el caso en que la variable es binaria, es decir, <span class="math notranslate nohighlight">\(y_i \in \{0, 1\}\)</span>.</p>
+<section id="aplicacion-empleabilidad-y-genero">
+<h2>Aplicación: Empleabilidad y Género<a class="headerlink" href="#aplicacion-empleabilidad-y-genero" title="Link to this heading">#</a></h2>
+<p>Claudia Goldin (Harvard) ganó el Premio Nobel en 2023 por su investigación sobre las brechas de género en el mercado laboral. Las conclusiones de su trabajo señalan que estas brechas no se deben exclusivamente a discriminación. Sus resultados indican, por ejemplo, que las decisiones de fertilidad pueden generar disrupciones en las carreras de las mujeres, reducción en el número de horas de trabajo, y mayor preferencia por flexibilidad laboral.</p>
+<p>Suponga que nos interesa estudiar la <strong>participación de las mujeres en el mercado laboral</strong>. Para ello utilizaremos un modelo de la forma:</p>
+<div class="math notranslate nohighlight">
+\[P(Ocupado_i = 1) = F(\alpha + \beta \text{ } Genero_i + X_i'\gamma)\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Ocupado_i =
+    \left\{\begin{array}{lr}
+    1, \text{si $i$ trabajó al menos una hora} \\
+    1, \text{si $i$ no trabajó pero tenía trabajo} \\
+    0, \text{de lo contrario}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Para las 13 ciudades principales de Colombia, según el DANE, la tasa de ocupación por género se veía de la siguiente manera en 2018:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Mujeres</p></th>
+<th class="head"><p>Hombres</p></th>
+<th class="head"><p>Brecha</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Mujeres</p></th>
+<th class="head"><p>Hombres</p></th>
+<th class="head"><p>Brecha</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Barranquilla</p></td>
+<td><p>0.489</p></td>
+<td><p>0.694</p></td>
+<td><p>-0.205</p></td>
+<td><p></p></td>
+<td><p>Manizales</p></td>
+<td><p>0.427</p></td>
+<td><p>0.618</p></td>
+<td><p>-0.190</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bogotá</p></td>
+<td><p>0.545</p></td>
+<td><p>0.686</p></td>
+<td><p>-0.141</p></td>
+<td><p></p></td>
+<td><p>Medellín</p></td>
+<td><p>0.486</p></td>
+<td><p>0.664</p></td>
+<td><p>-0.178</p></td>
+</tr>
+<tr class="row-even"><td><p>Bucaramanga</p></td>
+<td><p>0.545</p></td>
+<td><p>0.673</p></td>
+<td><p>-0.128</p></td>
+<td><p></p></td>
+<td><p>Montería</p></td>
+<td><p>0.488</p></td>
+<td><p>0.663</p></td>
+<td><p>-0.175</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cali</p></td>
+<td><p>0.514</p></td>
+<td><p>0.674</p></td>
+<td><p>-0.161</p></td>
+<td><p></p></td>
+<td><p>Pasto</p></td>
+<td><p>0.514</p></td>
+<td><p>0.649</p></td>
+<td><p>-0.136</p></td>
+</tr>
+<tr class="row-even"><td><p>Cartagena</p></td>
+<td><p>0.416</p></td>
+<td><p>0.636</p></td>
+<td><p>-0.220</p></td>
+<td><p></p></td>
+<td><p>Pereira</p></td>
+<td><p>0.487</p></td>
+<td><p>0.696</p></td>
+<td><p>-0.209</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cúcuta</p></td>
+<td><p>0.427</p></td>
+<td><p>0.601</p></td>
+<td><p>-0.174</p></td>
+<td><p></p></td>
+<td><p>Villavicencio</p></td>
+<td><p>0.495</p></td>
+<td><p>0.655</p></td>
+<td><p>-0.160</p></td>
+</tr>
+<tr class="row-even"><td><p>Ibagué</p></td>
+<td><p>0.492</p></td>
+<td><p>0.627</p></td>
+<td><p>-0.135</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hoy trabajarémos con informacipon de la Gran Encuesta de Hogares (GEIH), que se usa para medir diferentes estadísticas del mercado laboral.</p>
+</section>
 <section id="modelo-de-probabilidad-lineal">
 <h2>Modelo de Probabilidad Lineal<a class="headerlink" href="#modelo-de-probabilidad-lineal" title="Link to this heading">#</a></h2>
-<p>El <strong>Modelo de Probabilidad Lineal (MPL)</strong> es una forma sencilla de modelar variables dependientes binarias.</p>
-<p>Considere <span class="math notranslate nohighlight">\(y_i \in \{0,1\}\)</span> tal que</p>
+<p>Para modelar de manera sencilla variables dependientes binarias podemos imponer una forma funcional lineal. Considere <span class="math notranslate nohighlight">\(y_i \in \{0,1\}\)</span> tal que</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 y_i &amp;= E[y_i | X]  + \varepsilon_i \\
-    &amp;= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + \varepsilon_i \\
+    &amp;= X_i'\beta + \varepsilon_i \\
 \end{align*}\]</div>
-<p>Observe que</p>
+<p>Note que este modelo se basa en los supuestos clásicos de una regresión lineal. Sin embargo, observe que <span class="math notranslate nohighlight">\(y_i\)</span> es una variable binaria y por lo tanto la esperanza condicional se lee como un porcentaje o <strong>probabilidad</strong>. Es decir,</p>
 <div class="math notranslate nohighlight">
-\[ E[y_i | X] = P[y_i = 1 | X] = p_i \]</div>
-<p>De esta manera, <span class="math notranslate nohighlight">\(\beta_j\)</span> es el cambio (o efecto) de <span class="math notranslate nohighlight">\(x_j\)</span> en la probabilidad que <span class="math notranslate nohighlight">\(y_i = 1\)</span>, manteniendo constante los demás regresores.</p>
-<p>Para estimar este modelo usarémos el método MCO y <strong>errores estándar robustos</strong>. La razón por la que usamos errores robustos es que el modelo de probabilidad es heteroscedastico por definición. Veamos:</p>
-<p>Observe que <span class="math notranslate nohighlight">\(\varepsilon_i = y_i - p_i\)</span>, luego</p>
+\[ E[y_i| X] = P[y_i = 1 | X] = p_i \]</div>
+<p>De esta manera, por los axiomas de probabilidad se tiene que:</p>
 <div class="math notranslate nohighlight">
-\[V(\varepsilon_i | X) = V( y_i - p_i | X) = V(y_i | X)\]</div>
-<p>Ya que <span class="math notranslate nohighlight">\(y_i\)</span> es una variable binaria (o Bernoulli), sabemos que</p>
+\[0 \leq E[y_i | X] \leq 1\]</div>
+<p>Una ventaja de este modelo es que podemos interpretar los coeficientes <span class="math notranslate nohighlight">\(\beta_j\)</span> como efectos marginales de manera directa. Es decir,</p>
 <div class="math notranslate nohighlight">
-\[V(y_i | X) = p_i (1 - p_i)\]</div>
-<p>Ya que <em>(i)</em> <span class="math notranslate nohighlight">\(V(y_i | X) = V(\varepsilon_i | X)\)</span> y <em>(ii)</em> <span class="math notranslate nohighlight">\(p_i = E[y_i | X]\)</span> depende de las variables independientes, nuestro modelo MPL es heteroscedastico.</p>
+\[\frac{\partial E[y_i | X]}{\partial x_{ji}} = \beta_j\]</div>
+<p>Así, <span class="math notranslate nohighlight">\(\beta_j\)</span> es el cambio (o efecto) de <span class="math notranslate nohighlight">\(x_j\)</span> en la probabilidad que <span class="math notranslate nohighlight">\(y_i = 1\)</span>, manteniendo constante los demás regresores.</p>
+<p>Sin embargo, algunos de los supuestos del modelo de regresión no se cumplen. En particular, los errores no se distribuyen normal y el modelo es mecánicamente heteroscedastico. Note que:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(y_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\varepsilon_i\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1 - <span class="math notranslate nohighlight">\(X_i'\beta\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>- <span class="math notranslate nohighlight">\(X_i'\beta\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esto nos permite concluir que los errores se distribuyen Bernoulli.</p>
+<p>Mostremos ahora que el modelo es heteroscedastico. Recuerde que</p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i) = E(\varepsilon_i^2) - E(\varepsilon_i)^2\]</div>
+<ol class="arabic simple">
+<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i) = 0\)</span>.
+\begin{align*}
+E(\varepsilon_i) &amp;= (1- X_i’\beta)p_i + (- X_i’\beta)(1 - p_i) \
+&amp;= (1- p_i)p_i - (p_i)(1 - p_i) = 0 \
+\end{align*}</p></li>
+<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i^2)\)</span>
+\begin{align*}
+E(\varepsilon_i^2) &amp;= (1- X_i’\beta)^2p_i + (- X_i’\beta)^2(1 - p_i) \
+&amp;= (1- p_i)^2p_i + p_i^2(1 - p_i) \
+&amp;= p_i - 2p_i^2 + p_i^3 + p_i^2 - p_i^3\
+&amp;= p_i - p_i^2 = p_i(1 - p_i)\
+\end{align*}</p></li>
+</ol>
+<p>Ya que</p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i) = p_i(1 - p_i) = X_i'\beta(1 - X_i'\beta)\]</div>
+<p>podemos concluir que el modelo es heteroscedastico, es decir, la varianza depende de las variables <span class="math notranslate nohighlight">\(X_i\)</span>.</p>
+<p>Esto nos indica que si estimamos el modelo por MCO, debemos corregir nuestros errores estándar usando el método de White (<strong>errores robustos</strong>).</p>
 </section>
 <section id="ventajas-y-limitaciones">
 <h2>Ventajas y Limitaciones<a class="headerlink" href="#ventajas-y-limitaciones" title="Link to this heading">#</a></h2>
@@ -440,13 +602,190 @@ y_i &amp;= E[y_i | X]  + \varepsilon_i \\
 </ul>
 <p><strong>Limitaciones</strong></p>
 <ul class="simple">
-<li><p>La predicción <span class="math notranslate nohighlight">\(\hat{P}(y_i =1 \mid X)\)</span> puede quedar <strong>fuera del intervalo [0,1]</strong>.</p></li>
+<li><p>La predicción <span class="math notranslate nohighlight">\(\hat{P}(y_i =1 \mid X)\)</span> puede estar <strong>fuera del intervalo [0,1]</strong>.</p></li>
 <li><p>Supone una relación estrictamente lineal.</p></li>
-<li><p>Heterocedasticidad en el error:
-$<span class="math notranslate nohighlight">\(
-V(u_i \mid X_i) = P(y_i=1 \mid X_i) \cdot [1 - P(y_i=1 \mid X_i)]
-\)</span>$</p></li>
+<li><p>Heterocedasticidad de los errores.</p></li>
 </ul>
+</section>
+<section id="modelos-de-probabilidad-no-lineales">
+<h2>Modelos de Probabilidad No-lineales<a class="headerlink" href="#modelos-de-probabilidad-no-lineales" title="Link to this heading">#</a></h2>
+<p>Debido a las desventajas de MPL, se consideran alternativas de estimación. Estos modelos alternativos son más flexibles (no-lineales), aunque imponen cierta estructura a la distribución de los errores.</p>
+<p>Recuerde que nuestro interés es estimar la probabilidad que la variable binaria <span class="math notranslate nohighlight">\(y_i\)</span> tome el valor de 1.</p>
+<div class="math notranslate nohighlight">
+\[P[y_i = 1 | X] = F(X_i'\beta)\]</div>
+<p>La función <span class="math notranslate nohighlight">\(F(\cdot)\)</span> transforma <span class="math notranslate nohighlight">\(X_i'\beta\)</span> para garantizar que <span class="math notranslate nohighlight">\(P[y_i = 1 | X]\)</span> estés entre 0 y 1.</p>
+</section>
+<section id="modelo-logit">
+<h2>Modelo Logit<a class="headerlink" href="#modelo-logit" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El modelo logit utiliza la función logística:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(y_i=1) = F(X_i'\beta) = \frac{\exp(X_i'\beta)}{1+\exp(X_i'\beta)} = \frac{e^{X_i'\beta}}{1+e^{X_i'\beta}}
+\]</div>
+<ul class="simple">
+<li><p>Como <span class="math notranslate nohighlight">\(\exp(X_i'\beta)\)</span> es siempre positiva, <span class="math notranslate nohighlight">\(P(y_i=1)\)</span> estará entre 0 y 1.</p></li>
+<li><p>La probabilidad de que <span class="math notranslate nohighlight">\(y_i=0\)</span> es:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(y_i=0) = 1 - P(y_i=1) = \frac{1}{1+\exp(X_i'\beta)}
+\]</div>
+</section>
+<section id="modelo-probit">
+<h2>Modelo Probit<a class="headerlink" href="#modelo-probit" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El modelo probit utiliza la función de distribución acumulada (cdf) de la distribución normal <span class="math notranslate nohighlight">\(\Phi\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(y_i=1) = \Phi(X_i'\beta) = \int_{-\infty}^{X_i'\beta} \phi(z) \, dz \hspace{10pt}\text{ donde }\hspace{10pt} \phi(z) = \frac{1}{\sqrt{2\pi}} \exp(- z^2)
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(y_i=1)\)</span> será un número entre 0 y 1 porque la cdf de la normal toma valores en ese rango.</p></li>
+</ul>
+</section>
+<section id="funcion-de-verosimilitud">
+<h2>Función de Verosimilitud<a class="headerlink" href="#funcion-de-verosimilitud" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>La verosimilitud es la probabilidad de que el resultado de la observación <span class="math notranslate nohighlight">\(i\)</span> sea <span class="math notranslate nohighlight">\(y_i\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(y_i = 1\)</span>, la verosimilitud es <span class="math notranslate nohighlight">\(P(y_i=1)\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(y_i = 0\)</span>, la verosimilitud es <span class="math notranslate nohighlight">\(P(y_i=0)\)</span>.</p></li>
+<li><p>La función de verosimilitud es:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+L = P(y_i=1)^{y_i} \, P(y_i=0)^{1-y_i}
+\]</div>
+<ul class="simple">
+<li><p>Observe que:</p>
+<ul>
+<li><p>Si <span class="math notranslate nohighlight">\(y_i=1\)</span>: <span class="math notranslate nohighlight">\(L = P(y_i=1)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(y_i=0\)</span>: <span class="math notranslate nohighlight">\(L = P(y_i=0)\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="estimacion-de-maxima-verosimilitud">
+<h2>Estimación de Máxima Verosimilitud<a class="headerlink" href="#estimacion-de-maxima-verosimilitud" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Los coeficientes en los modelos probit y logit se obtienen maximizando la log-verosimilitud:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\max \sum_{i=1}^n \Big[ y_i \cdot \ln P(y_i=1) + (1-y_i) \cdot \ln P(y_i=0) \Big]
+\]</div>
+<ul class="simple">
+<li><p>Si el resultado es <span class="math notranslate nohighlight">\(y_i = 1\)</span>, se maximiza la probabilidad predicha <span class="math notranslate nohighlight">\(P(y_i=1)\)</span> (por ejemplo, 0.8 o 0.9).</p></li>
+<li><p>Si el resultado es <span class="math notranslate nohighlight">\(y_i = 0\)</span>, se maximiza <span class="math notranslate nohighlight">\(P(y_i=0)\)</span> o, de forma equivalente, se minimiza <span class="math notranslate nohighlight">\(P(y_i=1)\)</span> (por ejemplo, 0.1 o 0.2).</p></li>
+<li><p>Los estimadores de máxima verosimilitud son:</p>
+<ul>
+<li><p>Consistentes</p></li>
+<li><p>Asintóticamente normales</p></li>
+<li><p>Asintóticamente eficientes (si se cumplen los supuestos).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="estimacion-de-maxima-verosimilitud-versus-mco">
+<h1>Estimación de Máxima Verosimilitud versus MCO<a class="headerlink" href="#estimacion-de-maxima-verosimilitud-versus-mco" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Los coeficientes en los modelos probit y logit se obtienen maximizando la función de log-verosimilitud<br />
+(si el resultado <span class="math notranslate nohighlight">\(y = 1\)</span>, se maximiza la probabilidad predicha <span class="math notranslate nohighlight">\(P(y=1)\)</span>)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\max \sum_{i=1}^{n} \Big( y_i \cdot \ln P(y_i=1) + (1-y_i) \cdot \ln P(y_i=0) \Big)
+\]</div>
+<ul class="simple">
+<li><p>Los coeficientes OLS se obtienen minimizando la suma de los residuos al cuadrado<br />
+(diferencia entre el valor real <span class="math notranslate nohighlight">\(y\)</span> y el valor predicho <span class="math notranslate nohighlight">\(\hat{y}\)</span>)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\min \sum_{i=1}^{n} \hat{u}^2 = \sum_{i=1}^{n} (y - \hat{y})^2 = \sum_{i=1}^{n} (y - x \hat{\beta})^2
+\]</div>
+<section id="efectos-marginales">
+<h2>Efectos Marginales<a class="headerlink" href="#efectos-marginales" title="Link to this heading">#</a></h2>
+<p>Note que para los modelos logit y probit, los coeficientes <span class="math notranslate nohighlight">\(\beta_j\)</span> no representan el efecto marginal de la variable independiente <span class="math notranslate nohighlight">\(x_{ji}\)</span></p>
+<p>Esto se debe a que:
+$<span class="math notranslate nohighlight">\(\frac{\partial P[y_i = 1 | X]}{\partial x_{ij}} = \frac{\partial F(X_i'\beta)}{\partial x_{ij}} = F'(X_i'\beta) \beta_j\)</span>$</p>
+<p>Este cambio marginal se interpreta como el efecto de la variable independiente en la probabilidad que <span class="math notranslate nohighlight">\(y_i = 1\)</span>.</p>
+<ul class="simple">
+<li><p>Para el modelo probit:
+$<span class="math notranslate nohighlight">\(\frac{\partial P[y_i = 1 | X]}{\partial x_{ij}} = \phi(X_i'\beta) \beta_j\)</span>$</p></li>
+<li><p>Para el modelo logit:
+$<span class="math notranslate nohighlight">\(\frac{\partial P[y_i = 1 | X]}{\partial x_{ij}} = \frac{\exp(X_i'\beta)}{[1+\exp(X_i'\beta)]^2} \beta_j\)</span>$</p></li>
+</ul>
+</section>
+<section id="efecto-en-la-media-y-efecto-promedio">
+<h2>Efecto en la Media y Efecto Promedio<a class="headerlink" href="#efecto-en-la-media-y-efecto-promedio" title="Link to this heading">#</a></h2>
+<p>Observe que el efecto marginal depende de <span class="math notranslate nohighlight">\(X_i\)</span>. Luego, debemos fijar valores para realizar interpretaciones.</p>
+<ol class="arabic simple">
+<li><p>Efecto en la media</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{\partial P[y_i = 1 | X]}{\partial x_{ij}} = \frac{\partial F(X_i'\beta)}{\partial x_{ij}} \bigg|_{X_i = \bar X} = F'(\bar X'\beta) \beta_j\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Efecto promedio</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\frac{\partial P[y_i = 1 | X]}{\partial x_{ij}} = \frac{1}{n} \sum _{i = 1}^n \frac{\partial F(X_i'\beta)}{\partial x_{ij}} = \beta_j \frac{1}{n} \sum _{i = 1}^n F'(X_i'\beta)\]</div>
+</section>
+<section id="pseudo-r-cuadrado">
+<h2>Pseudo R-cuadrado<a class="headerlink" href="#pseudo-r-cuadrado" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El <strong>Pseudo R-cuadrado</strong>, también llamado <strong>McFadden R-squared</strong>, mide el ajuste de un modelo probit o logit.</p></li>
+<li><p>Compara la log-verosimilitud de un modelo completo con la de un modelo que solo tiene una constante.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+Pseudo \; R^2 = 1 - \frac{LL_{nr}}{LL_{0}}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(LL_{nr}\)</span>: log-verosimilitud del modelo no restringido (con todas las variables independientes).</p></li>
+<li><p><span class="math notranslate nohighlight">\(LL_{0}\)</span>: log-verosimilitud del modelo restringido (solo con constante).</p></li>
+<li><p>Interpretación:</p>
+<ul>
+<li><p>Si las variables independientes no explican nada → <span class="math notranslate nohighlight">\(LL_{0} \approx LL_{nr}\)</span> → <span class="math notranslate nohighlight">\(Pseudo \; R^2 = 0\)</span>.</p></li>
+<li><p>Si las variables independientes explican muy bien → <span class="math notranslate nohighlight">\(LL_{ur}\)</span> aumenta (se acerca a 0, pues es negativo) → <span class="math notranslate nohighlight">\(Pseudo \; R^2  \to 1\)</span>.</p></li>
+</ul>
+</li>
+<li><p>El <strong>Pseudo R-cuadrado</strong> indica:</p>
+<ul>
+<li><p>Qué tan bien predice el modelo el resultado.</p></li>
+<li><p>Qué tanto mejora respecto a un modelo nulo (solo intercepto).</p></li>
+<li><p><strong>Ojo:</strong> su magnitud <strong>no se interpreta como en OLS</strong>.</p></li>
+</ul>
+</li>
+<li><p>Comparar dos modelos: uno con mayor <span class="math notranslate nohighlight">\(Pseudo \; R^2  = 0\)</span> predice mejor el resultado.</p></li>
+</ul>
+</section>
+<section id="porcentaje-de-predicciones-correctas">
+<h2>Porcentaje de predicciones correctas<a class="headerlink" href="#porcentaje-de-predicciones-correctas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>El <strong>porcentaje de predicciones correctas</strong> es una medida de ajuste del modelo.</p></li>
+<li><p>Mide el porcentaje de predicciones correctas sobre el total de predicciones para una variable binaria.</p></li>
+</ul>
+<p><strong>Procedimiento</strong>:</p>
+<ul class="simple">
+<li><p>El resultado real <span class="math notranslate nohighlight">\(y_i\)</span> solo puede ser 0 o 1.</p></li>
+<li><p>La probabilidad predicha <span class="math notranslate nohighlight">\(P(y_i=1)\)</span> es un número entre 0 y 1.</p>
+<ul>
+<li><p>Si <span class="math notranslate nohighlight">\(P(y_i=1) &gt; 0.5 \implies \hat{y_i}=1\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(P(y_i=1) \leq 0.5 \implies \hat{y_i}=0\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Casos posibles:</strong></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(y_i=1\)</span> y <span class="math notranslate nohighlight">\(\hat{y_i}=1\)</span> → <strong>predicción correcta</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_i=1\)</span> y <span class="math notranslate nohighlight">\(\hat{y_i}=0\)</span> → <strong>predicción incorrecta</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_i=0\)</span> y <span class="math notranslate nohighlight">\(\hat{y_i}=0\)</span> → <strong>predicción correcta</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_i=0\)</span> y <span class="math notranslate nohighlight">\(\hat{y_i}=1\)</span> → <strong>predicción incorrecta</strong>.</p></li>
+</ol>
 </section>
 </section>
 
@@ -490,11 +829,11 @@ V(u_i \mid X_i) = P(y_i=1 \mid X_i) \cdot [1 - P(y_i=1 \mid X_i)]
       </div>
     </a>
     <a class="right-next"
-       href="1_Probabilidad.html"
+       href="7_RepeatedCross.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+        <p class="prev-next-title">Modelo de Cortes Transversales Repetidos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -514,9 +853,26 @@ V(u_i \mid X_i) = P(y_i=1 \mid X_i) \cdot [1 - P(y_i=1 \mid X_i)]
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Variables de Respuesta Cualitativa</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-empleabilidad-y-genero">Aplicación: Empleabilidad y Género</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-probabilidad-lineal">Modelo de Probabilidad Lineal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas-y-limitaciones">Ventajas y Limitaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-probabilidad-no-lineales">Modelos de Probabilidad No-lineales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-logit">Modelo Logit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-probit">Modelo Probit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-verosimilitud">Función de Verosimilitud</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud">Estimación de Máxima Verosimilitud</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud-versus-mco">Estimación de Máxima Verosimilitud versus MCO</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efectos-marginales">Efectos Marginales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efecto-en-la-media-y-efecto-promedio">Efecto en la Media y Efecto Promedio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-r-cuadrado">Pseudo R-cuadrado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porcentaje-de-predicciones-correctas">Porcentaje de predicciones correctas</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

@@ -13,6 +13,30 @@ for(i in PackageNames){
   }
 }
 
+
+install.packages("fastDummies")
+install.packages("haven")
+install.packages("fixest")
+install.packages("jtools")
+install.packages("tidyverse")
+install.packages("stargazer")
+install.packages("magrittr")
+install.packages("margins")
+install.packages("caret")
+
+
+
+library(fastDummies)
+library(haven)
+library(fixest)
+library(jtools)
+library(tidyverse)
+library(stargazer)
+library(magrittr)
+library(margins)
+library(caret)
+
+
 link_datos <- 'https://www.dropbox.com/scl/fi/ng7f1qoig9xxesn8lzp9h/GEIH.dta?rlkey=ws58sutee6n5rjev6p36j27su&st=w4ilis6r&dl=1'
 datos <- read_dta(link_datos)
 
@@ -25,7 +49,7 @@ mujeres <- aggregate(ocupado ~ area, data = datos[datos$mujer ==1, ], FUN = mean
 hombres <- aggregate(ocupado ~ area, data = datos[datos$mujer ==0, ], FUN = mean)
 brecha <- mujeres[, 2]-hombres[, 2]
 ocupacion <- cbind(mujeres, hombres[, 2], brecha)
-names(brecha) <- c('ciudad', 'mujeres', 'hombres', 'brecha')
+names(ocupacion) <- c('ciudad', 'mujeres', 'hombres', 'brecha')
 
 #Crear variables binarias
 datos <- dummy_cols(datos, select_columns = c("area"))
