@@ -1,0 +1,1229 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Taller 2 &#8212; Microeconometria Aplicada</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Taller_2_Sol';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Taller 3" href="Taller_3_Sol.html" />
+    <link rel="prev" title="Taller 1" href="Taller_1_Sol.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Microeconometria Aplicada - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Microeconometria Aplicada - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Microeconometría Aplicada
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Taller 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_3_Sol.html">Taller 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTaller_2_Sol.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Taller_2_Sol.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Taller 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-1">Pregunta 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-2">Pregunta 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-3">Pregunta 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-4">Pregunta 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-5">Pregunta 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solución</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="taller-2">
+<h1>Taller 2<a class="headerlink" href="#taller-2" title="Link to this heading">#</a></h1>
+<p><strong>Fecha de entrega:</strong> Sabado 13 de Septiembre</p>
+<p><strong>Instrucciones:</strong> Este taller debe ser entregado de manera individual a través de <a class="reference external" href="https://tecnologia.uniandes.edu.co/bloqueneon/">Bloque Neón</a>. A pesar de que la entrega es individual, se promueve el trabajo en grupos.</p>
+<section id="pregunta-1">
+<h2>Pregunta 1<a class="headerlink" href="#pregunta-1" title="Link to this heading">#</a></h2>
+<p>Asuma que usted quiere estimar el modelo <span class="math notranslate nohighlight">\(y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\)</span> usando los siguientes datos:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>y</em></p></th>
+<th class="head"><p><em>x</em></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>-20</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>-10</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>-8</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>-8</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol class="arabic simple">
+<li><p>Calcule <span class="math notranslate nohighlight">\(\hat{\beta}_0\)</span> y <span class="math notranslate nohighlight">\(\hat{\beta}_1\)</span>.</p></li>
+<li><p>Calcule el error estándar del modelo.</p></li>
+<li><p>Evalue si <span class="math notranslate nohighlight">\(\beta_1 = 0\)</span>.</p></li>
+<li><p>Calcule SST, SSR, y SSE.</p></li>
+<li><p>Calcule el <span class="math notranslate nohighlight">\(R^2\)</span>.</p></li>
+<li><p>Usando STATA o R, calcule los <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> y <span class="math notranslate nohighlight">\(e_i\)</span>.</p></li>
+<li><p>Usando STATA o R, haga una tabla pequeña con las estadísticas descriptivas de <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> y <span class="math notranslate nohighlight">\(e_i\)</span>.</p></li>
+</ol>
+</section>
+<section id="solucion">
+<h2>Solución<a class="headerlink" href="#solucion" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Usando nuestra solución de MCO</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\hat\beta_1 = \frac{\sum_i (X_i - \overline X)(Y_i - \overline Y)}{\sum_i (X_i - \overline X)^2} \approx \frac{130,6}{316,8} \approx 0,412\]</div>
+<div class="math notranslate nohighlight">
+\[\hat\beta_0 = \overline Y - \hat\beta_1 \overline X = 14,6 - (0,412)(-8,2) \approx 17,98\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Un estimador para <span class="math notranslate nohighlight">\(\sigma\)</span> es <span class="math notranslate nohighlight">\(\sqrt{\frac{\sum_i e_i^2}{n-k}} \approx \sqrt{\frac{5.3605}{5-2}} \approx \sqrt{1.787} \approx 1.337\)</span></p></li>
+<li><p>Queremos evaluar si</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[H_0 : \beta_1 = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \beta_1 \neq 0\]</div>
+<p>Para ello usamos nuestro estadístico <span class="math notranslate nohighlight">\(T = \frac{\hat\beta_1}{\text{ee}(\hat\beta_1)}\)</span>, donde <span class="math notranslate nohighlight">\(\text{ee}(\hat\beta_1) = \sqrt{ \frac{\sum_i e_i^2/n-K}{\sum_i (X_i - \overline X)^2}} \approx \sqrt{\frac{1.787}{1.337}} \approx 0.0751\)</span>. Luego, <span class="math notranslate nohighlight">\(T = \frac{0,412}{0.0751} \approx 5.49\)</span></p>
+<p>Para <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, <span class="math notranslate nohighlight">\(t_{\alpha/2} = -3.182\)</span> y <span class="math notranslate nohighlight">\(t_{1-\alpha/2} = 3.182\)</span>. Nuestra región de rechazo de <span class="math notranslate nohighlight">\(H_0\)</span> es <span class="math notranslate nohighlight">\(T &gt; |t_{\alpha/2}|\)</span>.</p>
+<p>Ya que <span class="math notranslate nohighlight">\(5.49 &gt; 3.182\)</span>. Rechazamos <span class="math notranslate nohighlight">\(H_0\)</span> en favor de <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
+<ol class="arabic simple" start="4">
+<li><p><span class="math notranslate nohighlight">\(SST = \sum^n_{i = 1} (Y_i -\bar{Y})^2 = 59.2, \hspace{5pt} SSR = \sum_i (\hat Y_i -\bar{Y})^2 = 53.83952, \hspace{5pt}\)</span> y <span class="math notranslate nohighlight">\(\hspace{5pt} SSE = \sum_i (Y_i - \hat Y_i)^2 = 5.36048\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST} = \frac{53.83952}{59.2} \approx 0.909\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat y = [9.73, 13.86, 14.68, 14.68, 20.04]'\)</span> y <span class="math notranslate nohighlight">\(e = [0.26, -1.86,  0.32,  1.32, -0.04]'\)</span></p></li>
+<li><p>La siguiente tabla presenta estadísticas descriptivas para <span class="math notranslate nohighlight">\(\hat y_i\)</span> y <span class="math notranslate nohighlight">\(e_i\)</span></p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(e\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\hat y\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>min</p></td>
+<td><p>-185,80</p></td>
+<td><p>9,735</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q1</p></td>
+<td><p>-0,04</p></td>
+<td><p>13,858</p></td>
+</tr>
+<tr class="row-even"><td><p>Mediana</p></td>
+<td><p>0,26</p></td>
+<td><p>14,682</p></td>
+</tr>
+<tr class="row-odd"><td><p>Media</p></td>
+<td><p>0,00</p></td>
+<td><p>14,6</p></td>
+</tr>
+<tr class="row-even"><td><p>Q3</p></td>
+<td><p>0,32</p></td>
+<td><p>14,682</p></td>
+</tr>
+<tr class="row-odd"><td><p>max</p></td>
+<td><p>131,76</p></td>
+<td><p>20,042</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Datos</span>
+<span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">-8</span><span class="p">,</span><span class="w"> </span><span class="m">-8</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#Estimar modelo</span>
+<span class="n">b1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cov</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nf">var</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;b1 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="p">))</span>
+<span class="n">b0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b1</span><span class="o">*</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;b0 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b0</span><span class="p">))</span>
+
+<span class="c1">#Residuales</span>
+<span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">b0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b1</span><span class="o">*</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;sigma2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="m">-2</span><span class="p">)))</span>
+
+<span class="c1">#Prueba de hipotesis</span>
+<span class="n">ee_b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">((</span><span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="m">-2</span><span class="p">))</span><span class="o">/</span><span class="nf">sum</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">))</span>
+<span class="bp">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b1</span><span class="o">/</span><span class="n">ee_b1</span><span class="p">;</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Estadistico T =&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">T</span><span class="p">))</span>
+
+<span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span>
+<span class="n">tc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="m">-2</span><span class="p">)</span><span class="w"> </span><span class="c1">#t critico</span>
+<span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="bp">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="n">tc</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Ya que T = &quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&gt; |t_c| = &quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="n">tc</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;, Rechace H0&quot;</span><span class="p">))</span>
+<span class="p">}</span><span class="kr">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;No rechace H0&quot;</span><span class="p">)</span><span class="w">    </span>
+<span class="p">}</span>
+
+<span class="c1">#Bondad de Ajuste</span>
+<span class="n">SST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">);</span><span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;SST =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SST</span><span class="p">))</span>
+<span class="n">SSR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(((</span><span class="n">b0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">);</span><span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;SSR =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SSR</span><span class="p">))</span>
+<span class="n">SSE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="p">(</span><span class="n">b0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b1</span><span class="o">*</span><span class="n">x</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">);</span><span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;SSE =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SSE</span><span class="p">))</span>
+<span class="n">R2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SSR</span><span class="o">/</span><span class="n">SST</span><span class="p">;</span><span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;R2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">R2</span><span class="p">))</span>
+
+<span class="c1">#Prediccion del modelo </span>
+<span class="n">yhat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nf">summary</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;b1 = 0.412247474747475&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;b0 = 17.9804292929293&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;sigma2 = 1.7868265993266&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Estadistico T = 5.48920418815368&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Ya que T =  5.48920418815368 &gt; |t_c| =  3.18244630528371 , Rechace H0&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;SST = 59.2&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;SSR = 53.8395202020202&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;SSE = 5.3604797979798&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;R2 = 0.909451354763855&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-1.85795 -0.04167  0.26452  0.00000  0.31755  1.31755 
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  9.735  13.858  14.682  14.600  14.682  20.042 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pregunta-2">
+<h2>Pregunta 2<a class="headerlink" href="#pregunta-2" title="Link to this heading">#</a></h2>
+<p>Asuma un modelo de regresión con intercepto. Los datos muestran lo siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X'X = \begin{bmatrix} 33 &amp; 0 &amp; 0 \\ 0 &amp; 40 &amp; 20 \\ 0 &amp; 20 &amp; 60 \end{bmatrix}, \quad X'Y = \begin{bmatrix} 132 \\ 24 \\ 92 \end{bmatrix}, \quad \sum (y_i - \bar{y})^2 = 150\end{split}\]</div>
+<ol class="arabic simple">
+<li><p>¿Cuál es el tamaño de la muestra?</p></li>
+<li><p>Estime los parámetros <span class="math notranslate nohighlight">\(\beta_0, \beta_1, \beta_2\)</span>.</p></li>
+<li><p>Estime el error estándar de <span class="math notranslate nohighlight">\(\hat{\beta}_2\)</span> y evalúe la significancia de <span class="math notranslate nohighlight">\(\beta_2\)</span> (nivel de significancia 5%).</p></li>
+<li><p>Calcule el <span class="math notranslate nohighlight">\(R^2\)</span>.</p></li>
+</ol>
+</section>
+<section id="id1">
+<h2>Solución<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>El tamaño de muestra es <span class="math notranslate nohighlight">\(n = 33\)</span></p></li>
+<li><p>Para estimar los parámetros <span class="math notranslate nohighlight">\(\beta_0, \beta_1, \beta_2\)</span>, podemos usar nuestra solución de MCO, es decir, <span class="math notranslate nohighlight">\(\hat\beta = (X'X)^{-1}(X'Y)\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat \beta = \begin{bmatrix} \hat\beta_0 \\ \hat\beta_1 \\ \hat\beta_2 \end{bmatrix} = (X'X)^{-1}(X'Y) = \begin{bmatrix} 0.0\overline{30} &amp; 0 &amp; 0 \\ 0 &amp; 0.03 &amp; -0.01 \\ 0 &amp; -0.01 &amp; 0.02 \end{bmatrix} \begin{bmatrix} 132 \\ 24 \\ 92 \end{bmatrix} =  \begin{bmatrix} 4.0 \\ -0.2 \\ 1.6 \end{bmatrix}\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>La matriz de varianza-covarianza se puede estimar usando la siguiente expresión, <span class="math notranslate nohighlight">\(\hat V(\hat \beta) = \hat\sigma^2 (X'X)^{-1}\)</span>, donde <span class="math notranslate nohighlight">\(\hat\sigma^2 = \frac{\sum_i e_i^2}{n-k}\)</span></p></li>
+</ol>
+<p>Observe que <span class="math notranslate nohighlight">\(\sum^n_i y_i = 132\)</span>, entonces <span class="math notranslate nohighlight">\(\bar{y} = 4\)</span>. Además, <span class="math notranslate nohighlight">\(\sum^n_i  (y_i - \bar{y})^2 = \sum^n_i y_i^2 - n \bar y^2 = 150\)</span>. Luego,</p>
+<div class="math notranslate nohighlight">
+\[\sum^n_i y_i^2 = 150 + n \bar y^2 = 150 + 33(4)^2=678\]</div>
+<p>Observe ahora que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    y_i &amp; = \hat y_i + e_i \\
+    \sum^n_i y_i^2 &amp; = \sum^n_i \hat y_i^2 + \sum^n_i e_i^2 \\
+    y'y &amp; = \beta x' x\beta + e'e \\
+    678 &amp; =  670.4 + e'e \\
+    7.6 &amp; = e'e
+\end{align*}\]</div>
+<p>Así, <span class="math notranslate nohighlight">\(\hat\sigma^2 = \frac{7.6}{33-3}\)</span>. Luego <span class="math notranslate nohighlight">\(ee(\hat\beta_2) = \sqrt{\frac{7.6}{30} \frac{2}{100}} = 0.0712\)</span>.</p>
+<p>Queremos evaluar si</p>
+<div class="math notranslate nohighlight">
+\[H_0 : \beta_2 = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \beta_2 \neq 0\]</div>
+<p>Para ello usamos nuestro estadístico <span class="math notranslate nohighlight">\(T = \frac{\hat\beta_2}{\text{ee}(\hat\beta_2)} = \frac{1.6}{0.0712}\approx22.478\)</span>. Ya que <span class="math notranslate nohighlight">\(T = 22.478 &gt; |t_{\alpha/2, n-k}| = 2.042\)</span>, entonces rechazamos <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<ol class="arabic simple" start="4">
+<li><p>Recuerde que <span class="math notranslate nohighlight">\(R^2 = \frac{\sum_i^n (\hat y_i - \bar y)^2}{\sum_i^n (\hat y_i - \bar y)^2} = \frac{\sum_i^n (\hat y_i)^2 - n \bar y^2}{150} = \frac{142.4}{150}\approx0.095\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Informacion</span>
+<span class="n">XX</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">33</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">60</span><span class="p">))</span>
+<span class="n">XX1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="n">XX</span><span class="p">)</span>
+
+<span class="c1">#Estimacion por MCO</span>
+<span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XX1</span><span class="o">%*%</span><span class="nf">c</span><span class="p">(</span><span class="m">132</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="m">92</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;B0 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;B1 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;B2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">]))</span>
+
+<span class="c1">#Suma de la variable dependiente al cuadrado</span>
+<span class="n">sum_y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">150</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">33</span><span class="o">*</span><span class="p">(</span><span class="m">132</span><span class="o">/</span><span class="m">33</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;sum_y2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum_y2</span><span class="p">))</span>
+
+<span class="c1">#Suma de las predicciones al cuadrado</span>
+<span class="n">sum_yhat2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="o">%*%</span><span class="n">XX</span><span class="o">%*%</span><span class="n">B</span><span class="p">;</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;sum_yhat2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum_yhat2</span><span class="p">))</span>
+
+<span class="c1">#Varianza del modelo</span>
+<span class="n">sigma2_hat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">sum_y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sum_yhat2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="m">33-3</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;sigma2_hat =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sigma2_hat</span><span class="p">))</span>
+
+<span class="c1">#Matrix de varianza-covarianza</span>
+<span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">sigma2_hat</span><span class="p">)</span><span class="o">*</span><span class="n">XX1</span><span class="p">;</span><span class="w"> </span><span class="n">V</span>
+
+<span class="c1">#Error estandar de b2</span>
+<span class="n">ee_b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">]);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Error Estandar de b2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ee_b2</span><span class="p">))</span>
+
+<span class="c1">#Estadistico de prueba</span>
+<span class="bp">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="o">/</span><span class="n">ee_b2</span><span class="p">;</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Estadistico T =&quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">T</span><span class="p">))</span>
+
+<span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span>
+<span class="n">tc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">33-3</span><span class="p">)</span><span class="w"> </span><span class="c1">#t critico</span>
+<span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="bp">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="n">tc</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Ya que T = &quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&gt; |t_c| = &quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="n">tc</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;, Rechace H0&quot;</span><span class="p">))</span>
+<span class="p">}</span><span class="kr">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;No rechace H0&quot;</span><span class="p">)</span><span class="w">    </span>
+<span class="p">}</span>
+
+<span class="c1">#R2</span>
+<span class="n">SSR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum_yhat2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">33</span><span class="o">*</span><span class="p">(</span><span class="m">4</span><span class="p">)</span><span class="o">^</span><span class="m">2</span>
+<span class="n">SST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">150</span>
+<span class="n">R2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SSR</span><span class="o">/</span><span class="n">SST</span><span class="p">;</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;R2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">R2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;B0 = 4 B1 = -0.2 B2 = 1.6&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;sum_y2 = 678&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;sum_yhat2 = 670.4&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;sigma2_hat = 0.25333333333333&quot;
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 3 × 3 of type dbl</caption>
+<tbody>
+	<tr><td>0.007676768</td><td> 0.000000000</td><td> 0.000000000</td></tr>
+	<tr><td>0.000000000</td><td> 0.007600000</td><td>-0.002533333</td></tr>
+	<tr><td>0.000000000</td><td>-0.002533333</td><td> 0.005066667</td></tr>
+</tbody>
+</table>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Error Estandar de b2 = 0.0711805216802083&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Estadistico T = 22.4780594779608&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Ya que T =  22.4780594779608 &gt; |t_c| =  2.04227245630124 , Rechace H0&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;R2 = 0.949333333333334&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pregunta-3">
+<h2>Pregunta 3<a class="headerlink" href="#pregunta-3" title="Link to this heading">#</a></h2>
+<p>Defina <span class="math notranslate nohighlight">\(f_i\)</span> de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_i = \begin{cases} 1 &amp; \text{si el individuo es una mujer} \\ 0 &amp; \text{si el individuo es un hombre} \end{cases}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(w_i\)</span> representa el salario de cada individuo. Asuma que tiene una muestra de <span class="math notranslate nohighlight">\(n\)</span> individuos, con <span class="math notranslate nohighlight">\(n_F\)</span> mujeres y <span class="math notranslate nohighlight">\(n_M\)</span> hombres (<span class="math notranslate nohighlight">\(n = n_F + n_M\)</span>). Considere ahora la siguiente regresión:</p>
+<div class="math notranslate nohighlight">
+\[w_i = \beta_0 + \beta_1 f_i + \varepsilon_i\]</div>
+<ol class="arabic simple">
+<li><p>Demuestre que los estimadores de MCO son <span class="math notranslate nohighlight">\(\hat{\beta}_1 = \bar{w}_F - \bar{w}_M\)</span> y <span class="math notranslate nohighlight">\(\hat{\beta}_0 = \bar{w}_M\)</span>.</p></li>
+<li><p>¿Cómo evaluaría usted si hay discriminación de género en el salario de los individuos?</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2>Solución<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Usando los estimadores de MCO podemos concluir que:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\hat\beta_1 = \frac{\sum_i (f_i - \overline f)(w_i - \overline w)}{\sum_i (f_i - \overline f)^2} = \frac{n_F \bar w_F - n_F \bar w - \frac{n_F}{n} \bar w n + \frac{n_F}{n}\bar w n}{n_F - n(\frac{n_F}{n})^2} = \frac{n_F\bar w_F - n_F\bar w}{n_F n_M \frac{1}{n}} = \frac{n \bar w_F}{n_M} - \frac{n\bar w}{n_M} = \frac{n \bar w_F}{n_M} - \frac{n_F \bar w_F}{n_M} - \bar w_M = \bar w_F - \bar w_M\]</div>
+<div class="math notranslate nohighlight">
+\[\hat\beta_0 = \overline w - \hat\beta_1 \overline f = \overline w -  (\bar w_F - \bar w_M)\frac{n_F}{n} = \bar w_F\frac{n_F}{n} + \bar w_M\frac{n_M}{n} - (\bar w_F - \bar w_M)\frac{n_F}{n} = \bar w_M \frac{n_F + n_M}{n} = \bar w_M\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Usando este modelo podemos evaluar si existe o no discriminación de género con la siguiente prueba de hipótesis:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[H_0: \beta_1 = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1: \beta_1 &lt; 0\]</div>
+<p>El estadístico de prueba que nos permite concluir si existe o no discriminación es: <span class="math notranslate nohighlight">\(T = \frac{\hat \beta_1}{ee(\hat \beta_1)} \sim t_{n-k}\)</span>. Con un nivel de significancia de <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, podemos rechazar que <span class="math notranslate nohighlight">\(\beta_1 = 0\)</span> si <span class="math notranslate nohighlight">\(T &lt; t_{\alpha, n-k}\)</span></p>
+</section>
+<section id="pregunta-4">
+<h2>Pregunta 4<a class="headerlink" href="#pregunta-4" title="Link to this heading">#</a></h2>
+<p>La base de datos <code class="docutils literal notranslate"><span class="pre">hprice.dta</span></code> (<a class="reference external" href="https://github.com/smontanoc/microeconometria/blob/main/Datos/hprice.dta">Descargar</a>) contiene información sobre el precio de viviendas en Estados Unidos y contempla además información a nivel municipal.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: precio en dólares de 506 viviendas reportadas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lprice</span></code>: logaritmo natural del precio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">crime</span></code>: tasa per cápita de crímenes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nox</span></code>: número de partículas de óxido nitroso en 100 ppm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rooms</span></code>: promedio de habitaciones por vivienda.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist</span></code>: distancia ponderada a los 5 principales centros de empleo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radial</span></code>: índice de accesibilidad a autopistas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proptax</span></code>: impuesto de propiedad por cada mil dólares.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stratio</span></code>: valor promedio de estudiantes por docente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lowstat</span></code>: porcentaje de personas de bajos estratos.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Cree un do-file documentado y muestre que carga la base de datos <code class="docutils literal notranslate"><span class="pre">hprice.dta</span></code> desde un directorio. Para cada punto en adelante, ponga el código del do-file que utilizó.</p></li>
+<li><p>Obtenga y analice los siguientes estadísticos: percentil 25, 50, 75, máximo, mínimo, media y desviación estándar para <code class="docutils literal notranslate"><span class="pre">price</span></code>, <code class="docutils literal notranslate"><span class="pre">crime</span></code>, <code class="docutils literal notranslate"><span class="pre">lowstat</span></code>, y <code class="docutils literal notranslate"><span class="pre">dist</span></code>. Interprete sus resultados.</p></li>
+<li><p>Realice una prueba en STATA para determinar si la media de la variable <code class="docutils literal notranslate"><span class="pre">dist</span></code> es menor a 3.8.</p></li>
+<li><p>Realice un histograma de <code class="docutils literal notranslate"><span class="pre">price</span></code> y <code class="docutils literal notranslate"><span class="pre">crime</span></code>. Interprete la distribución.</p></li>
+<li><p>Realice un análisis de correlación entre <code class="docutils literal notranslate"><span class="pre">price</span></code>, <code class="docutils literal notranslate"><span class="pre">crime</span></code>, <code class="docutils literal notranslate"><span class="pre">lowstat</span></code>, <code class="docutils literal notranslate"><span class="pre">nox</span></code>, <code class="docutils literal notranslate"><span class="pre">dist</span></code>, <code class="docutils literal notranslate"><span class="pre">proptax</span></code>, y <code class="docutils literal notranslate"><span class="pre">rooms</span></code>. Evalúe la significancia de los coeficientes. Plantee la hipótesis nula y alterna para uno de los coeficientes y concluya a partir de los resultados obtenidos, teniendo en cuenta el p-valor y el t-estadístico resultante.</p></li>
+<li><p>Haga un gráfico de dispersión entre:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> vs <code class="docutils literal notranslate"><span class="pre">crime</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> vs <code class="docutils literal notranslate"><span class="pre">lowstat</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> vs <code class="docutils literal notranslate"><span class="pre">rooms</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>¿Las gráficas tienen sentido a la luz de los coeficientes de correlación?</p>
+</section>
+<section id="id3">
+<h2>Solución<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>El código en R presentado abajo da respuesta a los diferentes numerales de la pregunta 4. A continuación comentamos los resultados obtenidos:</p>
+<ol class="arabic simple" start="2">
+<li><p>Una propiedad en la base de datos cuesta en promedio <span class="math notranslate nohighlight">\(\$22,512\)</span>, con una desviación de <span class="math notranslate nohighlight">\(\$9,208\)</span>. La tasa de crimen promedio es de 3.6 en los vecindarios de estas propiedades, y el porcentaje promedio de personas de bajo estrato es de 12.7. Finalmente, la distancia promedio a los centros de empleo es de 3.8 millas.</p></li>
+<li><p>Con un p-valor de 0.482 no podemos rechazar que la distancia promedio a los centros de empleo sea igual a 3.8.</p></li>
+<li><p>El histograma de precios revela una bimodalidad en el costo de las propiedades. Esto sugiere que existe un conjunto importante de inmuebles de alto valor (más de <span class="math notranslate nohighlight">\(\$50,000\)</span>) al igual que propiedades de menor valor (menos de <span class="math notranslate nohighlight">\(\$20,000\)</span>). El histograma de crimen sugiere que la tasa per-capita de criminalidad es bajo en la mayoría de las propiedades.</p></li>
+<li><p>Considere el siguiente modelo:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[price_i = \beta_0 + \beta_1 crime_i + \beta_2 lowstat_i + \beta_3 nox_i + \beta_4 dist_i + \beta_5 proptax_i + \beta_6 rooms_i + \varepsilon_i\]</div>
+<p>Las estimaciones por MCO se presentan abajo. Para cada uno de estos coeficientes podemos realizar pruebas de hipotesis individuales. La prueba de significancia toma la siguiente forma, para <span class="math notranslate nohighlight">\(j \in \{1, 2, ..., 6\}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \beta_j = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1: \beta_j \neq 0\]</div>
+<p>Nuestras estimaciones sugieren que tener una habitación adicional incrementa el precio de un inmueble en <span class="math notranslate nohighlight">\(\$5,099\)</span>, una milla adicional a los centros de empleo reduce el precio en <span class="math notranslate nohighlight">\(\$1,011\)</span>, un incremento de una unidad en la tasa de crimen per-capita reduce el precio en <span class="math notranslate nohighlight">\(\$77\)</span>, incrementar en 1 punto porcentual el porcentaje de personas de estrato bajo reduce el precio en <span class="math notranslate nohighlight">\(\$555\)</span>. Incrementar en 100ppm el promedio de particulas de óxido nitroso reduce el precio en <span class="math notranslate nohighlight">\(\$913\)</span>, y incrementar el impuesto en <span class="math notranslate nohighlight">\(\$1,000\)</span> dolares reduce el precio de la propiedad en <span class="math notranslate nohighlight">\(\$70\)</span> dolares. El estadístico <span class="math notranslate nohighlight">\(t\)</span> para cada uno de estos coeficientes es (en valor absoluto) mayor a 1.96, lo que sugiere que todos son significativos al 5%. El p-valor más grande (0.02631) lo presenta el coeficiente (<span class="math notranslate nohighlight">\(\beta_2\)</span>) asociado al porcentaje de personas de bajo estrato.</p>
+<ol class="arabic simple" start="6">
+<li><p>Los diagramas de dispersión entre precio, tasa de crimen, porcentaje de personas de bajo estrato, y número de habitaciones, muestran relaciónes que son coherentes con las estimaciones del modelo por MCO.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rm</span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ls</span><span class="p">())</span>
+
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;haven&#39;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#39;haven&#39;</span><span class="p">)</span>
+
+<span class="c1">#Cargar datos</span>
+<span class="n">link_datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&#39;https://www.dropbox.com/scl/fi/cb33y4cvuk1vo4qupcxhk/hprice.dta?rlkey=qll7109zf53kpw9b8kn5qkqeg&amp;dl=1&#39;</span>
+<span class="n">hprice</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read_dta</span><span class="p">(</span><span class="n">link_datos</span><span class="p">)</span>
+<span class="nf">attach</span><span class="p">(</span><span class="n">hprice</span><span class="p">)</span>
+
+<span class="c1">#Estadisticas descriptivas</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">hprice</span><span class="p">[,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;price&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;crime&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lowstat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;dist&#39;</span><span class="p">)])</span>
+<span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">price</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+
+<span class="c1">#Prueba de hipotesis (t-test)</span>
+<span class="nf">t.test</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3.8</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;less&#39;</span><span class="p">)</span>
+
+<span class="c1">#Histogramas</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Precio de la Propiedad&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">probability</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">crime</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Crimen per capita&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">probability</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">crime</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="c1">#Analisis de correlación</span>
+<span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">crime</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lowstat</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nox</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">proptax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rooms</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1">#Diagramas de disperción</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">crime</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Precio vs Crimen&#39;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">lowstat</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Precio vs % Bajo Estrato&#39;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">rooms</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Precio vs Habitaciones&#39;</span><span class="p">)</span>
+
+<span class="nf">detach</span><span class="p">(</span><span class="n">hprice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
+	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpnW91dI/downloaded_packages
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘haven’ was built under R version 4.3.3”
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     price           crime            lowstat            dist       
+ Min.   : 5000   Min.   : 0.0060   Min.   : 1.730   Min.   : 1.130  
+ 1st Qu.:16850   1st Qu.: 0.0820   1st Qu.: 6.923   1st Qu.: 2.100  
+ Median :21200   Median : 0.2565   Median :11.360   Median : 3.210  
+ Mean   :22512   Mean   : 3.6115   Mean   :12.701   Mean   : 3.796  
+ 3rd Qu.:24999   3rd Qu.: 3.6770   3rd Qu.:17.058   3rd Qu.: 5.188  
+ Max.   :50001   Max.   :88.9760   Max.   :39.070   Max.   :12.130  
+</pre></div>
+</div>
+<div class="output text_html">9208.86</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  dist
+t = -0.045381, df = 505, p-value = 0.4819
+alternative hypothesis: true mean is less than 3.8
+95 percent confidence interval:
+    -Inf 3.95004
+sample estimates:
+mean of x 
+ 3.795751 
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = price ~ crime + lowstat + nox + dist + proptax + 
+    rooms)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-16100  -3123  -1085   1918  29042 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  9560.78    3971.32   2.407  0.01643 *  
+crime         -77.88      34.95  -2.228  0.02631 *  
+lowstat      -555.68      51.17 -10.859  &lt; 2e-16 ***
+nox          -913.49     377.51  -2.420  0.01589 *  
+dist        -1011.54     179.35  -5.640 2.85e-08 ***
+proptax       -69.74      21.34  -3.268  0.00116 ** 
+rooms        5099.58     432.14  11.801  &lt; 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5346 on 499 degrees of freedom
+Multiple R-squared:  0.667,	Adjusted R-squared:  0.663 
+F-statistic: 166.6 on 6 and 499 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/2893d69417d51c235ff9a233cac9da441fb9417da969ea024a81fccc6b7c6837.png"><img alt="_images/2893d69417d51c235ff9a233cac9da441fb9417da969ea024a81fccc6b7c6837.png" src="_images/2893d69417d51c235ff9a233cac9da441fb9417da969ea024a81fccc6b7c6837.png" style="width: 420px; height: 420px;" />
+</a>
+<a class="reference internal image-reference" href="_images/3d937a624a64dcde996cf3029727545194cf8fed8cff3be25093b9b6e4fbbb28.png"><img alt="_images/3d937a624a64dcde996cf3029727545194cf8fed8cff3be25093b9b6e4fbbb28.png" src="_images/3d937a624a64dcde996cf3029727545194cf8fed8cff3be25093b9b6e4fbbb28.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="pregunta-5">
+<h2>Pregunta 5<a class="headerlink" href="#pregunta-5" title="Link to this heading">#</a></h2>
+<p>En la base de datos <code class="docutils literal notranslate"><span class="pre">rent.dta</span></code> (<a class="reference external" href="https://github.com/smontanoc/microeconometria/blob/main/Datos/rent.dta">Descargar</a>), ustedes encontrarán información para 300 propiedades en Estados Unidos y sus características.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rent</span></code>: arriendo que se paga por la propiedad</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lavaplatos</span></code>: 1 si lavaplatos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cancha_tennis</span></code>: 1 si cancha de tennis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sauna</span></code>: 1 si sauna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parque_ninos</span></code>: 1 si tiene parque de niños</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mal_barrio</span></code>: 1 si está en mal barrio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">servicios_incluidos</span></code>: 1 si tiene servicios incluidos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amoblado</span></code>: 1 si amoblado</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prop_no_eficiente</span></code>: 1 si es una propiedad no eficiente</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dos_habitaciones</span></code>: 1 si tiene dos habitaciones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tres_habitaciones</span></code>: 1 si tiene tres habitaciones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cuatro_habitaciones</span></code>: 1 si tiene cuatro habitaciones</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Estime por MCO un modelo en que el arriendo sea la variable dependiente y todas las variables categóricas sean las variables independientes. Presente sus resultados.</p></li>
+<li><p>Interprete el coeficiente asociado a <code class="docutils literal notranslate"><span class="pre">mal_barrio</span></code>, <code class="docutils literal notranslate"><span class="pre">dos_habitaciones</span></code>, <code class="docutils literal notranslate"><span class="pre">tres_habitaciones</span></code>, y <code class="docutils literal notranslate"><span class="pre">cuatro_habitaciones</span></code>.</p></li>
+<li><p>Cree una variable identificando las propiedades que tienen una habitación (tenga en cuenta que el máximo número de habitaciones es cuatro y el mínimo es uno). Vuelva y estime el modelo incluyendo esta variable creada. Discuta sus resultados.</p></li>
+<li><p>Realice una prueba F-parcial para determinar si las variables que no son significativas (al 10 %) en la regresión del punto 1 deben ser o no incluidas en el modelo.</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2>Solución<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>El código en R presentado abajo da respuesta a los diferentes numerales de la pregunta 5. A continuación comentamos los resultados obtenidos:</p>
+<ol class="arabic simple" start="2">
+<li><p>El arriendo de una propiedad en un mal barrio es 43 dolares menor que el arriendo de propiedades en otro tipo de barrio. La renta de un apartamento con dos, tres, y cuatro habitaciónes es respectivamente 58, 92, y 137 dolares mayor que el arriendo de un apartamentanto con 1 habitación. Estos resultados son estadísticamente significativos a un nivel del 1%.</p></li>
+<li><p>El conjunto de variables binarias que indican el número de cuartos que tiene una vivienda es colineal con el vector de 1 asociado al intercepto del modelo. Por esta razón no podemos estimar los coeficientes para todas las categorías o número de habitaciones.</p></li>
+<li><p>Las siguientes variables no son individualmente significativas: <code class="docutils literal notranslate"><span class="pre">cancha_tennis</span></code>, <code class="docutils literal notranslate"><span class="pre">sauna</span></code>, <code class="docutils literal notranslate"><span class="pre">parque_ninos</span></code>, y <code class="docutils literal notranslate"><span class="pre">servicios_incluidos</span></code>. Corremos nuestro modelo excluyendo estas variables (es decir, estimamos el modelo restringido).</p></li>
+</ol>
+<p>Sea <span class="math notranslate nohighlight">\(\beta_{exc}\)</span> los coeficientes asociados a las variables que excluimos de la regresión. Nuestra hipotesis es:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \beta_{exc} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[H_1: \text{alguno de los coeficientes es diferente de 0}\]</div>
+<p>Para probar esta hipótesis usamos el siguiente estadístico de prueba:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+F &amp;= \frac{R^2_{NR} - R^2_{R}}{J} \Big/ \frac{(1 - R^2_{NR})}{n-k} \\
+&amp;= \frac{0.2751 - 0.2513}{4} \Big/ \frac{(1 - 0.2751)}{300 - 12} \approx 2.364
+\end{align*}\]</div>
+<p>Ya que <span class="math notranslate nohighlight">\(F  = 2.364 \leq F_{J, n-k} = 2.403\)</span>, no rechazamos la hipotesis nula. Es decir, excluimos el conjunto de variables de nuestro modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rm</span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ls</span><span class="p">())</span>
+
+<span class="c1">#Cargar datos</span>
+<span class="n">link_datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&#39;https://www.dropbox.com/scl/fi/cvmugd82296v307fd53bs/rent.dta?rlkey=thwx9df1k6b6kowxqg4m4zwtx&amp;dl=1&#39;</span>
+<span class="n">rent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read_dta</span><span class="p">(</span><span class="n">link_datos</span><span class="p">)</span>
+<span class="nf">attach</span><span class="p">(</span><span class="n">rent</span><span class="p">)</span>
+
+<span class="c1">#Estimacion del modelo</span>
+<span class="n">modelo_NR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">rent</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rent</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">modelo_NR</span><span class="p">)</span>
+
+<span class="c1">#Variable de una habitacion</span>
+<span class="n">rent</span><span class="o">$</span><span class="n">una_habitacion</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;Yes&quot;</span>
+<span class="n">rent</span><span class="o">$</span><span class="n">una_habitacion</span><span class="p">[</span><span class="n">rent</span><span class="o">$</span><span class="n">dos_habitaciones</span><span class="o">==</span><span class="s">&#39;Yes&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;No&quot;</span>
+<span class="n">rent</span><span class="o">$</span><span class="n">una_habitacion</span><span class="p">[</span><span class="n">rent</span><span class="o">$</span><span class="n">tres_habitaciones</span><span class="o">==</span><span class="s">&#39;Yes&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;No&quot;</span>
+<span class="n">rent</span><span class="o">$</span><span class="n">una_habitacion</span><span class="p">[</span><span class="n">rent</span><span class="o">$</span><span class="n">cuatro_habitaciones</span><span class="o">==</span><span class="s">&#39;Yes&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;No&quot;</span>
+
+<span class="c1">#Estimacion del modelo incluyendo una_habitacion</span>
+<span class="n">modelo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">rent</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rent</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">modelo</span><span class="p">)</span>
+
+<span class="c1">#Modelo Restringido</span>
+<span class="n">modelo_R</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">rent</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">lavaplatos</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">mal_barrio</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">amoblado</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">              </span><span class="nf">factor</span><span class="p">(</span><span class="n">prop_no_eficiente</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">dos_habitaciones</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">tres_habitaciones</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">              </span><span class="nf">factor</span><span class="p">(</span><span class="n">cuatro_habitaciones</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rent</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">modelo_R</span><span class="p">)</span>
+
+<span class="n">SST</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">rent</span><span class="o">$</span><span class="n">rent</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">rent</span><span class="o">$</span><span class="n">rent</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+
+<span class="n">SSE_NR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">modelo_NR</span><span class="o">$</span><span class="n">residuals</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="w">  </span>
+<span class="n">R2_NR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">SSE_NR</span><span class="o">/</span><span class="n">SST</span><span class="p">;</span><span class="w"> </span><span class="n">R2_NR</span>
+
+<span class="n">SSE_R</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">modelo_R</span><span class="o">$</span><span class="n">residuals</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="n">R2_R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">SSE_R</span><span class="o">/</span><span class="n">SST</span><span class="p">;</span><span class="w"> </span><span class="n">R2_R</span>
+
+<span class="c1">#Estadistico de Prueba</span>
+<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">rent</span><span class="o">$</span><span class="n">rent</span><span class="p">)</span>
+<span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">modelo_NR</span><span class="o">$</span><span class="n">coefficients</span><span class="p">)</span>
+<span class="n">F_stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">R2_NR</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R2_R</span><span class="p">)</span><span class="o">/</span><span class="m">4</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="m">1</span><span class="o">-</span><span class="n">R2_NR</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="p">));</span><span class="w"> </span><span class="n">F_stat</span>
+<span class="n">F_critico</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">qf</span><span class="p">(</span><span class="m">1-0.05</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"> </span><span class="n">F_critico</span>
+
+<span class="c1">#Conclusion?</span>
+<span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="n">F_stat</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">F_critico</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&#39;Rechace H0 (con alpha = 5%)&#39;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&#39;No rechace H0 (con alpha = 5%)&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">detach</span><span class="p">(</span><span class="n">rent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following object is masked _by_ .GlobalEnv:
+
+    rent
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = rent ~ ., data = rent)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-261.76  -71.04   -8.49   61.27  325.42 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)              243.71      17.10  14.250  &lt; 2e-16 ***
+lavaplatosYes             26.05      15.02   1.734 0.084026 .  
+cancha_tennisYes          16.95      17.45   0.971 0.332345    
+saunaYes                  13.44      15.12   0.888 0.375072    
+parque_ninosYes           21.28      20.57   1.034 0.301782    
+mal_barrioYes            -43.26      12.53  -3.453 0.000637 ***
+servicios_incluidosYes    21.05      13.89   1.516 0.130611    
+amobladoYes               56.04      12.30   4.557 7.68e-06 ***
+prop_no_eficienteYes     -35.56      17.60  -2.021 0.044205 *  
+dos_habitacionesYes       57.65      15.41   3.741 0.000221 ***
+tres_habitacionesYes      91.58      20.84   4.394 1.57e-05 ***
+cuatro_habitacionesYes   136.57      24.62   5.546 6.61e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 104.4 on 288 degrees of freedom
+Multiple R-squared:  0.2751,	Adjusted R-squared:  0.2475 
+F-statistic: 9.938 on 11 and 288 DF,  p-value: 2.636e-15
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = rent ~ ., data = rent)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-261.76  -71.04   -8.49   61.27  325.42 
+
+Coefficients: (1 not defined because of singularities)
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)              243.71      17.10  14.250  &lt; 2e-16 ***
+lavaplatosYes             26.05      15.02   1.734 0.084026 .  
+cancha_tennisYes          16.95      17.45   0.971 0.332345    
+saunaYes                  13.44      15.12   0.888 0.375072    
+parque_ninosYes           21.28      20.57   1.034 0.301782    
+mal_barrioYes            -43.26      12.53  -3.453 0.000637 ***
+servicios_incluidosYes    21.05      13.89   1.516 0.130611    
+amobladoYes               56.04      12.30   4.557 7.68e-06 ***
+prop_no_eficienteYes     -35.56      17.60  -2.021 0.044205 *  
+dos_habitacionesYes       57.65      15.41   3.741 0.000221 ***
+tres_habitacionesYes      91.58      20.84   4.394 1.57e-05 ***
+cuatro_habitacionesYes   136.57      24.62   5.546 6.61e-08 ***
+una_habitacionYes            NA         NA      NA       NA    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 104.4 on 288 degrees of freedom
+Multiple R-squared:  0.2751,	Adjusted R-squared:  0.2475 
+F-statistic: 9.938 on 11 and 288 DF,  p-value: 2.636e-15
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = rent ~ factor(lavaplatos) + factor(mal_barrio) + 
+    factor(amoblado) + factor(prop_no_eficiente) + factor(dos_habitaciones) + 
+    factor(tres_habitaciones) + factor(cuatro_habitaciones), 
+    data = rent)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-239.99  -69.42  -10.07   75.95  308.61 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                      272.90      13.23  20.627  &lt; 2e-16 ***
+factor(lavaplatos)Yes             34.42      13.25   2.598 0.009844 ** 
+factor(mal_barrio)Yes            -48.94      12.49  -3.918 0.000111 ***
+factor(amoblado)Yes               54.89      12.32   4.457 1.19e-05 ***
+factor(prop_no_eficiente)Yes     -36.19      17.69  -2.045 0.041706 *  
+factor(dos_habitaciones)Yes       53.83      15.43   3.488 0.000562 ***
+factor(tres_habitaciones)Yes      93.44      20.93   4.464 1.15e-05 ***
+factor(cuatro_habitaciones)Yes   132.96      24.63   5.399 1.39e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 105.3 on 292 degrees of freedom
+Multiple R-squared:  0.2513,	Adjusted R-squared:  0.2334 
+F-statistic:    14 on 7 and 292 DF,  p-value: 1.176e-15
+</pre></div>
+</div>
+<div class="output text_html">0.275147199323667</div><div class="output text_html">0.251342933945774</div><div class="output text_html">2.36448987381874</div><div class="output text_html">2.40299069709472</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;No rechace H0 (con alpha = 5%)&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Taller_1_Sol.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Taller 1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Taller_3_Sol.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Taller 3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-1">Pregunta 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-2">Pregunta 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-3">Pregunta 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-4">Pregunta 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Solución</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-5">Pregunta 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solución</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Montano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
