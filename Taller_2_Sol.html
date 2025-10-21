@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -189,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_DatosPanel.html">Modelos de Datos Panel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -838,64 +839,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpnW91dI/downloaded_packages
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/smontano/AppData/Local/R/win-library/4.3&#39;
+(as &#39;lib&#39; is unspecified)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“package ‘haven’ was built under R version 4.3.3”
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  There is a binary version available but the source version is later:
+      binary source needs_compilation
+haven  2.5.4  2.5.5              TRUE
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     price           crime            lowstat            dist       
- Min.   : 5000   Min.   : 0.0060   Min.   : 1.730   Min.   : 1.130  
- 1st Qu.:16850   1st Qu.: 0.0820   1st Qu.: 6.923   1st Qu.: 2.100  
- Median :21200   Median : 0.2565   Median :11.360   Median : 3.210  
- Mean   :22512   Mean   : 3.6115   Mean   :12.701   Mean   : 3.796  
- 3rd Qu.:24999   3rd Qu.: 3.6770   3rd Qu.:17.058   3rd Qu.: 5.188  
- Max.   :50001   Max.   :88.9760   Max.   :39.070   Max.   :12.130  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>installing the source package &#39;haven&#39;
 </pre></div>
 </div>
-<div class="output text_html">9208.86</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
-
-data:  dist
-t = -0.045381, df = 505, p-value = 0.4819
-alternative hypothesis: true mean is less than 3.8
-95 percent confidence interval:
-    -Inf 3.95004
-sample estimates:
-mean of x 
- 3.795751 
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-lm(formula = price ~ crime + lowstat + nox + dist + proptax + 
-    rooms)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--16100  -3123  -1085   1918  29042 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  9560.78    3971.32   2.407  0.01643 *  
-crime         -77.88      34.95  -2.228  0.02631 *  
-lowstat      -555.68      51.17 -10.859  &lt; 2e-16 ***
-nox          -913.49     377.51  -2.420  0.01589 *  
-dist        -1011.54     179.35  -5.640 2.85e-08 ***
-proptax       -69.74      21.34  -3.268  0.00116 ** 
-rooms        5099.58     432.14  11.801  &lt; 2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 5346 on 499 degrees of freedom
-Multiple R-squared:  0.667,	Adjusted R-squared:  0.663 
-F-statistic: 166.6 on 6 and 499 DF,  p-value: &lt; 2.2e-16
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/2893d69417d51c235ff9a233cac9da441fb9417da969ea024a81fccc6b7c6837.png"><img alt="_images/2893d69417d51c235ff9a233cac9da441fb9417da969ea024a81fccc6b7c6837.png" src="_images/2893d69417d51c235ff9a233cac9da441fb9417da969ea024a81fccc6b7c6837.png" style="width: 420px; height: 420px;" />
-</a>
-<a class="reference internal image-reference" href="_images/3d937a624a64dcde996cf3029727545194cf8fed8cff3be25093b9b6e4fbbb28.png"><img alt="_images/3d937a624a64dcde996cf3029727545194cf8fed8cff3be25093b9b6e4fbbb28.png" src="_images/3d937a624a64dcde996cf3029727545194cf8fed8cff3be25093b9b6e4fbbb28.png" style="width: 420px; height: 420px;" />
-</a>
 </div>
 </div>
 </section>

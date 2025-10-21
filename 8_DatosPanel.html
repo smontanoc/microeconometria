@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modelos de Datos Panel &#8212; Microeconometria Aplicada</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '8_DatosPanel';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="prev" title="Modelo de Cortes Transversales Repetidos" href="7_RepeatedCross.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Microeconometria Aplicada - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Microeconometria Aplicada - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Microeconometría Aplicada
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelos de Datos Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_2_Sol.html">Taller 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_3_Sol.html">Taller 3</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F8_DatosPanel.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/8_DatosPanel.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modelos de Datos Panel</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beneficios-de-contar-con-datos-panel">Beneficios de contar con Datos Panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-datos-panel">Clasificación de Datos Panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-pooling">Modelo Pooling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-primeras-diferencias">Modelo de Primeras Diferencias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-efectos-fijos-o-within">Modelo de Efectos Fijos (o Within)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-con-variables-binarias">Mínimos Cuadrádos con Variables Binarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-efectos-aleatorios">Modelo de Efectos Aleatorios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-modelo">Selección de Modelo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modelos-de-datos-panel">
+<h1>Modelos de Datos Panel<a class="headerlink" href="#modelos-de-datos-panel" title="Link to this heading">#</a></h1>
+<p>Los datos panel (o longitudinales) permiten estudiar a una población a través del tiempo, ya que se puede observar información para cada individuo en diferentes periodos de su ciclo de vida. Los datos panel toman la siguiente forma:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(t\)</span></p></th>
+<th class="head"><p>mujer</p></th>
+<th class="head"><p>edad</p></th>
+<th class="head"><p>empleado</p></th>
+<th class="head"><p>educ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2022</p></td>
+<td><p>1</p></td>
+<td><p>28</p></td>
+<td><p>NA</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2023</p></td>
+<td><p>1</p></td>
+<td><p>29</p></td>
+<td><p>1</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2024</p></td>
+<td><p>1</p></td>
+<td><p>30</p></td>
+<td><p>0</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2025</p></td>
+<td><p>1</p></td>
+<td><p>31</p></td>
+<td><p>NA</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<td><p>2022</p></td>
+<td><p>0</p></td>
+<td><p>25</p></td>
+<td><p>0</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<td><p>2023</p></td>
+<td><p>0</p></td>
+<td><p>26</p></td>
+<td><p>NA</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<td><p>2023</p></td>
+<td><p>0</p></td>
+<td><p>27</p></td>
+<td><p>1</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<td><p>2025</p></td>
+<td><p>0</p></td>
+<td><p>28</p></td>
+<td><p>1</p></td>
+<td><p>12</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="beneficios-de-contar-con-datos-panel">
+<h2>Beneficios de contar con Datos Panel<a class="headerlink" href="#beneficios-de-contar-con-datos-panel" title="Link to this heading">#</a></h2>
+<p>Existen diferentes razones por las cuales contar con este tipo de informción es ideal:</p>
+<ul class="simple">
+<li><p>Permite analizar cómo evolucionan características del individuo que son suceptibles de cambiar con el tiempo</p></li>
+<li><p>Permite estudiar cómo toman decisiones los individuos a través del tiempo y las implicaciones en su <strong>ciclo de vida</strong></p></li>
+<li><p>Se puede usar para estimar el efecto de una intervención o choque. Es decir, podemos estudiar <strong>efectos dinámicos</strong></p></li>
+<li><p>Permite controlar por <strong>efectos heterogeneos no observados</strong> (que no cambian en el tiempo)</p></li>
+</ul>
+</section>
+<section id="clasificacion-de-datos-panel">
+<h2>Clasificación de Datos Panel<a class="headerlink" href="#clasificacion-de-datos-panel" title="Link to this heading">#</a></h2>
+<p>Dependiendo de si es posible seguir a todos los individuos de la población durante un periodo de tiempo determinado, se puede clasificar un panel en dos categorías:</p>
+<ul class="simple">
+<li><p>panel balanceado</p></li>
+<li><p>panel no-balanceado</p></li>
+</ul>
+<p>En caso de ser posible hacer <strong>seguimiento en el tiempo sin interrupciones, el panel es balanceado</strong>.</p>
+</section>
+<section id="modelo-pooling">
+<h2>Modelo Pooling<a class="headerlink" href="#modelo-pooling" title="Link to this heading">#</a></h2>
+<p>Suponga que usted cuenta con un conjunto de datos panel con una variable dependiente, <span class="math notranslate nohighlight">\(k\)</span> variables explicativas, <span class="math notranslate nohighlight">\(n\)</span> individuos y <span class="math notranslate nohighlight">\(T\)</span> periodos. Supondremos inicialmente que dicho panel está balanceado.</p>
+<p>El modelo <em>pooling</em> se puede escribir de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[y_{it} = \alpha + \beta_1 x_{1 it} + \beta_2 x_{2 it} + ... + \beta_k x_{k it} + \varepsilon_{it} \quad (1)\]</div>
+<p>Para estimar este modelo usamos Mínimos Cuadrados Ordinarios. Es decir,</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta = (X'X)^{-1} X'Y\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{V}(\hat\beta) = \hat\sigma^2 (X'X)^{-1} \hspace{4pt} \text{ donde } \hspace{4pt} \hat\sigma^2 = \frac{\sum_{i = 1}^N \sum_{t = 1}^T e^2_{it}}{n \cdot T}\]</div>
+<p>Sin embargo, este método <strong>desconoce la estructura de los datos</strong>.</p>
+<p>Los supuestos del modelo de regresión múltiple son muy fuertes al usar datos panel, ya que</p>
+<ul class="simple">
+<li><p><strong>es muy probable que los errores de un mismo individuo se correlacionen a través del tiempo</strong>, es decir, <span class="math notranslate nohighlight">\(E(\varepsilon_{i, t} \cdot \varepsilon_{i, t+1}) \neq 0\)</span>.</p></li>
+<li><p>las condiciones de la economía en cada periodo hacen probable que <strong>los errores de diferentes individuos se correlacionen en un mismo periodo de tiempo</strong>, es decir, <span class="math notranslate nohighlight">\(E(\varepsilon_{i, t} \cdot \varepsilon_{j, t}) \neq 0.\)</span></p></li>
+</ul>
+<p>Para corregir estos problemas usamos <strong>errores clusterizados</strong>.</p>
+<p>Ahora, el modelo <em>pooling</em> también desconoce la importancia de controlar por <strong>heterogenidad no-observada</strong> y por factores (no observados) que afectan a todos los individuos a través del tiempo.</p>
+<p>Considere el siguiente modelo:</p>
+<div class="math notranslate nohighlight">
+\[y_{it} = {\color{red}\alpha_i} + {\color{red}\lambda_t} + \beta_1 x_{1 it} + \beta_2 x_{2 it} + ... + \beta_k x_{k it} + u_{it} \quad (2)\]</div>
+<p>Note que este modelo supone que cada individuo tiene un intercepto (o línea base) diferente y controla también por la tendencia de la variable dependiente a través del tiempo.</p>
+<p>Podemos interpretar estos nuevos parámetros de la siguiente manera:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha_i\)</span> (Efectos Fijos): <strong>captura factores que no cambian a través del tiempo para cada individuo y que no podemos observar</strong>. Algunos de estos factores incluyen, por ejemplo, habilidades innatas del individuo o preferencias del individuo si el panel tiene alta frecuencia y cubre un periodo corto.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_t\)</span> (Efectos de Tiempo): <strong>captura factores no-observados que afectan a todos los individuos a través del tiempo</strong>, como por ejemplo, cambios estructurales o de política</p></li>
+</ul>
+<p>Note que en el modelo <em>pooling</em>:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon_{it} = \alpha_i - \alpha + \lambda_t + u_{it}\]</div>
+<p>De esta manea, si el modelo correctamente espeficado controla por <span class="math notranslate nohighlight">\(\alpha_i\)</span> y <span class="math notranslate nohighlight">\(\lambda_t\)</span>, entonces excluir estos factores puede generar sesgo por variable omitida. En otras palabras, <span class="math notranslate nohighlight">\(E(\varepsilon_{it} | X) \neq 0\)</span>.</p>
+<p>A continuación explorarémos varias formas de estimar el modelo corrigiendo este posible sesgo.</p>
+</section>
+<section id="modelo-de-primeras-diferencias">
+<h2>Modelo de Primeras Diferencias<a class="headerlink" href="#modelo-de-primeras-diferencias" title="Link to this heading">#</a></h2>
+<p>Observe que a partir del modelo <em>pooling</em> podemos obtener las siguientes ecuaciones:</p>
+<div class="math notranslate nohighlight">
+\[y_{i, t-1} = \alpha + \beta_1 x_{1 i,t-1} + \beta_2 x_{2 i,t-1} + ... + \beta_k x_{k i,t-1} + \varepsilon_{i,t-1} \qquad (3)\]</div>
+<div class="math notranslate nohighlight">
+\[y_{i, t} = \alpha + \beta_1 x_{1 i,t} + \beta_2 x_{2 i,t} + ... + \beta_k x_{k i,t} + \varepsilon_{i,t} \qquad (4)\]</div>
+<p>Si computamos <span class="math notranslate nohighlight">\((4) - (3)\)</span>, obtenemos la siguiente transformación al modelo:</p>
+<div class="math notranslate nohighlight">
+\[\Delta y_{i, t} = \beta_1 \Delta x_{1 i,t} + \beta_2 \Delta x_{2 i,t} + ... + \beta_k \Delta x_{k i,t} + \Delta \varepsilon_{i,t} \quad (5)\]</div>
+<p>Donde
+$<span class="math notranslate nohighlight">\(\Delta y_{i, t} = y_{i, t} - y_{i, t-1}, \quad \Delta x_{j i,t} = x_{j i,t} - x_{j i,t-1} \text{ para } j \in \{1, ..., k\}, \hspace{5pt}\text{ y }\hspace{5pt} \Delta \varepsilon_{i,t} = \varepsilon_{i,t} - \varepsilon_{i,t-1}\)</span>$</p>
+<p>El modelo transformado <span class="math notranslate nohighlight">\((5)\)</span> se conoce como el <strong>estimador de primeras diferencias</strong>. Es importante notar que la transformación del modelo nos deja con <span class="math notranslate nohighlight">\(n \cdot T-1\)</span> observaciones, es decir, se pierde una observación por individuo.</p>
+<p>El modelo de primeras diferencias nos permite corregir el posible sesgo que se genera por excluir <span class="math notranslate nohighlight">\(\alpha_i\)</span>. Esto es así porque:</p>
+<div class="math notranslate nohighlight">
+\[\Delta \varepsilon_{i,t} = (\alpha_i - \alpha + \lambda_t + u_{it}) - (\alpha_i - \alpha + \lambda_{t-1} + u_{i,t-1}) =  \lambda_t -  \lambda_{t-1} + \Delta u_{i,t}\]</div>
+<p>Sin embargo, este estimador no corrige el sesgo por excluir <span class="math notranslate nohighlight">\(\lambda_t\)</span> y por la tanto es importante controlar por <span class="math notranslate nohighlight">\(\Delta \lambda_t = \lambda_t -  \lambda_{t-1}\)</span>. Una manera de hacerlo es incluir variables binarias:</p>
+<div class="math notranslate nohighlight">
+\[\Delta y_{i, t} = \delta_2 1_{\{t = 2\}} + \delta_3 1_{\{t = 3\}} + ... + \delta_T 1_{\{t = T\}} + \beta_1 \Delta x_{1 i,t} + \beta_2 \Delta x_{2 i,t} + ... + \beta_k \Delta x_{k i,t} + \Delta \varepsilon_{i,t} \quad (5)\]</div>
+<p>Nuevamente, podemos estimar esta última expresión usando MCO, pero debemos corregir los errores estándar clusterizando a nivel de individuo.</p>
+</section>
+<section id="modelo-de-efectos-fijos-o-within">
+<h2>Modelo de Efectos Fijos (o Within)<a class="headerlink" href="#modelo-de-efectos-fijos-o-within" title="Link to this heading">#</a></h2>
+<p>Otra manera de corregir el sesgo por no incluir <span class="math notranslate nohighlight">\(\alpha_i\)</span> se obtiene de la siguiente transformación:</p>
+<p>Primero calculamos el promedio para cada individuo (explotando la variación <code class="docutils literal notranslate"><span class="pre">within</span></code>-individuo):</p>
+<div class="math notranslate nohighlight">
+\[\bar y_{i} = \alpha + \beta_1 \bar x_{1 i} + \beta_2 \bar x_{2 i} + ... + \beta_k \bar x_{k i} + \bar \varepsilon_{i} \quad (6)\]</div>
+<p>Luego, restamos esta ecuación del modelo <em>pooling</em> <span class="math notranslate nohighlight">\((1)\)</span> y obtenemos la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[\tilde y_{i, t} = \alpha + \beta_1 \tilde x_{1 i,t} + \beta_2 \tilde x_{2 i,t} + ... + \beta_k \tilde x_{k i,t} + \tilde \varepsilon_{i,t} \quad (7)\]</div>
+<p>Donde
+$<span class="math notranslate nohighlight">\(\tilde y_{i, t} = y_{i, t} - \bar y_{i}, \quad \tilde x_{j i,t} = x_{j i,t} - \bar x_{j i} \text{ para } j \in \{1, ..., k\}, \hspace{5pt}\text{ y }\hspace{5pt} \tilde \varepsilon_{i,t} = \varepsilon_{i,t} - \bar \varepsilon_{i}\)</span>$</p>
+<p>El modelo transformado <span class="math notranslate nohighlight">\((7)\)</span> lo podemos estimar a través de MCO:</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta = (\tilde X'\tilde X)^{-1} \tilde X' \tilde Y\]</div>
+<p>Observe que</p>
+<div class="math notranslate nohighlight">
+\[\tilde \varepsilon_{i,t} = (\alpha_i - \alpha + \lambda_t + u_{i, t}) - (\alpha_i - \alpha + \bar\lambda_i + \bar u_{i}) = \lambda_t - \bar\lambda_i + \tilde u_{i,t}\]</div>
+<p>De esta manera, la transformación corrige el sesgo por no incluir <span class="math notranslate nohighlight">\(\alpha_i\)</span> explicitamente en la regresión, pero no corrige el sesgo que genera no controlar por <span class="math notranslate nohighlight">\(\lambda_t\)</span>. Una ventaja de este método es que no perdemos información, como ocurre con el modelo de primeras diferencias.</p>
+</section>
+<section id="minimos-cuadrados-con-variables-binarias">
+<h2>Mínimos Cuadrádos con Variables Binarias<a class="headerlink" href="#minimos-cuadrados-con-variables-binarias" title="Link to this heading">#</a></h2>
+<p>Alternativamente podemos controlar directamente por <span class="math notranslate nohighlight">\(\alpha_i\)</span> y <span class="math notranslate nohighlight">\(\lambda_t\)</span> usando variable binarias. Para ello estimamos la siguiente regresión:</p>
+<div class="math notranslate nohighlight">
+\[y_{it} = \alpha + \beta_1 x_{1 it} + \beta_2 x_{2 it} + ... + \beta_k x_{k it} + \alpha_i + \lambda_t + u_{it} \hspace{10pt} \text{ con } \hspace{10pt} \alpha_i = \sum_{i = 2}^N \gamma_i D_i \hspace{5pt}\text{ y }\hspace{5pt} \lambda_t = \sum_{t = 2}^T \delta_t d_t\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(D_{i}\)</span> y <span class="math notranslate nohighlight">\(d_{t}\)</span> son variables binarias que se definen de la siguiente manera:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+D_{i} =
+    \left\{\begin{array}{lr}
+    1, &amp; \text{ para el individuo } i \\
+    0, &amp; \text{ de lo contrario }
+    \end{array}\right.
+\qquad    
+d_{t} =
+    \left\{\begin{array}{lr}
+    1, &amp; \text{ para el periodo } t \\
+    0, &amp; \text{ de lo contrario }
+    \end{array}\right.    
+\end{equation*}\]</div>
+<p>Este modelo incluye de manera explicita los interceptos para cada individuo y los efectos de tiempo. Sin embargo, la estimación de este modelo puede ser muy demandante computancionalmente, especialmente si <span class="math notranslate nohighlight">\(N\)</span> es grande y el panel es de alta frecuencia (es decir, si <span class="math notranslate nohighlight">\(T\)</span> es grande).</p>
+</section>
+<section id="modelo-de-efectos-aleatorios">
+<h2>Modelo de Efectos Aleatorios<a class="headerlink" href="#modelo-de-efectos-aleatorios" title="Link to this heading">#</a></h2>
+<p>Este modelo supone que los interceptos de cada individuo son aleatorios. De manera específica, se supone que <span class="math notranslate nohighlight">\(\alpha_i = \bar \alpha + \xi_i\)</span>, donde <span class="math notranslate nohighlight">\(\bar \alpha\)</span> es el promedio de la población y <span class="math notranslate nohighlight">\(\xi_i\)</span> es una variable iid con media 0 y varianza <span class="math notranslate nohighlight">\(\sigma_\xi\)</span>.</p>
+<p>Reemplazando esta definición de <span class="math notranslate nohighlight">\(\alpha_i\)</span> en la ecuación <span class="math notranslate nohighlight">\((2)\)</span> llegamos a la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[y_{it} = \bar \alpha + \lambda_t + \beta_1 x_{1 it} + \beta_2 x_{2 it} + ... + \beta_k x_{k it} + \nu_{it} \quad (8)\]</div>
+<div class="math notranslate nohighlight">
+\[\nu_{it} = \xi_i + u_{it}\]</div>
+<p>El modelo supone además que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E(u_{it}) = 0\)</span> y <span class="math notranslate nohighlight">\(V(u_{it}) = \sigma^2_u\)</span></p></li>
+<li><p>Independencia entre <span class="math notranslate nohighlight">\(\xi_i\)</span> y <span class="math notranslate nohighlight">\(u_{js}\)</span> y <span class="math notranslate nohighlight">\(x_{l, jt}\)</span> para todo <span class="math notranslate nohighlight">\(i, j, t, s, l\)</span></p></li>
+</ul>
+<p>Luego podemos determinar que</p>
+<div class="math notranslate nohighlight">
+\[V(\nu_{it}) = \sigma^2_\xi + \sigma^2_u\]</div>
+<div class="math notranslate nohighlight">
+\[Corr(\nu_{it}, \nu_{is}) = \frac{\sigma^2_\xi}{\sigma^2_\xi + \sigma^2_u}\]</div>
+<p>Dado que para cada individuo los errores se correlacionan a través del tiempo, estimar <span class="math notranslate nohighlight">\((8)\)</span> por MCO es ineficiente.</p>
+<p>Sin embargo, podemos transformar el modelo y estimar la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[y^*_{it} = \bar \alpha + \lambda^*_t + \beta_1 x^*_{1 it} + \beta_2 x^*_{2 it} + ... + \beta_k x^*_{k it} + \nu^*_{it} \quad (9)\]</div>
+<p>Donde
+$<span class="math notranslate nohighlight">\(y^*_{it} = y_{i, t} - \theta \bar y_{i}, \quad x_{l i,t} = x_{l i,t} - \theta \bar x_{l i} \text{ para } l \in \{1, ..., k\}, \hspace{5pt}\text{ y }\hspace{5pt} \nu^*_{it} = \nu_{i,t} - \theta \bar \nu_{i}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\theta = 1 - \sqrt\frac{\sigma^2_u}{T\sigma^2_\xi + \sigma^2_u}\)</span>$</p>
+<p>Esta transformación elimina la correlación serial que se desprende de la estructura de los datos panel. Es importante notar que si <span class="math notranslate nohighlight">\(T \to \infty\)</span>, <span class="math notranslate nohighlight">\(\theta = 1\)</span> y la transformación <span class="math notranslate nohighlight">\((9)\)</span> es identica al modelo de efectos fijos.</p>
+</section>
+<section id="seleccion-de-modelo">
+<h2>Selección de Modelo<a class="headerlink" href="#seleccion-de-modelo" title="Link to this heading">#</a></h2>
+<p>La <strong>prueba LM (Multiplicador de Lagrange) de Breusch–Pagan</strong> nos permite determinar si existen o no efectos aleatorios (EA). Observe que si <span class="math notranslate nohighlight">\(V(\alpha_i) = \sigma^2_\xi = 0\)</span>, podemos descartar la presencia de efectos aleatorios. De esta manera, la hipótesis de esta prueba esta dada por:</p>
+<div class="math notranslate nohighlight">
+\[H_0 : \sigma^2_\xi  = 0 \to \text{no hay EA}\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \sigma^2_\xi  &gt; 0 \to \text{estimar EA es preferible a \textit{pooling}}\]</div>
+<p>La <strong>prueba de Hausman</strong> nos permite determinar si debemos estimar un modelo de efectos aletorios  o un modelo de efectos fijos (EF). La hipótesis de esta prueba esta dada por:</p>
+<div class="math notranslate nohighlight">
+\[H_0 : E(\alpha_i | x_{1, it}, x_{2, it}, ..., x_{k, it}) = 0 \to \text{EA es consistente y eficiente }\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : E(\alpha_i | x_{1, it}, x_{2, it}, ..., x_{k, it}) \neq 0 \to \text{EA es inconsistente, estimamos EF}\]</div>
+<p>El estadístico de prueba usado es:</p>
+<div class="math notranslate nohighlight">
+\[H = (\hat\beta_{EA} - \hat\beta_{EF})'[V(\hat\beta_{EA}) - V(\hat\beta_{EF})]^{-1}(\hat\beta_{EA} - \hat\beta_{EF}) \xrightarrow[]{d} \chi^2_q\]</div>
+<p>donde <span class="math notranslate nohighlight">\(q\)</span> es el número de parámetros del modelo.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="7_RepeatedCross.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelo de Cortes Transversales Repetidos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_Probabilidad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beneficios-de-contar-con-datos-panel">Beneficios de contar con Datos Panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-de-datos-panel">Clasificación de Datos Panel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-pooling">Modelo Pooling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-primeras-diferencias">Modelo de Primeras Diferencias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-efectos-fijos-o-within">Modelo de Efectos Fijos (o Within)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-con-variables-binarias">Mínimos Cuadrádos con Variables Binarias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-efectos-aleatorios">Modelo de Efectos Aleatorios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-modelo">Selección de Modelo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Montano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

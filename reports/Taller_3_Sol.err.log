@@ -22,34 +22,34 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-model <- lm(log(wage) ~ educ + exper + expersq + female, data = wage1)
-e <- model$residuals
+#Limpiar espacio de trabajo
+rm(list = ls())
+install.packages('haven')
+library('haven')
 
-par(mfrow=c(1,2))
-hist(e, xlab = "Residuals", probability = T, ylim = c(0, 1)) #Histograma de esiduales
-lines(density(e, na.rm=T), lwd = 2, col = "red") # Densidad estimada de los residuales
-curve(dnorm(x, mean = mean(e, na.rm=T), sd = sd(e, na.rm=T)), lty = 2, lwd = 2, add = TRUE, col = "blue") #Distribucion normal
-qqnorm(rstandard(model), col="red", pch=20) ##Q-Q plot
-abline(a=0, b=1, col="blue", lty=2, lwd=2)
+#Cargar datos
+link_datos <- 'https://www.dropbox.com/scl/fi/83tubficanfbebflaekwi/Saber11_Colegios.dta?rlkey=o6p9e75c2zuqpt86ivjvezwzs&dl=1'
+datos <- read_dta(link_datos)
+attach(datos)
 ------------------
 
+----- stderr -----
+Installing package into 'C:/Users/smontano/AppData/Local/R/win-library/4.3'
+(as 'lib' is unspecified)
+----- stdout -----
 
-Error in eval(mf, parent.frame()): object 'wage1' not found
+  There is a binary version available but the source version is later:
+      binary source needs_compilation
+haven  2.5.4  2.5.5              TRUE
+----- stderr -----
+installing the source package 'haven'
+----- stderr -----
+Warning message in install.packages("haven"):
+"installation of package 'haven' had non-zero exit status"
+------------------
+
+Error in library("haven"): there is no package called 'haven'
 Traceback:
 
-1. eval(mf, parent.frame())
-2. eval(mf, parent.frame())
-3. stats::model.frame(formula = log(wage) ~ educ + exper + expersq + 
- .     female, data = wage1, drop.unused.levels = TRUE)
-4. model.frame.default(formula = log(wage) ~ educ + exper + expersq + 
- .     female, data = wage1, drop.unused.levels = TRUE)
-5. is.data.frame(data)
-6. .handleSimpleError(function (cnd) 
- . {
- .     watcher$capture_plot_and_output()
- .     cnd <- sanitize_call(cnd)
- .     watcher$push(cnd)
- .     switch(on_error, continue = invokeRestart("eval_continue"), 
- .         stop = invokeRestart("eval_stop"), error = NULL)
- . }, "object 'wage1' not found", base::quote(eval(mf, parent.frame())))
+1. stop(packageNotFoundError(package, lib.loc, sys.call()))
 
