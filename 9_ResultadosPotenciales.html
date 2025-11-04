@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ejemplo Regresión &#8212; Microeconometria Aplicada</title>
+    <title>Análisis Causal &#8212; Microeconometria Aplicada</title>
   
   
   
@@ -59,9 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '5_Regresion';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '9_ResultadosPotenciales';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Variables Instrumentales" href="10_IV.html" />
+    <link rel="prev" title="Modelos de Datos Panel" href="8_DatosPanel.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
@@ -190,7 +190,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="8_DatosPanel.html">Modelos de Datos Panel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="9_ResultadosPotenciales.html">Análisis Causal</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Análisis Causal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_IV.html">Variables Instrumentales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
@@ -268,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F5_Regresion.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F9_ResultadosPotenciales.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -298,7 +298,7 @@
       
       
       
-      <li><a href="_sources/5_Regresion.ipynb" target="_blank"
+      <li><a href="_sources/9_ResultadosPotenciales.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,7 +382,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ejemplo Regresión</h1>
+    <h1>Análisis Causal</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,10 +392,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ejemplo Regresión</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-de-regresion-simple">Resultados de Regresión Simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-resultados-potenciales">Modelo de Resultados Potenciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-analisis-causal-observability-problem">Problema de Análisis Causal (<em>Observability Problem</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-interes">Parámetros de Interés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-regresion-y-analisis-causal">Modelo Regresión y Análisis Causal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sesgo-de-autoseleccion">Sesgo de Autoselección</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asignacion-aleatoria-a-tratamiento-rct">Asignación Aleatoria a Tratamiento (RCT)</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -406,36 +409,100 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ejemplo-regresion">
-<h1>Ejemplo Regresión<a class="headerlink" href="#ejemplo-regresion" title="Link to this heading">#</a></h1>
-<p>¿<strong>Qué factores</strong> afectan el <strong>salario</strong> (<span class="math notranslate nohighlight">\(w_i\)</span>) de una persona?</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-causal">
+<h1>Análisis Causal<a class="headerlink" href="#analisis-causal" title="Link to this heading">#</a></h1>
+<p>Hasta ahora hemos usado el modelo de regresión para estudiar la relación entre una variable dependiente <span class="math notranslate nohighlight">\(y\)</span> (<em>outcome</em>) y una o múltiples variables independientes <span class="math notranslate nohighlight">\(x\)</span> (covariables o <em>covariates</em>). Sin embargo, <strong>correlación no implica causalidad</strong>.</p>
+<p>En economía, y muchas otras disciplinas, queremos establecer relaciones causales. Es decir, nos interesa responder la pregunta <strong>¿cuál es el efecto o impacto de <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(y\)</span>?</strong></p>
+<p>En el de modelo de regresión, el supuesto clave para interpretar nuestras estimaciones como efectos causales es:</p>
 <div class="math notranslate nohighlight">
-\[w_i = g(?)\]</div>
-<p>Inicialmente estudiaremos la relación entre el <strong>salario</strong> y los <strong>años de educación</strong> usando una base datos que construiremos juntos.</p>
-<p>El modelo de regresión que queremos estimar es:</p>
+\[E(\varepsilon | x) = 0\]</div>
+<p>Por lo tanto, tratar de argumentar la validez de este supuesto concentrará nuestra atención.</p>
+<section id="modelo-de-resultados-potenciales">
+<h2>Modelo de Resultados Potenciales<a class="headerlink" href="#modelo-de-resultados-potenciales" title="Link to this heading">#</a></h2>
+<p>Iniciamos nuestro estudio acerca de la causalidad entre variables con el modelo de resultados potenciales de Rubin.</p>
+<p>Suponga que nos interesa determinar el efecto causal de un tratamiento o política sobre una variable <span class="math notranslate nohighlight">\(y\)</span>. Definimos la variable <span class="math notranslate nohighlight">\(D_i\)</span> como un indicador que toma el valor de 1 si el individuo <span class="math notranslate nohighlight">\(i\)</span> recibió el tratamiento y 0 en caso contrario. Es decir, <span class="math notranslate nohighlight">\(D_i\)</span> nos permite identificar los individuos tratados y los no tratados.</p>
+<p><strong>En un mundo ideal</strong> quisieramos observar el cambio (o <strong>efecto</strong>) en la variable <span class="math notranslate nohighlight">\(y_i\)</span> en presencia de tratamiento (<span class="math notranslate nohighlight">\(D_i = 1\)</span>) y ausencia de tratamiento (<span class="math notranslate nohighlight">\(D_i = 0\)</span>). Es decir, el efecto del tratamiento para cada individuo <span class="math notranslate nohighlight">\(i\)</span> es:</p>
 <div class="math notranslate nohighlight">
-\[w_i = \beta_0 + \beta_1 s_i + \varepsilon_i\]</div>
-<p>Note que estamos modelando <span class="math notranslate nohighlight">\(g(\cdot)\)</span> como una función lineal que tiene dos componentes:</p>
-<div class="math notranslate nohighlight">
-\[g(\cdot) = \underbrace{\beta_0 + \beta_1 s_i}_{\text{parte observada}} + \underbrace{\varepsilon_i}_{\text{no observada}}\]</div>
-<p><strong>Estimemos este modelo juntos (a mano)</strong>. Posteriormente verificaremos los resultados y extenderemos el modelo usando R.</p>
+\[\tau_i = y_i(1) - y_i(0)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(y_i(1)\)</span> es el valor que toma la variable de interés cuando <span class="math notranslate nohighlight">\(i\)</span> es tratado y <span class="math notranslate nohighlight">\(y_i(0)\)</span> es el valor que toma cuando <span class="math notranslate nohighlight">\(i\)</span> no es tratado.</p>
 </section>
-<section id="resultados-de-regresion-simple">
-<h1>Resultados de Regresión Simple<a class="headerlink" href="#resultados-de-regresion-simple" title="Link to this heading">#</a></h1>
-<p>Para estimar nuestros coeficientes <span class="math notranslate nohighlight">\(\beta_0\)</span> y <span class="math notranslate nohighlight">\(\beta_1\)</span> usaremos las siguientes formulas (<strong>estimadores</strong>):</p>
+<section id="problema-de-analisis-causal-observability-problem">
+<h2>Problema de Análisis Causal (<em>Observability Problem</em>)<a class="headerlink" href="#problema-de-analisis-causal-observability-problem" title="Link to this heading">#</a></h2>
+<p>Es evidente que no podemos observar <span class="math notranslate nohighlight">\(y_i(1)\)</span> y <span class="math notranslate nohighlight">\(y_i(0)\)</span> al mismo tiempo.</p>
+<p><strong>Para cada individuo solo observamos un valor <span class="math notranslate nohighlight">\(y_i\)</span></strong>, es decir, solo observamos <span class="math notranslate nohighlight">\(y_i(1)\)</span> para los individuos tratados y solo observamos <span class="math notranslate nohighlight">\(y_i(0)\)</span> para los individuos no tratados. Esto lo podemos resumir de la siguiente manera:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_i = y_i(1) \cdot D_i + y_i(0) \cdot (1 - D_i) =
+    \left\{\begin{array}{lr}
+    y_i(1), &amp; \text{si } D_i = 1 \\
+    y_i(0), &amp; \text{si } D_i = 0 \\
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Note que podemos reescribir <span class="math notranslate nohighlight">\(y_i\)</span> cómo una función de regresión:</p>
 <div class="math notranslate nohighlight">
-\[\hat\beta_0 = \bar w - \hat\beta_1 \bar s\]</div>
+\[y_i = \underbrace{\hspace{3pt}\alpha\hspace{3pt}}_{E(y_i(0))} + \underbrace{\hspace{2pt}\tau_i\hspace{2pt}}_{y_i(1) - y_i(0)} D_i + \underbrace{\hspace{2pt}\varepsilon_i\hspace{2pt}}_{y_i(0) - E(y_i(0))}\]</div>
+</section>
+<section id="parametros-de-interes">
+<h2>Parámetros de Interés<a class="headerlink" href="#parametros-de-interes" title="Link to this heading">#</a></h2>
+<p>Debido a que no podemos determinar el efecto del tratamiento para cada individuo <strong>nos concentraremos en el efecto promedio para una población</strong> de estudio. Los siguientes son parámetros de interés que nos interesa considerar:</p>
+<ul class="simple">
+<li><p><strong>Efecto Promedio</strong> (<em>ATE: Average Treatment Effect</em>): Relevante para programas universales</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[\hat\beta_1 = \frac{\widehat{Cov(w, s)}}{\widehat{Var(s)}} = \frac{\sum_{i = 1}^n (w_i - \bar w) (s_i - \bar s)}{\sum_{i = 1}^n (s_i - \bar s)^2}\]</div>
-<p>Nuestro objetivo es concluir (usando datos) si la educación afecta (o no) el salario de un individuo. Nuestra hipótesis es:</p>
+\[E(\tau_i) = E(y_i(1) - y_i(0)) = E(y_i(1)) - E(y_i(0))\]</div>
+<ul class="simple">
+<li><p><strong>Efecto Promedio en Tratados</strong> (<em>ATT: Average Treatment on Treated</em>): Relevante para estimar la efectividad de una política (programa o tratamiento)</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[H_0 : \beta_1 = 0\]</div>
+\[E(\tau_i | D_i = 1) = E(y_i(1)| D_i = 1) - \underbrace{E(y_i(0) | D_i = 1)}_{\text{Contrafactual}}\]</div>
+<ul class="simple">
+<li><p><strong>Efecto Promedio en No Tratados</strong> (<em>ATU: Average Treatment on Untreated</em>): Relevate para estimar como una política puede afectar poblaciones no focalizadas (<em>spillovers</em>)</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[H_1 : \beta_1 \neq 0\]</div>
-<p>Si <span class="math notranslate nohighlight">\(H_0\)</span> es cierta, concluimos que la educación no afecta los salarios. Para evaluar esta hipótesis usamos el <strong>estadístico</strong>:</p>
+\[E(\tau_i | D_i = 0) = \underbrace{E(y_i(1)| D_i = 0)}_{\text{Contrafactual}} - E(y_i(0) | D_i = 0)\]</div>
+<p>Es importante observar que el promedio contrafactual es un resultado hipotetico, pues no lo podemos observar.</p>
+</section>
+<section id="modelo-regresion-y-analisis-causal">
+<h2>Modelo Regresión y Análisis Causal<a class="headerlink" href="#modelo-regresion-y-analisis-causal" title="Link to this heading">#</a></h2>
+<p>Supongamos por ahora que el efecto del programa es igual para todos los individuos, es decir, suponga que:</p>
 <div class="math notranslate nohighlight">
-\[T = \frac{\hat\beta_1}{ee(\hat\beta_1)} \sim t_{n-k} \hspace{5pt}\text{ , donde } \hspace{5pt} ee(\hat\beta_1) = \sqrt{ \frac{\sum_i e_i^2/n-k}{\sum_i (s_i - \overline s)^2}}\]</div>
-<p>Con <span class="math notranslate nohighlight">\(k = 2\)</span> (dos parámetros), <span class="math notranslate nohighlight">\(n = 6\)</span> (seis observaciones) y <span class="math notranslate nohighlight">\(e_i = w_i - \hat w_i = w_i - (\hat\beta_0 + \hat\beta_1 s_i)\)</span></p>
+\[\tau_i = \tau\]</div>
+<p>De esta manera, nuestro modelo de regresión está dado por:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \alpha + \tau D_i + \varepsilon_i\]</div>
+<p>Observe que</p>
+<div class="math notranslate nohighlight">
+\[E(y_i(1) | D_i = 1) = \alpha + \tau + E(\varepsilon_i | D_i = 1)\]</div>
+<div class="math notranslate nohighlight">
+\[E(y_i(0) | D_i = 0) = \alpha + E(\varepsilon_i | D_i = 0)\]</div>
+</section>
+<section id="sesgo-de-autoseleccion">
+<h2>Sesgo de Autoselección<a class="headerlink" href="#sesgo-de-autoseleccion" title="Link to this heading">#</a></h2>
+<p>A partir de esta ecuaciones podemos determinar que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \tau &amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0) + E(\varepsilon_i | D_i = 1) - E(\varepsilon_i | D_i = 0) \\\\
+     &amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0) + \underbrace{E(y_i(0) | D_i = 1) - E(y_i(0) | D_i = 0)}_{\text{Sesgo de Autoselección}} \\
+     &amp; = ATT + \text{Sesgo de Autoselección} \\
+\end{align*}\]</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(E(\varepsilon_i|D_i) = 0\)</span>, entonces</p>
+<div class="math notranslate nohighlight">
+\[\tau = ATT = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0)\]</div>
+</section>
+<section id="asignacion-aleatoria-a-tratamiento-rct">
+<h2>Asignación Aleatoria a Tratamiento (RCT)<a class="headerlink" href="#asignacion-aleatoria-a-tratamiento-rct" title="Link to this heading">#</a></h2>
+<p>Asignar aleatoriamente el tratamiento implica que los factores observables y no observables que componen el término de error <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> son independiente de <span class="math notranslate nohighlight">\(D_i\)</span>. En otras palabras,</p>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i | D_i) = E(\varepsilon_i) = 0\]</div>
+<p>Si la asignación a tratamiento es aleatoria <span class="math notranslate nohighlight">\(D_i\)</span> también es independiente de los resultados potenciales. Es decir,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+E(y_i | D_i = 1) - E(y_i | D_i = 0) &amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0) \\\\
+&amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | {\color{red} D_i = 1}) \\\\
+&amp; = E(y_i(1) - y_i(0) | {\color{red} D_i = 1})\\\\
+&amp; = E(y_i(1) - y_i(0))\\
+\end{align*}\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -468,6 +535,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="8_DatosPanel.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelos de Datos Panel</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_IV.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Variables Instrumentales</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -484,10 +569,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ejemplo Regresión</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-de-regresion-simple">Resultados de Regresión Simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-resultados-potenciales">Modelo de Resultados Potenciales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-analisis-causal-observability-problem">Problema de Análisis Causal (<em>Observability Problem</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-interes">Parámetros de Interés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-regresion-y-analisis-causal">Modelo Regresión y Análisis Causal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sesgo-de-autoseleccion">Sesgo de Autoselección</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asignacion-aleatoria-a-tratamiento-rct">Asignación Aleatoria a Tratamiento (RCT)</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

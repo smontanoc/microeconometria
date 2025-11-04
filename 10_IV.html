@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ejemplo Regresión &#8212; Microeconometria Aplicada</title>
+    <title>Variables Instrumentales &#8212; Microeconometria Aplicada</title>
   
   
   
@@ -59,9 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '5_Regresion';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '10_IV';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="prev" title="Análisis Causal" href="9_ResultadosPotenciales.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
@@ -191,7 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="8_DatosPanel.html">Modelos de Datos Panel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="9_ResultadosPotenciales.html">Análisis Causal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_IV.html">Variables Instrumentales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variables Instrumentales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -268,7 +268,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F5_Regresion.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F10_IV.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -298,7 +298,7 @@
       
       
       
-      <li><a href="_sources/5_Regresion.ipynb" target="_blank"
+      <li><a href="_sources/10_IV.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,7 +382,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ejemplo Regresión</h1>
+    <h1>Variables Instrumentales</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,10 +392,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ejemplo Regresión</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-de-regresion-simple">Resultados de Regresión Simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevancia-y-exogenidad-de-un-instrumento">Relevancia y Exogenidad de un Instrumento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-en-dos-etapas-mc2">Mínimos Cuadrados en Dos Etapas (MC2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-estadisticas-de-hat-beta-iv">Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span></a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -406,36 +407,109 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ejemplo-regresion">
-<h1>Ejemplo Regresión<a class="headerlink" href="#ejemplo-regresion" title="Link to this heading">#</a></h1>
-<p>¿<strong>Qué factores</strong> afectan el <strong>salario</strong> (<span class="math notranslate nohighlight">\(w_i\)</span>) de una persona?</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-instrumentales">
+<h1>Variables Instrumentales<a class="headerlink" href="#variables-instrumentales" title="Link to this heading">#</a></h1>
+<p>Suponga que estamos interesados en estudiar el efecto causal que tiene la variable <span class="math notranslate nohighlight">\(x\)</span> sobre la variable de resultado <span class="math notranslate nohighlight">\(y\)</span>. Para determinar esta relación causal usted cuenta con información para <span class="math notranslate nohighlight">\(n\)</span> individuos y quiere estimar la siguiente ecuación de regresión:</p>
 <div class="math notranslate nohighlight">
-\[w_i = g(?)\]</div>
-<p>Inicialmente estudiaremos la relación entre el <strong>salario</strong> y los <strong>años de educación</strong> usando una base datos que construiremos juntos.</p>
-<p>El modelo de regresión que queremos estimar es:</p>
+\[y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</div>
+<p>Usted estima esta regresión a través de MCO. Sin embargo, usted sospecha que el supuesto de exogeneidad no se cumple, es decir:</p>
 <div class="math notranslate nohighlight">
-\[w_i = \beta_0 + \beta_1 s_i + \varepsilon_i\]</div>
-<p>Note que estamos modelando <span class="math notranslate nohighlight">\(g(\cdot)\)</span> como una función lineal que tiene dos componentes:</p>
+\[E(\varepsilon_i | x_i) \neq 0 \quad \Rightarrow \quad E(\hat\beta) \neq \beta\]</div>
+<p>Múltiples razones pueden sugerir que el supuesto de exogenidad se viola. Algunas de ellas son:</p>
+<ol class="arabic simple">
+<li><p><strong>Omitir variables relevantes</strong>: factores (observables y no observables) que explican <span class="math notranslate nohighlight">\(y_i\)</span> y que se relaciona de manera importante con <span class="math notranslate nohighlight">\(x_i\)</span>.</p></li>
+<li><p><strong>Error de medición</strong>: si en lugar de observar <span class="math notranslate nohighlight">\(x_i\)</span> solo podemos observar <span class="math notranslate nohighlight">\(x_i^* = x_i + \xi_i\)</span></p></li>
+<li><p><strong>Simultaneidad o causalidad inversa</strong>: Si <span class="math notranslate nohighlight">\(x_i\)</span> afecta <span class="math notranslate nohighlight">\(y_i\)</span> y <span class="math notranslate nohighlight">\(y_i\)</span> afecta <span class="math notranslate nohighlight">\(x_i\)</span></p></li>
+</ol>
+<section id="relevancia-y-exogenidad-de-un-instrumento">
+<h2>Relevancia y Exogenidad de un Instrumento<a class="headerlink" href="#relevancia-y-exogenidad-de-un-instrumento" title="Link to this heading">#</a></h2>
+<p>El método de <strong>variables instrumentales</strong> (IV) es ampliamente usado por analístas e investigadores para estimar el efecto causal de <span class="math notranslate nohighlight">\(x_i\)</span> en <span class="math notranslate nohighlight">\(y_i\)</span>. Es decir, a través de esta estrategia podemos obtener <strong>estimadores consistentes</strong>.</p>
+<p>El uso de este método requiere de una variable <span class="math notranslate nohighlight">\(z_i\)</span> o <strong>instrumento</strong> que cumple dos propiedades importantes:</p>
+<ol class="arabic simple">
+<li><p><strong>Relevancia</strong> : El instrumento <span class="math notranslate nohighlight">\(z_i\)</span> debe está fuertemente correlacionado con la variable endogena <span class="math notranslate nohighlight">\(x_i\)</span>. Es decir,</p></li>
+</ol>
 <div class="math notranslate nohighlight">
-\[g(\cdot) = \underbrace{\beta_0 + \beta_1 s_i}_{\text{parte observada}} + \underbrace{\varepsilon_i}_{\text{no observada}}\]</div>
-<p><strong>Estimemos este modelo juntos (a mano)</strong>. Posteriormente verificaremos los resultados y extenderemos el modelo usando R.</p>
+\[Cov(x_i, z_i) \neq 0\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Exogeneidad ó Restricción de Exclusión</strong>: El instrumento <span class="math notranslate nohighlight">\(z_i\)</span> debe ser cuasi-aletorio (<em>as good as random</em>) y solo debe afectar a <span class="math notranslate nohighlight">\(y_i\)</span> a través de <span class="math notranslate nohighlight">\(x_i\)</span>. Es decir,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[Cov(\varepsilon_i, z_i) = 0 \quad \Rightarrow \quad \beta_1 = \frac{Cov(y_i, z_i)}{Cov(x_i, z_i)}\]</div>
+<p>Cabe mencionar que la primera condición se puede probar de manera empírica. Sin embargo, para la segunda condición no existe una prueba formal que nos permita determinar si el instrumento es cuasi-aleatorio.</p>
 </section>
-<section id="resultados-de-regresion-simple">
-<h1>Resultados de Regresión Simple<a class="headerlink" href="#resultados-de-regresion-simple" title="Link to this heading">#</a></h1>
-<p>Para estimar nuestros coeficientes <span class="math notranslate nohighlight">\(\beta_0\)</span> y <span class="math notranslate nohighlight">\(\beta_1\)</span> usaremos las siguientes formulas (<strong>estimadores</strong>):</p>
+<section id="aplicaciones">
+<h2>Aplicaciones<a class="headerlink" href="#aplicaciones" title="Link to this heading">#</a></h2>
+<ul>
+<li><p><strong>Angrist (1990 AER)</strong>: Este documento estudia las consecuencias de haber prestado servicio militar en la guerra de Vietnam sobre los ingresos laborales.</p>
+<p><span class="math notranslate nohighlight">\(y_i\)</span> son ingresos, <span class="math notranslate nohighlight">\(x_i\)</span> es el estatus de veterano, <span class="math notranslate nohighlight">\(z_i\)</span> es la elegibilidad para servir en la guerra a partir de una lotería.</p>
+</li>
+<li><p><strong>Angrist y Krueger (1991 QJE)</strong>: Estudian el efecto de la educación sobre los salarios. En Estados Unidos y muchos otros paises, los estudiantes solo pueden ingresar al primer grado del sistema educativo a partir de cierta edad (5 años al 1 de Sep). Además, es obligatorio que los estudiantes estén hasta los 16 años en el sistema educativo.</p>
+<p><span class="math notranslate nohighlight">\(y_i\)</span> son salarios, <span class="math notranslate nohighlight">\(x_i\)</span> los años de educación completa, <span class="math notranslate nohighlight">\(z_i\)</span> es el trimestre de nacimiento (1 = Ene-Ago, 0 = Sep-Dic). Observe que si <span class="math notranslate nohighlight">\(z_i = 1\)</span>, el individuo es obligado a completar mas años educativos antes de poder desertar.</p>
+</li>
+<li><p><strong>Angrist, Graddy, e Imbens (2000 RESTUD)</strong>: Estiman una función de demanda a partir de precios y cantidades vendidas de un producto. Sin embargo, estimar la función de demanda usando esta información tiene problemas de causalidad inversa. Observe que los precios están determinados por la demanda y la oferta al mismo tiempo.</p>
+<p><span class="math notranslate nohighlight">\(y_i\)</span> son cantidades de merluza fresca en el Fulton Fish Market, <span class="math notranslate nohighlight">\(x_i\)</span> es el precio, <span class="math notranslate nohighlight">\(z_i\)</span> es una variable de condiciones climáticas en el mar (viento o temperatura) que afectan la oferta en el mercado.</p>
+</li>
+</ul>
+</section>
+<section id="minimos-cuadrados-en-dos-etapas-mc2">
+<h2>Mínimos Cuadrados en Dos Etapas (MC2)<a class="headerlink" href="#minimos-cuadrados-en-dos-etapas-mc2" title="Link to this heading">#</a></h2>
+<p>Para estimar el modelo de variables instrumentales se realiza un proceso secuencial. Recuerde que nos interesa estimar el efecto causal de la variable <span class="math notranslate nohighlight">\(x_i\)</span> en <span class="math notranslate nohighlight">\(y_i\)</span> a partir de la siguiente función de regresión:</p>
 <div class="math notranslate nohighlight">
-\[\hat\beta_0 = \bar w - \hat\beta_1 \bar s\]</div>
+\[y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</div>
+<p>Para ello procedemos en dos etapas:</p>
+<ul class="simple">
+<li><p><strong>Primera Etapa</strong>: estimar <span class="math notranslate nohighlight">\(x_i\)</span> usando la variable instrumental <span class="math notranslate nohighlight">\(z_i\)</span>. Si <span class="math notranslate nohighlight">\(Cov(z_i, \varepsilon_i) = 0\)</span>, entonces <span class="math notranslate nohighlight">\(\hat x_i\)</span> contiene variacion que no esta relacionada con <span class="math notranslate nohighlight">\(\varepsilon_i\)</span>.</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[\hat\beta_1 = \frac{\widehat{Cov(w, s)}}{\widehat{Var(s)}} = \frac{\sum_{i = 1}^n (w_i - \bar w) (s_i - \bar s)}{\sum_{i = 1}^n (s_i - \bar s)^2}\]</div>
-<p>Nuestro objetivo es concluir (usando datos) si la educación afecta (o no) el salario de un individuo. Nuestra hipótesis es:</p>
+\[x_i = \pi_0 + \pi_1 z_i + u_i\]</div>
+<ul class="simple">
+<li><p><strong>Segunda Etapa</strong>: estimar <span class="math notranslate nohighlight">\(y_i\)</span> usando los valores predichos <span class="math notranslate nohighlight">\(\hat x_i\)</span>.</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[H_0 : \beta_1 = 0\]</div>
+\[y_i = \alpha + \beta \hat x_i + \eta_i\]</div>
+<p>Observe que el estimador de <span class="math notranslate nohighlight">\(\beta\)</span> se puede escribir como:</p>
 <div class="math notranslate nohighlight">
-\[H_1 : \beta_1 \neq 0\]</div>
-<p>Si <span class="math notranslate nohighlight">\(H_0\)</span> es cierta, concluimos que la educación no afecta los salarios. Para evaluar esta hipótesis usamos el <strong>estadístico</strong>:</p>
+\[\hat\beta_{IV} = \frac{\sum_i^n(y_i - \bar y)(\hat x_i - \bar{\hat x})}{\sum_i^n(\hat x_i - \bar{\hat x})^2}\]</div>
+<p>Note ademas que</p>
 <div class="math notranslate nohighlight">
-\[T = \frac{\hat\beta_1}{ee(\hat\beta_1)} \sim t_{n-k} \hspace{5pt}\text{ , donde } \hspace{5pt} ee(\hat\beta_1) = \sqrt{ \frac{\sum_i e_i^2/n-k}{\sum_i (s_i - \overline s)^2}}\]</div>
-<p>Con <span class="math notranslate nohighlight">\(k = 2\)</span> (dos parámetros), <span class="math notranslate nohighlight">\(n = 6\)</span> (seis observaciones) y <span class="math notranslate nohighlight">\(e_i = w_i - \hat w_i = w_i - (\hat\beta_0 + \hat\beta_1 s_i)\)</span></p>
+\[\hat x_i - \bar{\hat x} = \hat\pi_1 (z_i - \bar z)\]</div>
+<p>Entonces</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} = \frac{\sum_i^n(y_i - \bar y)\hat\pi_1 (z_i - \bar z)}{\sum_i^n\hat\pi_1^2 (z_i - \bar z)^2} = \frac{1}{\hat\pi_1} \frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n(z_i - \bar z)^2} = \frac{\sum_i^n(z_i - \bar z)^2}{\sum_i^n (x_i - \bar x) (z_i - \bar z)} \frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n(z_i - \bar z)^2}\]</div>
+<p>Finalmente, el estimador de <span class="math notranslate nohighlight">\(\beta_1\)</span> en 2 etapas esta dado por:</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} = \frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)} = \frac{\hat Cov(y_i, z_i)}{\hat Cov(x_i, z_i)}\]</div>
+</section>
+<section id="propiedades-estadisticas-de-hat-beta-iv">
+<h2>Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span><a class="headerlink" href="#propiedades-estadisticas-de-hat-beta-iv" title="Link to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+E(\hat\beta_{IV}) &amp; = E\left(\frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; =  E\left(\frac{\sum_i^n [(\beta_0 + \beta_1 x_i + \varepsilon_i) - (\beta_0 + \beta_1 \bar x + \bar \varepsilon)] (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; =  E\left(\frac{\sum_i^n [(\beta_1 (x_i - \bar x) + (\varepsilon_i - \bar \varepsilon)] (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; =  E\left(\frac{\beta_1 \sum_i^n (x_i - \bar x)(z_i - \bar z) + \sum_i^n (\varepsilon_i - \bar \varepsilon) (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; = \beta_1 +  E\left(\frac{\sum_i^n \varepsilon_i (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right)
+\end{align*}\]</div>
+<p>Observe que la condicion de exogeniedad del instrumento implica que <span class="math notranslate nohighlight">\(Cov(\varepsilon_i, z_i) = 0\)</span>, pero no implica que <span class="math notranslate nohighlight">\(E(\varepsilon_i | z_i, x_i) = 0\)</span>. Entonces,</p>
+<div class="math notranslate nohighlight">
+\[E\left(\frac{\sum_i^n \varepsilon_i (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) = E\left(\frac{\sum_i^n E(\varepsilon_i | z_i, x_i) (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \neq 0\]</div>
+<p>Es decir, el estimador de minimos cuadrados en dos etapas es sesgado</p>
+<div class="math notranslate nohighlight">
+\[E(\hat\beta_{IV}) \neq \beta\]</div>
+<p>Sin embargo, el estimador es consistente:</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} = \frac{\hat Cov(y_i, z_i)}{\hat Cov(x_i, z_i)} \overset{p}{\to}  \frac{Cov(y_i, z_i)}{Cov(x_i, z_i)} = \beta_1\]</div>
+<p>Se puede demostrar que</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} \overset{d}{\to} N(\beta, \sigma^2_{\beta_{IV}}) \quad \text{ donde } \quad \sigma^2_{\beta_{IV}} = \frac{1}{n}\frac{V \left((z_i - \mu_z) \varepsilon_i\right)}{\left(Cov(x_i, z_i)\right)^2}\]</div>
+<p>La varianza de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span> se puede estimar a partir de la estimacion de la varianza y covarianza de los términos que aparecen en la expresión anterior:</p>
+<div class="math notranslate nohighlight">
+\[se(\hat\beta_{IV}) = \sqrt{\frac{\frac{1}{n} \sum (z_i - \bar z)^2 \hat\varepsilon_i^2}{n \left(\frac{1}{n} \sum (z_i - \bar z) x_i \right)^2}}\]</div>
+<p>Ya que en grandes muestras <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span> se distribuye normal, podemos realizar pruebas de hipotesis computando el <em>t-estadistico</em> y el intervalo de confianza dado por</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} \pm t_{\frac{\alpha}{2}, n - k_2 - 1} \cdot SE(\hat\beta_{IV})\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\alpha\)</span> es el nivel de significancia elegido por el analista, <span class="math notranslate nohighlight">\(n\)</span> es el numero de observaciones, y <span class="math notranslate nohighlight">\(k_2\)</span> es el numero de variables incluidas en la segunda etapa.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -468,6 +542,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="9_ResultadosPotenciales.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Análisis Causal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_Probabilidad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -484,10 +576,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ejemplo Regresión</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados-de-regresion-simple">Resultados de Regresión Simple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevancia-y-exogenidad-de-un-instrumento">Relevancia y Exogenidad de un Instrumento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-en-dos-etapas-mc2">Mínimos Cuadrados en Dos Etapas (MC2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-estadisticas-de-hat-beta-iv">Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span></a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

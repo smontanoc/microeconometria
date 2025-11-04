@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '8_DatosPanel';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Fundamentos de Probabilidad" href="1_Probabilidad.html" />
+    <link rel="next" title="Análisis Causal" href="9_ResultadosPotenciales.html" />
     <link rel="prev" title="Modelo de Cortes Transversales Repetidos" href="7_RepeatedCross.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -190,6 +190,8 @@
 
 <li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelos de Datos Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_ResultadosPotenciales.html">Análisis Causal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_IV.html">Variables Instrumentales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -458,28 +460,28 @@ document.write(`
 <td><p>…</p></td>
 <td><p>…</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<tr class="row-odd"><td><p>n</p></td>
 <td><p>2022</p></td>
 <td><p>0</p></td>
 <td><p>25</p></td>
 <td><p>0</p></td>
 <td><p>10</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<tr class="row-even"><td><p>n</p></td>
 <td><p>2023</p></td>
 <td><p>0</p></td>
 <td><p>26</p></td>
 <td><p>NA</p></td>
 <td><p>11</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<tr class="row-odd"><td><p>n</p></td>
 <td><p>2023</p></td>
 <td><p>0</p></td>
 <td><p>27</p></td>
 <td><p>1</p></td>
 <td><p>12</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<tr class="row-even"><td><p>n</p></td>
 <td><p>2025</p></td>
 <td><p>0</p></td>
 <td><p>28</p></td>
@@ -493,11 +495,12 @@ document.write(`
 <h2>Beneficios de contar con Datos Panel<a class="headerlink" href="#beneficios-de-contar-con-datos-panel" title="Link to this heading">#</a></h2>
 <p>Existen diferentes razones por las cuales contar con este tipo de informción es ideal:</p>
 <ul class="simple">
-<li><p>Permite analizar cómo evolucionan características del individuo que son suceptibles de cambiar con el tiempo</p></li>
+<li><p>Permite analizar cómo evolucionan características que son suceptibles de cambiar con el tiempo</p></li>
 <li><p>Permite estudiar cómo toman decisiones los individuos a través del tiempo y las implicaciones en su <strong>ciclo de vida</strong></p></li>
 <li><p>Se puede usar para estimar el efecto de una intervención o choque. Es decir, podemos estudiar <strong>efectos dinámicos</strong></p></li>
 <li><p>Permite controlar por <strong>efectos heterogeneos no observados</strong> (que no cambian en el tiempo)</p></li>
 </ul>
+<p>De manera resumida, la riqueza de la información de los datos panel amplia las posibilidades del análisis empírico a través de mayor variación (en el tiempo y entre individuos) y eficiencia (o precisión) estadística.</p>
 </section>
 <section id="clasificacion-de-datos-panel">
 <h2>Clasificación de Datos Panel<a class="headerlink" href="#clasificacion-de-datos-panel" title="Link to this heading">#</a></h2>
@@ -507,6 +510,7 @@ document.write(`
 <li><p>panel no-balanceado</p></li>
 </ul>
 <p>En caso de ser posible hacer <strong>seguimiento en el tiempo sin interrupciones, el panel es balanceado</strong>.</p>
+<p>Un <strong>panel desbalanceado</strong> reduce la eficiencia de los estimadores y dificulta los cálculos de la matriz de varianza-covarianza (aunque, en la mayoría de casos, los paquetes estadísticos modernos estiman dicha matriz sin mayor problema). El mayor problema de este tipo de datos, es que puede introducir sesgo por selección a las estimaciones (<strong>attrition bias</strong>) si quienes dejan de responder tienen características que se relacionan con las variables explicativas.</p>
 </section>
 <section id="modelo-pooling">
 <h2>Modelo Pooling<a class="headerlink" href="#modelo-pooling" title="Link to this heading">#</a></h2>
@@ -690,11 +694,11 @@ $<span class="math notranslate nohighlight">\(y^*_{it} = y_{i, t} - \theta \bar 
       </div>
     </a>
     <a class="right-next"
-       href="1_Probabilidad.html"
+       href="9_ResultadosPotenciales.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fundamentos de Probabilidad</p>
+        <p class="prev-next-title">Análisis Causal</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
