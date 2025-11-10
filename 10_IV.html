@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -396,6 +396,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-en-dos-etapas-mc2">Mínimos Cuadrados en Dos Etapas (MC2)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-estadisticas-de-hat-beta-iv">Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-de-un-instrumento">Validez de un Instrumento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-sobreidentificacion-y-no-identificacion">Identificación, Sobreidentificación, y No Identificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-sobreidentificacion">Prueba de Sobreidentificación</a></li>
 </ul>
             </nav>
         </div>
@@ -510,6 +513,59 @@ E(\hat\beta_{IV}) &amp; = E\left(\frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\su
 \[\hat\beta_{IV} \pm t_{\frac{\alpha}{2}, n - k_2 - 1} \cdot SE(\hat\beta_{IV})\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\alpha\)</span> es el nivel de significancia elegido por el analista, <span class="math notranslate nohighlight">\(n\)</span> es el numero de observaciones, y <span class="math notranslate nohighlight">\(k_2\)</span> es el numero de variables incluidas en la segunda etapa.</p>
 </section>
+<section id="validez-de-un-instrumento">
+<h2>Validez de un Instrumento<a class="headerlink" href="#validez-de-un-instrumento" title="Link to this heading">#</a></h2>
+<p>Argumentar que un instrumento es válido es un ejercicio de suma importancia. La validez dependerá de si los supuestos se cumplen o no.</p>
+<p>Recordemos que</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} \overset{d}{\to} \beta_1 + \frac{Cov(y_i, z_i)}{Cov(x_i, z_i)}\]</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(Cov(x_i, z_i) \approx 0\)</span>, entonces el estimador de variables instrumentales será inconsistente. En otras palabras, tener un <strong>instrumento débil</strong> o irrelevante puede agravar el problema por el cual estamos implementando este método.</p>
+<p>Stock y Yogo (2005) muestran que</p>
+<div class="math notranslate nohighlight">
+\[E(\hat\beta_{IV}) - \beta_1 = \frac{E(\hat\beta_{MCO}) -  \beta_1}{E(F)-1}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(E(F)\)</span> es la esperanza del estadístico <em>F</em> de la primera etapa. Entonces, si <span class="math notranslate nohighlight">\(E(F) = 10\)</span> (<strong>regla de oro</strong>), el sesgo de mínimos cuadrados en dos etapas, relativo al sesgo de MCO, es approximadamente <span class="math notranslate nohighlight">\(1/9\)</span>, lo cual es suficientemente aceptable.</p>
+<p>Note además que si el <strong>instrumento no es exogeno</strong>, entonces el estimador será inconsistente.</p>
+<p>Sin embargo, no existe una prueba formal que permita concluir si el instrumento <span class="math notranslate nohighlight">\(z_i\)</span> es exogeno o no. Por lo tanto, el analista debe justificar/argumentar por qué el instrumento no se correlaciona con el término de error. Esto requiere conocimiento detallado de la aplicación o contexto estudiado.</p>
+<p>En ocasiones, la variable instrumental es el resultado de una lotería o proceso aleatorio. En este tipo de situaciones, justificar que el instrumento es exogeno es relativamente sencillo. Más aún, los resultados de este ejercicio son bastante creibles.</p>
+</section>
+<section id="identificacion-sobreidentificacion-y-no-identificacion">
+<h2>Identificación, Sobreidentificación, y No Identificación<a class="headerlink" href="#identificacion-sobreidentificacion-y-no-identificacion" title="Link to this heading">#</a></h2>
+<p>Observe que para estimar el modelo de variables instrumentales requerimos igual o mayor número de instrumentos (<span class="math notranslate nohighlight">\(m\)</span>) que número de variables endogenas (<span class="math notranslate nohighlight">\(k\)</span>).</p>
+<p>La relación entre estas variables dan lugar a la siguiente terminología:</p>
+<ul class="simple">
+<li><p>modelo identificado: <span class="math notranslate nohighlight">\(m = k\)</span></p></li>
+<li><p>modelo sobreidentificado: <span class="math notranslate nohighlight">\(m &gt; k\)</span></p></li>
+<li><p>modelo no indetificado: <span class="math notranslate nohighlight">\(m &lt; k\)</span></p></li>
+</ul>
+<p>Si nuestro modelo está sobreidentificado existe una prueba de hipotesis formal que nos permite determinar si en realidad nuestros instrumentos son exogenos.</p>
+<p>De manera intuitiva, se computa mínimos cuadrados en dos etapas de manera independiente y se comparan los resultados de ambas estimaciones. Si los resultados obtenidos se alejan mucho, entonces es posible que uno o ambos instrumentos no sea exogeno.</p>
+</section>
+<section id="prueba-de-sobreidentificacion">
+<h2>Prueba de Sobreidentificación<a class="headerlink" href="#prueba-de-sobreidentificacion" title="Link to this heading">#</a></h2>
+<p>Nuestro modelo multivariado está dado por:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_k x_{1i} + \beta_{k+1} w_{1i} + ... + \beta_{k+r} w_{ri} + \varepsilon_i\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_i\)</span> es la variable dependiente</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{1i}, ..., x_{ki}\)</span> son <span class="math notranslate nohighlight">\(k\)</span> regresores endogenos</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_{1i}, ..., w_{ri}\)</span> son <span class="math notranslate nohighlight">\(r\)</span> regresores exogenos</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_{1i}, ..., z_{mi}\)</span> son <span class="math notranslate nohighlight">\(m\)</span> instrumentos</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_i\)</span> es el término de error</p></li>
+</ul>
+<p>Usando los <span class="math notranslate nohighlight">\(m\)</span> instrumentos y el método de mínimos cuadrados en dos etapas estimamos el siguiente modelo</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 \hat x_{1i} + \beta_2 \hat x_{2i} + ... + \beta_k \hat x_{1i} + \beta_{k+1} w_{1i} + ... + \beta_{k+r} w_{ri} + \varepsilon_i\]</div>
+<p>A partir de estos resultados estimamos <span class="math notranslate nohighlight">\(\hat\varepsilon_i\)</span> y corremos la siguiente regresión:</p>
+<div class="math notranslate nohighlight">
+\[\hat\varepsilon_i = \delta_0 + \delta_1 z_{1i} + ... + \delta_m z_{mi} + \delta_{k+1} w_{1i} + ... + \delta_{k+r} w_{ri} + u_i\]</div>
+<p>Nuestra prueba de hipótesis está dada por:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \delta_1 = ... = \delta_m = 0\]</div>
+<p>Finalmente el estadístico de prueba de sobreidentificación es</p>
+<div class="math notranslate nohighlight">
+\[J = m F \overset{d}{\to} \chi^2_{m - k}\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -580,6 +636,9 @@ E(\hat\beta_{IV}) &amp; = E\left(\frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\su
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-en-dos-etapas-mc2">Mínimos Cuadrados en Dos Etapas (MC2)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-estadisticas-de-hat-beta-iv">Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-de-un-instrumento">Validez de un Instrumento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-sobreidentificacion-y-no-identificacion">Identificación, Sobreidentificación, y No Identificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-sobreidentificacion">Prueba de Sobreidentificación</a></li>
 </ul>
   </nav></div>
 

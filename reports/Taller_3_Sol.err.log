@@ -26,10 +26,14 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-install.packages("wooldridge"); library(wooldridge)
-data('wage1'); names(wage1) #Cargar datos
-wage1$ln_wage <- log(wage1$wage) #Limpiar Datos
-wage1 <- wage1[wage1$ln_wage > 0, ]
-wage1 <- wage1[wage1$educ > 5, ]
+#Limpiar espacio de trabajo
+rm(list = ls())
+install.packages('haven')
+library('haven')
+
+#Cargar datos
+link_datos <- 'https://www.dropbox.com/scl/fi/83tubficanfbebflaekwi/Saber11_Colegios.dta?rlkey=o6p9e75c2zuqpt86ivjvezwzs&dl=1'
+datos <- read_dta(link_datos)
+attach(datos)
 -------------------
 

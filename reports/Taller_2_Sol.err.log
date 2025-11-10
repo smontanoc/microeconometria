@@ -26,10 +26,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-install.packages("wooldridge"); library(wooldridge)
-data('wage1'); names(wage1) #Cargar datos
-wage1$ln_wage <- log(wage1$wage) #Limpiar Datos
-wage1 <- wage1[wage1$ln_wage > 0, ]
-wage1 <- wage1[wage1$educ > 5, ]
+['rm(list = ls())', '', "install.packages('haven')", "library('haven')", '']
+...
+["plot(price, crime, main = 'Precio vs Crimen')", "plot(price, lowstat, main = 'Precio vs % Bajo Estrato')", "plot(price, rooms, main = 'Precio vs Habitaciones')", '', 'detach(hprice)']
 -------------------
 
