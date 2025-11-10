@@ -16,16 +16,12 @@ Traceback (most recent call last):
     return future.result()
   File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
 #Limpiar espacio de trabajo
 rm(list = ls())
 install.packages('haven')
@@ -35,5 +31,25 @@ library('haven')
 link_datos <- 'https://www.dropbox.com/scl/fi/83tubficanfbebflaekwi/Saber11_Colegios.dta?rlkey=o6p9e75c2zuqpt86ivjvezwzs&dl=1'
 datos <- read_dta(link_datos)
 attach(datos)
--------------------
+------------------
+
+----- stderr -----
+Installing package into 'C:/Users/smontano/AppData/Local/R/win-library/4.3'
+(as 'lib' is unspecified)
+----- stdout -----
+
+  There is a binary version available but the source version is later:
+      binary source needs_compilation
+haven  2.5.4  2.5.5              TRUE
+----- stderr -----
+installing the source package 'haven'
+----- stderr -----
+Warning message in install.packages("haven"):
+"installation of package 'haven' had non-zero exit status"
+------------------
+
+Error in library("haven"): there is no package called 'haven'
+Traceback:
+
+1. stop(packageNotFoundError(package, lib.loc, sys.call()))
 

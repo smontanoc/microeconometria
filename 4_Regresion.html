@@ -197,6 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_2_Sol.html">Taller 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_3_Sol.html">Taller 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_4.html">Taller 4</a></li>
 </ul>
 
     </div>
@@ -473,7 +474,24 @@ document.write(`
 (as &#39;lib&#39; is unspecified)
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>package &#39;wooldridge&#39; successfully unpacked and MD5 sums checked
+</pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
+	C:\Users\smontano\AppData\Local\Temp\RtmpMNE4VY\downloaded_packages
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+&quot;package &#39;wooldridge&#39; was built under R version 4.3.3&quot;
+</pre></div>
+</div>
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'wage'</li><li>'educ'</li><li>'exper'</li><li>'tenure'</li><li>'nonwhite'</li><li>'female'</li><li>'married'</li><li>'numdep'</li><li>'smsa'</li><li>'northcen'</li><li>'south'</li><li>'west'</li><li>'construc'</li><li>'ndurman'</li><li>'trcommpu'</li><li>'trade'</li><li>'services'</li><li>'profserv'</li><li>'profocc'</li><li>'clerocc'</li><li>'servocc'</li><li>'lwage'</li><li>'expersq'</li><li>'tenursq'</li></ol>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -529,7 +547,7 @@ F-statistic: 86.54 on 4 and 512 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/b610b6c841178360b90e523c0a9fee8b2995ccd889ec77fca7e7465477efd253.png"><img alt="_images/b610b6c841178360b90e523c0a9fee8b2995ccd889ec77fca7e7465477efd253.png" src="_images/b610b6c841178360b90e523c0a9fee8b2995ccd889ec77fca7e7465477efd253.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/f9e887d18099d6a779aa88c7bf05ac4199285665552a6f5c55c4777ccad1e86d.png"><img alt="_images/f9e887d18099d6a779aa88c7bf05ac4199285665552a6f5c55c4777ccad1e86d.png" src="_images/f9e887d18099d6a779aa88c7bf05ac4199285665552a6f5c55c4777ccad1e86d.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -562,26 +580,8 @@ F-statistic: 86.54 on 4 and 512 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="nb">eval</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">frame</span><span class="p">()):</span> <span class="n">objeto</span> <span class="s1">&#39;wage1&#39;</span> <span class="n">no</span> <span class="n">encontrado</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="nb">eval</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">frame</span><span class="p">())</span>
-<span class="mi">2</span><span class="o">.</span> <span class="nb">eval</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">frame</span><span class="p">())</span>
-<span class="mi">3</span><span class="o">.</span> <span class="n">stats</span><span class="p">::</span><span class="n">model</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">wage</span><span class="p">)</span> <span class="o">~</span> <span class="n">educ</span> <span class="o">+</span> <span class="n">female</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">wage1</span><span class="p">,</span> 
- <span class="o">.</span>     <span class="n">drop</span><span class="o">.</span><span class="n">unused</span><span class="o">.</span><span class="n">levels</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
-<span class="mi">4</span><span class="o">.</span> <span class="n">model</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">wage</span><span class="p">)</span> <span class="o">~</span> <span class="n">educ</span> <span class="o">+</span> <span class="n">female</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">wage1</span><span class="p">,</span> 
- <span class="o">.</span>     <span class="n">drop</span><span class="o">.</span><span class="n">unused</span><span class="o">.</span><span class="n">levels</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
-<span class="mi">5</span><span class="o">.</span> <span class="ow">is</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="mi">6</span><span class="o">.</span> <span class="o">.</span><span class="n">handleSimpleError</span><span class="p">(</span><span class="n">function</span> <span class="p">(</span><span class="n">cnd</span><span class="p">)</span> 
- <span class="o">.</span> <span class="p">{</span>
- <span class="o">.</span>     <span class="n">watcher</span><span class="err">$</span><span class="n">capture_plot_and_output</span><span class="p">()</span>
- <span class="o">.</span>     <span class="n">cnd</span> <span class="o">&lt;-</span> <span class="n">sanitize_call</span><span class="p">(</span><span class="n">cnd</span><span class="p">)</span>
- <span class="o">.</span>     <span class="n">watcher</span><span class="err">$</span><span class="n">push</span><span class="p">(</span><span class="n">cnd</span><span class="p">)</span>
- <span class="o">.</span>     <span class="n">switch</span><span class="p">(</span><span class="n">on_error</span><span class="p">,</span> <span class="k">continue</span> <span class="o">=</span> <span class="n">invokeRestart</span><span class="p">(</span><span class="s2">&quot;eval_continue&quot;</span><span class="p">),</span> 
- <span class="o">.</span>         <span class="n">stop</span> <span class="o">=</span> <span class="n">invokeRestart</span><span class="p">(</span><span class="s2">&quot;eval_stop&quot;</span><span class="p">),</span> <span class="n">error</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
- <span class="o">.</span> <span class="p">},</span> <span class="s2">&quot;objeto &#39;wage1&#39; no encontrado&quot;</span><span class="p">,</span> <span class="n">base</span><span class="p">::</span><span class="n">quote</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">frame</span><span class="p">())))</span>
-</pre></div>
-</div>
+<a class="reference internal image-reference" href="_images/9b1223299eb2bd51f8a0ae14d6f60fef88cda0aad43d7baff0f4a7c564c67c25.png"><img alt="_images/9b1223299eb2bd51f8a0ae14d6f60fef88cda0aad43d7baff0f4a7c564c67c25.png" src="_images/9b1223299eb2bd51f8a0ae14d6f60fef88cda0aad43d7baff0f4a7c564c67c25.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 </section>
@@ -1086,22 +1086,22 @@ lm(formula = log(wage) ~ educ + exper + expersq + female + noise,
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--1.16545 -0.27525 -0.02122  0.25640  1.19204 
+-1.16379 -0.27319 -0.02232  0.25238  1.21226 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.3037966  0.1115740   2.723  0.00669 ** 
-educ         0.0909906  0.0075093  12.117  &lt; 2e-16 ***
-exper        0.0376774  0.0048400   7.785 3.91e-14 ***
-expersq     -0.0006654  0.0001084  -6.139 1.67e-09 ***
-female      -0.3307009  0.0360861  -9.164  &lt; 2e-16 ***
-noise        0.0146087  0.0613108   0.238  0.81176    
+(Intercept)  0.3293822  0.1123573   2.932  0.00352 ** 
+educ         0.0911732  0.0075030  12.152  &lt; 2e-16 ***
+exper        0.0378966  0.0048215   7.860 2.29e-14 ***
+expersq     -0.0006703  0.0001080  -6.204 1.14e-09 ***
+female      -0.3325926  0.0361028  -9.212  &lt; 2e-16 ***
+noise       -0.0429278  0.0607283  -0.707  0.47996    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.4063 on 511 degrees of freedom
-Multiple R-squared:  0.4034,	Adjusted R-squared:  0.3976 
-F-statistic: 69.12 on 5 and 511 DF,  p-value: &lt; 2.2e-16
+Residual standard error: 0.4061 on 511 degrees of freedom
+Multiple R-squared:  0.404,	Adjusted R-squared:  0.3981 
+F-statistic: 69.26 on 5 and 511 DF,  p-value: &lt; 2.2e-16
 </pre></div>
 </div>
 </div>
@@ -1248,8 +1248,22 @@ Y =
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/smontano/AppData/Local/R/win-library/4.3&#39;
+(as &#39;lib&#39; is unspecified)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>package &#39;car&#39; successfully unpacked and MD5 sums checked
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
+	C:\Users\smontano\AppData\Local\Temp\RtmpMNE4VY\downloaded_packages
+</pre></div>
+</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-&quot;package &#39;car&#39; is in use and will not be installed&quot;
+&quot;package &#39;car&#39; was built under R version 4.3.3&quot;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: carData
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
