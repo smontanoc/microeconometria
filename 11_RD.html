@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Regresión Discontinua &#8212; Microeconometria Aplicada</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '11_RD';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Diferencias en Diferencias" href="12_DiD.html" />
+    <link rel="prev" title="Variables Instrumentales" href="10_IV.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Microeconometria Aplicada - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Microeconometria Aplicada - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Microeconometría Aplicada
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_DatosPanel.html">Modelos de Datos Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_ResultadosPotenciales.html">Análisis Causal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_IV.html">Variables Instrumentales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Regresión Discontinua</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_DiD.html">Diferencias en Diferencias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_2_Sol.html">Taller 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_3_Sol.html">Taller 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Taller_4.html">Taller 4</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F11_RD.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/11_RD.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regresión Discontinua</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-nitida">Regresión Discontinua Nítida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-de-especificacion">Problemas de Especificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-no-parametrica">Estimación No Paramétrica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-de-identificacion">Supuestos de Identificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-1">Aplicación 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-interna">Validez Interna</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-2-violacion-de-supuestos">Aplicación 2: Violación de Supuestos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-borrosa">Regresión Discontinua Borrosa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-3">Aplicación 3</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="regresion-discontinua">
+<h1>Regresión Discontinua<a class="headerlink" href="#regresion-discontinua" title="Link to this heading">#</a></h1>
+<p>En ocasiones, para asignar individuos a un tratamiento se define: <span class="math notranslate nohighlight">\((i)\)</span> un puntaje o <strong>variable continua</strong> y un <span class="math notranslate nohighlight">\((ii)\)</span> valor arbitrario o <strong>punto de corte</strong>. El punto de corte genera una discontinuidad en la probabilidad de participar de un tratamiento. El método de regresión discontinua (RD) explota de manera precisa este tipo de reglas de asignación.</p>
+<p>Existen dos tipos de discontinuidades:</p>
+<ol class="arabic simple">
+<li><p><strong>Discontinuidad Nítida</strong>: Se presenta cuando todos los individuos a partir del punto de corte son efectivamente tratados.</p></li>
+<li><p><strong>Discontinuidad Borrosa</strong>: Se presenta cuando a partir del punto de corte existe una fracción positiva de individuos tratados y no tratados. Es decir, si no todos elegibles a ser tratados son efectivamente tratados.</p></li>
+</ol>
+<p>Veremos que en el caso de regresión discontinua borrosa, el método de estimación se puede interpretar como un caso particular de variables instrumentales (IV).</p>
+<section id="regresion-discontinua-nitida">
+<h2>Regresión Discontinua Nítida<a class="headerlink" href="#regresion-discontinua-nitida" title="Link to this heading">#</a></h2>
+<p>Suponga que la variable binaria <span class="math notranslate nohighlight">\(D_i\)</span> identifica los individuos asignados a un tratamiento a partir de la siguiente regla:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+D_i =
+    \left\{\begin{array}{lr}
+    1 &amp; \text{ si } x_i \geq c \\
+    0 &amp; \text{ si } x_i &lt; c
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> es el valor de la variable continua <span class="math notranslate nohighlight">\(X\)</span> (o <em>running variable</em>) para el individuo <span class="math notranslate nohighlight">\(i\)</span>, y</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> es valor que determina si el individuo es o no tratado (es decir, el <em>punto de corte o cutoff</em>).</p></li>
+</ul>
+<p>Para estimar el efecto del tratamiento sobre una variable de resultado <span class="math notranslate nohighlight">\(y_i\)</span>, podemos usar el modelo de resultados potenciales. En particular, sea</p>
+<div class="math notranslate nohighlight">
+\[y_i(0) = \alpha + \beta x_i \]</div>
+<div class="math notranslate nohighlight">
+\[y_i(1) = y_i(0) + \tau \]</div>
+<p>Note que estamos suponiendo que el efecto del tratamiento es identico para todos los individuos (es decir, suponemos <em>homogeneidad del efecto</em>).</p>
+<p>Recuerde que el problema de causalidad (o <em>observability problem</em>) implica que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_i &amp; = y_i(1) \cdot D_i + y_i(0) \cdot (1 - D_i)\\
+&amp; = y_i(0) + (y_i(1) - y_i(0)) \cdot D_i\\
+\end{align*}\]</div>
+<p>De esta manera, para estimar el impacto usamos la siguiente ecuación:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \alpha + \beta x_i + \tau D_i + \varepsilon_i\]</div>
+<p>El <strong>efecto del tratamiento</strong> se puede estimar en <strong>función del puntaje de corte</strong> a partir de la siguiente ecuación:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\tau(c) &amp; = \lim_{x \downarrow c} E(y_i(1) | x_i = x) - \lim_{x \uparrow c} E(y_i(0) | x_i = x) \\
+&amp; = \lim_{x \downarrow c} E(y_i | x_i = x) - \lim_{x \uparrow c} E(y_i | x_i = x) \\
+\end{align*}\]</div>
+<div class="math notranslate nohighlight">
+\[\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Simular datos</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">11102025</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">I</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="n">tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c1">#Efecto del tratamiento</span>
+
+<span class="n">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tau</span><span class="o">*</span><span class="n">D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Running Var&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">abline</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#Esperanza condicional</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/639d61909af8dbae31547220ff444a45be89f83d16ad4c002789a7a2a1ebb1ca.png"><img alt="_images/639d61909af8dbae31547220ff444a45be89f83d16ad4c002789a7a2a1ebb1ca.png" src="_images/639d61909af8dbae31547220ff444a45be89f83d16ad4c002789a7a2a1ebb1ca.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="problemas-de-especificacion">
+<h2>Problemas de Especificación<a class="headerlink" href="#problemas-de-especificacion" title="Link to this heading">#</a></h2>
+<p>Observe que a diferencia de las regresiones que hemos estudiado hasta ahora, <span class="math notranslate nohighlight">\(x_i\)</span> no solo es una covariable sino que determina cuales individuos son tratados. La metodología de regresión dicontinua captura el efecto del tratamiento distinguiendo la parte no-lineal y discontinua, <span class="math notranslate nohighlight">\(D_i = 1(x_i \geq c)\)</span>, de la parte continua, <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<p>Sin embargo, es posible que exista una relación no-lineal entre <span class="math notranslate nohighlight">\(x_i\)</span> y <span class="math notranslate nohighlight">\(y_i\)</span>. Es decir, es posible que</p>
+<div class="math notranslate nohighlight">
+\[y_i(0) = f(x_i)\]</div>
+<p>Luego, una alternativa es estimar la ecuación:</p>
+<div class="math notranslate nohighlight">
+\[y_i = f(x_i) + \tau D_i + \varepsilon_i\]</div>
+<p>Una forma de aproximar <span class="math notranslate nohighlight">\(f(\cdot)\)</span> es a través de un polinomio (global) de grado <span class="math notranslate nohighlight">\(k\)</span> . Es decir, se puede estimar:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + ... + \beta_k x_i^k + \tau D_i + \varepsilon_i\]</div>
+<p><a class="reference external" href="https://doi.org/10.1016/j.jeconom.2007.05.001">Imbens y Lemieux (2008, JE)</a> sugieren usar polinomios de diferentes grados como una forma de evaluar la sensibilidad de los resultados (es decir, como un ejercicio de robustez). A continuación veremos por qué.</p>
+<p>Como señalan Angrist y Pischke (2009), <strong>la validez de las estimaciones</strong> del efecto causal <strong>dependen de</strong> si el <strong>polinomio</strong> usado provee o no una adecuada descripción de <span class="math notranslate nohighlight">\(E(y_i(0) | x_i)\)</span>. De lo contrario, lo que se interpreta como un salto debido al tratamiento, pordría ser simplemente un factor de confunsión (o sesgo) por especificar mal (u omitir la relación no-lineal) la esperanza condicional del contrafactual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Relacion no-lineal</span>
+<span class="n">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tau</span><span class="o">*</span><span class="n">D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span>
+<span class="n">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="m">0.5</span><span class="p">];</span><span class="w"> </span><span class="n">fit0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">3</span>
+<span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&gt;=</span><span class="m">0.5</span><span class="p">];</span><span class="w"> </span><span class="n">fit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tau</span><span class="w"> </span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Running Var&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">fit0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">lines</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">fit1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/e87cbdd6ae74ca58016577a4de8118336e8e7114976d880459470ffb35b34cc8.png"><img alt="_images/e87cbdd6ae74ca58016577a4de8118336e8e7114976d880459470ffb35b34cc8.png" src="_images/e87cbdd6ae74ca58016577a4de8118336e8e7114976d880459470ffb35b34cc8.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Relacion no-lineal vs lineal</span>
+<span class="n">y3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">0.15</span><span class="o">*</span><span class="n">tau</span><span class="o">*</span><span class="n">D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span>
+<span class="n">fit0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="n">lfit0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.02658</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">-0.03562</span><span class="o">*</span><span class="n">x0</span>
+<span class="n">fit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">0.15</span><span class="o">*</span><span class="n">tau</span><span class="p">;</span><span class="w"> </span><span class="n">lfit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.128</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2.272</span><span class="o">*</span><span class="n">x1</span><span class="w"> </span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y3</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Running Var&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">fit0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">lines</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">fit1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">lfit0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">lines</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">lfit1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/835682f9aa4fc5354e6339408b081c636f034f93ea49d9e829fd1a1e8957623d.png"><img alt="_images/835682f9aa4fc5354e6339408b081c636f034f93ea49d9e829fd1a1e8957623d.png" src="_images/835682f9aa4fc5354e6339408b081c636f034f93ea49d9e829fd1a1e8957623d.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="estimacion-no-parametrica">
+<h2>Estimación No Paramétrica<a class="headerlink" href="#estimacion-no-parametrica" title="Link to this heading">#</a></h2>
+<p>Para reducir la posibilidad de cometer errores, <strong>se considera unicamente los datos de individuos alrededor del punto de corte</strong>, es decir, se define una vecindad <span class="math notranslate nohighlight">\([c - \Delta, c + \Delta]\)</span> donde <span class="math notranslate nohighlight">\(\Delta\)</span> es un valor positivo pequeño, conocido como <em>bandwidth</em>. De esta manera,</p>
+<div class="math notranslate nohighlight">
+\[E(y_i | c - \Delta &lt; x_i &lt; c) \approx E(y_i(0) | x_i = c)\]</div>
+<div class="math notranslate nohighlight">
+\[E(y_i | c \leq x_i &lt; c + \Delta) \approx E(y_i(1) | x_i = c)\]</div>
+<p>Finalmente, el <strong>estimador no-paramétrico del efecto causal</strong> esta dado por:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\tau(c) &amp; = \lim_{\Delta \to 0} E(y_i | c \leq x_i &lt; c + \Delta) - E(y_i | c - \Delta &lt; x_i &lt; c) \\
+&amp; = E(y_i(1)- y_i(0) | x_i = c)
+\end{align*}\]</div>
+<p>Es importante notar que:</p>
+<ul class="simple">
+<li><p><strong>estimar la esperanza</strong> de la variable de resultado, <span class="math notranslate nohighlight">\(y_i\)</span>, <strong>en intervalos pequeños</strong> del running variable <strong>trae inconvenientes</strong>. En particular, el reducido tamaño de muestra genera baja precisión en las estimaciones (i.e., la varianza de las estimaciones es alta).</p></li>
+<li><p>Por otro lado, es necesario seleccionar el parámetro <span class="math notranslate nohighlight">\(\Delta\)</span> de forma que minimize el sesgo por alejarse del punto de corte, pero considerando que para valores pequeños de <span class="math notranslate nohighlight">\(\Delta\)</span>, la varianza de las estimaciones tiende a crecer (<em>bias-variance trade off</em>).</p></li>
+</ul>
+<p>Para solucionar estos problemas se usan métodos no-paramétricos. En particular, se estiman regresiones polinomiales locales (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1468-0262.00183">Hahn, Todd, and van der Klaauw, 2001 ECTA</a>), metodologías para minimizar MSE a partir de <strong>validación cruzada</strong>, y estimadores que corrigen sesgos de cobertura (<a class="reference external" href="https://doi.org/10.3982/ECTA11757">Calonico, Cattaneo, y Titiunik, 2014 ECTA</a>).</p>
+</section>
+<section id="supuestos-de-identificacion">
+<h2>Supuestos de Identificación<a class="headerlink" href="#supuestos-de-identificacion" title="Link to this heading">#</a></h2>
+<p>Antes de realizar cualquier análisis empírico se debe verificar la validez interna de la metodología. Es decir, debemos presentar evidencia de que los diferentes supuestos de identifación del método se cumplen.</p>
+<p>Para el método de regresión discontinua, existen dos supuestos de identificación:</p>
+<ol class="arabic simple">
+<li><p><strong>No existe manipulación del puntaje de asignación al tratamiento</strong>. Este supuesto se puede validar estudiando la distribución de la running variable. Si no existen discontinuidades (o <em>bunching</em>) en la distribución alrededor del puntaje de corte, se puede concluir que no existe manipulación.</p></li>
+<li><p><strong>El punto de corte debe ser arbitrario</strong> (o definido de manera aleatoria). Este supuesto se puede validar evaluando si las covariables o características predeterminadas (es decir, la informacion de los individuos previas al tratamiento) son continuas alrededor del punto de corte.</p></li>
+</ol>
+<p>A través de la siguiente aplicación veremos cómo se evalúa la validez de estos supuestos.</p>
+</section>
+<section id="aplicacion-1">
+<h2>Aplicación 1:<a class="headerlink" href="#aplicacion-1" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://doi.org/10.1162/REST.a.1635">Busso, Montaño, y Muñoz (2025, RESTAT)</a> estudian el efecto de obtener la distinción del mejor Saber Pro en los salarios de los egresados de educación superior.</p>
+<p>Los autores estiman la siguiente ecuación:</p>
+<div class="math notranslate nohighlight">
+\[\log(Earnings_{ijt}) = \alpha + \beta Z_{ijt} + \tau D_{ijt} + \delta (Z_{ijt} \times D_{ijt}) + X_i'\gamma + \varepsilon_{ijt}\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\log(Earnings_{ijt})\)</span> es el logarítmo natural del primer salario percibido por el individuo <span class="math notranslate nohighlight">\(i\)</span> después de graduarse del programa <span class="math notranslate nohighlight">\(j\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_{ijt} = Puntaje_{i} - c_{jt}\)</span> es el puntaje centrado alrededor del valor mínimo para obtener la distinción del mejor Saber Pro en el programa <span class="math notranslate nohighlight">\(j\)</span> en el año <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_{ijt} = 1(Puntaje_{i} &gt; c_{jt})\)</span> es una variable binaria que indica si el individuo <span class="math notranslate nohighlight">\(i\)</span> recibió la distinción del mejor Saber Pro</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_i\)</span> es un conjunto de características del individuo, las cuales se observan previo a recibir la distinción (es decir, Saber 11, género, edad, tipo de universidad, etc)</p></li>
+</ul>
+</section>
+<section id="validez-interna">
+<h2>Validez Interna<a class="headerlink" href="#validez-interna" title="Link to this heading">#</a></h2>
+<p><strong>1. Evidencia de No Manipulación</strong>:</p>
+<p>Las siguientes gráficas presentan evidencia de que alrededor del punto de corte no existe <strong>bunching</strong> (o discontinuidad) en la distribución del running variable.</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 1px;">
+  <div style="text-align: center;">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 1.</strong> No Bunching (Evidencia Gráfica)
+    </div>
+    <img src="images/NormalizedDensity.png" alt="Figure 1" width="80%">
+  </div>
+  <div style="text-align: center;">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 2.</strong> Estimación de Bunching (Evidencia Numérica) 
+    </div>
+    <img src="images/ManipulationTest.png" alt="Figure 2" width="80%">
+  </div>
+</div><p><strong>2. Evidencia Cuasi-aleatoridad</strong>:</p>
+<p>Las siguentes figuras presentan evidencia de que alrededor del puntaje de corte <strong>no hay discontinuidades en características pre-determinadas</strong>.</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 1px;">
+  <div style="text-align: center;">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 1.</strong> Prob. Mujer
+    </div>
+    <img src="images/RDfemale.png" alt="Figure 1" width="60%">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 2.</strong> Prob. Trabajar 
+    </div>
+    <img src="images/RDworking.png" alt="Figure 2" width="60%">
+  </div>
+  <div style="text-align: center;">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 3.</strong> Puntaje del Saber 11
+    </div>
+    <img src="images/RDsb11score.png" alt="Figure 1" width="60%">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 4.</strong> Puntaje de Inglés - Saber Pro 
+    </div>
+    <img src="images/RDenglish.png" alt="Figure 2" width="60%">
+  </div>    
+</div></section>
+<section id="resultados">
+<h2>Resultados<a class="headerlink" href="#resultados" title="Link to this heading">#</a></h2>
+<p>La siguiente tabla presenta estimaciones, a partir del método de regresión discontinua, para el efecto de recibir la distinción del mejor Saber Pro.</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 1px;">
+  <div style="text-align: center;">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Tabla 1.</strong> Efecto en Salarios de Recibir la Distinción del Mejor Saber Pro 
+    </div>
+    <img src="images/Tabla1.png" alt="Table1" width="80%">
+  </div>
+</div></section>
+<section id="aplicacion-2-violacion-de-supuestos">
+<h2>Aplicación 2: Violación de Supuestos<a class="headerlink" href="#aplicacion-2-violacion-de-supuestos" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/pol.3.2.41">Camacho y Conover (2011, AEJ: Policy)</a> documentan la evolución a través del tiempo del puntaje del Sisben, el cual es usado para asignar familias a diferentes programas de política social y salud en Colombia. Los autores documentan manipulación de los resultados, lo cual podría explicarse por razones políticas para influir en elecciones y a publicar el algorítmo de calificación en 1997.</p>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 1px;">
+  <div style="text-align: center;">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 1.</strong> Distribución Puntaje del Sisben - 1994
+    </div>
+    <img src="images/Sisben94.png" alt="Figure 1" width="65%">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 3.</strong> Distribución Puntaje del Sisben - 1998
+    </div>
+    <img src="images/Sisben98.png" alt="Figure 2" width="65%">
+  </div>
+  <div style="text-align: center;">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 2.</strong> Distribución Puntaje del Sisben - 1997
+    </div>
+    <img src="images/Sisben97.png" alt="Figure 1" width="65%">
+    <div style="font-size: 14px; text-align: center; margin-top: 5px;">
+      <strong>Figura 4.</strong> Distribución Puntaje del Sisben - 2003 
+    </div>
+    <img src="images/Sisben03.png" alt="Figure 2" width="65%">
+  </div>    
+</div></section>
+<section id="regresion-discontinua-borrosa">
+<h2>Regresión Discontinua Borrosa<a class="headerlink" href="#regresion-discontinua-borrosa" title="Link to this heading">#</a></h2>
+<p>Observe que en regresión discontinua nítida, <span class="math notranslate nohighlight">\(P(D_i = 1 | x_i \geq c) = 1\)</span> y <span class="math notranslate nohighlight">\(P(D_i = 1 | x_i &lt; c) = 0\)</span>. Es decir, todos los individuos elegibles para ser tratados son efectivamente tratados y los no elegibles no reciben tratamiento.</p>
+<p>Sin embargo, lo anterior no ocurre en todos las aplicaciones. Esto es así porque algunos individuos elegibles a recibir tratamiento deciden no formar parte del tratamiento. Más aún, es posible que individuos no elegibles logren recibir tratamiento. El método de <strong>regresión discontinua borrosa</strong> estima el efecto del tratamiento controlando por la falta de cumplimiento (<em>lack of compliance</em>) de la regla de asignación. En particular, se explota el hecho de que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Pr(D_i = 1 | x_i) =
+    \left\{\begin{array}{lr}
+    g_1(x_i) &amp; \text{ si } x_i \geq c \\
+    g_0(x_i) &amp; \text{ si } x_i &lt; c
+    \end{array}\right.
+    \quad \text{ donde }\hspace{5pt} g_1(c) \neq g_0(c)
+\end{equation*}\]</div>
+<p>Sin perdida de generalidad, asumimos que <span class="math notranslate nohighlight">\(g_1(c) &gt; g_0(c)\)</span>, es decir, que la probabilidad de recibir tratamiento aumenta cuando <span class="math notranslate nohighlight">\(x_i \geq c\)</span>.</p>
+<p>La relación entre la probabilidad de recibir tratamiento y <span class="math notranslate nohighlight">\(x_i\)</span> se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[E(D_i | x_i) = Pr(D_i = 1 | x_i) = g_0(x_i) + (g_1(x_i) - g_0(x_i)) \cdot T_i\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[T_i = 1(x_i \geq c)\]</div>
+<p>Es decir, <span class="math notranslate nohighlight">\(T_i\)</span> es una variable binaria que indica el punto en el que la esperanza condicional <span class="math notranslate nohighlight">\(E(D_i | x_i)\)</span> salta de manera discontinua.</p>
+<p>Para estimar el efecto del tratamiento <span class="math notranslate nohighlight">\(D_i\)</span> (LATE) sobre la variable de resultado <span class="math notranslate nohighlight">\(y_i\)</span>, procedemos en dos etapas:</p>
+<ol class="arabic simple">
+<li><p>Estimamos <span class="math notranslate nohighlight">\(E(D_i | x_i)\)</span> a partir de la ecuación:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[D_i = \gamma_0 + \gamma_1 x_i + ... + \gamma_k x^k_i + \pi T_i + \xi_i\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Estimamos el efecto del tratamiento considerando que la probabilidad de ser tratado salta de manera discontinua:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y_i = f(x_i) + \tau \hat D_i + \varepsilon_i\]</div>
+<p>Finalmente, el estimador de regresión discontinua está dado por</p>
+<div class="math notranslate nohighlight">
+\[\tau(c) = E(\tau | D_i = 1, x_i \geq c) = \frac{\lim_{x \downarrow c} E(y_i | x_i = x) - \lim_{x \uparrow c} E(y_i | x_i = x)}{\lim_{x \downarrow c} Pr(D_i = 1 | x_i = x) - \lim_{x \uparrow c} Pr(D_i = 1 | x_i = x) }\]</div>
+<p>Observe que para estimar el efecto de intención de tratamiento (ITT) usamos la siguiente ecuación de forma-reducida:</p>
+<div class="math notranslate nohighlight">
+\[y_i = m(x_i) + \rho T_i + \varepsilon_i = \gamma_0 + \gamma_1 x_i + \gamma_2 x^2_i + ... + \gamma_k x^k_i + \rho T_i + u_i\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[\rho = \pi \cdot \tau \quad \Rightarrow \quad \tau = \frac{\rho}{\pi}\]</div>
+<p>La forma reducia es informativa en muchos casos. Pero de manera importante, <strong>la forma reducida nos permite presentar evidencia gráfica de la discontinuidad en la variable de resultado al rededor del punto corte</strong>.</p>
+<p>Es usual que el analísta presente la evidencia gráfica, mida el impacto usando la forma reducida, y posteriormente estime el efecto promedio local.</p>
+</section>
+<section id="aplicacion-3">
+<h2>Aplicación 3<a class="headerlink" href="#aplicacion-3" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/pol.20180131">Londoño, Rodríguez, y Sánchez (2020, AEJ: Policy)</a> y <a class="reference external" href="https://www.nber.org/papers/w31737">Londoño, Rodríguez, Sánchez, y Álvarez (2025, JPE)</a> estudian el efecto de ser beneficiario del programa Ser Pilo Paga sobre multiples variables de resultado. En particular, el documento estima efectos sobre:</p>
+<ol class="arabic simple">
+<li><p>Probabilidad de matricularse en educación superior,</p></li>
+<li><p>Tipo de institución donde se matriculan los estudiantes</p></li>
+<li><p>Probabilidad de graduarse</p></li>
+<li><p>Probabilidad de tener empleo formal y salario</p></li>
+</ol>
+<p>Los autores encuentran que los estudiantes beneficiarios tienen mayor probabilidad de matricularse en un programa de educación superior. De manera, especifica, la probabilidad de matricularse aumenta entre 56% y 86%.</p>
+<p>Adicionalmente, los autores proveen evidencia de que la probabilidad de matricularse en una institución de alta calidad aumentó para los beneficiarios, mientras su probabilidad de matricularse en instituciones de baja calidad se redujo. La graduación aumentó en 66.5% (o 26.8 p.p.)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="10_IV.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Variables Instrumentales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="12_DiD.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Diferencias en Diferencias</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-nitida">Regresión Discontinua Nítida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-de-especificacion">Problemas de Especificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-no-parametrica">Estimación No Paramétrica</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-de-identificacion">Supuestos de Identificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-1">Aplicación 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-interna">Validez Interna</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-2-violacion-de-supuestos">Aplicación 2: Violación de Supuestos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-borrosa">Regresión Discontinua Borrosa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-3">Aplicación 3</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Montano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

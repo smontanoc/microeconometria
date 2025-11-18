@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -192,6 +192,8 @@
 <li class="toctree-l1"><a class="reference internal" href="8_DatosPanel.html">Modelos de Datos Panel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="9_ResultadosPotenciales.html">Análisis Causal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_IV.html">Variables Instrumentales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RD.html">Regresión Discontinua</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_DiD.html">Diferencias en Diferencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
@@ -574,19 +576,23 @@ y_i &amp;= E[y_i | X]  + \varepsilon_i \\
 <div class="math notranslate nohighlight">
 \[V(\varepsilon_i) = E(\varepsilon_i^2) - E(\varepsilon_i)^2\]</div>
 <ol class="arabic simple">
-<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i) = 0\)</span>.
-\begin{align*}
-E(\varepsilon_i) &amp;= (1- X_i’\beta)p_i + (- X_i’\beta)(1 - p_i) \
-&amp;= (1- p_i)p_i - (p_i)(1 - p_i) = 0 \
-\end{align*}</p></li>
-<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i^2)\)</span>
-\begin{align*}
-E(\varepsilon_i^2) &amp;= (1- X_i’\beta)^2p_i + (- X_i’\beta)^2(1 - p_i) \
-&amp;= (1- p_i)^2p_i + p_i^2(1 - p_i) \
-&amp;= p_i - 2p_i^2 + p_i^3 + p_i^2 - p_i^3\
-&amp;= p_i - p_i^2 = p_i(1 - p_i)\
-\end{align*}</p></li>
+<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i) = 0\)</span>.</p></li>
 </ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+E(\varepsilon_i) &amp;= (1- X_i'\beta)p_i + (- X_i'\beta)(1 - p_i) \\
+&amp;= (1- p_i)p_i - (p_i)(1 - p_i) = 0 \\
+\end{align*}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i^2)\)</span></p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+E(\varepsilon_i^2) &amp;= (1- X_i'\beta)^2p_i + (- X_i'\beta)^2(1 - p_i) \\
+&amp;= (1- p_i)^2p_i + p_i^2(1 - p_i) \\
+&amp;= p_i - 2p_i^2 + p_i^3 + p_i^2 - p_i^3\\
+&amp;= p_i - p_i^2 = p_i(1 - p_i)\\
+\end{align*}\]</div>
 <p>Ya que</p>
 <div class="math notranslate nohighlight">
 \[V(\varepsilon_i) = p_i(1 - p_i) = X_i'\beta(1 - X_i'\beta)\]</div>
