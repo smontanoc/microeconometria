@@ -1,0 +1,1544 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Parte I - Fundamentos &#8212; Microeconometria Aplicada</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Modulo_1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Microeconometría Aplicada" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Microeconometria Aplicada - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Microeconometria Aplicada - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Microeconometría Aplicada
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Parte I - Fundamentos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FModulo_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Modulo_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Parte I - Fundamentos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-microeconometria">1.1 ¿Qué es la microeconometría?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-retornos-a-la-educacion">1.2 Aplicación: Retornos a la Educación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-estimacion-de-funciones">1.3 Aplicación: Estimación de Funciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-probabilidad">1.4 Fundamentos de Probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-y-eventos">1.4.1 Espacio Muestral y Eventos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medida-de-probabilidad">1.4.2 Medida de Probabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-probabilidad">1.4.3 Propiedades de Probabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-independientes">1.4.4 Eventos Independientes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">1.4.5 Probabilidad Condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">1.4.6 Teorema de Bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">1.4.7 Variables Aleatorias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-distribucion">1.4.8 Funciones de Distribución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-f-x">1.4.9 Propiedades de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-inversa-o-de-cuantiles-de-f-x">1.4.10 Función Inversa (o de Cuantiles) de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-discretas-importantes">1.4.11 Algunas Variables Discretas Importantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-continuas-importantes">1.4.12 Algunas Variables Continuas Importantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-bivariadas">1.4.13 Distribuciones Bivariadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-condicional">1.4.14 Distribución Condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-multivariadas">1.4.15 Distribuciones Multivariadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-matematica">1.4.16 Esperanza Matemática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.4.17 Varianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covarianza">1.4.18 Covarianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-condicional">1.4.19 Esperanza Condicional</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-estadistica">1.5 Fundamentos de Estadística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-puntual">1.5.1 Estimación Puntual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentos-muestrales">1.5.2 Momentos Muestrales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-los-estimadores">1.5.3 Propiedades de los Estimadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-los-grandes-numeros">1.5.4 Ley de los Grandes Números</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-del-limite-central">1.5.5 Teorema del Limite Central</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza">1.5.6 Intervalos de Confianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-para-medias">1.5.7 Intervalo para Medias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-para-diferencia-de-medias">1.5.8 Intervalo para Diferencia de Medias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-hipotesis">1.5.9 Prueba de Hipótesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotesis-para-medias">1.5.10 Hipotesis para Medias</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="parte-i-fundamentos">
+<h1>Parte I - Fundamentos<a class="headerlink" href="#parte-i-fundamentos" title="Link to this heading">#</a></h1>
+<section id="que-es-la-microeconometria">
+<h2>1.1 ¿Qué es la microeconometría?<a class="headerlink" href="#que-es-la-microeconometria" title="Link to this heading">#</a></h2>
+<p>La microeconometría es el campo que se ocupa de analizar el comportamiento económico de individuos, hogares y empresas mediante métodos estadísticos y modelos de regresión.</p>
+<p>El análisis microeconométrico utiliza comúnmente datos a nivel individual, ya sean de corte transversal o panel, que se obtienen de registros administrativos, encuestas, censos o experimentos sociales.</p>
+<p>Estudios empíricos iniciales en microeconometría analizaron el presupuesto del hogar, las funciones de producción, y la demanda del consumidor. Contribuciones más reciente han abarcado modelos de elección discreta y modelos de variable truncada o censurada.</p>
+<p>En microeconometría:</p>
+<ul class="simple">
+<li><p>Los datos usados tienen un bajo nivel de agregación, lo que implica considerar el grado de <strong>heterogenidad</strong> de la población de interés.</p></li>
+<li><p>Buena parte de la <strong>información</strong> a nivel individual es <strong>discreta</strong>. Esto se debe en muchos casos la información se recolecta a partir de preguntas con respuestas categóricas, lo implica que el uso de <strong>modelos no lineales</strong> podría ser más apropiado para analizar datos de nivel micro.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Los datos pueden presentar <strong>gran variación</strong> tanto en el corte transversal como en la dimensión temporal. Por ejemplo, un individuo puede no participar del mercado laboral en una semana, pero ese estado puede cambiar de una semana a otra. El cambio de comportamiento (saltos), la no participación de una actividad (huecos), y la incidencia de la no participación (esquinas), requiren considerar modelos de respuesta no lineal y discreta.</p></li>
+<li><p>El análisis empírico a partir de datos de nivel micro usualmente require <strong>menos supuestos</strong>, y por lo tanto puede considerarse como más realista.</p></li>
+<li><p>Los datos micro pueden ser usados para estudiar relaciones causales entre variables de interés, a partir de <strong>modelos de forma reducida</strong>, o para estimar parámetros a partir de <strong>modelos estructurales</strong> que se fundamentan en una teoría económica.</p></li>
+<li><p>La heterogeneidad a nivel individual hace importante controlar por <strong>factores de confusión</strong> al igual que <strong>efectos fijos o aleatorios</strong>.</p></li>
+</ul>
+<p>Este curso provee una serie de herramientas o modelos económetricos que le permitirán estudiar problemas de su interés haciendo uso de datos de nivel individual o micro. Se hará énfasis en modelos de forma reducida.</p>
+<p>Estos modelos pueden ser muy poderosos para analizar todo tipo de relaciones. Consideremos el siguiente ejemplo:</p>
+</section>
+<section id="aplicacion-retornos-a-la-educacion">
+<h2>1.2 Aplicación: Retornos a la Educación<a class="headerlink" href="#aplicacion-retornos-a-la-educacion" title="Link to this heading">#</a></h2>
+<p>A principios de la década de 1960 se desarrolló la idea de que la educación y el entrenamiento son inversiones (en capital humano) que incrementan la productividad del trabajador.</p>
+<p>Para estimar los retornos a la educación, Jacob Mincer partió de los siguientes supuestos:</p>
+<ul class="simple">
+<li><p>las personas deciden educarse hasta el punto en que se <strong>maximiza el valor presente de sus ganancia futuras</strong>.</p></li>
+<li><p>el <strong>costo de la educación</strong> es equivalente al ingreso no persivido durante el proceso educativo y los costos directos por educarse.</p></li>
+<li><p>los ingresos incrementan proporcionalmente con la experiencia (debido al entrenamiento-en-el-trabajo).</p></li>
+</ul>
+<p>Partiendo de estos supuestos Mincer mostró que el salario entre dos individuos con <span class="math notranslate nohighlight">\(s\)</span> y <span class="math notranslate nohighlight">\(s + 1\)</span> años de educación incrementa proporcionalmente a <span class="math notranslate nohighlight">\(e^r\)</span>, donde <span class="math notranslate nohighlight">\(r\)</span> es la tasa interna de retornos a la educación.</p>
+<p>En otras palabras, Mincer determinó que los salarios incrementan a partir de la siguiente función:</p>
+<div class="math notranslate nohighlight">
+\[w(s) = e^{\alpha + rs} = w(0) \cdot e^{rs}\]</div>
+<div class="alert alert-block alert-info">
+<b>Nota:</b>
+<p>
+<p>Note la similitud con la ecuacion del interés compuesto <span class="math notranslate nohighlight">\(V_f = V_i \left( 1 + \frac{r}{n} \right)^{nt} \overset{n \to \infty}{\longrightarrow} V^i \cdot e^{rt}\)</span></p>
+</div>
+<p>Observe que podemos log-linearlizar la ecuación del salario y usar datos de la forma <span class="math notranslate nohighlight">\(\{w_i, s_i\}_{i = 1}^n\)</span> para estimar la siguiente regresión:</p>
+<div class="math notranslate nohighlight">
+\[\log w = \alpha + r \cdot s\]</div>
+<p>Donde los parámetros de interés son <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>Una extensión de la ecuación anterior es</p>
+<div class="math notranslate nohighlight">
+\[\log w = \alpha + r \cdot s + \beta_1 x + \beta_2 x^2\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(x\)</span> es la experiencia laboral potencial del trabajador, la cual se supone tiene rendimientos decrecientes. Es decir, <span class="math notranslate nohighlight">\(\beta_1 &gt; 0\)</span> y <span class="math notranslate nohighlight">\(\beta_2 &lt; 0\)</span></p>
+</section>
+<section id="aplicacion-estimacion-de-funciones">
+<h2>1.3 Aplicación: Estimación de Funciones<a class="headerlink" href="#aplicacion-estimacion-de-funciones" title="Link to this heading">#</a></h2>
+<p>Un econometrista está interesado en estudiar la relación entre dos variables <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> a partir de un conjunto de datos de nivel individual <span class="math notranslate nohighlight">\(\{x_i, y_i\}_{i = 1}^n\)</span>.</p>
+<p>Suponga que la <strong>relación desconocida</strong> está dada por <span class="math notranslate nohighlight">\(y = f(x) = 10 + 2 x\)</span></p>
+<p>Suponga además que <span class="math notranslate nohighlight">\(y_i\)</span> se observa con un error <span class="math notranslate nohighlight">\(\varepsilon_i \sim N(0, 0.64)\)</span> tal que</p>
+<div class="math notranslate nohighlight">
+\[y_i = f(x_i) + \varepsilon_i\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Creemos el conjunto de datos</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">081125</span><span class="p">)</span>
+<span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+<span class="n">fx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">x</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+<span class="n">datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Datos y Relación Desconocida&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Datos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f(x) no conocida&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="kc">NA</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/677c8f8c7837aeaa7c0bcd864c213c56f62f5f42eb41436ef8711771ab3944de.png"><img alt="_images/677c8f8c7837aeaa7c0bcd864c213c56f62f5f42eb41436ef8711771ab3944de.png" src="_images/677c8f8c7837aeaa7c0bcd864c213c56f62f5f42eb41436ef8711771ab3944de.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<p>El econometrista decide usar el siguiente modelo para estudiar la relación entre <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + u_i\]</div>
+<p>A continuación presentamos la estimación de este modelo a partir del método de mínimos cuadrados ordinarios (MCO):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+
+<span class="c1">#Coeficiente b0</span>
+<span class="n">b0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+<span class="c1">#Coeficiente b1</span>
+<span class="n">b1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Estimaciones de MCO: &#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;b0 = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">b0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39; , b1 = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)))</span>
+
+<span class="c1">#Prediccion</span>
+<span class="n">model_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">se.fit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;confidence&quot;</span><span class="p">,</span><span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.99</span><span class="p">))</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">model_fit</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;yhat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lwr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;upr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;se&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;df&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;residuals&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">model_fit</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Estimaciones de MCO: b0 = 9.915 , b1 = 2.019&quot;
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 5 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>yhat</th><th scope=col>lwr</th><th scope=col>upr</th><th scope=col>se</th><th scope=col>df</th><th scope=col>residuals</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>9.915539</td><td>9.744649</td><td>10.08643</td><td>0.06608924</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>2</th><td>9.917544</td><td>9.746783</td><td>10.08831</td><td>0.06603975</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>3</th><td>9.922188</td><td>9.751723</td><td>10.09265</td><td>0.06592522</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>4</th><td>9.923880</td><td>9.753523</td><td>10.09424</td><td>0.06588350</td><td>498</td><td>0.7483613</td></tr>
+	<tr><th scope=row>5</th><td>9.933702</td><td>9.763970</td><td>10.10343</td><td>0.06564151</td><td>498</td><td>0.7483613</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Datos y Relación Desconocida&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="c1">#Prediccion</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">yhat</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="c1">#Intervalos de Confianza</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">lwr</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">model_fit</span><span class="o">$</span><span class="n">upr</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Datos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f(x) no conocida&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="nf">hat</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;(x) predicción&quot;</span><span class="p">)),</span><span class="w"> </span><span class="s">&quot;IC 99%&quot;</span><span class="p">),</span><span class="w"> </span>
+<span class="w">       </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="kc">NA</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/df3df24345ba90218afc8fb9fb5f5e58a66bcd4620e821ea312aeef8b67f3a3b.png"><img alt="_images/df3df24345ba90218afc8fb9fb5f5e58a66bcd4620e821ea312aeef8b67f3a3b.png" src="_images/df3df24345ba90218afc8fb9fb5f5e58a66bcd4620e821ea312aeef8b67f3a3b.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Tabla de Regresion</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x, data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.39622 -0.48219  0.02633  0.51500  2.33202 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  9.91466    0.06611  149.97   &lt;2e-16 ***
+x            2.01859    0.05777   34.94   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7484 on 498 degrees of freedom
+Multiple R-squared:  0.7103,	Adjusted R-squared:  0.7097 
+F-statistic:  1221 on 1 and 498 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>Observe que las estimaciones del modelo aproximan bastante bien la función desconocida:</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_0 = 9.915 \hspace{5pt} \text{ y } \hspace{5pt} \beta_0 = 10\]</div>
+<div class="math notranslate nohighlight">
+\[\hat\beta_1 = 2.019 \hspace{5pt} \text{ y } \hspace{5pt} \beta_1 = 2\]</div>
+<p>Más aún, el intervalo de confianza de nuestras estimaciones <span class="math notranslate nohighlight">\(\hat f(x_i)\)</span> incluye el verdadero valor de <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p>Sin embargo, note que usamos un modelo lineal para estimar una funcion desconocida lineal. Luego, <strong>no es tan sorprendete el buen desempeño de nuestro modelo</strong>.</p>
+<p>¿Qué pasa si usamos un modelo lineal para estimar una función no lineal?</p>
+<p>Suponga ahora que</p>
+<div class="math notranslate nohighlight">
+\[y = f(x) = \cos(2 \pi x)\]</div>
+<p>Nuevamente, el econometrista observa <span class="math notranslate nohighlight">\(\{x_i, y_i\}_{i = 1}^n\)</span> con</p>
+<div class="math notranslate nohighlight">
+\[y_i = f(x_i) + \varepsilon_i, \text{ donde } \varepsilon_i \sim N(0, 0.64)\]</div>
+<p>El modelo que el econometrista decide usar tiene la siguiente forma funcional:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \sum_{j = 0}^k \beta_j x_i^j = \beta_0 + \beta_1 x_i + ... + \beta_k x_i^k\]</div>
+<p>Es decir, vamos a usar un modelo lineal (en parámetros) para tratar de aproximar una función no lineal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">fx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">cos</span><span class="p">(</span><span class="m">2</span><span class="o">*</span><span class="kc">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="w"> </span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="o">=</span><span class="m">0.3</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Datos y Relación Desconocida&quot;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bottomleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Datos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f(x) no conocida&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="kc">NA</span><span class="p">),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/fe729b58865f49d2a1fb03e37d1a11af5b2d3aeabc95f1d7425090c5cec41fb7.png"><img alt="_images/fe729b58865f49d2a1fb03e37d1a11af5b2d3aeabc95f1d7425090c5cec41fb7.png" src="_images/fe729b58865f49d2a1fb03e37d1a11af5b2d3aeabc95f1d7425090c5cec41fb7.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<p>Observe que cuando el grado del polinomio incrementa, nuestro modelo ajusta mejor los datos y la función desconocida.</p>
+<div class="alert alert-block alert-danger"> 
+<b>Nota:</b>
+<p>
+<p>Luego veremos que es importante estimar modelos simples o <em>parsimoniosos</em>.</p>
+<p>En nuestro ejemplo, el modelo es más complejo cuando incrementamos el orden del polinomio. La teoría económica usualmente nos guia para seleccionar el grado del polinomio.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Datos y Relación Desconocida&quot;</span><span class="p">)</span>
+<span class="n">legend</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="m">8</span><span class="p">)</span>
+<span class="kr">for</span><span class="p">(</span><span class="n">degree</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">){</span>
+<span class="w">  </span><span class="n">fm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="nf">poly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">degree</span><span class="p">))</span>
+<span class="w">  </span><span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nf">predict</span><span class="p">(</span><span class="n">fm</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="n">degree</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="w">  </span><span class="n">legend</span><span class="p">[</span><span class="n">degree</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Poly &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">degree</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;top&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">legend</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cos(2*pi*x)&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;purple&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">bty</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">,</span><span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">pt.cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/02134751f100da1f23d3cb2f149481451f552d0f4b4d9705e04b266094475726.png"><img alt="_images/02134751f100da1f23d3cb2f149481451f552d0f4b4d9705e04b266094475726.png" src="_images/02134751f100da1f23d3cb2f149481451f552d0f4b4d9705e04b266094475726.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="fundamentos-de-probabilidad">
+<h2>1.4 Fundamentos de Probabilidad<a class="headerlink" href="#fundamentos-de-probabilidad" title="Link to this heading">#</a></h2>
+<p>La probabilidad es un lenguaje matemático para cuantificar la incertidumbre. En este documento presentamos conceptos básicos de probabilidad que son importantes para nuestro curso.</p>
+<section id="espacio-muestral-y-eventos">
+<h3>1.4.1 Espacio Muestral y Eventos<a class="headerlink" href="#espacio-muestral-y-eventos" title="Link to this heading">#</a></h3>
+<p>El <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> es el conjunto de todos los posibles resultados de un experimento aleatorio.</p>
+<p>Los elementos <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span> se concen como <strong>realizaciones</strong> o resultados muestrales.</p>
+<p>Los subconjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span> se conocen como <strong>eventos</strong>.</p>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Se lanza una moneda justa al aire dos veces. Solo hay dos posibles realizaciones en cada lanzamiento: <span class="math notranslate nohighlight">\(C\)</span> ó <span class="math notranslate nohighlight">\(S\)</span>. En este caso</p>
+<div class="math notranslate nohighlight">
+\[\Omega = \{(C,C),(C,S),(S,C),(S,S) \}\]</div>
+</div></section>
+<section id="medida-de-probabilidad">
+<h3>1.4.2 Medida de Probabilidad<a class="headerlink" href="#medida-de-probabilidad" title="Link to this heading">#</a></h3>
+<p>Una <b>medida de probabilidad</b> es una función <span class="math notranslate nohighlight">\(\mathbb{P} : \Omega \rightarrow [0, 1]\)</span> tal que:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(A) \geq 0\)</span>, <span class="math notranslate nohighlight">\(\forall A \subseteq \Omega\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\Omega) = 1\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A_1\)</span>, <span class="math notranslate nohighlight">\(A_2\)</span>, … son subconjuntos disjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span>, entonces</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(\bigcup^{\infty}_{i=1} A_i \right) = \sum_{i = 1}^\infty \mathbb{P}(A_i)\]</div>
+<p>En el ejemplo anterior:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\omega \in \Omega\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{\omega\})\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(S, S)</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(S, C)</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-even"><td><p>(C, S)</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(C, C)</p></td>
+<td><p>1/4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="propiedades-de-probabilidad">
+<h3>1.4.3 Propiedades de Probabilidad<a class="headerlink" href="#propiedades-de-probabilidad" title="Link to this heading">#</a></h3>
+<p>Muchas propiedades de <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> se pueden derivar a partir de los axiomas. En particular,</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\emptyset) = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A \subset B \Rightarrow \mathbb{P}(A) \leq \mathbb{P}(B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq \mathbb{P}(A) \leq 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(A^c) = 1 - \mathbb{P}(A)\)</span></p></li>
+</ol>
+<p>Una propiedad menos obvia está dada por el siguiente lema</p>
+<div class="alert alert-block alert-info">
+<b>LEMA:</b>
+<p>
+<p>Para todo evento <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(A \cup B \right) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}\left(A \cap B \right)\]</div>
+</div></section>
+<section id="eventos-independientes">
+<h3>1.4.4 Eventos Independientes<a class="headerlink" href="#eventos-independientes" title="Link to this heading">#</a></h3>
+<p>Dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes si y solo si</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(A \cap B \right) = \mathbb{P}(A) \cdot \mathbb{P}(B)\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p> 
+<p>¿Cuál es la probabilidad de obtener <span class="math notranslate nohighlight">\(S\)</span> en el primer lanzamiento y <span class="math notranslate nohighlight">\(C\)</span> en el segundo lanzamiento de una moneda justa?</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(S \cap C) = \mathbb{P}(S) \cdot \mathbb{P}(C) = 1/2 \cdot 1/2 = 1/4\]</div>
+<p>Los lanzamientos de una moneda justa son independientes</p>
+</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son eventos disjuntos con probabilidades positivas, estos no son independientes. Note que</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}\left(A \cap B \right) = \mathbb{P}(\emptyset) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A) \cdot \mathbb{P}(B) &gt; 0\]</div>
+</section>
+<section id="probabilidad-condicional">
+<h3>1.4.5 Probabilidad Condicional<a class="headerlink" href="#probabilidad-condicional" title="Link to this heading">#</a></h3>
+<p>Si <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt; 0\)</span> entonces la <strong>probabilidad condicional</strong> de <span class="math notranslate nohighlight">\(A\)</span> dado <span class="math notranslate nohighlight">\(B\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p> 
+<p>¿Cuál es la probabilidad de obtener <span class="math notranslate nohighlight">\(S\)</span> en el segundo lanzamiento de una moneda justa dado que en el primer lanzamiento obtuve <span class="math notranslate nohighlight">\(C\)</span>?</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(S | C) = \frac{\mathbb{P}(S , C)}{\mathbb{P}(C)} = \frac{\mathbb{P}(S) \cdot \mathbb{P}(C)}{\mathbb{P}(C)} = \frac{1/2 \cdot 1/2}{1/2} = 1/2 = P(S)\]</div>
+<p>La realización del primer lanzamiento no ofrece información relevante para el resultado del segundo lanzamiento. Es decir, los eventos son independientes.</p>
+</div><div class="alert alert-block alert-info">
+<b>LEMA:</b>
+<p>
+<p>Si <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes, entonces <span class="math notranslate nohighlight">\(\mathbb{P}(A | B) = \mathbb{P}(A)\)</span>.</p>
+<p>Además, para cualquier pareja de eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> con probabilidad positiva, se tiene que</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A \cap B) = \mathbb{P}(A | B) \cdot \mathbb{P}(B) = \mathbb{P}(B | A) \cdot \mathbb{P}(A)\]</div>
+</div></section>
+<section id="teorema-de-bayes">
+<h3>1.4.6 Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Link to this heading">#</a></h3>
+<div class="alert alert-block alert-info">
+<b>TEOREMA (Ley de Probabilidad Total):</b>
+<p>
+<p>Sea <span class="math notranslate nohighlight">\(A_1, ..., A_k\)</span> una partición de <span class="math notranslate nohighlight">\(\Omega\)</span>. Así, para todo evento <span class="math notranslate nohighlight">\(B\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(B) = \sum_{i = 1}^k \mathbb{P}(B|A_i) \mathbb{P}(A_i)\]</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>TEOREMA (Teorema de Bayes):</b>
+<p>
+<p>Sea <span class="math notranslate nohighlight">\(A_1, ..., A_k\)</span> una partición de <span class="math notranslate nohighlight">\(\Omega\)</span> tal que <span class="math notranslate nohighlight">\(\mathbb{P}(A_i) &gt; 0\)</span> para todo <span class="math notranslate nohighlight">\(i\)</span>. Si <span class="math notranslate nohighlight">\(\mathbb{P}(B) &gt; 0\)</span>, entonces para todo <span class="math notranslate nohighlight">\(i \in \{1, ..., k\}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A_i | B) = \frac{\mathbb{P}(B|A_i)\cdot \mathbb{P}(A_i)}{\sum_j \mathbb{P}(B|A_j) \mathbb{P}(A_j)}\]</div>
+</div></section>
+<section id="variables-aleatorias">
+<h3>1.4.7 Variables Aleatorias<a class="headerlink" href="#variables-aleatorias" title="Link to this heading">#</a></h3>
+<p>La econometría hace uso de datos para analizar problemas económicos. Cuál es la relación entre los espacios muestrales y los eventos y los datos? El concepto clave es el de variable aleatoria.</p>
+<p>Una <strong>variable aleatoria</strong> es un mapeo que asigna un valor real <span class="math notranslate nohighlight">\(X(\omega)\)</span> a cada realización <span class="math notranslate nohighlight">\(\omega\)</span>, es decir,</p>
+<div class="math notranslate nohighlight">
+\[X : \Omega \rightarrow \mathbb{R}\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Sea <span class="math notranslate nohighlight">\(X\)</span> el número de veces que se obtiene <span class="math notranslate nohighlight">\(S\)</span> al lanzar una moneda justa dos veces al aire.</p>
+</div><p>Del ejemplo anterior podemos deducir que</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\omega \in \Omega\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(X(\omega)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{\omega\})\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(S, S)</p></td>
+<td><p>2</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(S, C)</p></td>
+<td><p>1</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-even"><td><p>(C, S)</p></td>
+<td><p>1</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>(C, C)</p></td>
+<td><p>0</p></td>
+<td><p>1/4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note que al tomar solo las dos últimas columnas obtenemos la <strong>distribución de probabilidad</strong> de <span class="math notranslate nohighlight">\(X\)</span></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(x\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(X = x)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1/4</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1/2</p></td>
+</tr>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1/4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="funciones-de-distribucion">
+<h3>1.4.8 Funciones de Distribución<a class="headerlink" href="#funciones-de-distribucion" title="Link to this heading">#</a></h3>
+<p>La <strong>función de distribución acumulada</strong> (FDA) es una función <span class="math notranslate nohighlight">\(F_X : \mathbb{R} \rightarrow [0, 1]\)</span> que se define como</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = P(X \leq x)\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Para el ejemplo anterior, la FDA de <span class="math notranslate nohighlight">\(X\)</span> esta dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+F_X(x) =
+    \left\{\begin{array}{lr}
+    0, &amp; x &lt; 0 \\
+    1/4, &amp; 0 \le x &lt; 1 \\
+    3/4, &amp; 1 \le x &lt; 2 \\    
+    1, &amp; x \geq 2
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Note que esta función es continua por derecha, no-decreciente, y está definida para todo <span class="math notranslate nohighlight">\(x\)</span> en los reales, a pesar de que la variable solo toma valores 0, 1, y 2. Es por esto que <span class="math notranslate nohighlight">\(F_X(1.4) = 3/4\)</span></p>
+</div><p>Una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> es <strong>discreta</strong> si toma valores contables <span class="math notranslate nohighlight">\(\{x_1, x_2\}\)</span>. Definimos la distribución de probabilidad de <span class="math notranslate nohighlight">\(X\)</span> como</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) = P(X = x)\]</div>
+<p>Dos propiedades de esta función son:</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) \geq 0, \forall x \in \mathbb{R}\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_i f_X(x_i) = 1\]</div>
+<p>La FDA de <span class="math notranslate nohighlight">\(X\)</span> se relaciona con <span class="math notranslate nohighlight">\(f_X\)</span> así:</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Para nuesto ejemplo, la distribución de probabilidad de <span class="math notranslate nohighlight">\(X\)</span> esta dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f_X(x) =
+    \left\{\begin{array}{lr}
+    1/4, &amp; x = 0 \\
+    1/2, &amp; x = 1 \\
+    1/4, &amp; x = 2 \\    
+    0, &amp; \text{otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+</div><p>Una variable <span class="math notranslate nohighlight">\(X\)</span> es <strong>continua</strong> si existe una funcion <span class="math notranslate nohighlight">\(f_X\)</span> tal que</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(f_X(x) \geq 0\)</span> para todo <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span></p></li>
+<li><p>Para todo <span class="math notranslate nohighlight">\(a \leq b\)</span> se tiene que</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(a\leq X \leq b) = \int_a^b f_X(x) dx\]</div>
+<p><span class="math notranslate nohighlight">\(f_X\)</span> se conoce como la <strong>función de densidad</strong> de <span class="math notranslate nohighlight">\(X\)</span>. Note además que</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = F(X \leq x) = \int_{-\infty}^x f_X(t) dt\]</div>
+<p>Por lo tanto,</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) = F'_X(x) = \frac{\partial F_X}{\partial x}\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Suponga que <span class="math notranslate nohighlight">\(X\)</span> tiene una función de densidad dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f_X(x) =
+    \left\{\begin{array}{lr}
+    1, &amp; 0 \leq x \leq 1 \\
+    0, &amp; \text{otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Note que <span class="math notranslate nohighlight">\(f_X(x) \geq 0\)</span> y <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span>. Finalmente observe que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+F_X(x) =
+    \left\{\begin{array}{lr}
+    0, &amp; x &lt; 0 \\
+    x, &amp; 0 \leq x \leq 1 \\
+    1, &amp; x &gt; 1
+    \end{array}\right.
+\end{equation*}\]</div>
+</div>
+</section>
+<section id="propiedades-de-f-x">
+<h3>1.4.9 Propiedades de <span class="math notranslate nohighlight">\(F_X\)</span><a class="headerlink" href="#propiedades-de-f-x" title="Link to this heading">#</a></h3>
+<p>Para una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span>, algunas propiedades de <span class="math notranslate nohighlight">\(F_X\)</span> son:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X = x) = F(x) - F(x^-), \text{ donde } F(x^-) = \lim_{y\uparrow x} F(y)\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(x &lt; X \leq y) = F(y) - F(x)\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X &gt; x) = 1 - F(x)\]</div>
+<p>Si <span class="math notranslate nohighlight">\(X\)</span> es continua, entonces</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    F(b) -  F(a) &amp; = \mathbb{P}(a &lt; X &lt; b) =  \mathbb{P}(a \leq X &lt; b)\\
+     &amp; = \mathbb{P}(a &lt; X \leq b) =  \mathbb{P}(a \leq X \leq b)
+\end{align*}\]</div>
+</section>
+<section id="funcion-inversa-o-de-cuantiles-de-f-x">
+<h3>1.4.10 Función Inversa (o de Cuantiles) de <span class="math notranslate nohighlight">\(F_X\)</span><a class="headerlink" href="#funcion-inversa-o-de-cuantiles-de-f-x" title="Link to this heading">#</a></h3>
+<p>La inversa de <span class="math notranslate nohighlight">\(F_X\)</span> está definida por</p>
+<div class="math notranslate nohighlight">
+\[F^{-1}(q) = \inf \left\{x : F(x) &gt; q \right\}\]</div>
+<p>para todo <span class="math notranslate nohighlight">\(q \in [0, 1]\)</span>.</p>
+<p>Note que si <span class="math notranslate nohighlight">\(F\)</span> es estrictamente creciente y continua, entonces <span class="math notranslate nohighlight">\(F^{-1}(q)\)</span> es el unico valor real <span class="math notranslate nohighlight">\(x\)</span> tal que <span class="math notranslate nohighlight">\(F(x) = q\)</span></p>
+</section>
+<section id="algunas-variables-discretas-importantes">
+<h3>1.4.11 Algunas Variables Discretas Importantes<a class="headerlink" href="#algunas-variables-discretas-importantes" title="Link to this heading">#</a></h3>
+<p><strong>Bernoulli</strong>. Si <span class="math notranslate nohighlight">\(X\)</span> es una variable aleatoria que toma valores binarios tal que <span class="math notranslate nohighlight">\(\mathbb{P}(X = 1) = p\)</span> y <span class="math notranslate nohighlight">\(\mathbb{P}(X = 0) = 1-p\)</span>, para algún <span class="math notranslate nohighlight">\(p \in [0, 1]\)</span>, decimos que <span class="math notranslate nohighlight">\(X \sim\)</span> Bernoulli(<span class="math notranslate nohighlight">\(p\)</span>). La función de distribución está dada por <span class="math notranslate nohighlight">\(f(x) = p^x (1- p)^{1-x}\)</span> para <span class="math notranslate nohighlight">\(x \in \{0, 1\}\)</span>.</p>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Definamos <span class="math notranslate nohighlight">\(X\)</span> como sacar <span class="math notranslate nohighlight">\(S\)</span> en el lanzamiento de una moneda justa. Entonces, <span class="math notranslate nohighlight">\(X(S) = 1\)</span>, <span class="math notranslate nohighlight">\(X(C) = 0\)</span> y <span class="math notranslate nohighlight">\(p = 1/2\)</span>.</p>
+<p>Note que</p>
+<div class="math notranslate nohighlight">
+\[f(X = 1) = \mathbb{P}(S) = (1/2)^1 (1-1/2)^{1-1} = 1/2\]</div>
+<div class="math notranslate nohighlight">
+\[f(X = 0) = \mathbb{P}(C) = (1/2)^0 (1-1/2)^{1-0} = 1/2\]</div>
+</div><p><strong>Binomial</strong>. Suponga que tenemos una moneda con probabilidad <span class="math notranslate nohighlight">\(p \in [0, 1]\)</span> de caer en <span class="math notranslate nohighlight">\(S\)</span>. Sea <span class="math notranslate nohighlight">\(X\)</span> la variable que cuenta el número de veces que la moneda cae en <span class="math notranslate nohighlight">\(S\)</span> en <span class="math notranslate nohighlight">\(n\)</span> lanzamientos. La función de distribución está dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f(x) =
+    \left\{\begin{array}{lr}
+    {n \choose x} p^x (1- p)^{1-x} &amp; \text{ para } x = 0, 1, ..., n \\
+    0 &amp; \text{en cualquier otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>En este caso decimos que <span class="math notranslate nohighlight">\(X \sim\)</span> Binomial(<span class="math notranslate nohighlight">\(n, p\)</span>).</p>
+<div class="alert alert-block alert-info">
+<b>TEOREMA:</b>
+<p>
+<p>si <span class="math notranslate nohighlight">\(X_1 \sim\)</span> Binomial(<span class="math notranslate nohighlight">\(n_1, p\)</span>) y <span class="math notranslate nohighlight">\(X_2 \sim\)</span> Binomial(<span class="math notranslate nohighlight">\(n_2, p\)</span>), entonces</p>
+<div class="math notranslate nohighlight">
+\[X_1 + X_2 \sim \text{Binomial(} n_1 + n_2, p \text{)}.\]</div>
+</div><p><strong>Geométrica</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene una distribución geométrica con parámetro <span class="math notranslate nohighlight">\(p\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[f(x) = P(X = k) = p(1-p)^{k-1}, \text{ con } k \geq 1.\]</div>
+<p>Se puede pensar en <span class="math notranslate nohighlight">\(X\)</span> como el número de veces que se requiren para obtener el primer <span class="math notranslate nohighlight">\(S\)</span> cuando se lanza una moneda justa.</p>
+<p><strong>Poisson</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene distribución poisson con parámetro <span class="math notranslate nohighlight">\(\lambda\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[f(x) = e^{-\lambda}\frac{\lambda^x}{x!}, \text{ con } x \geq 0.\]</div>
+</section>
+<section id="algunas-variables-continuas-importantes">
+<h3>1.4.12 Algunas Variables Continuas Importantes<a class="headerlink" href="#algunas-variables-continuas-importantes" title="Link to this heading">#</a></h3>
+<p><strong>Uniforme</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene distribución uniforme con parámetros <span class="math notranslate nohighlight">\(a &lt; b\)</span> si</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f(x) =
+    \left\{\begin{array}{lr}
+    \frac{1}{b-a} &amp; \text{ para } x \in [a, b] \\
+    0 &amp; \text{en cualquier otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Decimos entonces que <span class="math notranslate nohighlight">\(X \sim U(a, b)\)</span></p>
+<p><strong>Normal (o Gausiana)</strong>. <span class="math notranslate nohighlight">\(X\)</span> tiene distribución normal con parámetros <span class="math notranslate nohighlight">\(\mu \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span>, si</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{ - \frac{1}{2\sigma^2} (x - \mu)^2 \right\} , \text{ para } x \in \mathbb{R}\]</div>
+<p>Decimos entonces que <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>.</p>
+<p>El parámetro <span class="math notranslate nohighlight">\(\mu\)</span> es el centro (o media) de la distribución y <span class="math notranslate nohighlight">\(\sigma\)</span> es la disperción (o desviación estandar).</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(Z\)</span> se distribuye <strong>normal estandar</strong> si <span class="math notranslate nohighlight">\(\mu = 0\)</span> y <span class="math notranslate nohighlight">\(\sigma = 1\)</span>, en cuyo caso la distribución se denota por <span class="math notranslate nohighlight">\(\phi(z)\)</span> y la FDA por <span class="math notranslate nohighlight">\(\Phi(z)\)</span>.</p>
+<p>Algunas propiedades útiles para variables con distribución normal son:</p>
+<p>Si <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, entonces <span class="math notranslate nohighlight">\(Z = \frac{X - \mu}{\sigma} \sim N(0, 1)\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(Z \sim N(0, 1)\)</span>, entonces <span class="math notranslate nohighlight">\(X = \mu + \sigma Z \sim N(\mu, \sigma^2)\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, entonces <span class="math notranslate nohighlight">\(Y = a X + b \sim N(a \mu + b, a^2 \sigma^2)\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(X_i \sim N(\mu_i, \sigma_i)\)</span>, <span class="math notranslate nohighlight">\(i = 1, ..., n\)</span> son variables independientes, entonces</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n} X_i \sim N\left(\sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma^2_i \right)\]</div>
+<p>Si <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, entonces</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \mathbb{P}(a &lt; X &lt; b) &amp; = \mathbb{P} \left( \frac{a - \mu}{\sigma} &lt; Z &lt; \frac{b - \mu}{\sigma} \right)\\
+     &amp; = \Phi \left(\frac{b - \mu}{\sigma} \right) - \Phi \left(\frac{a - \mu}{\sigma} \right)
+\end{align*}\]</div>
+<p>Ciertas transformaciones de una variable normal dan como resultado otro tipo de distribuciónes.</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(X \sim \chi_n^2\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[X = \sum_{i = 1}^n Z_i^2\]</div>
+<p>donde <span class="math notranslate nohighlight">\(Z_i \sim N(0, 1)\)</span> son <span class="math notranslate nohighlight">\(n\)</span> variables aleatorias independientes<span class="math notranslate nohighlight">\(^*\)</span> y <span class="math notranslate nohighlight">\(n\)</span> representa los grados de libertad.</p>
+<p><span class="math notranslate nohighlight">\(^*\)</span>veremos el concepto de independencia más adelante</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(X \sim t_{n}\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[X = \frac{Z}{\sqrt{\frac{Y}{n}}}, \text{ donde } Y \sim \chi_n^2\]</div>
+<p>Decimos que <span class="math notranslate nohighlight">\(X \sim F_{n_1, n_2}\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[X = \frac{Y_1/n_1}{Y_2/n_2}, \text{ donde } Y_1 \sim \chi^2_{n_1} \text{ y } Y_2 \sim \chi^2_{n_2}\]</div>
+</section>
+<section id="distribuciones-bivariadas">
+<h3>1.4.13 Distribuciones Bivariadas<a class="headerlink" href="#distribuciones-bivariadas" title="Link to this heading">#</a></h3>
+<p>Para dos variables aleatorias discretas <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> la <strong>distribución de probabilidad conjunta</strong> está dada por <span class="math notranslate nohighlight">\(f(x, y)= \mathbb{P}(X = x, Y = y)\)</span></p>
+<p>La <strong>distribución marginal</strong> de <span class="math notranslate nohighlight">\(X\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X = x) = \sum_y \mathbb{P}(X = x, Y = y)\]</div>
+<p>Supongan que <span class="math notranslate nohighlight">\(X \in \{0, 1\}\)</span> y <span class="math notranslate nohighlight">\(Y \in \{1, 2, 3\}\)</span> con probabilidad conjunta dada por la siguiente tabla:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\((X \backslash Y)\)</span></p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbb{P}(X = x)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1/9</p></td>
+<td><p>2/9</p></td>
+<td><p>0</p></td>
+<td><p>3/9</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2/9</p></td>
+<td><p>3/9</p></td>
+<td><p>1/9</p></td>
+<td><p>6/9</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathbb{P}(Y = y)\)</span></p></td>
+<td><p>3/9</p></td>
+<td><p>5/9</p></td>
+<td><p>1/9</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Observe que <span class="math notranslate nohighlight">\(\mathbb{P}(X = 1, Y = 2) = 3/9\)</span></p>
+<p>En el caso continuo, una función <span class="math notranslate nohighlight">\(f(x, y)\)</span> es una distribución de densidad si</p>
+<p>(1) <span class="math notranslate nohighlight">\(f(x, y) &gt; 0\)</span> para todo <span class="math notranslate nohighlight">\((x, y)\)</span></p>
+<p>(2) <span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) dx dy= 1\)</span></p>
+<p>(3) para todo conjunto <span class="math notranslate nohighlight">\(A \subset \mathbb{R} \times \mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}((X, Y) \in A) = \int\int_A f(x, y) dx dy\]</div>
+<p>La <strong>densidad marginal</strong> <span class="math notranslate nohighlight">\(X\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[f_X(x) = \int f(x, y) dy\]</div>
+<p>En ambos casos definimos la distribución conjunta acumulada como <span class="math notranslate nohighlight">\(F_{X, Y}(x, y) = P(X \leq x, Y \leq y)\)</span></p>
+</section>
+<section id="distribucion-condicional">
+<h3>1.4.14 Distribución Condicional<a class="headerlink" href="#distribucion-condicional" title="Link to this heading">#</a></h3>
+<p>En el caso discreto, la <strong>distribución condicional</strong> de <span class="math notranslate nohighlight">\(X\)</span> dado <span class="math notranslate nohighlight">\(Y = y\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X = x| Y = y) = \frac{\mathbb{P}(X = x, Y = y)}{\mathbb{P}(Y = y)}\]</div>
+<p>En el caso continuo, la <strong>densidad condicional</strong> de <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> es una función <span class="math notranslate nohighlight">\(f_{X|Y}(x|y)\)</span> tal que</p>
+<div class="math notranslate nohighlight">
+\[f_{X|Y}(x|y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}, \text{ si } f_Y(y) &gt; 0\]</div>
+<p>Además, tenemos que</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(X \in A | Y = y) = \int_A f_{X|Y}(x|y) dx\]</div>
+</section>
+<section id="distribuciones-multivariadas">
+<h3>1.4.15 Distribuciones Multivariadas<a class="headerlink" href="#distribuciones-multivariadas" title="Link to this heading">#</a></h3>
+<p>Sean <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> variables aleatorias. Definimos el <strong>vector aleatorio</strong> <span class="math notranslate nohighlight">\(X = (X_1, ..., X_n)\)</span>, cuya distribución o <strong>función de densidad multivariada</strong> está dada por <span class="math notranslate nohighlight">\(f(x_1, ..., x_n)\)</span>.</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> son independientes si para todo <span class="math notranslate nohighlight">\(A_1, ..., A_n\)</span></p>
+<div class="math notranslate nohighlight">
+\[P(X_1 \in A_1, ...,  X_n \in A_n) = \prod_{n=1}^{n} P(X_i \in A_i)\]</div>
+<p>Sin embargo, es suficiente mostrar que <span class="math notranslate nohighlight">\(f(x_1, ..., x_n) = \prod_{n=1}^{n} f_{X_i}(x_i)\)</span>. Donde <span class="math notranslate nohighlight">\(f_{X_i}(x_i)\)</span> es la <strong>distribución margina</strong>l de <span class="math notranslate nohighlight">\(X_i\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> son independientes y cada una tiene la misma distribución marginal, entonces decimos que son iid (<strong>independientes e identicamente distribuidas</strong>)</p>
+</section>
+<section id="esperanza-matematica">
+<h3>1.4.16 Esperanza Matemática<a class="headerlink" href="#esperanza-matematica" title="Link to this heading">#</a></h3>
+<p>El <strong>valor esperado</strong>, <strong>media</strong>, o <strong>primer momento</strong> de una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> se define como</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E(X) =
+    \left\{\begin{array}{lr}
+    \sum_x x \cdot \mathbb{P}(X = x) &amp; \text{ si } X \text{ es discreta } \\
+    \int x f(x) dx, &amp; \text{ si } X \text{ es continua }
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son variables aleatorias, entonces para todo <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(b \in \mathbb{R}\)</span> se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[E(X + Y) = E(X) + E(Y)\]</div>
+<div class="math notranslate nohighlight">
+\[E(aX + b) = aE(X) + b\]</div>
+<p>Más aún, si <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes, entonces:</p>
+<div class="math notranslate nohighlight">
+\[E \left(X \cdot Y \right) = E(X) \cdot E(Y)\]</div>
+</section>
+<section id="varianza">
+<h3>1.4.17 Varianza<a class="headerlink" href="#varianza" title="Link to this heading">#</a></h3>
+<p>Para una variable <span class="math notranslate nohighlight">\(X\)</span> con media <span class="math notranslate nohighlight">\(\mu\)</span>, su <strong>varianza</strong> se define como:</p>
+<div class="math notranslate nohighlight">
+\[V(X) = E(X- \mu)^2 = \sigma^2\]</div>
+<p>La <strong>desviación estandar</strong> de <span class="math notranslate nohighlight">\(X\)</span> es <span class="math notranslate nohighlight">\(\sigma = \sqrt{V(X)}\)</span></p>
+<p>Observe que:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(V(X) = E(X^2) - \mu^2\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(b \in \mathbb{R}\)</span>, entonces <span class="math notranslate nohighlight">\(V(aX + b) = a^2 V(X)\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes, entonces <span class="math notranslate nohighlight">\(V(X + Y) = V(X) + V(Y)\)</span></p></li>
+</ol>
+</section>
+<section id="covarianza">
+<h3>1.4.18 Covarianza<a class="headerlink" href="#covarianza" title="Link to this heading">#</a></h3>
+<p>La <strong>covarianza</strong> entre <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> se define como</p>
+<div class="math notranslate nohighlight">
+\[Cov(X, Y) = E \left((X - \mu_X) (Y - \mu_Y) \right)\]</div>
+<p>y el <strong>coeficiente de correlación</strong> está dado por</p>
+<div class="math notranslate nohighlight">
+\[\rho(X, Y) = \frac{Cov(X , Y)}{\sigma_X \cdot \sigma_Y}\]</div>
+<p>Observe que</p>
+<div class="math notranslate nohighlight">
+\[Cov(X, Y) = E(X \cdot Y) - E(X) \cdot E(Y)\]</div>
+<div class="math notranslate nohighlight">
+\[-1 \leq \rho(X, Y) \leq 1\]</div>
+<p>Finalmente, note que</p>
+<div class="math notranslate nohighlight">
+\[V(X + Y) = V(X) + V(Y) + 2 \cdot Cov(X, Y)\]</div>
+<div class="math notranslate nohighlight">
+\[V(X - Y) = V(X) + V(Y) - 2 \cdot Cov(X, Y)\]</div>
+</section>
+<section id="esperanza-condicional">
+<h3>1.4.19 Esperanza Condicional<a class="headerlink" href="#esperanza-condicional" title="Link to this heading">#</a></h3>
+<p>La <strong>esperanza condicional</strong> de <span class="math notranslate nohighlight">\(X\)</span> dado <span class="math notranslate nohighlight">\(Y = y\)</span> está dada por</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E(X | Y = y) =
+    \left\{\begin{array}{lr}
+    \sum_x x \cdot \mathbb{P}(X = x | Y = y) &amp; \text{en el caso discreto} \\
+    \int x f(x|y) dx, &amp; \text{en el caso continuo}
+    \end{array}\right.
+\end{equation*}\]</div>
+<div class="alert alert-block alert-info">
+<b>TEOREMA (Ley de Esperanzas Iteradas):</b>
+<p>
+<p>Para dos variables aleatorias <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span>, si existen sus esperanzas, entonces</p>
+<div class="math notranslate nohighlight">
+\[E(E(X | Y)) = E(X)\]</div>
+</div><p><strong>Demostración</strong>. Usando la definición de esperanza condicional y el hecho que <span class="math notranslate nohighlight">\(f(x,y) = f(x|y) f(y)\)</span> tenemos que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    E(E(X|Y)) &amp; = \int E(X | Y = y) f_Y(y) dy = \int\int x f(x|y) dx f(y) dy \\
+     &amp; = \int\int x f(x|y) f(y) dy dx = \int\int x f(x,y) dy dx \\
+     &amp; = \int x \left( \int f(x, y) dy \right) dx = \int x f(x) dx = E(X)
+\end{align*}\]</div>
+</section>
+</section>
+<section id="fundamentos-de-estadistica">
+<h2>1.5 Fundamentos de Estadística<a class="headerlink" href="#fundamentos-de-estadistica" title="Link to this heading">#</a></h2>
+<p>El objetivo fundamental de la estadística es proveer conclusiones respecto a una <strong>población</strong> determinada a partir de <strong>muestras</strong>.</p>
+<section id="estimacion-puntual">
+<h3>1.5.1 Estimación Puntual<a class="headerlink" href="#estimacion-puntual" title="Link to this heading">#</a></h3>
+<p>Una estimación puntual es el “mejor pronóstico” sobre algún valor de interés. La cantidad de interés puede ser el parámetro de un modelo, una distribución acumulada <span class="math notranslate nohighlight">\(F\)</span>, una distribución de probabilidad <span class="math notranslate nohighlight">\(f\)</span>, una función de regression <span class="math notranslate nohighlight">\(r(x)\)</span>, o la predicción del valor futuro de una variable <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>Por convención, <span class="math notranslate nohighlight">\(\theta\)</span> representa un parámetro fijo desconocido y <span class="math notranslate nohighlight">\(\hat\theta_n\)</span> representa su estimación puntual. Es importante notar que <span class="math notranslate nohighlight">\(\hat\theta_n\)</span> depende de los datos y por lo tanto es una variable aleatoria.</p>
+<p>Observe que una estimación puntual se obtiene a partir de una función <span class="math notranslate nohighlight">\(T(X_1, ..., X_n)\)</span>, conocida como  <strong>estimador</strong> o <strong>estadístico</strong>. Dicha función depende de los valores de una muestra aleatoria <span class="math notranslate nohighlight">\(\{X_1, ..., X_n\}\)</span> para calcular el valor puntual:</p>
+<div class="math notranslate nohighlight">
+\[\hat\theta_n = T(X_1, ..., X_n)\]</div>
+</section>
+<section id="momentos-muestrales">
+<h3>1.5.2 Momentos Muestrales<a class="headerlink" href="#momentos-muestrales" title="Link to this heading">#</a></h3>
+<p>Sea <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> una muestra aleatoria de tamaño <span class="math notranslate nohighlight">\(n\)</span>, entonces definimos la <strong>media muestral</strong> como:</p>
+<div class="math notranslate nohighlight">
+\[\bar{X_n} = \frac{1}{n} \sum_{i = 1}^n X_i\]</div>
+<p>La <strong>varianza muestral</strong> está definida por:</p>
+<div class="math notranslate nohighlight">
+\[S_n^2 = \frac{1}{n-1} \sum_{i = 1}^n (X - \bar{X_n})^2\]</div>
+<div class="alert alert-block alert-info">
+<b>TEOREMA:</b>
+<p>
+<p>Si <span class="math notranslate nohighlight">\(X_1, ..., X_n\)</span> son iid, entonces</p>
+<div class="math notranslate nohighlight">
+\[E(\bar{X_n}) = \mu, \hspace{10pt} V(\bar{X_n}) = \frac{\sigma^2}{n}, \hspace{5pt} \text{y} \hspace{5pt} E(S_n^2) = \sigma^2\]</div>
+<p>donde <span class="math notranslate nohighlight">\(E(X_i) = \mu\)</span> y <span class="math notranslate nohighlight">\(V(X_i) = \sigma^2\)</span> para todo <span class="math notranslate nohighlight">\(i = 1, ..., n\)</span>.</p>
+</div></section>
+<section id="propiedades-de-los-estimadores">
+<h3>1.5.3 Propiedades de los Estimadores<a class="headerlink" href="#propiedades-de-los-estimadores" title="Link to this heading">#</a></h3>
+<p>Decimos que un estimador es <strong>insesgado</strong> si</p>
+<div class="math notranslate nohighlight">
+\[E(\hat\theta_n) = \theta\]</div>
+<p>Podemoslos definir también el sesgo de un estimador como</p>
+<div class="math notranslate nohighlight">
+\[\texttt{bias}(\hat\theta_n) = E(\hat\theta_n) - \theta\]</div>
+<p>Un requisito razonable para un estimador es que converga al valor del parámetro de interés si aumentamos el tamaño muestral.</p>
+<p>La distribución de <span class="math notranslate nohighlight">\(\hat\theta_n\)</span> se conoce como <strong>distribución muestral</strong> y la desviación estandar de <span class="math notranslate nohighlight">\(\hat\theta_n\)</span> se llama <strong>error estándar</strong> y se denota por <span class="math notranslate nohighlight">\(\texttt{se}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\texttt{se} = \sqrt{V(\hat\theta_n)}\]</div>
+<p>Comunmente, desconocemos la distribución muestral y, por lo tanto, <span class="math notranslate nohighlight">\(\texttt{se}\)</span> es desconocido. Sin embargo, es usual que podamos estimar el error estandar. A esta estimación la denotamos por <span class="math notranslate nohighlight">\(\hat{\texttt{se}}\)</span></p>
+<p>Un estimador insesgado <span class="math notranslate nohighlight">\(\hat\theta_1\)</span> es más <strong>eficiente</strong> que otro estimador insesgado <span class="math notranslate nohighlight">\(\hat\theta_2\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[V(\hat\theta_1) &lt; V(\hat\theta_2)\]</div>
+<p>Para evaluar la calidad del una estimación puntual algunas veces usamos el <strong>error cuadrático medio</strong>, o <span class="math notranslate nohighlight">\(\text{MSE}\)</span>, que se define como</p>
+<div class="math notranslate nohighlight">
+\[\text{MSE} = E_\theta (\hat\theta_n - \theta)^2 = \texttt{bias}^2(\hat\theta_n) + V_\theta(\hat\theta_n)\]</div>
+</section>
+<section id="ley-de-los-grandes-numeros">
+<h3>1.5.4 Ley de los Grandes Números<a class="headerlink" href="#ley-de-los-grandes-numeros" title="Link to this heading">#</a></h3>
+<p>Una secuencia de variables aleatorias <span class="math notranslate nohighlight">\(\{X_n\}\)</span> <strong>converge en probabilidad</strong> a una constante <span class="math notranslate nohighlight">\(c\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} \mathbb{P}(|X_n - c| &gt; \epsilon) = 0, \text{ para } \epsilon &gt; 0\]</div>
+<p>Para abreviar decimos que <span class="math notranslate nohighlight">\(X_n \overset{p}{\to} c\)</span></p>
+<div class="alert alert-block alert-info">
+<b>Ley de los Grandes Números:</b>
+<p>
+<p>Sea una <span class="math notranslate nohighlight">\(\{X_i\}_{i = 1}^n\)</span> una secuencia de variables iid tal que <span class="math notranslate nohighlight">\(E(X_i) = \mu &lt; \infty\)</span>, entonces</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{n} \sum_{i = 1}^n X_i = \bar{X_n} \overset{p}{\to} \mu\]</div>
+</div></section>
+<section id="teorema-del-limite-central">
+<h3>1.5.5 Teorema del Limite Central<a class="headerlink" href="#teorema-del-limite-central" title="Link to this heading">#</a></h3>
+<p>El resultado anterior es muy poderoso. Otro resultado fundamental en estadística y en econometría es el teorema del límite central</p>
+<div class="alert alert-block alert-info">
+<b>TEOREMA:</b>
+<p>
+<p>Sea una <span class="math notranslate nohighlight">\(\{X_i\}_{i = 1}^n\)</span> una secuencia de variables iid tal que <span class="math notranslate nohighlight">\(E(X_i) = \mu &lt; \infty\)</span> y <span class="math notranslate nohighlight">\(V(X_i) = \sigma^2 &lt; \infty\)</span>. Definamos</p>
+<div class="math notranslate nohighlight">
+\[Z_n = \frac{\sum_{i = 1}^n X_i - n\mu}{\sigma \sqrt n} = \frac{\bar X - \mu}{\sigma/\sqrt n}\]</div>
+<p>Entonces la función de distribución de <span class="math notranslate nohighlight">\(Z_n\)</span> converge hacia la función de distribución de una variable normal estandar cuando <span class="math notranslate nohighlight">\(n \to \infty\)</span>, es decir,</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} P(Z_n \leq z) = \Phi(z) = \int_\infty^z \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx\]</div>
+</div><p>Decimos entonces que un estimador puntual es <strong>consistente</strong> si</p>
+<div class="math notranslate nohighlight">
+\[\hat\theta_n \overset{p}{\to} \theta\]</div>
+<p>Un estimador es <strong>asintóticamente normal</strong> si</p>
+<div class="math notranslate nohighlight">
+\[\frac{\hat\theta_n - \theta}{\texttt{se}} \to N(0, 1)\]</div>
+<div class="alert alert-block alert-info">
+<b>TEOREMA:</b>
+<p>
+<p>Si <span class="math notranslate nohighlight">\(\texttt{bias} \overset{n \to \infty}{\longrightarrow} 0\)</span> y <span class="math notranslate nohighlight">\(\texttt{se} \overset{n \to \infty}{\longrightarrow} 0\)</span>, entonces <span class="math notranslate nohighlight">\(\hat\theta_n\)</span> es consistente. Es decir, <span class="math notranslate nohighlight">\(\hat\theta_n \overset{p}{\to} \theta\)</span></p>
+</div></section>
+<section id="intervalos-de-confianza">
+<h3>1.5.6 Intervalos de Confianza<a class="headerlink" href="#intervalos-de-confianza" title="Link to this heading">#</a></h3>
+<p>Un <strong>intervalo de confianza</strong> a un nivel del <span class="math notranslate nohighlight">\(1 - \alpha\)</span> para un parámetro <span class="math notranslate nohighlight">\(\theta\)</span> es un conjunto <span class="math notranslate nohighlight">\(C_n = (a, b)\)</span> donde <span class="math notranslate nohighlight">\(a = a(X_1, ... , X_n)\)</span> y <span class="math notranslate nohighlight">\(b = b(X_1, ..., X_n)\)</span> son funciones de los datos tal que</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}_\theta (\theta \in C_n) \geq 1 − \alpha, \text{ para todo } \theta \in \Theta\]</div>
+<p>En otras palabras, <span class="math notranslate nohighlight">\((a, b)\)</span> contiene a <span class="math notranslate nohighlight">\(\theta\)</span> con probabilidad <span class="math notranslate nohighlight">\(1 - \alpha\)</span>. La tasa de <strong>convergencia</strong> del intervalo es <span class="math notranslate nohighlight">\(1 - \alpha\)</span>.</p>
+<div class="alert alert-block alert-info">
+<b>TEOREMA:</b>
+<p>
+<p>Suponga que <span class="math notranslate nohighlight">\(\hat\theta_n \sim N (\theta, \texttt{se}^2)\)</span>. Sea <span class="math notranslate nohighlight">\(Z \sim N(0, 1)\)</span>, <span class="math notranslate nohighlight">\(\Phi\)</span> su distribución acumulada, y <span class="math notranslate nohighlight">\(z_{\alpha/2} = \Phi^{-1}\left(1 - \frac{\alpha}{2}\right)\)</span>. De esta manera, <span class="math notranslate nohighlight">\(\mathbb{P}(Z &gt; z_{\alpha/2}) = \alpha/2\)</span> y <span class="math notranslate nohighlight">\(\mathbb{P}(-z_{\alpha/2} &lt; Z &lt; z_{\alpha/2}) = 1 - \alpha\)</span>.</p>
+<p>Sea</p>
+<div class="math notranslate nohighlight">
+\[C_n = (\hat\theta_n - z_{\alpha/2} \cdot \texttt{se} \text{ } , \text{ } \hat\theta_n + z_{\alpha/2} \cdot \texttt{se})\]</div>
+<p>Entonces,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}_\theta(\theta \in C_n) \to 1 - \alpha\]</div>
+</div><p><strong>Demostración</strong>.</p>
+<p>Sea <span class="math notranslate nohighlight">\(Z_n = \frac{(\hat\theta_n - \theta)}{\texttt{se}}\)</span>, luego <span class="math notranslate nohighlight">\(Z_n \sim N(0, 1)\)</span>.</p>
+<p>De esta manera,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \mathbb{P}_\theta (\theta \in C_n) &amp; = \mathbb{P} \left(\hat\theta_n - z_{\alpha/2} \cdot \texttt{se} &lt; \theta &lt; \hat\theta_n + z_{\alpha/2} \cdot \texttt{se} \right) \\
+     &amp; = \mathbb{P} \left( - z_{\alpha/2} &lt; \frac{(\hat\theta_n - \theta)}{\texttt{se}} &lt; z_{\alpha/2} \right) \\
+     &amp; = \mathbb{P} \left( - z_{\alpha/2} &lt; Z_n &lt; z_{\alpha/2} \right) \to \mathbb{P} \left( - z_{\alpha/2} &lt; Z &lt; z_{\alpha/2} \right) = 1 - \alpha
+\end{align*}\]</div>
+</section>
+<section id="intervalo-para-medias">
+<h3>1.5.7 Intervalo para Medias<a class="headerlink" href="#intervalo-para-medias" title="Link to this heading">#</a></h3>
+<p>Sea una <span class="math notranslate nohighlight">\(\{X_i\}_{i = 1}^n\)</span> una secuencia de variables iid tal que <span class="math notranslate nohighlight">\(E(X_i) = \mu &lt; \infty\)</span> y <span class="math notranslate nohighlight">\(V(X_i) = \sigma^2 &lt; \infty\)</span>.</p>
+<p>Los resultados anteriores nos permiten concluir que <span class="math notranslate nohighlight">\(\bar{X_n} \sim N(\mu, \frac{\sigma^2}{n})\)</span>. Por lo tanto, sabemos que</p>
+<div class="math notranslate nohighlight">
+\[Z_n = \frac{\bar X_n - \mu}{\sigma/\sqrt n} \sim N(0, 1)\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbb{P} \left( - z_{\alpha/2} &lt; Z_n &lt; z_{\alpha/2} \right) = \mathbb{P} \left( - z_{\alpha/2} &lt; \frac{\bar X_n - \mu}{\sigma/\sqrt n} &lt; z_{\alpha/2} \right) \to 1 - \alpha\]</div>
+<p>Así, podemos concluir que</p>
+<div class="math notranslate nohighlight">
+\[ \mathbb{P} \left(\bar X_n - z_{\alpha/2} \cdot \sigma/\sqrt n &lt; \mu &lt; \bar X_n + z_{\alpha/2} \cdot \sigma/\sqrt n \right) \to 1 - \alpha\]</div>
+<p>El resultado anterior nos dice que a partir de una muestra de tamañano <span class="math notranslate nohighlight">\(n\)</span> podemos estimar que el parámetro desconocido <span class="math notranslate nohighlight">\(\mu\)</span> se encuentra en el intervalo <span class="math notranslate nohighlight">\((\bar X_n - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt n}, \bar X_n + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt n})\)</span> con una confianza del <span class="math notranslate nohighlight">\((1 - \alpha) 100\%\)</span>. Sin embargo, debemos conocer el parámetro <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<p>Si no conocemos <span class="math notranslate nohighlight">\(\sigma\)</span>, podemos estimarlo usando <span class="math notranslate nohighlight">\(S_n^2\)</span>. En este caso, debemos definir</p>
+<div class="math notranslate nohighlight">
+\[T_n = \frac{\bar X_n - \mu}{S/\sqrt n} \sim t_{n-1}\]</div>
+<p>Luego, el intervalo de confianza para <span class="math notranslate nohighlight">\(\mu\)</span> está dado por</p>
+<div class="math notranslate nohighlight">
+\[\left(\bar X_n - t_{\alpha/2,\text{ } n-1} \cdot \frac{S}{\sqrt n}, \bar X_n + t_{\alpha/2,\text{ } n-1} \cdot \frac{S}{\sqrt n} \right)\]</div>
+</section>
+<section id="intervalo-para-diferencia-de-medias">
+<h3>1.5.8 Intervalo para Diferencia de Medias<a class="headerlink" href="#intervalo-para-diferencia-de-medias" title="Link to this heading">#</a></h3>
+<p>El intervalo de confianza para la diferencia de medias <span class="math notranslate nohighlight">\(\mu_1 - \mu_2\)</span> para dos poblaciones que se distrubuyen normal con varianzas <span class="math notranslate nohighlight">\(\sigma_1^2\)</span> y <span class="math notranslate nohighlight">\(\sigma_2^2\)</span> usando muestras aleatorias independientes está dado por</p>
+<div class="math notranslate nohighlight">
+\[\left( (\bar X_1 - \bar X_2) - z_{\alpha/2} \cdot \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \hspace{4pt} , \hspace{4pt} (\bar X_1 - \bar X_2) + z_{\alpha/2} \cdot \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \right)\]</div>
+<p>Si se desconocen los parámetros <span class="math notranslate nohighlight">\(\sigma_1^2\)</span> y <span class="math notranslate nohighlight">\(\sigma_2^2\)</span>, el intervalo de confianza está dado por</p>
+<div class="math notranslate nohighlight">
+\[\left( (\bar X_1 - \bar X_2) - t_{\alpha/2, n_1 + n_2 - 2} \cdot  S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}} \hspace{4pt} , \hspace{4pt} (\bar X_1 - \bar X_2) + t_{\alpha/2, n_1 + n_2 - 2} \cdot  S_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}} \right)\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[S_p = \sqrt{\frac{(n_1-1) S_1^2 + (n_2-1) S_2^2}{n_1 + n_2 - 2}}\]</div>
+</section>
+<section id="prueba-de-hipotesis">
+<h3>1.5.9 Prueba de Hipótesis<a class="headerlink" href="#prueba-de-hipotesis" title="Link to this heading">#</a></h3>
+<p>Una <strong>hipótesis estadística</strong> es una afirmación o conjetura acerca de un parámetro poblacional desconocido.</p>
+<p>Para probar una hipótesis, iniciamos con una teoría o <strong>hipótesis nula</strong> (<span class="math notranslate nohighlight">\(H_0\)</span>) y nos preguntamos si los datos proveen suficiente evidencia para rechazar dicha teoría. En caso de rechar dicha hipótesis, decimos que se rechaza a favor de una <strong>hipótesis alternativa</strong> (<span class="math notranslate nohighlight">\(H_1\)</span>). Usalmente, escribimos</p>
+<div class="math notranslate nohighlight">
+\[H_0 : \theta = \kappa\]</div>
+<div class="math notranslate nohighlight">
+\[H_1 : \theta \neq \kappa\]</div>
+<p>La hipótesis se prueba encontrando una <strong>región de rechazo</strong>, <span class="math notranslate nohighlight">\(R\)</span>, tal que</p>
+<div class="math notranslate nohighlight">
+\[\text{si } \hat\theta_n \in R \Rightarrow \text{ rechace } H_0\]</div>
+<div class="math notranslate nohighlight">
+\[\text{si } \hat\theta_n \not\in  R \Rightarrow \text{ no rechace } H_0\]</div>
+<p>Cuando realizamos pruebas de hipótesis podemos caer en dos tipos de errores:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Aceptar <span class="math notranslate nohighlight">\(H_0\)</span></p></th>
+<th class="head"><p>Rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(H_0\)</span> verdad</p></td>
+<td><p>Ok</p></td>
+<td><p>Error tipo 1 (<span class="math notranslate nohighlight">\(\alpha\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(H_0\)</span> falsa</p></td>
+<td><p>Error tipo 2 (<span class="math notranslate nohighlight">\(\beta\)</span>)</p></td>
+<td><p>Ok (poder)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Es dificil minimizar ambos errores al tiempo, asi que fijamos un nivel bajo para <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>El <strong>p-valor</strong> es el nivel de significancia más pequeño al cual podemos rechazar la hypothesis nula.</p>
+</section>
+<section id="hipotesis-para-medias">
+<h3>1.5.10 Hipotesis para Medias<a class="headerlink" href="#hipotesis-para-medias" title="Link to this heading">#</a></h3>
+<p>Suponga que <span class="math notranslate nohighlight">\(X_i \sim N(\mu, \sigma^2)\)</span> y queremos probar que <span class="math notranslate nohighlight">\(H_0 : \mu = \mu_0\)</span> versus <span class="math notranslate nohighlight">\(H_1 : \mu \neq \mu_0\)</span></p>
+<p>Asumiendo que <span class="math notranslate nohighlight">\(\sigma\)</span> es desconocido, usaremos el siguiente estadístico de prueba:</p>
+<div class="math notranslate nohighlight">
+\[T = \frac{\bar X -  \mu_0}{S/\sqrt n} \sim t_{n-1}\]</div>
+<p>A un nivel <span class="math notranslate nohighlight">\(\alpha\)</span>, la región de rechazo de la hipotesis nula está definida por <span class="math notranslate nohighlight">\(|T| \geq t_c\)</span> donde el valor crítico es <span class="math notranslate nohighlight">\(t_c = t_{\alpha/2, \hspace{3pt} n-1}\)</span></p>
+<p>Observe que no rechazamos <span class="math notranslate nohighlight">\(H_0\)</span> si</p>
+<div class="math notranslate nohighlight">
+\[\mu_0 \in \left(\bar X_n - t_{\alpha/2,\text{ } n-1} \cdot \frac{S}{\sqrt n}, \bar X_n + t_{\alpha/2,\text{ } n-1} \cdot \frac{S}{\sqrt n} \right)\]</div>
+<div class="alert alert-block alert-warning"> 
+<b>EJEMPLO:</b>
+<p>
+<p>Suponga que <span class="math notranslate nohighlight">\(\bar X = 5\)</span> y <span class="math notranslate nohighlight">\(S^2 = 2\)</span>. ¿Podemos concluir que <span class="math notranslate nohighlight">\(\mu = 6\)</span> con una muestra de 25 observaciones?</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Definir un nivel de significancia</span>
+<span class="n">alpha</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.05</span>
+
+<span class="c1">#Valores dados</span>
+<span class="n">xbar</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">5.5</span>
+<span class="n">S</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">25</span>
+
+<span class="c1">#Estadístico de Prueba</span>
+<span class="bp">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">xbar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">));</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;T = &quot;</span><span class="p">,</span><span class="w"> </span><span class="bp">T</span><span class="p">))</span>
+
+<span class="c1">#Region de no rechazo</span>
+<span class="n">tc</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="m">-1</span><span class="p">)</span><span class="w"> </span><span class="c1">#Valor crítico</span>
+<span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Región de No Rechazo = [&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nf">round</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">)</span>
+
+<span class="c1">#P-valor</span>
+<span class="n">pval</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="nf">pt</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="m">-1</span><span class="p">);</span><span class="w"> </span><span class="n">pval</span>
+
+<span class="c1">#Region con p-valor</span>
+<span class="n">tc</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">qt</span><span class="p">(</span><span class="n">pval</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="m">-1</span><span class="p">)</span><span class="w"> </span><span class="c1">#Valor crítico</span>
+<span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Región de p-valor = [&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nf">round</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;T =  -1.76776695296637&quot;
+</pre></div>
+</div>
+<div class="output text_html"><span style=white-space:pre-wrap>'Región de No Rechazo = [ -2.064  ,  2.064 ]'</span></div><div class="output text_html">0.0898130810840368</div><div class="output text_html"><span style=white-space:pre-wrap>'Región de p-valor = [ -1.768  ,  1.768 ]'</span></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Microeconometría Aplicada</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-microeconometria">1.1 ¿Qué es la microeconometría?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-retornos-a-la-educacion">1.2 Aplicación: Retornos a la Educación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-estimacion-de-funciones">1.3 Aplicación: Estimación de Funciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-probabilidad">1.4 Fundamentos de Probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-y-eventos">1.4.1 Espacio Muestral y Eventos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medida-de-probabilidad">1.4.2 Medida de Probabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-probabilidad">1.4.3 Propiedades de Probabilidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-independientes">1.4.4 Eventos Independientes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">1.4.5 Probabilidad Condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">1.4.6 Teorema de Bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">1.4.7 Variables Aleatorias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-distribucion">1.4.8 Funciones de Distribución</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-f-x">1.4.9 Propiedades de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-inversa-o-de-cuantiles-de-f-x">1.4.10 Función Inversa (o de Cuantiles) de <span class="math notranslate nohighlight">\(F_X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-discretas-importantes">1.4.11 Algunas Variables Discretas Importantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algunas-variables-continuas-importantes">1.4.12 Algunas Variables Continuas Importantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-bivariadas">1.4.13 Distribuciones Bivariadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-condicional">1.4.14 Distribución Condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-multivariadas">1.4.15 Distribuciones Multivariadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-matematica">1.4.16 Esperanza Matemática</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.4.17 Varianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covarianza">1.4.18 Covarianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-condicional">1.4.19 Esperanza Condicional</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-estadistica">1.5 Fundamentos de Estadística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-puntual">1.5.1 Estimación Puntual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentos-muestrales">1.5.2 Momentos Muestrales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-los-estimadores">1.5.3 Propiedades de los Estimadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-los-grandes-numeros">1.5.4 Ley de los Grandes Números</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-del-limite-central">1.5.5 Teorema del Limite Central</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza">1.5.6 Intervalos de Confianza</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-para-medias">1.5.7 Intervalo para Medias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalo-para-diferencia-de-medias">1.5.8 Intervalo para Diferencia de Medias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-hipotesis">1.5.9 Prueba de Hipótesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hipotesis-para-medias">1.5.10 Hipotesis para Medias</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Montano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

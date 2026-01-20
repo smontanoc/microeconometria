@@ -1,33 +1,13 @@
 # Microeconometría Aplicada
 
-La microeconometría es el campo que se ocupa de analizar el comportamiento económico de individuos, hogares o empresas mediante métodos estadísticos y modelos de regresión. El análisis microeconométrico utiliza comúnmente datos a nivel individual, ya sean de corte transversal o panel, que se obtienen de registros administrativos, encuestas, censos o experimentos sociales. Algunos de los objetivos del análisis microeconométrico son: informar sobre aspectos de política pública, predecir el comportamiento de agentes, y proporcionar evidencia que permita validar o refutar las predicciones de modelos o teorías económicas.
+Estas notas han sido preparadas para el curso de Microeconometría Aplicada (MECA 4108), que se imparte en la Universidad de los Andes como parte del ciclo obligatorio de la Maestría en Economía Aplicada. 
 
-En este curso se introducen diversas técnicas estadísticas y econométricas, haciendo énfasis en su uso práctico. Para motivar y facilitar su comprensión, la teoría y los supuestos que describen las técnicas estudiadas estarán acompañados de aplicaciones. Al finalizar el curso, el estudiante será capaz de leer de manera crítica el trabajo empírico presentado en la literatura económica y podrá aplicar los métodos cubiertos para estudiar problemas de su interés.
+Las notas se encuentran en proceso de revisión y actualización, por lo cual se solicita a los lectores abstenerse de citarlas. 
 
-## Referencias
+## Acerca del Autor
 
-Cómo referencia usaremos varios libros:
+Sebastián Montaño es Ph.D. en Economía de la Universidad de Maryland, en Estados Unidos. Su investigación utiliza métodos econométricos cuasi-experimentales y grandes bases de datos para responder preguntas en distintas áreas, incluyendo: economía laboral, economía de la educación y finanzas del consumidor. Su trabajo ha sido publicado en revistas como *The Review of Economics and Statistics*, *Journal of Public Economics* y *Education Economics*. Ha sido consultor en el Banco Interamericano de Desarrollo y analista para el Ministerio de Educación Nacional de Colombia. Actualmente, es Profesor Asistente en el Departamento de Economía de la Universidad de los Andes.
 
-[W] Wooldridge, Jeffrey (2020) Introductory Econometrics: A Modern Approach, Seventh Edition
-
-[AP] Angrist, Joshua y Jörn-Steffen Pischke (2008) Mostly Harmless Econometrics
-
-[CT] Cameron, Colin y Pravin Trivedi (2005) Microeconometrics: Methods and Applications
-
-[WL] Wasserman, Larry (2004) All of Statistics: A Concise Course in Statistical Inference
-
-## Evaluaciones
-
-El curso contará con tres tipos de evaluaciones. En la siguiente tabla se relaciona la fecha de entrega de cada evaluación y el porcentaje que representa en la notal final del curso:
-
-| Evaluación                | Fechas de Entrega                |   %  |
-|---------------------------|----------------------------------|------|
-| Talleres                  | 16-Ago, 06-Sep, 23-Sep, y 07-Nov |  40  |
-| Examenes                  | 14-Oct y 18-Nov                  |  30  |
-| Presentación Proyecto$^*$ | 25-Nov y 29-Nov                  |  30  |
-
-$^*$El proyecto consistirá en la replicación de los resultados de un paper publicado. Se crearán grupos de manera aleatoria y se asignará un paper a cada grupo. Los estudiantes deben entregar: *(i)* un informe de no más de 3 páginas analizando los resultados del ejercicio y *(ii)* un paquete de replicación que incluye un código de Stata o R que debe correr sin errores. Se elegirá de manera aleatoria un estudiante de cada grupo para presentar los resultados.
-
-## Contenidos del curso:
+## Contenidos del curso
 ```{tableofcontents}
 ```

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Qué es la Microeconometría?" href="0_Motivacion.html" />
+    <link rel="next" title="Parte I - Fundamentos" href="Modulo_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,24 +183,7 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="8_DatosPanel.html">Modelos de Datos Panel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="9_ResultadosPotenciales.html">Análisis Causal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_IV.html">Variables Instrumentales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_RD.html">Regresión Discontinua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_DiD.html">Diferencias en Diferencias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_2_Sol.html">Taller 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_3_Sol.html">Taller 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_4.html">Taller 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo_1.html">Parte I - Fundamentos</a></li>
 </ul>
 
     </div>
@@ -396,9 +379,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluaciones">Evaluaciones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos-del-curso">Contenidos del curso:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acerca-del-autor">Acerca del Autor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos-del-curso">Contenidos del curso</a></li>
 </ul>
             </nav>
         </div>
@@ -412,66 +394,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="microeconometria-aplicada">
 <h1>Microeconometría Aplicada<a class="headerlink" href="#microeconometria-aplicada" title="Link to this heading">#</a></h1>
-<p>La microeconometría es el campo que se ocupa de analizar el comportamiento económico de individuos, hogares o empresas mediante métodos estadísticos y modelos de regresión. El análisis microeconométrico utiliza comúnmente datos a nivel individual, ya sean de corte transversal o panel, que se obtienen de registros administrativos, encuestas, censos o experimentos sociales. Algunos de los objetivos del análisis microeconométrico son: informar sobre aspectos de política pública, predecir el comportamiento de agentes, y proporcionar evidencia que permita validar o refutar las predicciones de modelos o teorías económicas.</p>
-<p>En este curso se introducen diversas técnicas estadísticas y econométricas, haciendo énfasis en su uso práctico. Para motivar y facilitar su comprensión, la teoría y los supuestos que describen las técnicas estudiadas estarán acompañados de aplicaciones. Al finalizar el curso, el estudiante será capaz de leer de manera crítica el trabajo empírico presentado en la literatura económica y podrá aplicar los métodos cubiertos para estudiar problemas de su interés.</p>
-<section id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
-<p>Cómo referencia usaremos varios libros:</p>
-<p>[W] Wooldridge, Jeffrey (2020) Introductory Econometrics: A Modern Approach, Seventh Edition</p>
-<p>[AP] Angrist, Joshua y Jörn-Steffen Pischke (2008) Mostly Harmless Econometrics</p>
-<p>[CT] Cameron, Colin y Pravin Trivedi (2005) Microeconometrics: Methods and Applications</p>
-<p>[WL] Wasserman, Larry (2004) All of Statistics: A Concise Course in Statistical Inference</p>
-</section>
-<section id="evaluaciones">
-<h2>Evaluaciones<a class="headerlink" href="#evaluaciones" title="Link to this heading">#</a></h2>
-<p>El curso contará con tres tipos de evaluaciones. En la siguiente tabla se relaciona la fecha de entrega de cada evaluación y el porcentaje que representa en la notal final del curso:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Evaluación</p></th>
-<th class="head"><p>Fechas de Entrega</p></th>
-<th class="head"><p>%</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Talleres</p></td>
-<td><p>16-Ago, 06-Sep, 23-Sep, y 07-Nov</p></td>
-<td><p>40</p></td>
-</tr>
-<tr class="row-odd"><td><p>Examenes</p></td>
-<td><p>14-Oct y 18-Nov</p></td>
-<td><p>30</p></td>
-</tr>
-<tr class="row-even"><td><p>Presentación Proyecto<span class="math notranslate nohighlight">\(^*\)</span></p></td>
-<td><p>25-Nov y 29-Nov</p></td>
-<td><p>30</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><span class="math notranslate nohighlight">\(^*\)</span>El proyecto consistirá en la replicación de los resultados de un paper publicado. Se crearán grupos de manera aleatoria y se asignará un paper a cada grupo. Los estudiantes deben entregar: <em>(i)</em> un informe de no más de 3 páginas analizando los resultados del ejercicio y <em>(ii)</em> un paquete de replicación que incluye un código de Stata o R que debe correr sin errores. Se elegirá de manera aleatoria un estudiante de cada grupo para presentar los resultados.</p>
+<p>Estas notas han sido preparadas para el curso de Microeconometría Aplicada (MECA 4108), que se imparte en la Universidad de los Andes como parte del ciclo obligatorio de la Maestría en Economía Aplicada.</p>
+<p>Las notas se encuentran en proceso de revisión y actualización, por lo cual se solicita a los lectores abstenerse de citarlas.</p>
+<section id="acerca-del-autor">
+<h2>Acerca del Autor<a class="headerlink" href="#acerca-del-autor" title="Link to this heading">#</a></h2>
+<p>Sebastián Montaño es Ph.D. en Economía de la Universidad de Maryland, en Estados Unidos. Su investigación utiliza métodos econométricos cuasi-experimentales y grandes bases de datos para responder preguntas en distintas áreas, incluyendo: economía laboral, economía de la educación y finanzas del consumidor. Su trabajo ha sido publicado en revistas como <em>The Review of Economics and Statistics</em>, <em>Journal of Public Economics</em> y <em>Education Economics</em>. Ha sido consultor en el Banco Interamericano de Desarrollo y analista para el Ministerio de Educación Nacional de Colombia. Actualmente, es Profesor Asistente en el Departamento de Economía de la Universidad de los Andes.</p>
 </section>
 <section id="contenidos-del-curso">
-<h2>Contenidos del curso:<a class="headerlink" href="#contenidos-del-curso" title="Link to this heading">#</a></h2>
+<h2>Contenidos del curso<a class="headerlink" href="#contenidos-del-curso" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="0_Motivacion.html">Qué es la Microeconometría?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Regresion.html">Modelo de Regresión Lineal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_Regresion.html">Modelo de Regresión Multiple</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_Supuestos.html">Evaluación de Supuestos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html">Variables de Respuesta Cualitativa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Respuesta_Cualitativa.html#estimacion-de-maxima-verosimilitud-versus-mco">Estimación de Máxima Verosimilitud versus MCO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="7_RepeatedCross.html">Modelo de Cortes Transversales Repetidos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="8_DatosPanel.html">Modelos de Datos Panel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="9_ResultadosPotenciales.html">Análisis Causal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_IV.html">Variables Instrumentales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_RD.html">Regresión Discontinua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_DiD.html">Diferencias en Diferencias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Probabilidad.html">Fundamentos de Probabilidad</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Estadistica.html">Fundamentos de Estadística</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_1_Sol.html">Taller 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_2_Sol.html">Taller 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_3_Sol.html">Taller 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Taller_4.html">Taller 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo_1.html">Parte I - Fundamentos</a></li>
 </ul>
 </div>
 </section>
@@ -508,11 +441,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="0_Motivacion.html"
+       href="Modulo_1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Qué es la Microeconometría?</p>
+        <p class="prev-next-title">Parte I - Fundamentos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -532,9 +465,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluaciones">Evaluaciones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos-del-curso">Contenidos del curso:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acerca-del-autor">Acerca del Autor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenidos-del-curso">Contenidos del curso</a></li>
 </ul>
   </nav></div>
 
