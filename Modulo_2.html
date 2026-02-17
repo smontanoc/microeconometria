@@ -439,7 +439,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion">2.22 Aplicación:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias-y-categoricas">2.23 Variables Binarias y Categoricas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-retornos-a-la-educacion-edad-y-gaps">2.24 Aplicación: Retornos a la Educación, Edad, y Gaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-brechas-salariales-por-genero-y-area">2.24 Aplicación: Brechas Salariales por Género y Área</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariables-no-lineales">2.25 Covariables No-lineales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">2.26 Interacciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaccion-entre-variables-binarias">2.26.1 Interacción entre Variables Binarias</a></li>
@@ -2175,16 +2175,16 @@ X =
 <li><p>De lo contrario, habría <strong>colinealidad perfecta</strong> (con el vector de 1s asociado al intercepto del modelo) y el modelo no se podría estimar.</p></li>
 </ul>
 </section>
-<section id="aplicacion-retornos-a-la-educacion-edad-y-gaps">
-<h2>2.24 Aplicación: Retornos a la Educación, Edad, y Gaps<a class="headerlink" href="#aplicacion-retornos-a-la-educacion-edad-y-gaps" title="Link to this heading">#</a></h2>
+<section id="aplicacion-brechas-salariales-por-genero-y-area">
+<h2>2.24 Aplicación: Brechas Salariales por Género y Área<a class="headerlink" href="#aplicacion-brechas-salariales-por-genero-y-area" title="Link to this heading">#</a></h2>
 <p>Consideremos ahora la siguiente función de regresión:</p>
 <div class="math notranslate nohighlight">
-\[\log(wage_i) = \beta_0 + \beta_1 female_i + \beta_2 age_i + \beta_3 age_i^2 + \varepsilon_i\]</div>
+\[\log(wage_i) = \beta_0 + \beta_1 female_i + \sum_{j = 1}^{I - 1} \gamma_i 1(Area_i = j) + \varepsilon_i\]</div>
 <p>donde:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(wage_i\)</span> representa el ingreso laboral del individuo <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\(female_i\)</span> es una variable binaria que toma el valor de 1 si <span class="math notranslate nohighlight">\(i\)</span> es mujer y <span class="math notranslate nohighlight">\(0\)</span> si no, y</p></li>
-<li><p><span class="math notranslate nohighlight">\(age_i\)</span> es la edad</p></li>
+<li><p><span class="math notranslate nohighlight">\(female_i\)</span> es una variable binaria que toma el valor de 1 si <span class="math notranslate nohighlight">\(i\)</span> es mujer y <span class="math notranslate nohighlight">\(0\)</span> si no</p></li>
+<li><p><span class="math notranslate nohighlight">\(1(Area_i = j)\)</span> es una variable binaria igual 1 si <span class="math notranslate nohighlight">\(i\)</span> se graduó del área <span class="math notranslate nohighlight">\(j\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2284,7 +2284,6 @@ field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
 <span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">female</span><span class="p">);</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nf">coef</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
 <span class="n">B</span><span class="o">$</span><span class="n">up_ci</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">coeff</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">se</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">));</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">low_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">coeff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">se</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
 
-<span class="c1">#Coeficientes</span>
 <span class="nf">ggplot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coeff</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
 <span class="w">    </span><span class="nf">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">linetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dashed&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_errorbar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">low_ci</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up_ci</span><span class="p">),</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
 <span class="w">    </span><span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">labs</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Diferencia Log Salario (vs Business)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Área de Estudio&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">90</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
@@ -2296,6 +2295,18 @@ field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
 </a>
 </div>
 </div>
+</section>
+<section id="covariables-no-lineales">
+<h2>2.25 Covariables No-lineales<a class="headerlink" href="#covariables-no-lineales" title="Link to this heading">#</a></h2>
+<p>Consideremos ahora la siguiente función de regresión:</p>
+<div class="math notranslate nohighlight">
+\[\log(wage_i) = \beta_0 + \beta_1 age_i + \beta_1 age_i^2 + \varepsilon_i\]</div>
+<p>donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(wage_i\)</span> representa el ingreso laboral del individuo <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(age_i\)</span> es la edad del individuo</p></li>
+</ul>
+<p>Note que la variable edad se incluye al cuadrado en la función de regresión. Esto lo hacemos para capturar <strong>relaciones no lineales</strong> entre la variable dependiente y la variable independiente.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#No linealidad en covariables</span>
@@ -2345,45 +2356,12 @@ F-statistic: 41.16 on 2 and 14399 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 </div>
-</section>
-<section id="covariables-no-lineales">
-<h2>2.25 Covariables No-lineales<a class="headerlink" href="#covariables-no-lineales" title="Link to this heading">#</a></h2>
 <p>Observe que para interpretar el <strong>efecto de la edad</strong> en el salario, debemos suponer que las otras variables permanecen constantes:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \log(wage_i)}{\partial age_i} = \beta_2 + 2 \cdot \beta_3 age_i\]</div>
 <p>Así, <em>ceteris paribus</em> (todo lo demás constante), un incremento en un año de experiencia, aumenta el salario en <span class="math notranslate nohighlight">\((\beta_2 + 2 \cdot age_i \cdot \beta_3)100\%\)</span>.</p>
 <p>Note que para una persona que pasa de 20 a 21 años, el salario aumenta en <span class="math notranslate nohighlight">\((11.8\% - 2 \cdot 21 \cdot(0.2\%)) \approx 3.4\%\)</span>.</p>
 <p>Para una persona que pasa de 34 a 35 años, el salario aumenta en <span class="math notranslate nohighlight">\((11.8\% - 2\cdot 35 \cdot(0.2\%)) \approx 2.2\%\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">ln_fst_wage</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">female</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age_2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-lm(formula = ln_fst_wage ~ female + age + age_2, data = datos)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.70299 -0.44394 -0.08687  0.34903  2.09150 
-
-Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  8.7629730  0.2396815  36.561  &lt; 2e-16 ***
-female      -0.0585482  0.0085754  -6.827 8.99e-12 ***
-age          0.1182726  0.0170763   6.926 4.51e-12 ***
-age_2       -0.0019575  0.0003017  -6.488 8.97e-11 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.5028 on 14398 degrees of freedom
-Multiple R-squared:  0.008893,	Adjusted R-squared:  0.008686 
-F-statistic: 43.06 on 3 and 14398 DF,  p-value: &lt; 2.2e-16
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="interacciones">
 <h2>2.26 Interacciones<a class="headerlink" href="#interacciones" title="Link to this heading">#</a></h2>
@@ -2682,7 +2660,7 @@ Var(b) \geq Var(\hat{\beta}) = \sigma^2 (X'X)^{-1}
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion">2.22 Aplicación:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias-y-categoricas">2.23 Variables Binarias y Categoricas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-retornos-a-la-educacion-edad-y-gaps">2.24 Aplicación: Retornos a la Educación, Edad, y Gaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-brechas-salariales-por-genero-y-area">2.24 Aplicación: Brechas Salariales por Género y Área</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariables-no-lineales">2.25 Covariables No-lineales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">2.26 Interacciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaccion-entre-variables-binarias">2.26.1 Interacción entre Variables Binarias</a></li>
