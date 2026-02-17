@@ -1,48 +1,38 @@
 Traceback (most recent call last):
-  File "/Users/smontano/anaconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/smontano/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1204, in execute
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/smontano/anaconda3/lib/python3.11/site-packages/nbclient/util.py", line 84, in wrapped
-    return just_run(coro(*args, **kwargs))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/smontano/anaconda3/lib/python3.11/site-packages/nbclient/util.py", line 62, in just_run
-    return loop.run_until_complete(coro)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/smontano/anaconda3/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 641, in run_until_complete
     return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/Users/smontano/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 663, in async_execute
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/smontano/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 965, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/smontano/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-summary(lm(log(wage) ~ educ + exper + expersq + female, data = wage1))
-------------------
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 806, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+  File "C:\Users\smontano\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 856, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+#Leer datos
+install.packages('haven')
+library('haven')
+link_datos <- 'https://www.dropbox.com/scl/fi/nmgy6omfwzj7mj9c8m4mk/PISA_GDP_2022.dta?rlkey=mdnhm4k5yi31rzthx8tu1xgy8&dl=1'
+datos <- read_dta(link_datos)
 
-Error in eval(mf, parent.frame()): object 'wage1' not found
-Traceback:
-
-1. lm(log(wage) ~ educ + exper + expersq + female, data = wage1)
-2. eval(mf, parent.frame())
-3. eval(mf, parent.frame())
-4. stats::model.frame(formula = log(wage) ~ educ + exper + expersq + 
- .     female, data = wage1, drop.unused.levels = TRUE)
-5. model.frame.default(formula = log(wage) ~ educ + exper + expersq + 
- .     female, data = wage1, drop.unused.levels = TRUE)
-6. is.data.frame(data)
-7. .handleSimpleError(function (cnd) 
- . {
- .     watcher$capture_plot_and_output()
- .     cnd <- sanitize_call(cnd)
- .     watcher$push(cnd)
- .     switch(on_error, continue = invokeRestart("eval_continue"), 
- .         stop = invokeRestart("eval_stop"), error = NULL)
- . }, "object 'wage1' not found", base::quote(eval(mf, parent.frame())))
-ERROR: Error in eval(mf, parent.frame()): object 'wage1' not found
-
+datos <- na.omit(datos) #Eliminar observaciones con info incompleta
+names(datos) #Variables en la base de datos
+-------------------
 
