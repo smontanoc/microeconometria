@@ -466,10 +466,8 @@ document.write(`
 <h2>2.1 Aplicación: Aprendizaje y Tamaño de Clase<a class="headerlink" href="#aplicacion-aprendizaje-y-tamano-de-clase" title="Link to this heading">#</a></h2>
 <p>¿Cuál es la mejor forma de asignar el gasto en educación? ¿Es buena idea tener clases de menor tamaño? Estas son preguntas de interés no solo para economistas sino también para gobiernos y la sociedad en general. Sin embargo, por mucho tiempo la literatura presentó evidencia no concluyente o mixta.</p>
 <p>Parte del problema para responder estas preguntas está relacionado con que sabemos muy poco acerca de cómo aprenden los estudiantes. En particular, múltiples factores afectan los resultados de los estudiantes. Suponiendo que existe una función de producción educativa, <span class="math notranslate nohighlight">\(f\)</span>, ¿qué elementos cree usted que explican el aprendizaje?</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3323d83d-d169-430e-95cd-eae6264d98fa">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3323d83d-d169-430e-95cd-eae6264d98fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\text{Aprendizaje} = f(?)
-\end{equation}\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Aprendizaje} = f(?)\]</div>
 <p>Existen diferentes factores que confluyen al tiempo en el aprendizaje de los estudiantes, entre ellos</p>
 <ul class="simple">
 <li><p>Calidad docente</p></li>
@@ -894,21 +892,6 @@ F-statistic: 87.03 on 1 and 70 DF,  p-value: 6.609e-14
 <div class="math notranslate nohighlight">
 \[\hat\sigma^2 = \frac{\sum_i e_i^2}{n-K} = \frac{\sum_i (Y_i - \hat Y_i)^2}{n-K} = \frac{\sum_i (Y_i - \hat\beta_0 - \hat\beta_1 X_i)^2}{n-K} \]</div>
 <p>Donde <span class="math notranslate nohighlight">\(K\)</span> es el número de parámetros que debemos estimar. En este caso <span class="math notranslate nohighlight">\(K = 2\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Estimacion de varianza de los errores</span>
-<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">cnt</span><span class="p">)</span>
-<span class="n">sigma2_hat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="m">-2</span><span class="p">)</span>
-
-<span class="c1">#Estimacion de error estandar de coeficiente</span>
-<span class="n">Sx2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">read</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="m">-1</span><span class="p">)</span>
-<span class="n">se_b1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">sigma2_hat</span><span class="o">/</span><span class="n">Sx2</span><span class="p">);</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">se_b1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">33.56</div></div>
-</div>
 </section>
 <section id="pruebas-de-hipotesis-individuales">
 <h3>2.9.4 Pruebas de Hipótesis Individuales<a class="headerlink" href="#pruebas-de-hipotesis-individuales" title="Link to this heading">#</a></h3>
@@ -924,6 +907,21 @@ F-statistic: 87.03 on 1 and 70 DF,  p-value: 6.609e-14
 <div class="math notranslate nohighlight">
 \[\text{ee}(\hat\beta_1) = \sqrt{ \frac{\sum_i e_i^2/n-K}{\sum_i (X_i - \overline X)^2}}\]</div>
 <p>Observe que nuestro estadístico <span class="math notranslate nohighlight">\(T \sim t_{n-K}\)</span>. Esto se debe a que <span class="math notranslate nohighlight">\(\hat\beta_1 \sim N(\beta_1, \sigma_{\beta_1})\)</span> y <span class="math notranslate nohighlight">\(\sum_i e_i^2 \sim \chi^2_{n-K}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Estimacion de varianza de los errores</span>
+<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">cnt</span><span class="p">)</span>
+<span class="n">sigma2_hat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">e</span><span class="o">^</span><span class="m">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="m">-2</span><span class="p">);</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;sigma_hat =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">sigma2_hat</span><span class="p">),</span><span class="w"> </span><span class="m">3</span><span class="p">))</span>
+
+<span class="c1">#Estimacion de error estandar de coeficiente</span>
+<span class="n">Sx2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">read</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="m">-1</span><span class="p">)</span>
+<span class="n">se_b1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">sigma2_hat</span><span class="o">/</span><span class="n">Sx2</span><span class="p">);</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;SE(b1) =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">se_b1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'sigma_hat = 15333.996'</div><div class="output text_html">'SE(b1) = 33.559'</div></div>
+</div>
 </section>
 <section id="intervalo-de-confianza-para-beta-k">
 <h3>2.9.5 Intervalo de confianza para <span class="math notranslate nohighlight">\(\beta_k\)</span><a class="headerlink" href="#intervalo-de-confianza-para-beta-k" title="Link to this heading">#</a></h3>
@@ -1009,15 +1007,15 @@ R^2 &amp;= \frac{SSR}{SST} = 1 - \frac{SSE}{SST} \\
 <span class="n">yhat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b1</span><span class="o">*</span><span class="n">datos</span><span class="o">$</span><span class="n">read</span>
 <span class="n">SSR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
 <span class="c1">#Varianza No Explicada (SSE)</span>
-<span class="n">SSE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Residual standard error =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">sigma2_hat</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+<span class="n">SSE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Residual standard error (sigma_hat) =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">sigma2_hat</span><span class="p">),</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
 
 <span class="c1">#Bondad de ajuste del modelo (R2)</span>
-<span class="n">R2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SSR</span><span class="o">/</span><span class="n">SST</span><span class="p">;</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;R2 =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">R2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">))</span>
+<span class="n">R2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SSR</span><span class="o">/</span><span class="n">SST</span><span class="p">;</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;R-squared =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">R2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">'Residual standard error = 15334'</div><div class="output text_html">'R2 = 0.5542'</div></div>
+<div class="output text_html">'Residual standard error (sigma_hat) = 15334'</div><div class="output text_html">'R-squared = 0.5542'</div></div>
 </div>
 </section>
 <section id="prueba-de-significancia-global">
@@ -1558,7 +1556,7 @@ Cov(\hat{\beta}_K, \hat{\beta}_0) &amp; Cov(\hat{\beta}_K, \hat{\beta}_1) &amp; 
 <span class="n">var_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigma2_hat</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">*</span><span class="n">XX1</span><span class="p">;</span><span class="w"> </span><span class="n">var_b</span>
 
 <span class="c1">#Error estandar de b1</span>
-<span class="n">se_b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">var_b</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">]);</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;SE(b1) = &quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">se_b1</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">))</span>
+<span class="n">se_b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">var_b</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">]);</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;SE(b1) = (0.009423416)^(1/2) =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">se_b1</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1573,7 +1571,7 @@ Cov(\hat{\beta}_K, \hat{\beta}_0) &amp; Cov(\hat{\beta}_K, \hat{\beta}_1) &amp; 
 	<tr><th scope=row>x2</th><td>-0.06753448</td><td> 0.009423416</td></tr>
 </tbody>
 </table>
-</div><div class="output text_html"><span style=white-space:pre-wrap>'SE(b1) =  0.09707'</span></div></div>
+</div><div class="output text_html">'SE(b1) = (0.009423416)^(1/2) = 0.09707'</div></div>
 </div>
 <p>En nuestro ejemplo anterior</p>
 <div class="math notranslate nohighlight">
@@ -1941,7 +1939,10 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 <p>A continuación realizaremos una práctica en R usando la información de este artículo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">link_datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&#39;https://www.dropbox.com/scl/fi/3p0dqe3dpoyh6lgu98e6u/skills_data.dta?rlkey=p38dvk2qr0dylbnebk5xcxnjm&amp;dl=1&#39;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;ggplot2&#39;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#39;ggplot2&#39;</span><span class="p">)</span>
+
+<span class="n">link_datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&#39;https://www.dropbox.com/scl/fi/3p0dqe3dpoyh6lgu98e6u/skills_data.dta?rlkey=p38dvk2qr0dylbnebk5xcxnjm&amp;dl=1&#39;</span>
 <span class="n">datos</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read_dta</span><span class="p">(</span><span class="n">link_datos</span><span class="p">)</span>
 <span class="nf">names</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
 <span class="nf">attach</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
@@ -1949,13 +1950,17 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+&quot;package &#39;ggplot2&#39; is in use and will not be installed&quot;
+</pre></div>
+</div>
 <div class="output text_html"><style>
 .list-inline {list-style: none; margin:0; padding: 0}
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
 <ol class=list-inline><li>'test_edition'</li><li>'grad_year'</li><li>'female'</li><li>'age'</li><li>'age_2'</li><li>'stratum'</li><li>'study_field'</li><li>'program_type_1'</li><li>'program_type_3'</li><li>'program_type_4'</li><li>'educ_madre'</li><li>'sb11_subject'</li><li>'sb11_literacy'</li><li>'sb11_numeracy'</li><li>'sb11_english'</li><li>'ln_fst_wage'</li><li>'lit'</li><li>'num'</li><li>'eng'</li></ol>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following objects are masked from datos (pos = 3):
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following objects are masked from datos (pos = 5):
 
     age, age_2, educ_madre, eng, female, grad_year, lit, ln_fst_wage,
     num, program_type_1, program_type_3, program_type_4, sb11_english,
@@ -2213,47 +2218,82 @@ F-statistic: 53.45 on 1 and 14400 DF,  p-value: 2.793e-13
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Comparación entre Áreas de Estudio</span>
 <span class="n">datos</span><span class="o">$</span><span class="n">field_names</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Business&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Architecture&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Arts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agricultural Sci&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Natural/Exact Sci&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Social Sci&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Communications&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Accounting&quot;</span><span class="p">,</span><span class="s">&quot;Law&quot;</span><span class="p">,</span><span class="s">&quot;Economics&quot;</span><span class="p">,</span><span class="s">&quot;Education&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Nursing&quot;</span><span class="p">,</span><span class="s">&quot;Humanities&quot;</span><span class="p">,</span><span class="s">&quot;Engineering&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Medicine&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Psychology&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sports&quot;</span><span class="p">,</span><span class="s">&quot;Health&quot;</span><span class="p">)[</span><span class="n">datos</span><span class="o">$</span><span class="n">study_field</span><span class="p">]</span>
-<span class="n">datos</span><span class="o">$</span><span class="n">field_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">relevel</span><span class="p">(</span><span class="nf">factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">field_names</span><span class="p">),</span><span class="w"> </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Business&quot;</span><span class="p">)</span>
-<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">ln_fst_wage</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">field_</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">))</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">field_names</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-lm(formula = ln_fst_wage ~ field_, data = datos)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--1.20468 -0.40710 -0.07942  0.34322  2.15272 
-
-Coefficients:
-                         Estimate Std. Error  t value Pr(&gt;|t|)    
-(Intercept)             10.433088   0.008431 1237.467  &lt; 2e-16 ***
-field_Accounting         0.031732   0.017564    1.807 0.070835 .  
-field_Agricultural Sci  -0.131697   0.030816   -4.274 1.94e-05 ***
-field_Architecture      -0.016962   0.033195   -0.511 0.609371    
-field_Arts              -0.182137   0.022216   -8.198 2.64e-16 ***
-field_Communications    -0.041712   0.023010   -1.813 0.069889 .  
-field_Economics          0.128449   0.033475    3.837 0.000125 ***
-field_Education         -0.085209   0.016085   -5.297 1.19e-07 ***
-field_Engineering        0.092815   0.011812    7.858 4.19e-15 ***
-field_Health            -0.022905   0.017769   -1.289 0.197412    
-field_Humanities        -0.095798   0.058177   -1.647 0.099645 .  
-field_Law                0.163558   0.019652    8.323  &lt; 2e-16 ***
-field_Medicine           0.657422   0.022854   28.766  &lt; 2e-16 ***
-field_Natural/Exact Sci -0.050344   0.036398   -1.383 0.166639    
-field_Nursing            0.320460   0.025513   12.560  &lt; 2e-16 ***
-field_Psychology        -0.080245   0.022573   -3.555 0.000379 ***
-field_Social Sci        -0.096179   0.027337   -3.518 0.000436 ***
-field_Sports            -0.168140   0.070753   -2.376 0.017494 *  
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.4816 on 14384 degrees of freedom
-Multiple R-squared:  0.09151,	Adjusted R-squared:  0.09044 
-F-statistic: 85.23 on 17 and 14384 DF,  p-value: &lt; 2.2e-16
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Accounting  Agricultural Sci      Architecture              Arts 
+              977               264               225               549 
+         Business    Communications         Economics         Education 
+             3263               506               221              1236 
+      Engineering            Health        Humanities               Law 
+             3389               948                70               736 
+         Medicine Natural/Exact Sci           Nursing        Psychology 
+              514               185               400               529 
+       Social Sci            Sports 
+              343                47 
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Regresión con múltiples variables binarias</span>
+<span class="n">datos</span><span class="o">$</span><span class="n">field_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">relevel</span><span class="p">(</span><span class="nf">factor</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">field_names</span><span class="p">),</span><span class="w"> </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Business&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">ln_fst_wage</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">field_</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+
+<span class="c1">#Resultados</span>
+<span class="n">model_summary</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">model_summary</span><span class="o">$</span><span class="n">coefficients</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;R-squared:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">model_summary</span><span class="o">$</span><span class="n">r.squared</span><span class="p">));</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;F-statistic:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">model_summary</span><span class="o">$</span><span class="n">fstatistic</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                           Estimate Std. Error      t value      Pr(&gt;|t|)
+(Intercept)             10.43308765 0.00843100 1237.4673825  0.000000e+00
+field_Accounting         0.03173168 0.01756365    1.8066678  7.083498e-02
+field_Agricultural Sci  -0.13169725 0.03081626   -4.2736293  1.935544e-05
+field_Architecture      -0.01696222 0.03319526   -0.5109833  6.093706e-01
+field_Arts              -0.18213668 0.02221618   -8.1983800  2.640966e-16
+field_Communications    -0.04171176 0.02301002   -1.8127655  6.988883e-02
+field_Economics          0.12844939 0.03347511    3.8371609  1.249970e-04
+field_Education         -0.08520926 0.01608525   -5.2973533  1.192248e-07
+field_Engineering        0.09281518 0.01181189    7.8577750  4.186139e-15
+field_Health            -0.02290484 0.01776919   -1.2890202  1.974118e-01
+field_Humanities        -0.09579833 0.05817652   -1.6466838  9.964491e-02
+field_Law                0.16355781 0.01965241    8.3225305  9.379114e-17
+field_Medicine           0.65742192 0.02285446   28.7655809 5.655445e-177
+field_Natural/Exact Sci -0.05034402 0.03639794   -1.3831556  1.666386e-01
+field_Nursing            0.32046033 0.02551335   12.5604940  5.378294e-36
+field_Psychology        -0.08024501 0.02257280   -3.5549428  3.792742e-04
+field_Social Sci        -0.09617911 0.02733663   -3.5183241  4.356220e-04
+field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
+[1] &quot;R-squared: 0.0915144359870832&quot;
+[1] &quot;F-statistic: 85.2319313773986&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">coeff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coef</span><span class="p">(</span><span class="n">model</span><span class="p">),</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="nf">coef</span><span class="p">(</span><span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">))[,</span><span class="w"> </span><span class="s">&quot;Std. Error&quot;</span><span class="p">]);</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="m">-1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">B</span><span class="o">$</span><span class="n">coeff</span><span class="p">),</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">order</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">17</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="n">B</span><span class="o">$</span><span class="n">field</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">trimws</span><span class="p">(</span><span class="nf">sub</span><span class="p">(</span><span class="s">&quot;field_&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">row.names</span><span class="p">(</span><span class="n">B</span><span class="p">)))</span>
+
+<span class="c1">#Intervalos de confianza al 95%</span>
+<span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">female</span><span class="p">);</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nf">coef</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+<span class="n">B</span><span class="o">$</span><span class="n">up_ci</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">coeff</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">se</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">));</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">low_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">coeff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">se</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nf">qt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
+
+<span class="c1">#Coeficientes</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coeff</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">linetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dashed&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_errorbar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">low_ci</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up_ci</span><span class="p">),</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="o">$</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">labs</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Diferencia Log Salario (vs Business)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Área de Estudio&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">90</span><span class="p">,</span><span class="w"> </span><span class="n">hjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png"><img alt="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png" src="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png" style="width: 420px; height: 420px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
