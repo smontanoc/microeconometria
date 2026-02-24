@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -440,13 +440,30 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion">2.22 Aplicación:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias-y-categoricas">2.23 Variables Binarias y Categoricas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-brechas-salariales-por-genero-y-area">2.24 Aplicación: Brechas Salariales por Género y Área</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariables-no-lineales">2.25 Covariables No-lineales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-no-lineales">2.25 Variables No-lineales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">2.26 Interacciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaccion-entre-variables-binarias">2.26.1 Interacción entre Variables Binarias</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaccion-entre-una-variable-binaria-y-una-continua">2.26.2 Interacción entre una Variable Binaria y una Continua</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-gauss-markov">2.27 Teorema de Gauss-Markov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-supuestos">2.28 Evaluación de Supuestos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad">2.29 Multicolinealidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-normalidad-de-los-errores">2.30 No-normalidad de los Errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroscedasticidad">2.31 Heteroscedasticidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-nos-interesa-la-heteroscedasticidad">2.31.1 ¿Por qué nos interesa la heteroscedasticidad?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-goldfeld-quandt">2.31.2 Prueba de Goldfeld-Quandt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-breusch-pagan">2.31.2  Prueba de Breusch-Pagan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-white">2.31.3  Prueba de White</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroscedasticidad-y-error-de-especificacion">2.32  Heteroscedasticidad y Error de Especificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-ponderados">2.33 Mínimos Cuadrados Ponderados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-factibles">2.34 Minimos Cuadrados Factibles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errores-estandar-robustos">2.35 Errores Estándar Robustos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sesgo-por-error-de-especificacion">2.36 Sesgo por Error de Especificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-de-medicion-variable-dependiente">2.37 Error de Medición: Variable Dependiente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-de-medicion-variable-independiente">2.38 Error de Medición: Variable Independiente</a></li>
 </ul>
             </nav>
         </div>
@@ -635,19 +652,21 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/smontano/AppData/Local/R/win-library/4.3&#39;
-(as &#39;lib&#39; is unspecified)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
+	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpqeV4eg/downloaded_packages
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  There is a binary version available but the source version is later:
-      binary source needs_compilation
-haven  2.5.4  2.5.5              TRUE
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘haven’ was built under R version 4.3.3”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>installing the source package &#39;haven&#39;
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'cnt'</li><li>'year'</li><li>'math'</li><li>'read'</li><li>'scie'</li><li>'V_math'</li><li>'V_read'</li><li>'V_scie'</li><li>'math_se'</li><li>'scie_se'</li><li>'read_se'</li><li>'GDP_percapita'</li></ol>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -683,7 +702,7 @@ haven  2.5.4  2.5.5              TRUE
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/b7ae760cfb10f4f1c425426db565aac90ed79d8c20ffa55b7cb4908af56917e4.png"><img alt="_images/b7ae760cfb10f4f1c425426db565aac90ed79d8c20ffa55b7cb4908af56917e4.png" src="_images/b7ae760cfb10f4f1c425426db565aac90ed79d8c20ffa55b7cb4908af56917e4.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/e8f437420735a9639eedda46202cfa55b3491ede2710ac280210049da53df2f1.png"><img alt="_images/e8f437420735a9639eedda46202cfa55b3491ede2710ac280210049da53df2f1.png" src="_images/e8f437420735a9639eedda46202cfa55b3491ede2710ac280210049da53df2f1.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -712,7 +731,7 @@ Coefficients:
 (Intercept) -94388.26   14678.37  -6.430 1.34e-08 ***
 read           313.08      33.56   9.329 6.61e-14 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 15330 on 70 degrees of freedom
 Multiple R-squared:  0.5542,	Adjusted R-squared:  0.5479 
@@ -759,7 +778,7 @@ F-statistic: 87.03 on 1 and 70 DF,  p-value: 6.609e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/c27345bbba3a3065ec65b3dbb1b206660b019b2f16134e8a39e54f83e1960133.png"><img alt="_images/c27345bbba3a3065ec65b3dbb1b206660b019b2f16134e8a39e54f83e1960133.png" src="_images/c27345bbba3a3065ec65b3dbb1b206660b019b2f16134e8a39e54f83e1960133.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/9d7cd2b04c5742aff44510f7efa9b377c8cb8583972eee5bc77f519fd0a63078.png"><img alt="_images/9d7cd2b04c5742aff44510f7efa9b377c8cb8583972eee5bc77f519fd0a63078.png" src="_images/9d7cd2b04c5742aff44510f7efa9b377c8cb8583972eee5bc77f519fd0a63078.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -791,7 +810,7 @@ F-statistic: 87.03 on 1 and 70 DF,  p-value: 6.609e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/e53aad3b0e8e6e1dcd0f5d46d81b8d43d95cb695fc2bb9e93b74c3d77137dcf2.png"><img alt="_images/e53aad3b0e8e6e1dcd0f5d46d81b8d43d95cb695fc2bb9e93b74c3d77137dcf2.png" src="_images/e53aad3b0e8e6e1dcd0f5d46d81b8d43d95cb695fc2bb9e93b74c3d77137dcf2.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/981f650f0e9f8b4e7b36205bdb152bb1ecf9f7897fccbaad08ad4e0f621b979c.png"><img alt="_images/981f650f0e9f8b4e7b36205bdb152bb1ecf9f7897fccbaad08ad4e0f621b979c.png" src="_images/981f650f0e9f8b4e7b36205bdb152bb1ecf9f7897fccbaad08ad4e0f621b979c.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -1455,7 +1474,7 @@ Coefficients:
 x1 11.57751    0.75506  15.333 0.000106 ***
 x2 -0.84802    0.09707  -8.736 0.000946 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.7188 on 4 degrees of freedom
 Multiple R-squared:  0.9907,	Adjusted R-squared:  0.9861 
@@ -1484,7 +1503,7 @@ Coefficients:
 (Intercept) 11.57751    0.75506  15.333 0.000106 ***
 x2          -0.84802    0.09707  -8.736 0.000946 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.7188 on 4 degrees of freedom
 Multiple R-squared:  0.9502,	Adjusted R-squared:  0.9377 
@@ -1627,7 +1646,7 @@ Coefficients:
 x2           -0.8390     0.1129  -7.428  0.00505 **
 x3           -0.3998     1.1494  -0.348  0.75093   
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.8138 on 3 degrees of freedom
 Multiple R-squared:  0.9521,	Adjusted R-squared:  0.9202 
@@ -1691,7 +1710,7 @@ R^2 &amp;= \frac{\sum_i (\hat y_i -\bar{y})^2}{\sum_i (y_i -\bar{y})^2} = 1 - \f
 <h2>2.18 Prueba de Signifiancia Global<a class="headerlink" href="#prueba-de-signifiancia-global" title="Link to this heading">#</a></h2>
 <p>Al igual que en el caso de regresión simple, queremos evaluar el modelo de manera conjunta. Para ello consideramos la siguiente prueba de hipótesis:</p>
 <div class="math notranslate nohighlight">
-\[H_0: \beta_1 = \beta_2 = ... = \beta_{k-1}\]</div>
+\[H_0: \beta_1 = \beta_2 = ... = \beta_{k-1} = 0\]</div>
 <div class="math notranslate nohighlight">
 \[H_1: \beta_j \neq 0 \text{ para cualquier } j \in \{1, ..., k-1\}\]</div>
 <p>Nuestro estadístico de prueba para evaluar esta hipótesis es:</p>
@@ -1785,7 +1804,7 @@ Coefficients:
 x2           -0.8390     0.1129  -7.428  0.00505 **
 x3           -0.3998     1.1494  -0.348  0.75093   
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.8138 on 3 degrees of freedom
 Multiple R-squared:  0.9521,	Adjusted R-squared:  0.9202 
@@ -1814,7 +1833,7 @@ Coefficients:
 (Intercept) 11.57751    0.75506  15.333 0.000106 ***
 x2          -0.84802    0.09707  -8.736 0.000946 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.7188 on 4 degrees of freedom
 Multiple R-squared:  0.9502,	Adjusted R-squared:  0.9377 
@@ -1950,8 +1969,12 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
+	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpqeV4eg/downloaded_packages
+</pre></div>
+</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-&quot;package &#39;ggplot2&#39; is in use and will not be installed&quot;
+“package ‘ggplot2’ was built under R version 4.3.3”
 </pre></div>
 </div>
 <div class="output text_html"><style>
@@ -1960,15 +1983,7 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
 <ol class=list-inline><li>'test_edition'</li><li>'grad_year'</li><li>'female'</li><li>'age'</li><li>'age_2'</li><li>'stratum'</li><li>'study_field'</li><li>'program_type_1'</li><li>'program_type_3'</li><li>'program_type_4'</li><li>'educ_madre'</li><li>'sb11_subject'</li><li>'sb11_literacy'</li><li>'sb11_numeracy'</li><li>'sb11_english'</li><li>'ln_fst_wage'</li><li>'lit'</li><li>'num'</li><li>'eng'</li></ol>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following objects are masked from datos (pos = 5):
-
-    age, age_2, educ_madre, eng, female, grad_year, lit, ln_fst_wage,
-    num, program_type_1, program_type_3, program_type_4, sb11_english,
-    sb11_literacy, sb11_numeracy, sb11_subject, stratum, study_field,
-    test_edition
-</pre></div>
-</div>
-</div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1987,11 +2002,11 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     female            age             num                eng           
  Min.   :0.0000   Min.   :20.00   Min.   :-3.99532   Min.   :-2.329097  
- 1st Qu.:0.0000   1st Qu.:25.00   1st Qu.:-0.65644   1st Qu.:-0.685924  
+ 1st Qu.:0.0000   1st Qu.:25.00   1st Qu.:-0.65643   1st Qu.:-0.685924  
  Median :1.0000   Median :26.00   Median :-0.07552   Median :-0.295580  
  Mean   :0.6022   Mean   :26.82   Mean   : 0.01372   Mean   : 0.002152  
  3rd Qu.:1.0000   3rd Qu.:29.00   3rd Qu.: 0.57682   3rd Qu.: 0.397801  
- Max.   :1.0000   Max.   :40.00   Max.   : 5.61133   Max.   : 6.663444  
+ Max.   :1.0000   Max.   :40.00   Max.   : 5.61132   Max.   : 6.663444  
 </pre></div>
 </div>
 </div>
@@ -2005,7 +2020,7 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/1af917fbdbff8d568ff5333d0d23177d66c74496926338f079c15230fce2811d.png"><img alt="_images/1af917fbdbff8d568ff5333d0d23177d66c74496926338f079c15230fce2811d.png" src="_images/1af917fbdbff8d568ff5333d0d23177d66c74496926338f079c15230fce2811d.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/1574657b4ba451e637e8416db51e57cce4269a5b0a614a0c04ff0af7e0eebdbe.png"><img alt="_images/1574657b4ba451e637e8416db51e57cce4269a5b0a614a0c04ff0af7e0eebdbe.png" src="_images/1574657b4ba451e637e8416db51e57cce4269a5b0a614a0c04ff0af7e0eebdbe.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2019,7 +2034,7 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/02af1f2e33395f109255e17df5452eeaa70b49232879e44592bea4d33889bb28.png"><img alt="_images/02af1f2e33395f109255e17df5452eeaa70b49232879e44592bea4d33889bb28.png" src="_images/02af1f2e33395f109255e17df5452eeaa70b49232879e44592bea4d33889bb28.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/7a6763765c7496110ee077170a556a0276089e4c8636c82c8c3a3524c9571ab1.png"><img alt="_images/7a6763765c7496110ee077170a556a0276089e4c8636c82c8c3a3524c9571ab1.png" src="_images/7a6763765c7496110ee077170a556a0276089e4c8636c82c8c3a3524c9571ab1.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2037,7 +2052,7 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/d387adf263992d4cc56253b8acee5693cc2ef014229da7be0fbf1c9c22ef3d28.png"><img alt="_images/d387adf263992d4cc56253b8acee5693cc2ef014229da7be0fbf1c9c22ef3d28.png" src="_images/d387adf263992d4cc56253b8acee5693cc2ef014229da7be0fbf1c9c22ef3d28.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/617ddfc6712d9d18c46b6d5b685e3a743d7a68b58dd5b13f31589770e12bb466.png"><img alt="_images/617ddfc6712d9d18c46b6d5b685e3a743d7a68b58dd5b13f31589770e12bb466.png" src="_images/617ddfc6712d9d18c46b6d5b685e3a743d7a68b58dd5b13f31589770e12bb466.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2064,7 +2079,7 @@ lit          0.015534   0.004913    3.162  0.00157 **
 num          0.049929   0.004953   10.080  &lt; 2e-16 ***
 eng          0.042525   0.004959    8.575  &lt; 2e-16 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.4973 on 14398 degrees of freedom
 Multiple R-squared:  0.03057,	Adjusted R-squared:  0.03036 
@@ -2102,7 +2117,7 @@ sb11_english   0.012912   0.005942   2.173  0.02980 *
 female        -0.019775   0.008907  -2.220  0.02642 *  
 age            0.012901   0.001378   9.364  &lt; 2e-16 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.4949 on 14393 degrees of freedom
 Multiple R-squared:  0.03988,	Adjusted R-squared:  0.03934 
@@ -2146,38 +2161,25 @@ F-statistic: 74.72 on 8 and 14393 DF,  p-value: &lt; 2.2e-16
 </section>
 <section id="variables-binarias-y-categoricas">
 <h2>2.23 Variables Binarias y Categoricas<a class="headerlink" href="#variables-binarias-y-categoricas" title="Link to this heading">#</a></h2>
-<p>Hay muchas variables que no podemos incluir linealmente a un modelo porque son cualitativas. Sin embargo, podemos incluir variables categóricas.</p>
-<p>Ejemplos: género, recibe subsidio o no, máximo nivel educativo, etc.</p>
-<p>Para ello creamos variables binarias (tambien conocidas como variables <em>dummy</em>):</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>En ocasiones queremos considerar información cualitativa. Sin embargo, incluir este tipo de vaiables en nuestro modelo de forma lineal puede ser difícil.</p>
+<p>Para variables categoricas podemos crear variables binarias, una por cada categoría. Algunos ejemplos de este tipo de vaiables son: género, máximo nivel educativo, elegibilidad para un subsidio.</p>
+<p>Para la variable género podemos crear la siguiente variable binaria:
+$<span class="math notranslate nohighlight">\(
 D_i = 1(\text{Genero}_i = \text{mujer}) = 
 \begin{cases} 
 1 &amp; \text{si mujer} \\ 
 0 &amp; \text{si hombre} 
 \end{cases}
-\end{split}\]</div>
-<p>En nuestra matrix <span class="math notranslate nohighlight">\(X\)</span> estas variables se representan a traves de vectores de 1 y 0. Por ejemplo:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-X =
-\begin{bmatrix}
-1 &amp; 0 &amp; 4 \\
-1 &amp; 1 &amp; 5.6 \\
-1 &amp; 0 &amp; 8.9 \\
-1 &amp; 1 &amp; 3.2 \\
-\end{bmatrix}
-\end{split}\]</div>
-<p>Las variables categóricas son fáciles de incluir en un modelo.</p>
-<p>Para interpretar estas variables debemos considerar la <strong>categoría excluida</strong>.</p>
+\)</span>$</p>
+<p>Ahora, para interpretar las estimaciones de nuestro modelo debemos <strong>excluir una categoría</strong>:</p>
 <ul class="simple">
-<li><p>Si hay <span class="math notranslate nohighlight">\(m\)</span> categorías, entonces podemos incluir solo <span class="math notranslate nohighlight">\(m - 1\)</span> variables binarias.</p></li>
-<li><p>De lo contrario, habría <strong>colinealidad perfecta</strong> (con el vector de 1s asociado al intercepto del modelo) y el modelo no se podría estimar.</p></li>
+<li><p>Si hay <span class="math notranslate nohighlight">\(m\)</span> categorías, entonces debemos incluir solo <span class="math notranslate nohighlight">\(m - 1\)</span> variables binarias.</p></li>
 </ul>
+<p>Observe que si incluimods <span class="math notranslate nohighlight">\(m\)</span> variables binarias, habría <strong>colinealidad perfecta</strong> (con el vector de 1s asociado al intercepto del modelo) y el modelo no se podría estimar.</p>
 </section>
 <section id="aplicacion-brechas-salariales-por-genero-y-area">
 <h2>2.24 Aplicación: Brechas Salariales por Género y Área<a class="headerlink" href="#aplicacion-brechas-salariales-por-genero-y-area" title="Link to this heading">#</a></h2>
-<p>Consideremos ahora la siguiente función de regresión:</p>
+<p>Consideremos la siguiente función de regresión:</p>
 <div class="math notranslate nohighlight">
 \[\log(wage_i) = \beta_0 + \beta_1 female_i + \sum_{j = 1}^{I - 1} \gamma_i 1(Area_i = j) + \varepsilon_i\]</div>
 <p>donde:</p>
@@ -2205,7 +2207,7 @@ Coefficients:
 (Intercept) 10.510749   0.006660 1578.303  &lt; 2e-16 ***
 female      -0.062740   0.008582   -7.311 2.79e-13 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.5041 on 14400 degrees of freedom
 Multiple R-squared:  0.003698,	Adjusted R-squared:  0.003629 
@@ -2269,8 +2271,12 @@ field_Nursing            0.32046033 0.02551335   12.5604940  5.378294e-36
 field_Psychology        -0.08024501 0.02257280   -3.5549428  3.792742e-04
 field_Social Sci        -0.09617911 0.02733663   -3.5183241  4.356220e-04
 field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
-[1] &quot;R-squared: 0.0915144359870832&quot;
-[1] &quot;F-statistic: 85.2319313773986&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;R-squared: 0.0915144359870777&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;F-statistic: 85.2319313773929&quot;
 </pre></div>
 </div>
 </div>
@@ -2291,13 +2297,13 @@ field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png"><img alt="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png" src="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/bd5df3a57d83a7f002dab25a1aa6f39213d16b27297a73d18647c54c777bd15c.png"><img alt="_images/bd5df3a57d83a7f002dab25a1aa6f39213d16b27297a73d18647c54c777bd15c.png" src="_images/bd5df3a57d83a7f002dab25a1aa6f39213d16b27297a73d18647c54c777bd15c.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
 </section>
-<section id="covariables-no-lineales">
-<h2>2.25 Covariables No-lineales<a class="headerlink" href="#covariables-no-lineales" title="Link to this heading">#</a></h2>
+<section id="variables-no-lineales">
+<h2>2.25 Variables No-lineales<a class="headerlink" href="#variables-no-lineales" title="Link to this heading">#</a></h2>
 <p>Consideremos ahora la siguiente función de regresión:</p>
 <div class="math notranslate nohighlight">
 \[\log(wage_i) = \beta_0 + \beta_1 age_i + \beta_1 age_i^2 + \varepsilon_i\]</div>
@@ -2323,7 +2329,7 @@ field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/49165197f3e297d5f436020ddf2afbb48962e96111b86573daaa46787bbf847b.png"><img alt="_images/49165197f3e297d5f436020ddf2afbb48962e96111b86573daaa46787bbf847b.png" src="_images/49165197f3e297d5f436020ddf2afbb48962e96111b86573daaa46787bbf847b.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/312cdad9b83935fbc8f5c1c47b5773e93a43b45cadd99203e5a882d09e9b5589.png"><img alt="_images/312cdad9b83935fbc8f5c1c47b5773e93a43b45cadd99203e5a882d09e9b5589.png" src="_images/312cdad9b83935fbc8f5c1c47b5773e93a43b45cadd99203e5a882d09e9b5589.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2347,7 +2353,7 @@ Coefficients:
 age          0.1219857  0.0170947   7.136 1.01e-12 ***
 age_2       -0.0020146  0.0003021  -6.669 2.67e-11 ***
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.5036 on 14399 degrees of freedom
 Multiple R-squared:  0.005684,	Adjusted R-squared:  0.005546 
@@ -2359,39 +2365,40 @@ F-statistic: 41.16 on 2 and 14399 DF,  p-value: &lt; 2.2e-16
 <p>Observe que para interpretar el <strong>efecto de la edad</strong> en el salario, debemos suponer que las otras variables permanecen constantes:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \log(wage_i)}{\partial age_i} = \beta_2 + 2 \cdot \beta_3 age_i\]</div>
-<p>Así, <em>ceteris paribus</em> (todo lo demás constante), un incremento en un año de experiencia, aumenta el salario en <span class="math notranslate nohighlight">\((\beta_2 + 2 \cdot age_i \cdot \beta_3)100\%\)</span>.</p>
+<p>Así, <em>ceteris paribus</em> (todo lo demás constante), un incremento en un año de edad, aumenta el salario en <span class="math notranslate nohighlight">\((\beta_2 + 2 \cdot age_i \cdot \beta_3)100\%\)</span>.</p>
 <p>Note que para una persona que pasa de 20 a 21 años, el salario aumenta en <span class="math notranslate nohighlight">\((11.8\% - 2 \cdot 21 \cdot(0.2\%)) \approx 3.4\%\)</span>.</p>
 <p>Para una persona que pasa de 34 a 35 años, el salario aumenta en <span class="math notranslate nohighlight">\((11.8\% - 2\cdot 35 \cdot(0.2\%)) \approx 2.2\%\)</span></p>
 </section>
 <section id="interacciones">
 <h2>2.26 Interacciones<a class="headerlink" href="#interacciones" title="Link to this heading">#</a></h2>
-<p>Las variables binarias son una muy buena herramienta.</p>
+<p>Las variables binarias son una muy buena herramienta. Una aplicación muy útil son las <strong>interacciones</strong>.</p>
 <ul class="simple">
-<li><p>Una aplicación muy útil son las <strong>interacciones</strong>.</p></li>
 <li><p>Una interacción es simplemente el <strong>producto de una variable</strong> (categórica o no) con una variable categórica.</p></li>
-<li><p>Las interacciones permiten medir <strong>cambios en pendiente</strong> y diferenciar grupos por varias características.</p></li>
+<li><p>Las interacciones permiten medir <strong>cambios en la pendiente</strong> y diferenciar grupos por varias características.</p></li>
 </ul>
 <p>Considere el siguiente modelo:</p>
 <div class="math notranslate nohighlight">
 \[\log(wage_i) = \beta_0 + \beta_1 female_i + \beta_2 STEM_i + \beta_3 age_i + \varepsilon_i\]</div>
 <p>Donde</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(wage_i\)</span> es el salario del individuo <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(age_i\)</span> es su edad</p></li>
-<li><p><span class="math notranslate nohighlight">\(female_i\)</span> toma el valor de 1 si es mujer, y <span class="math notranslate nohighlight">\(STEM_i\)</span> toma el valor de 1 si está en Ciencia, Tecnología, Ingeniería, o Matemáticas.</p></li>
+<li><p><span class="math notranslate nohighlight">\(wage_i\)</span> es el salario del individuo <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(age_i\)</span> es su edad,</p></li>
+<li><p><span class="math notranslate nohighlight">\(female_i\)</span> toma el valor de 1 si <span class="math notranslate nohighlight">\(i\)</span> es mujer, y</p></li>
+<li><p><span class="math notranslate nohighlight">\(STEM_i\)</span> toma el valor de 1 si <span class="math notranslate nohighlight">\(i\)</span> estudió Ciencia, Tecnología ó Ingeniería.</p></li>
 </ul>
 <section id="interaccion-entre-variables-binarias">
 <h3>2.26.1 Interacción entre Variables Binarias<a class="headerlink" href="#interaccion-entre-variables-binarias" title="Link to this heading">#</a></h3>
-<p>La interacción entre <span class="math notranslate nohighlight">\(female_i\)</span> y <span class="math notranslate nohighlight">\(STEM_i\)</span> nos permitirá diferenciar las <strong>mujeres casadas</strong>.</p>
+<p>La interacción entre <span class="math notranslate nohighlight">\(female_i\)</span> y <span class="math notranslate nohighlight">\(STEM_i\)</span> nos permitirá diferenciar las <strong>mujeres en áreas STEM</strong>.</p>
 <div class="math notranslate nohighlight">
 \[\log(w_i) = \beta_0 + \beta_1 female_i + \beta_2 STEM_i + \beta_3 age_i + \delta (female_i \times STEM_i) + \varepsilon_i\]</div>
 <p>Observe que:</p>
 <div class="math notranslate nohighlight">
-\[\Delta_{f_i=0}(S_i)  = E[\log(w_i) \mid f_i = 0, S_i = 1] - E[\log(w_i) \mid f_i = 0, S_i = 0] = \beta_2\]</div>
+\[\Delta_{female_i=0}(STEM_i)  = E[\log(w_i) \mid female_i = 0, STEM_i = 1] - E[\log(w_i) \mid female_i = 0, S_i = 0] = \beta_2\]</div>
 <div class="math notranslate nohighlight">
-\[\Delta_{f_i=1}(S_i) = E[\log(w_i) \mid f_i = 1, S_i = 1] - E[\log(w_i) \mid f_i = 1, S_i = 0] = \beta_2 + \delta\]</div>
+\[\Delta_{female_i=1}(STEM_i) = E[\log(w_i) \mid female_i = 1, STEM_i = 1] - E[\log(w_i) \mid female_i = 1, STEM_i = 0] = \beta_2 + \delta\]</div>
 <p>Entonces,</p>
 <div class="math notranslate nohighlight">
-\[\delta = \Delta_{f_i=1}(S_i) - \Delta_{f_i=0}(S_i)\]</div>
+\[\delta = \Delta_{female_i=1}(STEM_i) - \Delta_{female_i=0}(STEM_i)\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\beta_2\)</span>: cambio en el salario para hombres en STEM (vs hombres en no-STEM)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\beta_2\)</span> + <span class="math notranslate nohighlight">\(\delta\)</span>: cambio en el salario para mujeres en STEM (vs mujeres en no-STEM)</p></li>
@@ -2421,7 +2428,7 @@ STEM         0.0135673  0.0012491  10.861  &lt; 2e-16 ***
 age          0.0008951  0.0001271   7.040 2.01e-12 ***
 female:STEM -0.0033142  0.0016799  -1.973   0.0485 *  
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.04698 on 14397 degrees of freedom
 Multiple R-squared:  0.01954,	Adjusted R-squared:  0.01927 
@@ -2469,7 +2476,7 @@ num          0.0066596  0.0005886  11.314   &lt;2e-16 ***
 age          0.0011285  0.0001278   8.827   &lt;2e-16 ***
 female:num   0.0017257  0.0008133   2.122   0.0339 *  
 ---
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Residual standard error: 0.04676 on 14397 degrees of freedom
 Multiple R-squared:  0.02887,	Adjusted R-squared:  0.0286 
@@ -2541,6 +2548,609 @@ Var(b) = (D + A)Var(\varepsilon)(D + A)' \\
 \[
 Var(b) \geq Var(\hat{\beta}) = \sigma^2 (X'X)^{-1}
 \]</div>
+</section>
+<section id="evaluacion-de-supuestos">
+<h2>2.28 Evaluación de Supuestos<a class="headerlink" href="#evaluacion-de-supuestos" title="Link to this heading">#</a></h2>
+<p>Debido al <strong>Teorema de Gauss-Markov</strong>, queremos que los supuestos del modelo se cumplan.</p>
+<p>En las siguientes secciones consideraremos las implicaciones de la <strong>violación de supuestos</strong>:</p>
+<ul class="simple">
+<li><p>¿Cómo identificamos si se está violando un supuesto?</p></li>
+<li><p>¿Qué debemos hacer cuando no se cumple alguno de los supuestos?</p></li>
+<li><p>¿Cómo solucionamos el problema?</p></li>
+</ul>
+</section>
+<section id="multicolinealidad">
+<h2>2.29 Multicolinealidad<a class="headerlink" href="#multicolinealidad" title="Link to this heading">#</a></h2>
+<p>Si se presenta una fuerte correlación entre dos o más variables de la matrix <span class="math notranslate nohighlight">\(X\)</span>, es posible que se viole el supuesto de <strong>no multicolinealidad</strong>.</p>
+<p>Suponga que queremos estimar el modelo:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_i\]</div>
+<p>Si <span class="math notranslate nohighlight">\(x_2\)</span> se puede escribir como una <strong>combinación lineal</strong> de la variable <span class="math notranslate nohighlight">\(x_1\)</span>, entonces la multicolinealidad es <strong>perfecta</strong> y el modelo <strong>no es estimable</strong>. Ejemplo:</p>
+<div class="math notranslate nohighlight">
+\[x_{2i} = c_1 + c_2 x_{1i}, \hspace{5pt}\text{con}\hspace{5pt} c_1, c_2 \in \mathbb{R}\]</div>
+<p>Si existe una <strong>correlación fuerte</strong> (pero no perfecta) entre <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>, la multicolinealidad es <strong>imperfecta</strong>. En este caso, el modelo es <strong>estimable</strong>, pero la precisión de nuestros estimadores se ve comprometida. Esto afecta los intervalos de confianza y las pruebas de hipótesis (o significancia estadística).</p>
+<p><strong>¿Cómo identificar multicolinealidad?</strong></p>
+<p>En nuestro modelo con 2 variables independientes, se puede mostrar que</p>
+<div class="math notranslate nohighlight">
+\[V(\hat\beta_1) = \frac{\sigma^2}{\sum_{i = 1}^n x^2_{1i} (1 - \rho_{1, 2})}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\rho_{1, 2}\)</span> es el coeficiente de correlación entre <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
+<p>Observe que si la correlación entre ambas variables es cercana a 1, <span class="math notranslate nohighlight">\(V(\hat\beta_1)\)</span> es muy grande y, por lo tanto, es difícil rechazar la hipotesis nula <span class="math notranslate nohighlight">\(H_0: \beta_1 = 0\)</span>.</p>
+<p>Podemos sospechar que existe multicolinealidad cuando tenemos <strong>pruebas individuales no significativas</strong>, pero el estadístico <span class="math notranslate nohighlight">\(F\)</span> y coeficiente de determinacion <span class="math notranslate nohighlight">\(R^2\)</span> son muy grandes.</p>
+<p>También podemos calcular <span class="math notranslate nohighlight">\(|\rho_{1, 2}|\)</span> y determinar si este valor es cercano a 1.</p>
+<p><strong>Solución</strong>: excluir una de las variables!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1.4</span><span class="p">,</span><span class="w"> </span><span class="m">1.2</span><span class="p">,</span><span class="w"> </span><span class="m">1.8</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1.8</span><span class="p">,</span><span class="w"> </span><span class="m">2.1</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="p">)</span><span class="w"> </span><span class="c1">#Salarios</span>
+<span class="n">s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="c1">#educacion</span>
+<span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#mujer=1, hombre=0</span>
+<span class="n">s_mp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">s</span>
+<span class="n">s_imp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+
+<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = w ~ s)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.4350 -0.1113  0.0150  0.1163  0.3100 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.41500    0.16490   2.517    0.036 *  
+s            0.45500    0.04972   9.152 1.64e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2223 on 8 degrees of freedom
+Multiple R-squared:  0.9128,	Adjusted R-squared:  0.9019 
+F-statistic: 83.75 on 1 and 8 DF,  p-value: 1.639e-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cor</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">s_mp</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Correlacion entre s y s_mp = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rho</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s_mp</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Correlacion entre s y s_mp = 1&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = w ~ s + s_mp)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.4350 -0.1113  0.0150  0.1163  0.3100 
+
+Coefficients: (1 not defined because of singularities)
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.41500    0.16490   2.517    0.036 *  
+s            0.45500    0.04972   9.152 1.64e-05 ***
+s_mp              NA         NA      NA       NA    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2223 on 8 degrees of freedom
+Multiple R-squared:  0.9128,	Adjusted R-squared:  0.9019 
+F-statistic: 83.75 on 1 and 8 DF,  p-value: 1.639e-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">cor</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">s_imp</span><span class="p">);</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Correlacion entre s y s_imp = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rho</span><span class="p">))</span>
+<span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s_imp</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Correlacion entre s y s_imp = 0.981265558383595&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = w ~ s + s_imp)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.44235 -0.07456  0.00765  0.08868  0.31000 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)   0.4518     0.1833   2.465   0.0432 *
+s             0.3006     0.2694   1.116   0.3013  
+s_imp         0.1471     0.2518   0.584   0.5775  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2321 on 7 degrees of freedom
+Multiple R-squared:  0.9169,	Adjusted R-squared:  0.8931 
+F-statistic:  38.6 on 2 and 7 DF,  p-value: 0.0001657
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="no-normalidad-de-los-errores">
+<h2>2.30 No-normalidad de los Errores<a class="headerlink" href="#no-normalidad-de-los-errores" title="Link to this heading">#</a></h2>
+<p>Nuestro modelo asume que los errores se distribuyen normales, es decir</p>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon \sim N(0, \sigma^2 I)
+\]</div>
+<ul class="simple">
+<li><p>Debido al <strong>Teorema del Límite Central</strong> es un supuesto muy razonable.</p></li>
+<li><p>No tiene implicaciones graves.</p></li>
+<li><p>No es necesario en la demostración de <strong>Gauss-Markov</strong>.</p></li>
+<li><p>Sin embargo, es útil para determinar la distribución de los <strong>estadísticos</strong> usados en las pruebas de significancia.</p></li>
+</ul>
+<p>Para evaluar si el supuesto se cumple o no se puede hacer un procedimiento muy sencillo.</p>
+<ul class="simple">
+<li><p>Computamos los residuales y los graficamos.</p></li>
+<li><p>Generalmente, estos residuales van a tener una distribución muy parecida a la normal.</p></li>
+<li><p>Debido a que incluimos una constante en nuestra regresión, los residuales casi siempre tienen media cero.</p></li>
+</ul>
+<p>Adicionalmente, se puede hacer un test para evaluar la normalidad de la variable.</p>
+<p>Este supuesto se cumplir a a medida que aumentemos el tamaño de muestra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">ln_fst_wage</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">female</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age_2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">stratum</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">educ_madre</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">            </span><span class="nf">factor</span><span class="p">(</span><span class="n">grad_year</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">study_field</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">test_edition</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="n">lit</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">eng</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sb11_literacy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sb11_numeracy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sb11_english</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">model</span><span class="o">$</span><span class="n">residuals</span>
+
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Residuals&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">probability</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Histograma de Residuales&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">#Histograma de esiduales</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># Densidad estimada de los residuales</span>
+<span class="nf">curve</span><span class="p">(</span><span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">),</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="bp">T</span><span class="p">)),</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">#Distribucion normal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/f6a72011c3751e85ccda73c74b2013e6e046a97de3c13037aeea696ada1e463b.png"><img alt="_images/f6a72011c3751e85ccda73c74b2013e6e046a97de3c13037aeea696ada1e463b.png" src="_images/f6a72011c3751e85ccda73c74b2013e6e046a97de3c13037aeea696ada1e463b.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qqnorm</span><span class="p">(</span><span class="nf">rstandard</span><span class="p">(</span><span class="n">model</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="c1">##Q-Q plot</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/d845fdaa7f960205b485b9f9d6b42bf7ff31a88ee30b3dbf791c7ee31c6e0f2c.png"><img alt="_images/d845fdaa7f960205b485b9f9d6b42bf7ff31a88ee30b3dbf791c7ee31c6e0f2c.png" src="_images/d845fdaa7f960205b485b9f9d6b42bf7ff31a88ee30b3dbf791c7ee31c6e0f2c.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<p><strong>Pruebas de Normalidad</strong></p>
+<p>Algunas pruebas estadísticas nos permiten evaluar si una variable se distribuye normal o no. En general, bajo la hipotesis nula se asume que la variable se distribuye normal, es decir:</p>
+<div class="math notranslate nohighlight">
+\[H_0: X \sim N(\mu_X, \sigma_X^2)\]</div>
+<div class="math notranslate nohighlight">
+\[H_1: X \text{ no se distribuye normal }\]</div>
+<p>Ejemplo de pruebas:</p>
+<ol class="arabic simple">
+<li><p>Shapiro-Wilk (recomendada): Prueba paramétrica que compara la densidad estimada y la densidad teorica</p></li>
+<li><p>Kolmogorov-Smirnov: Compara la distribución acumulada de los datos y la distribución teorica</p></li>
+<li><p>Jarque-Bera</p></li>
+<li><p>Anderson-Darling</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5000</span><span class="p">)</span>
+<span class="nf">shapiro.test</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="nf">ks.test</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pnorm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Shapiro-Wilk normality test
+
+data:  e
+W = 0.97208, p-value &lt; 2.2e-16
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  e
+D = 0.079897, p-value &lt; 2.2e-16
+alternative hypothesis: two-sided
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="heteroscedasticidad">
+<h2>2.31 Heteroscedasticidad<a class="headerlink" href="#heteroscedasticidad" title="Link to this heading">#</a></h2>
+<p>Uno de los supuestos de nuestro modelo es que la varianza de los errores es constante. Es decir,</p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i) = \sigma^2\]</div>
+<p>En un modelo <strong>heteroscedastico</strong>,</p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i) = \sigma_{i}^2 \hspace{5pt}\text{donde}\hspace{5pt} \sigma_{i}^2 \neq \sigma_{j}^2 \hspace{5pt}\text{para algún}\hspace{5pt} i \neq j\]</div>
+<p>En la práctica es común que nuestros errores no tengan varianza constante.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;scales&quot;</span><span class="p">);</span><span class="w"> </span><span class="nf">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">080925</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">))</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
+	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpqeV4eg/downloaded_packages
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘scales’ was built under R version 4.3.3”
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/b4997ba1fe0f856e7cd356f96784885035ac07d228e0c31604a2a2c5e99a8f3a.png"><img alt="_images/b4997ba1fe0f856e7cd356f96784885035ac07d228e0c31604a2a2c5e99a8f3a.png" src="_images/b4997ba1fe0f856e7cd356f96784885035ac07d228e0c31604a2a2c5e99a8f3a.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/96919f05ce9b694700c6963af50c74a9a784d6b6fe252a57ae6bcc2a0457bc4e.png"><img alt="_images/96919f05ce9b694700c6963af50c74a9a784d6b6fe252a57ae6bcc2a0457bc4e.png" src="_images/96919f05ce9b694700c6963af50c74a9a784d6b6fe252a57ae6bcc2a0457bc4e.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">))</span><span class="w"> </span>
+<span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">500</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">500</span><span class="p">))</span>
+
+<span class="n">markers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">17</span><span class="p">)</span>
+<span class="n">colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;#66BD63&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#FDAE61&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">markers</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">f</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">f</span><span class="p">)],</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/50a00f6b07822f60a6219e8bd8387551e162d94760d433fce38cff634e2ac243.png"><img alt="_images/50a00f6b07822f60a6219e8bd8387551e162d94760d433fce38cff634e2ac243.png" src="_images/50a00f6b07822f60a6219e8bd8387551e162d94760d433fce38cff634e2ac243.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<section id="por-que-nos-interesa-la-heteroscedasticidad">
+<h3>2.31.1 ¿Por qué nos interesa la heteroscedasticidad?<a class="headerlink" href="#por-que-nos-interesa-la-heteroscedasticidad" title="Link to this heading">#</a></h3>
+<p>Recordemos que en regresión simple encontramos que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \hat\beta_1 &amp; = \frac{\widehat{Cov(x, y)}}{\widehat{V(x)}} = \frac{\sum_i (X_i - \overline X)(Y_i - \overline Y)}{\sum_i (X_i - \overline X)^2}\\
+    &amp; = \beta_1 + \frac{\sum_i (X_i - \overline X) \cdot \varepsilon_i}{\sum_i (X_i - \overline X)^2} \\     
+\end{align*}\]</div>
+<p>Si asumimos que <span class="math notranslate nohighlight">\(E(\varepsilon_i | X) = 0\)</span>, podemos concluir que <span class="math notranslate nohighlight">\(E(\hat\beta_1) = \beta_1\)</span>. Es decir, <strong>nuestros estimadores seguirán siendo insesgados</strong> a pesar de que la varianza de los errores no es constante.</p>
+<p>Si asumimos que <span class="math notranslate nohighlight">\(Cov(\varepsilon_i, \varepsilon_j) = 0\)</span>, podemos mostrar que:</p>
+<div class="math notranslate nohighlight">
+\[ee(\hat\beta_1) = \sqrt{V(\hat\beta_1)} = \sqrt{\frac{\sigma_i^2}{\sum_i (X_i - \overline X)^2}}\]</div>
+<p>La <strong>heteroscedasticidad</strong> afecta los errores estándar de nuestros estimadores.</p>
+<p><strong>En presencia de heteroscedasticidad</strong>, asumir que la varianza de los errores es constantes implica que nuestros <strong>errores estandar</strong> están <strong>sesgados</strong>.</p>
+<p>Por lo tanto,</p>
+<ul class="simple">
+<li><p>los intervalos de confianza son incorrectos, y</p></li>
+<li><p>las pruebas de significancia (<span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(F\)</span>) no son validas</p></li>
+</ul>
+<p><strong>Solución</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Probar</strong> que hay presencia de heteroscedasticidad</p></li>
+</ol>
+<p>Prueba de Goldfeld-Quandt</p>
+<p>Prueba de Breusch-Pagan</p>
+<p>Prueba de White</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Corrección</strong> de los estimadores de la varianza</p></li>
+</ol>
+<p>Evitar error de especificación</p>
+<p>Mínimos Cuadrados Ponderados</p>
+<p>Erorres estándar robustos</p>
+</section>
+<section id="prueba-de-goldfeld-quandt">
+<h3>2.31.2 Prueba de Goldfeld-Quandt<a class="headerlink" href="#prueba-de-goldfeld-quandt" title="Link to this heading">#</a></h3>
+<p>Para determinar si existe heteroscedasticidad, podemos usar los <strong>residuales</strong> <span class="math notranslate nohighlight">\(e_i = y_i - \hat y_i\)</span> como un <strong>estimador de los errores poblaciones</strong> <span class="math notranslate nohighlight">\(\varepsilon_i\)</span></p>
+<p>Recuerde que un estimador de la varianza del modelo (i.e., <span class="math notranslate nohighlight">\(\sigma^2\)</span>) es</p>
+<div class="math notranslate nohighlight">
+\[\widehat\sigma^2 = \frac{SSE}{n-k} = \frac{\sum_{i=1}^n e_i^2}{n-k}\]</div>
+<p>Observe que podemos dividir la población en dos grupos de tamaño <span class="math notranslate nohighlight">\(n_1\)</span> y <span class="math notranslate nohighlight">\(n_2\)</span> y evaluar si:</p>
+<p><span class="math notranslate nohighlight">\(H_0: \sigma_1^2 = \sigma_2^2\)</span>
+<span class="math notranslate nohighlight">\(H_1: \sigma_1^2 \neq \sigma_2^2\)</span></p>
+<p>Para ello usaremos el estadístico de prueba</p>
+<div class="math notranslate nohighlight">
+\[F_{stat} = \frac{SSE_2/(n_2 - k)}{SSE_1/(n_1 - k)} \sim F_{n_2-k \hspace{2pt},\hspace{2pt} n_1-k}\]</div>
+<p><strong>Esta prueba es muy dependiente de la forma funcional de la heteroscedasticidad</strong>, veamos por qué!</p>
+</section>
+<section id="prueba-de-breusch-pagan">
+<h3>2.31.2  Prueba de Breusch-Pagan<a class="headerlink" href="#prueba-de-breusch-pagan" title="Link to this heading">#</a></h3>
+<p>Una segunda prueba que podemos realizar es la prueba de <strong>Breusch-Pagan</strong>.<br />
+Asumimos que existe una relación lineal:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_i^2 = \sigma^2 f(\alpha_0 + \alpha_1 X)
+\]</div>
+<p>Hacemos una prueba de hipótesis de la forma:</p>
+<div class="math notranslate nohighlight">
+\[
+H_0 : \alpha_1 = 0 \;\;\; \Rightarrow \;\; \text{Homoscedasticidad } = \sigma^2 f(\alpha_0)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+H_1 : \alpha_1 \neq 0 \;\;\; \Rightarrow \;\; \text{Heteroscedasticidad } = \sigma^2 f(\alpha_0 + \alpha_1 X)
+\]</div>
+<p>En esta prueba vamos a evaluar la relación estadística entre:</p>
+<div class="math notranslate nohighlight">
+\[
+e_i^2 \quad \text{y ciertas variables explicativas } X
+\]</div>
+<p><strong>Procedimiento: Prueba de Breusch-Pagan</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Correr la regresión original</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+Y = X\beta + \varepsilon
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Obtener</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{\sigma}^2 = \frac{\sum e_i^2}{n-k}
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Calcular</strong> y <strong>Estimar</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{e_i^2}{\hat{\sigma}^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+p_i = X\alpha + u
+\]</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Calcular el estadístico de prueba</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\Theta = \frac{1}{2}SSR \sim \chi^2_m
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(m\)</span> es el número de variables incluidas en la matriz <span class="math notranslate nohighlight">\(X\)</span></p>
+</section>
+<section id="prueba-de-white">
+<h3>2.31.3  Prueba de White<a class="headerlink" href="#prueba-de-white" title="Link to this heading">#</a></h3>
+<p>Una segunda prueba muy parecida es la <strong>prueba de White</strong>. Esta prueba <strong>no asume</strong> que hay una relación lineal entre la varianza del error y las variables en <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<ol class="arabic simple">
+<li><p><strong>Correr la regresión original</strong>: <span class="math notranslate nohighlight">\(Y = X\beta + \varepsilon\)</span></p></li>
+<li><p><strong>Calcular los residuales al cuadrado</strong>: <span class="math notranslate nohighlight">\(e_i^2\)</span></p></li>
+<li><p><strong>Correr la regresión auxiliar</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[e_i^2 = \alpha_0 + \alpha_1 X_1 + \alpha_2 X_2 + \alpha_3 X_1^2 + \alpha_4 X_2^2 + \alpha_5 X_1 X_2 + \dots\]</div>
+<p>(incluir todos los cuadrados y las interacciones de las variables explicativas).</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Calcular el estadístico de prueba</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[nR^2 \sim \chi^2_p\]</div>
+<p>donde <span class="math notranslate nohighlight">\(p\)</span> es el número total de regresores (sin la constante) en la regresión auxiliar.</p>
+</section>
+</section>
+<section id="heteroscedasticidad-y-error-de-especificacion">
+<h2>2.32  Heteroscedasticidad y Error de Especificación<a class="headerlink" href="#heteroscedasticidad-y-error-de-especificacion" title="Link to this heading">#</a></h2>
+<p><strong>Error de Especificación de Variables Independientes</strong></p>
+<p>Considere la siguiente función de regresión:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \varepsilon_i\]</div>
+<p>donde <span class="math notranslate nohighlight">\(E(\varepsilon_i | X) = 0\)</span> y <span class="math notranslate nohighlight">\(V(\varepsilon_i | X) = \sigma^2\)</span></p>
+<p>Suponga que omitimos <span class="math notranslate nohighlight">\(x^2\)</span> y estimamos el siguiente modelo:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \gamma_0 + \gamma_1 x_i + u_i\]</div>
+<div class="math notranslate nohighlight">
+\[u_i = \varepsilon_i + \beta_2 x_i^2\]</div>
+<p>Oberve que en este caso</p>
+<div class="math notranslate nohighlight">
+\[V(u_i) = \sigma^2 + V(\beta_2 x_i^2)\]</div>
+<p>Ya que la varianza de <span class="math notranslate nohighlight">\(u_i\)</span> depende de <span class="math notranslate nohighlight">\(x_i\)</span>, el error de especificación genera heteroscedasticidad.</p>
+<p><strong>Error de Especificación de la Variable Dependiente</strong></p>
+<p>Considere ahora la regresión</p>
+<div class="math notranslate nohighlight">
+\[\log(y_i) = \beta_0 + \beta_1 x_i + \varepsilon_i\]</div>
+<p>donde <span class="math notranslate nohighlight">\(E(\varepsilon_i | X) = E(\varepsilon_i)\)</span> y <span class="math notranslate nohighlight">\(\varepsilon_i \sim N(0, \sigma^2)\)</span>. De esta manera,</p>
+<div class="math notranslate nohighlight">
+\[\log(y_i) \sim N(\beta_0 + \beta_1 x_i, \sigma^2)\]</div>
+<p>Suponga que estimamos el modelo</p>
+<div class="math notranslate nohighlight">
+\[y_i = \gamma_0 + \gamma_1 x_i + u_i\]</div>
+<p>Observe que la varianza de <span class="math notranslate nohighlight">\(u_i\)</span> está dada por</p>
+<div class="math notranslate nohighlight">
+\[V(u_i) = (e^{\sigma^2} - 1) e^{2(\beta_0 + \beta_1 x_i)+ \sigma^2}\]</div>
+<p>Ya que la varianza de <span class="math notranslate nohighlight">\(u_i\)</span> depende de <span class="math notranslate nohighlight">\(x_i\)</span>, el error de especificación genera heteroscedasticidad.</p>
+<p><strong>¿Es posible solucionar la heteroscedasticidad por error de especificación?</strong></p>
+<p>Errores en la especificación pueden generar heteroscedasticidad (además de otros problemas). Sin embargo, usualmente <strong>desconocemos</strong> la especificación correcta.</p>
+<p>Por esta razón necesitamos una manera formal de tratar la heteroscedasticidad.</p>
+</section>
+<section id="minimos-cuadrados-ponderados">
+<h2>2.33 Mínimos Cuadrados Ponderados<a class="headerlink" href="#minimos-cuadrados-ponderados" title="Link to this heading">#</a></h2>
+<p>El método de mínimos cuadrados ponderados presenta una solución al problema de heteroscedasticidad.</p>
+<p>Considere el siguiente modelo:</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \beta_0 + \beta_1 x_i + u_i, \qquad \varepsilon_i \sim N(0, \sigma_i^2)
+\]</div>
+<p>Transformamos este modelo diviendo cada observación por su desviación estándar <span class="math notranslate nohighlight">\(\sigma_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_i}{\sigma_i} = \beta_0 \frac{1}{\sigma_i} + \beta_1 \frac{x_i}{\sigma_i} + \frac{\varepsilon_i}{\sigma_i}
+\]</div>
+<p>Note que el error del modelo transformado es homoscedastico:</p>
+<div class="math notranslate nohighlight">
+\[
+V\left(\frac{\varepsilon_i}{\sigma_i} \Big| x_i\right)
+= \frac{1}{\sigma^2_i} V(\varepsilon_i | x_i)
+= \frac{1}{\sigma^2_i} \sigma^2_i = 1
+\]</div>
+<p>Más aún,</p>
+<div class="math notranslate nohighlight">
+\[\frac{\varepsilon_i}{\sigma_i} \sim N(0, 1)\]</div>
+<p>Si aplicamos el método de mínimos cuadrados (MCO) para estimar el modelo transformado, los estimadores de <span class="math notranslate nohighlight">\(\beta_k\)</span> serán insesgados y eficientes. Sin embargo, no conocemos <span class="math notranslate nohighlight">\(\sigma_i\)</span>.</p>
+<p>Suponga ahora que:</p>
+<div class="math notranslate nohighlight">
+\[V(\varepsilon_i \mid x_i) = \sigma^2 h(x_i)\]</div>
+<p>Este supuesto es más débil. Observe además que si conocemos <span class="math notranslate nohighlight">\(h(x_i)\)</span>, entonces podemos usar MCO para estimar el siguiente modelo transformado:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{y_i}{\sqrt{h(x_i)}} = \beta_0 \frac{1}{\sqrt{h(x_i)}} + \beta_1 \frac{x_i}{\sqrt{h(x_i)}} + \frac{\varepsilon_i}{\sqrt{h(x_i)}}
+\]</div>
+<p>Nuevamente nuestro modelo transformado es homoscedastico.</p>
+</section>
+<section id="minimos-cuadrados-factibles">
+<h2>2.34 Minimos Cuadrados Factibles<a class="headerlink" href="#minimos-cuadrados-factibles" title="Link to this heading">#</a></h2>
+<p>Mínimos cuadrados ponderados es un caso particular de <strong>mínimos cuadrados generalizados</strong>.</p>
+<p>Bajo ciertas condiciones, podemos transformar nuestro modelo de regresión usando el estimador <span class="math notranslate nohighlight">\(\widehat{\sigma^2} = \frac{\sum_{i=1}^n e_i^2}{n-k}\)</span>. Es decir, en lugar de transformar el modelo dividiendo <span class="math notranslate nohighlight">\(\sigma_i\)</span>, dividimos por <span class="math notranslate nohighlight">\(\widehat{\sigma^2}\)</span>.</p>
+<p>A este método se le conoce como <strong>mínimos cuadrados factibles</strong>.</p>
+</section>
+<section id="errores-estandar-robustos">
+<h2>2.35 Errores Estándar Robustos<a class="headerlink" href="#errores-estandar-robustos" title="Link to this heading">#</a></h2>
+<p>Para el modelo de <strong>regresión simple</strong>, podemos reescribir nuestro estimador de MCO de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat\beta_1 = \beta_1 + \frac{\sum_i (x_i - \bar{x}) \varepsilon_i}{\sum_i (x_i - \bar{x})^2}
+\]</div>
+<p>Suponga que nuestro modelo es heteroscedastico, es decir:</p>
+<div class="math notranslate nohighlight">
+\[
+V(\varepsilon_i \mid x_i) = \sigma_i^2
+\]</div>
+<p>De esta manera,</p>
+<div class="math notranslate nohighlight">
+\[
+V(\hat\beta_1 \mid x_i)
+= \frac{\sum_i (x_i - \bar{x})^2 \sigma_i^2}{\sum_i (x_i - \bar{x})^2}
+\]</div>
+<p>Hal White propuso el siguiente estimador para la varianza de <span class="math notranslate nohighlight">\(\hat\beta_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+V(\hat\beta_1)
+= \frac{\sum_i (x_i - \bar{x})^2 e_i^2}{\sum_i (x_i - \bar{x})^2}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(e_i = y_i - \hat y_i\)</span></p>
+<p>Para el modelo de <strong>regresión múltiple</strong></p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \beta_0 + \beta_1 x_{1i} + \cdots + \beta_k x_{ki} + \varepsilon_i
+\]</div>
+<p>el estimador de varianza (robusto a heteroscedasticidad) para <span class="math notranslate nohighlight">\(\hat\beta_j\)</span> está dado por:</p>
+<div class="math notranslate nohighlight">
+\[
+V(\hat\beta_j)
+= \frac{\sum_i r_{ij}^2 e_i^2}{\sum_i (x_{ji} - \bar{x_j})^2}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(r_{ij}\)</span> es el residual para la observación <span class="math notranslate nohighlight">\(i\)</span> luego de estimar <span class="math notranslate nohighlight">\(x_j\)</span> en función de las demás variables independientes.</p>
+<p>Recuerde que para nuestro modelo en forma matricial <span class="math notranslate nohighlight">\(Y = X\beta + \varepsilon\)</span>, podemos mostrar que la matriz de varianza-covarianza es:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+V(\hat{\beta}|X ) &amp;= E \big[(\hat{\beta} - E[\hat{\beta}])(\hat{\beta} - E[\hat{\beta}])' \,|\, X \big] \\
+&amp;= (X'X)^{-1}X' E[\varepsilon\varepsilon'|X] X (X'X)^{-1} \\
+\end{align*}\]</div>
+<p>El estimador propuesto por Hal White para <span class="math notranslate nohighlight">\(X' E[\varepsilon\varepsilon'|X] X\)</span> está dado por:</p>
+<div class="math notranslate nohighlight">
+\[S_R = \sum_{i} e_i^2 \, x_i x_i'\]</div>
+<p>De esta manera, el estimador de White para la matriz de varianza-covarianza toma la siguiente forma:</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{V}(\hat{\beta}) = (X'X)^{-1} S_R (X'X)^{-1}\]</div>
+<p>A estos errores se les conoce como <strong>errores de White</strong> o <strong>robustos</strong>, y corrigen (son robustos) cualquier forma de heteroscedasticidad.</p>
+</section>
+<section id="sesgo-por-error-de-especificacion">
+<h2>2.36 Sesgo por Error de Especificación<a class="headerlink" href="#sesgo-por-error-de-especificacion" title="Link to this heading">#</a></h2>
+<p>Consideremos ahora la función de regresión:</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_i \qquad (1)
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(E(\varepsilon_i | x_{1i}, x_{2i}) = 0\)</span>.</p>
+<p>Suponga que usted está interasado en estimar el efecto causal de <span class="math notranslate nohighlight">\(x_{1i}\)</span> en <span class="math notranslate nohighlight">\(y_i\)</span>. Es decir, su parámetro de interés es <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p>
+<p>Sin embargo, usted omite la variable <span class="math notranslate nohighlight">\(x_{2i}\)</span> y estima</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \beta_0 + \beta_1 x_{1i} + u_i \qquad u_i = \beta_2 x_{2i} + \varepsilon_i \qquad (2)
+\]</div>
+<p>Debido a este error de especificación, el estimador de MCO de <span class="math notranslate nohighlight">\(\beta_1\)</span> no es un estimador insesgado. Veamos:</p>
+<p>Recuerde que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\hat \beta_1 &amp;= \frac{\widehat{Cov}(x_{1i}, y_i)}{\widehat{V(x_{1i})}} \\
+              &amp;= \frac{\widehat{Cov}(x_{1i}, \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_i)}{\widehat{V(x_{1i})}} \\
+              &amp;= \beta_1 + \beta_2 \frac{\widehat{Cov}(x_{1i}, x_{2i})}{\widehat{V(x_{1i})}} + \frac{\widehat{Cov}(x_{1i}, \varepsilon_i)}{\widehat{V(x_{1i})}} \\
+              &amp;= \beta_1 + \beta_2 \frac{\widehat{Cov}(x_{1i}, x_{2i})}{\widehat{V(x_{1i})}} \\              
+\end{align*}\]</div>
+<p>Este resultado nos permite ver que:</p>
+<ul class="simple">
+<li><p>si <span class="math notranslate nohighlight">\(\widehat{Cov}(x_{1i}, x_{2i}) = 0\)</span>, entonces <span class="math notranslate nohighlight">\(E(\hat\beta_1) = \beta_1\)</span></p></li>
+<li><p>Sin embargo, si <span class="math notranslate nohighlight">\(\widehat{Cov}(x_{1i}, x_{2i}) \neq 0\)</span>, entonces <span class="math notranslate nohighlight">\(E(\hat\beta_1) \neq \beta_1\)</span></p></li>
+</ul>
+<p>En qué casos <span class="math notranslate nohighlight">\(\widehat{Cov}(x_{1i}, x_{2i}) = 0\)</span>?</p>
+</section>
+<section id="error-de-medicion-variable-dependiente">
+<h2>2.37 Error de Medición: Variable Dependiente<a class="headerlink" href="#error-de-medicion-variable-dependiente" title="Link to this heading">#</a></h2>
+<p>Suponga que usted está interesado en estudiar la relación entre una variable dependiente <span class="math notranslate nohighlight">\(y_i\)</span> y una variable <span class="math notranslate nohighlight">\(x_i\)</span>. Para ello usted quiere usar el siguiente modelo:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</div>
+<p>Sin embargo, usted observa <span class="math notranslate nohighlight">\(y_i\)</span> con un <strong>error (de medición)</strong> <span class="math notranslate nohighlight">\(\nu\)</span>. Es decir, usted observa <span class="math notranslate nohighlight">\(y_i^* = y_i + \nu\)</span>. Usualmente, asumimos que <span class="math notranslate nohighlight">\(\nu \sim N(0, \sigma^2_\nu)\)</span>. De esta manera, usted se ve ‘’obligado’’ a estimar:</p>
+<div class="math notranslate nohighlight">
+\[y_i^* = \beta_0 + \beta_1 x_i + u_i \qquad \text{ donde } u_i = \varepsilon_i + \nu\]</div>
+<p><strong>¿Qué propiedades tienen los estimadores de MCO en este caso?</strong></p>
+<p>Supongamos que la variable <span class="math notranslate nohighlight">\(x_i\)</span> es exogena. Es decir, <span class="math notranslate nohighlight">\(E(\varepsilon_i | x_i) = 0\)</span>.</p>
+<p>Así,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\hat \beta_1 &amp;= \frac{\widehat{Cov}(x_{i}, y^*_i)}{\widehat{V(x_{i})}} \\
+ &amp;= \frac{\widehat{Cov}(x_{i}, \beta_0 + \beta_1 x_{i} + u_i)}{\widehat{V(x_{i})}} \\
+ &amp;= \beta_1 + \frac{\widehat{Cov}(x_{i}, \varepsilon_i)}{\widehat{V(x_{i})}} + \frac{\widehat{Cov}(x_{i}, \nu)}{\widehat{V(x_{i})}} \\ 
+ &amp;= \beta_1 + \frac{\widehat{Cov}(x_{i}, \nu)}{\widehat{V(x_{i})}} \\  
+\end{align*}\]</div>
+<p>Observe que el error de medición puede sesgar los estimadores de MCO si existe una correlación entre el error de medición y las variables independientes, es decir si <span class="math notranslate nohighlight">\(\widehat{Cov}(x_{i}, \nu) \neq 0\)</span>.</p>
+<p>Observe además que <span class="math notranslate nohighlight">\(V(u_i) = V(\varepsilon_i + \nu) = \sigma^2 + \sigma_\nu^2 &gt; \sigma^2\)</span>. Luego, en presencia de error de medición, nuestros errores estandar serán mayores.</p>
+</section>
+<section id="error-de-medicion-variable-independiente">
+<h2>2.38 Error de Medición: Variable Independiente<a class="headerlink" href="#error-de-medicion-variable-independiente" title="Link to this heading">#</a></h2>
+<p>Suponga ahora que usted tiene error de medición en la variable dependiente <span class="math notranslate nohighlight">\(x_i\)</span>. Es decir, usted observa <span class="math notranslate nohighlight">\(y_i\)</span> y <span class="math notranslate nohighlight">\(x_i^* = x_i + \nu\)</span>, con <span class="math notranslate nohighlight">\(\nu \sim N(0, \sigma_nu)\)</span>.</p>
+<p>La función de regresión poblaciones es:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</div>
+<p>Sin embargo, usted estima:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x^*_i + u_i \qquad \text{ donde } u_i = \varepsilon_i -  \beta_1 \nu \]</div>
+<p>Si asumimos que <span class="math notranslate nohighlight">\(Cov(x^*_i, \nu) = 0\)</span>, entonces MCO produce estimadores insesgados. Sin embargo, la <span class="math notranslate nohighlight">\(V(u_i) = \sigma^2 + \beta_1^2 \sigma_\nu^2\)</span>.</p>
+<p>Debido a que este es el caso menos problemático, estamos más interesados en saber qué ocurre cuando asumimos que <span class="math notranslate nohighlight">\(Cov(x_i, \nu) = 0\)</span></p>
+<p>Si este el caso, entonces <span class="math notranslate nohighlight">\(Cov(x_i^*, \nu) \neq 0\)</span>. Esto es asi porque <span class="math notranslate nohighlight">\(Cov(x_i, \nu) = Cov(x_i^*, \nu) - \sigma^2_\nu = 0\)</span>. Luego, <span class="math notranslate nohighlight">\(Cov(x_i^*, \nu) = \sigma^2_\nu &gt; 0\)</span>.</p>
+<p>Usando las propiedades de los estimadores, podemos mostrar que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+E(\hat \beta_1) &amp;= \beta_1 + \frac{Cov(x_i^*, \varepsilon_i -  \beta_1 \nu )}{V(x_i^*)} \\
+&amp;= \beta_1 - \frac{\beta_1 \sigma^2_\nu}{\sigma^2_x + \sigma^2_\nu} \\
+&amp;= \beta_1 \left(1 - \frac{\sigma^2_\nu}{\sigma^2_x + \sigma^2_\nu}\right) \\
+&amp;= \beta_1 \left(\frac{\sigma^2_x}{\sigma^2_x + \sigma^2_\nu}\right) \\
+\end{align*}\]</div>
+<p>A este sesgo se le conoce como <strong>sesgo de atenuación</strong>.</p>
 </section>
 </section>
 
@@ -2661,13 +3271,30 @@ Var(b) \geq Var(\hat{\beta}) = \sigma^2 (X'X)^{-1}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion">2.22 Aplicación:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias-y-categoricas">2.23 Variables Binarias y Categoricas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-brechas-salariales-por-genero-y-area">2.24 Aplicación: Brechas Salariales por Género y Área</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariables-no-lineales">2.25 Covariables No-lineales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-no-lineales">2.25 Variables No-lineales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">2.26 Interacciones</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaccion-entre-variables-binarias">2.26.1 Interacción entre Variables Binarias</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaccion-entre-una-variable-binaria-y-una-continua">2.26.2 Interacción entre una Variable Binaria y una Continua</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-gauss-markov">2.27 Teorema de Gauss-Markov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-supuestos">2.28 Evaluación de Supuestos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multicolinealidad">2.29 Multicolinealidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-normalidad-de-los-errores">2.30 No-normalidad de los Errores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroscedasticidad">2.31 Heteroscedasticidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-nos-interesa-la-heteroscedasticidad">2.31.1 ¿Por qué nos interesa la heteroscedasticidad?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-goldfeld-quandt">2.31.2 Prueba de Goldfeld-Quandt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-breusch-pagan">2.31.2  Prueba de Breusch-Pagan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-white">2.31.3  Prueba de White</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroscedasticidad-y-error-de-especificacion">2.32  Heteroscedasticidad y Error de Especificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-ponderados">2.33 Mínimos Cuadrados Ponderados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-factibles">2.34 Minimos Cuadrados Factibles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errores-estandar-robustos">2.35 Errores Estándar Robustos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sesgo-por-error-de-especificacion">2.36 Sesgo por Error de Especificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-de-medicion-variable-dependiente">2.37 Error de Medición: Variable Dependiente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-de-medicion-variable-independiente">2.38 Error de Medición: Variable Independiente</a></li>
 </ul>
   </nav></div>
 
