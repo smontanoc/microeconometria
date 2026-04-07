@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Modulo_2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parte III - Modelos de Respuesta Cualitativa" href="Modulo_3.html" />
     <link rel="prev" title="Parte I - Fundamentos" href="Modulo_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +184,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Modulo_1.html">Parte I - Fundamentos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Parte II - Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modulo_3.html">Parte III - Modelos de Respuesta Cualitativa</a></li>
 </ul>
 
     </div>
@@ -652,21 +654,19 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpqeV4eg/downloaded_packages
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/smontano/AppData/Local/R/win-library/4.3&#39;
+(as &#39;lib&#39; is unspecified)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“package ‘haven’ was built under R version 4.3.3”
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  There is a binary version available but the source version is later:
+      binary source needs_compilation
+haven  2.5.4  2.5.5              TRUE
 </pre></div>
 </div>
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>'cnt'</li><li>'year'</li><li>'math'</li><li>'read'</li><li>'scie'</li><li>'V_math'</li><li>'V_read'</li><li>'V_scie'</li><li>'math_se'</li><li>'scie_se'</li><li>'read_se'</li><li>'GDP_percapita'</li></ol>
-</div></div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>installing the source package &#39;haven&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,7 +702,7 @@ Y_i = r(x) + \varepsilon_i = \beta_0 + \beta_1 X_i + \varepsilon_i
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/e8f437420735a9639eedda46202cfa55b3491ede2710ac280210049da53df2f1.png"><img alt="_images/e8f437420735a9639eedda46202cfa55b3491ede2710ac280210049da53df2f1.png" src="_images/e8f437420735a9639eedda46202cfa55b3491ede2710ac280210049da53df2f1.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/b7ae760cfb10f4f1c425426db565aac90ed79d8c20ffa55b7cb4908af56917e4.png"><img alt="_images/b7ae760cfb10f4f1c425426db565aac90ed79d8c20ffa55b7cb4908af56917e4.png" src="_images/b7ae760cfb10f4f1c425426db565aac90ed79d8c20ffa55b7cb4908af56917e4.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -731,7 +731,7 @@ Coefficients:
 (Intercept) -94388.26   14678.37  -6.430 1.34e-08 ***
 read           313.08      33.56   9.329 6.61e-14 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 15330 on 70 degrees of freedom
 Multiple R-squared:  0.5542,	Adjusted R-squared:  0.5479 
@@ -778,7 +778,7 @@ F-statistic: 87.03 on 1 and 70 DF,  p-value: 6.609e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/9d7cd2b04c5742aff44510f7efa9b377c8cb8583972eee5bc77f519fd0a63078.png"><img alt="_images/9d7cd2b04c5742aff44510f7efa9b377c8cb8583972eee5bc77f519fd0a63078.png" src="_images/9d7cd2b04c5742aff44510f7efa9b377c8cb8583972eee5bc77f519fd0a63078.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/c27345bbba3a3065ec65b3dbb1b206660b019b2f16134e8a39e54f83e1960133.png"><img alt="_images/c27345bbba3a3065ec65b3dbb1b206660b019b2f16134e8a39e54f83e1960133.png" src="_images/c27345bbba3a3065ec65b3dbb1b206660b019b2f16134e8a39e54f83e1960133.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -810,7 +810,7 @@ F-statistic: 87.03 on 1 and 70 DF,  p-value: 6.609e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/981f650f0e9f8b4e7b36205bdb152bb1ecf9f7897fccbaad08ad4e0f621b979c.png"><img alt="_images/981f650f0e9f8b4e7b36205bdb152bb1ecf9f7897fccbaad08ad4e0f621b979c.png" src="_images/981f650f0e9f8b4e7b36205bdb152bb1ecf9f7897fccbaad08ad4e0f621b979c.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/e53aad3b0e8e6e1dcd0f5d46d81b8d43d95cb695fc2bb9e93b74c3d77137dcf2.png"><img alt="_images/e53aad3b0e8e6e1dcd0f5d46d81b8d43d95cb695fc2bb9e93b74c3d77137dcf2.png" src="_images/e53aad3b0e8e6e1dcd0f5d46d81b8d43d95cb695fc2bb9e93b74c3d77137dcf2.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -1474,7 +1474,7 @@ Coefficients:
 x1 11.57751    0.75506  15.333 0.000106 ***
 x2 -0.84802    0.09707  -8.736 0.000946 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.7188 on 4 degrees of freedom
 Multiple R-squared:  0.9907,	Adjusted R-squared:  0.9861 
@@ -1503,7 +1503,7 @@ Coefficients:
 (Intercept) 11.57751    0.75506  15.333 0.000106 ***
 x2          -0.84802    0.09707  -8.736 0.000946 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.7188 on 4 degrees of freedom
 Multiple R-squared:  0.9502,	Adjusted R-squared:  0.9377 
@@ -1646,7 +1646,7 @@ Coefficients:
 x2           -0.8390     0.1129  -7.428  0.00505 **
 x3           -0.3998     1.1494  -0.348  0.75093   
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.8138 on 3 degrees of freedom
 Multiple R-squared:  0.9521,	Adjusted R-squared:  0.9202 
@@ -1804,7 +1804,7 @@ Coefficients:
 x2           -0.8390     0.1129  -7.428  0.00505 **
 x3           -0.3998     1.1494  -0.348  0.75093   
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.8138 on 3 degrees of freedom
 Multiple R-squared:  0.9521,	Adjusted R-squared:  0.9202 
@@ -1833,7 +1833,7 @@ Coefficients:
 (Intercept) 11.57751    0.75506  15.333 0.000106 ***
 x2          -0.84802    0.09707  -8.736 0.000946 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.7188 on 4 degrees of freedom
 Multiple R-squared:  0.9502,	Adjusted R-squared:  0.9377 
@@ -1969,12 +1969,18 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpqeV4eg/downloaded_packages
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/s.montano42/AppData/Local/R/win-library/4.5&#39;
+(as &#39;lib&#39; is unspecified)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>package &#39;ggplot2&#39; successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\s.montano42\AppData\Local\Temp\RtmpOssQ2D\downloaded_packages
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“package ‘ggplot2’ was built under R version 4.3.3”
+&quot;package &#39;ggplot2&#39; was built under R version 4.5.2&quot;
 </pre></div>
 </div>
 <div class="output text_html"><style>
@@ -2002,11 +2008,11 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     female            age             num                eng           
  Min.   :0.0000   Min.   :20.00   Min.   :-3.99532   Min.   :-2.329097  
- 1st Qu.:0.0000   1st Qu.:25.00   1st Qu.:-0.65643   1st Qu.:-0.685924  
+ 1st Qu.:0.0000   1st Qu.:25.00   1st Qu.:-0.65644   1st Qu.:-0.685924  
  Median :1.0000   Median :26.00   Median :-0.07552   Median :-0.295580  
  Mean   :0.6022   Mean   :26.82   Mean   : 0.01372   Mean   : 0.002152  
  3rd Qu.:1.0000   3rd Qu.:29.00   3rd Qu.: 0.57682   3rd Qu.: 0.397801  
- Max.   :1.0000   Max.   :40.00   Max.   : 5.61132   Max.   : 6.663444  
+ Max.   :1.0000   Max.   :40.00   Max.   : 5.61133   Max.   : 6.663444  
 </pre></div>
 </div>
 </div>
@@ -2020,7 +2026,7 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/1574657b4ba451e637e8416db51e57cce4269a5b0a614a0c04ff0af7e0eebdbe.png"><img alt="_images/1574657b4ba451e637e8416db51e57cce4269a5b0a614a0c04ff0af7e0eebdbe.png" src="_images/1574657b4ba451e637e8416db51e57cce4269a5b0a614a0c04ff0af7e0eebdbe.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/1af917fbdbff8d568ff5333d0d23177d66c74496926338f079c15230fce2811d.png"><img alt="_images/1af917fbdbff8d568ff5333d0d23177d66c74496926338f079c15230fce2811d.png" src="_images/1af917fbdbff8d568ff5333d0d23177d66c74496926338f079c15230fce2811d.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2034,7 +2040,7 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/7a6763765c7496110ee077170a556a0276089e4c8636c82c8c3a3524c9571ab1.png"><img alt="_images/7a6763765c7496110ee077170a556a0276089e4c8636c82c8c3a3524c9571ab1.png" src="_images/7a6763765c7496110ee077170a556a0276089e4c8636c82c8c3a3524c9571ab1.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/02af1f2e33395f109255e17df5452eeaa70b49232879e44592bea4d33889bb28.png"><img alt="_images/02af1f2e33395f109255e17df5452eeaa70b49232879e44592bea4d33889bb28.png" src="_images/02af1f2e33395f109255e17df5452eeaa70b49232879e44592bea4d33889bb28.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2052,7 +2058,7 @@ Y_i &amp;= \beta_0 + \beta_1 \ln(X_i) + \varepsilon_i \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/617ddfc6712d9d18c46b6d5b685e3a743d7a68b58dd5b13f31589770e12bb466.png"><img alt="_images/617ddfc6712d9d18c46b6d5b685e3a743d7a68b58dd5b13f31589770e12bb466.png" src="_images/617ddfc6712d9d18c46b6d5b685e3a743d7a68b58dd5b13f31589770e12bb466.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/d387adf263992d4cc56253b8acee5693cc2ef014229da7be0fbf1c9c22ef3d28.png"><img alt="_images/d387adf263992d4cc56253b8acee5693cc2ef014229da7be0fbf1c9c22ef3d28.png" src="_images/d387adf263992d4cc56253b8acee5693cc2ef014229da7be0fbf1c9c22ef3d28.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2079,7 +2085,7 @@ lit          0.015534   0.004913    3.162  0.00157 **
 num          0.049929   0.004953   10.080  &lt; 2e-16 ***
 eng          0.042525   0.004959    8.575  &lt; 2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.4973 on 14398 degrees of freedom
 Multiple R-squared:  0.03057,	Adjusted R-squared:  0.03036 
@@ -2117,7 +2123,7 @@ sb11_english   0.012912   0.005942   2.173  0.02980 *
 female        -0.019775   0.008907  -2.220  0.02642 *  
 age            0.012901   0.001378   9.364  &lt; 2e-16 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.4949 on 14393 degrees of freedom
 Multiple R-squared:  0.03988,	Adjusted R-squared:  0.03934 
@@ -2207,7 +2213,7 @@ Coefficients:
 (Intercept) 10.510749   0.006660 1578.303  &lt; 2e-16 ***
 female      -0.062740   0.008582   -7.311 2.79e-13 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.5041 on 14400 degrees of freedom
 Multiple R-squared:  0.003698,	Adjusted R-squared:  0.003629 
@@ -2271,12 +2277,8 @@ field_Nursing            0.32046033 0.02551335   12.5604940  5.378294e-36
 field_Psychology        -0.08024501 0.02257280   -3.5549428  3.792742e-04
 field_Social Sci        -0.09617911 0.02733663   -3.5183241  4.356220e-04
 field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;R-squared: 0.0915144359870777&quot;
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;F-statistic: 85.2319313773929&quot;
+[1] &quot;R-squared: 0.0915144359870832&quot;
+[1] &quot;F-statistic: 85.2319313773986&quot;
 </pre></div>
 </div>
 </div>
@@ -2297,7 +2299,7 @@ field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/bd5df3a57d83a7f002dab25a1aa6f39213d16b27297a73d18647c54c777bd15c.png"><img alt="_images/bd5df3a57d83a7f002dab25a1aa6f39213d16b27297a73d18647c54c777bd15c.png" src="_images/bd5df3a57d83a7f002dab25a1aa6f39213d16b27297a73d18647c54c777bd15c.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png"><img alt="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png" src="_images/e93e02efb3441bd21a64196fe85066d000aa4088754308967a155f1c5c73c75d.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2329,7 +2331,7 @@ field_Sports            -0.16813976 0.07075289   -2.3764367  1.749377e-02
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/312cdad9b83935fbc8f5c1c47b5773e93a43b45cadd99203e5a882d09e9b5589.png"><img alt="_images/312cdad9b83935fbc8f5c1c47b5773e93a43b45cadd99203e5a882d09e9b5589.png" src="_images/312cdad9b83935fbc8f5c1c47b5773e93a43b45cadd99203e5a882d09e9b5589.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/49165197f3e297d5f436020ddf2afbb48962e96111b86573daaa46787bbf847b.png"><img alt="_images/49165197f3e297d5f436020ddf2afbb48962e96111b86573daaa46787bbf847b.png" src="_images/49165197f3e297d5f436020ddf2afbb48962e96111b86573daaa46787bbf847b.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2353,7 +2355,7 @@ Coefficients:
 age          0.1219857  0.0170947   7.136 1.01e-12 ***
 age_2       -0.0020146  0.0003021  -6.669 2.67e-11 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.5036 on 14399 degrees of freedom
 Multiple R-squared:  0.005684,	Adjusted R-squared:  0.005546 
@@ -2428,7 +2430,7 @@ STEM         0.0135673  0.0012491  10.861  &lt; 2e-16 ***
 age          0.0008951  0.0001271   7.040 2.01e-12 ***
 female:STEM -0.0033142  0.0016799  -1.973   0.0485 *  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.04698 on 14397 degrees of freedom
 Multiple R-squared:  0.01954,	Adjusted R-squared:  0.01927 
@@ -2476,7 +2478,7 @@ num          0.0066596  0.0005886  11.314   &lt;2e-16 ***
 age          0.0011285  0.0001278   8.827   &lt;2e-16 ***
 female:num   0.0017257  0.0008133   2.122   0.0339 *  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.04676 on 14397 degrees of freedom
 Multiple R-squared:  0.02887,	Adjusted R-squared:  0.0286 
@@ -2603,7 +2605,7 @@ Coefficients:
 (Intercept)  0.41500    0.16490   2.517    0.036 *  
 s            0.45500    0.04972   9.152 1.64e-05 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.2223 on 8 degrees of freedom
 Multiple R-squared:  0.9128,	Adjusted R-squared:  0.9019 
@@ -2636,7 +2638,7 @@ Coefficients: (1 not defined because of singularities)
 s            0.45500    0.04972   9.152 1.64e-05 ***
 s_mp              NA         NA      NA       NA    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.2223 on 8 degrees of freedom
 Multiple R-squared:  0.9128,	Adjusted R-squared:  0.9019 
@@ -2669,7 +2671,7 @@ Coefficients:
 s             0.3006     0.2694   1.116   0.3013  
 s_imp         0.1471     0.2518   0.584   0.5775  
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 0.2321 on 7 degrees of freedom
 Multiple R-squared:  0.9169,	Adjusted R-squared:  0.8931 
@@ -2715,7 +2717,7 @@ F-statistic:  38.6 on 2 and 7 DF,  p-value: 0.0001657
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/f6a72011c3751e85ccda73c74b2013e6e046a97de3c13037aeea696ada1e463b.png"><img alt="_images/f6a72011c3751e85ccda73c74b2013e6e046a97de3c13037aeea696ada1e463b.png" src="_images/f6a72011c3751e85ccda73c74b2013e6e046a97de3c13037aeea696ada1e463b.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/4cfdff25e40112b69d31936058211c173dd158ea3b454ba518b9a3bdc42d10ef.png"><img alt="_images/4cfdff25e40112b69d31936058211c173dd158ea3b454ba518b9a3bdc42d10ef.png" src="_images/4cfdff25e40112b69d31936058211c173dd158ea3b454ba518b9a3bdc42d10ef.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2727,7 +2729,7 @@ F-statistic:  38.6 on 2 and 7 DF,  p-value: 0.0001657
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/d845fdaa7f960205b485b9f9d6b42bf7ff31a88ee30b3dbf791c7ee31c6e0f2c.png"><img alt="_images/d845fdaa7f960205b485b9f9d6b42bf7ff31a88ee30b3dbf791c7ee31c6e0f2c.png" src="_images/d845fdaa7f960205b485b9f9d6b42bf7ff31a88ee30b3dbf791c7ee31c6e0f2c.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/0b614c74aaaaa5564bdb2262875370d65bdef55039cc5f094406dfca6e1fe223.png"><img alt="_images/0b614c74aaaaa5564bdb2262875370d65bdef55039cc5f094406dfca6e1fe223.png" src="_images/0b614c74aaaaa5564bdb2262875370d65bdef55039cc5f094406dfca6e1fe223.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2756,13 +2758,13 @@ F-statistic:  38.6 on 2 and 7 DF,  p-value: 0.0001657
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Shapiro-Wilk normality test
 
 data:  e
-W = 0.97208, p-value &lt; 2.2e-16
+W = 0.97392, p-value &lt; 2.2e-16
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Asymptotic one-sample Kolmogorov-Smirnov test
 
 data:  e
-D = 0.079897, p-value &lt; 2.2e-16
+D = 0.076455, p-value &lt; 2.2e-16
 alternative hypothesis: two-sided
 </pre></div>
 </div>
@@ -2789,15 +2791,21 @@ alternative hypothesis: two-sided
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The downloaded binary packages are in
-	/var/folders/b8/49g109jd3q9fzp3y0ccjzdbw0000gn/T//RtmpqeV4eg/downloaded_packages
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/s.montano42/AppData/Local/R/win-library/4.5&#39;
+(as &#39;lib&#39; is unspecified)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>package &#39;scales&#39; successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\s.montano42\AppData\Local\Temp\RtmpOssQ2D\downloaded_packages
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“package ‘scales’ was built under R version 4.3.3”
+&quot;package &#39;scales&#39; was built under R version 4.5.2&quot;
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/b4997ba1fe0f856e7cd356f96784885035ac07d228e0c31604a2a2c5e99a8f3a.png"><img alt="_images/b4997ba1fe0f856e7cd356f96784885035ac07d228e0c31604a2a2c5e99a8f3a.png" src="_images/b4997ba1fe0f856e7cd356f96784885035ac07d228e0c31604a2a2c5e99a8f3a.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/cd88b66533f5bf6fe3e1f7e6d9b28d57fdb7b49a83c244131d1d3f373b4a6904.png"><img alt="_images/cd88b66533f5bf6fe3e1f7e6d9b28d57fdb7b49a83c244131d1d3f373b4a6904.png" src="_images/cd88b66533f5bf6fe3e1f7e6d9b28d57fdb7b49a83c244131d1d3f373b4a6904.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2810,7 +2818,7 @@ alternative hypothesis: two-sided
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/96919f05ce9b694700c6963af50c74a9a784d6b6fe252a57ae6bcc2a0457bc4e.png"><img alt="_images/96919f05ce9b694700c6963af50c74a9a784d6b6fe252a57ae6bcc2a0457bc4e.png" src="_images/96919f05ce9b694700c6963af50c74a9a784d6b6fe252a57ae6bcc2a0457bc4e.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/ecd5c836385efa46971eeb8ec209337d290c18690724decb0d8e541e329c01d8.png"><img alt="_images/ecd5c836385efa46971eeb8ec209337d290c18690724decb0d8e541e329c01d8.png" src="_images/ecd5c836385efa46971eeb8ec209337d290c18690724decb0d8e541e329c01d8.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2826,7 +2834,7 @@ alternative hypothesis: two-sided
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="_images/50a00f6b07822f60a6219e8bd8387551e162d94760d433fce38cff634e2ac243.png"><img alt="_images/50a00f6b07822f60a6219e8bd8387551e162d94760d433fce38cff634e2ac243.png" src="_images/50a00f6b07822f60a6219e8bd8387551e162d94760d433fce38cff634e2ac243.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="_images/171f966b94f7709c29dcce511c23680f6cc87d2a018ca43808f2e4098ec803d2.png"><img alt="_images/171f966b94f7709c29dcce511c23680f6cc87d2a018ca43808f2e4098ec803d2.png" src="_images/171f966b94f7709c29dcce511c23680f6cc87d2a018ca43808f2e4098ec803d2.png" style="width: 420px; height: 420px;" />
 </a>
 </div>
 </div>
@@ -2876,6 +2884,247 @@ alternative hypothesis: two-sided
 <div class="math notranslate nohighlight">
 \[F_{stat} = \frac{SSE_2/(n_2 - k)}{SSE_1/(n_1 - k)} \sim F_{n_2-k \hspace{2pt},\hspace{2pt} n_1-k}\]</div>
 <p><strong>Esta prueba es muy dependiente de la forma funcional de la heteroscedasticidad</strong>, veamos por qué!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">080925</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">))</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+<span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span>
+
+<span class="nf">quantile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">probs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.33</span><span class="p">,</span><span class="w"> </span><span class="m">0.66</span><span class="p">))</span>
+
+<span class="n">q</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">)</span>
+<span class="n">q</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1.228844</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span>
+<span class="n">q</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">2.923213</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>33%</dt><dd>1.2288444265205</dd><dt>66%</dt><dd>2.92321314253055</dd></dl>
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>q
+  1   2   3 
+330 330 340 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Errores</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
+
+<span class="n">colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">markers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">markers</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">q</span><span class="p">)],</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">alpha</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">q</span><span class="p">)],</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/246eb71d56084640a254e1e49fb664261e15da593c0779dfd7dbf04d800f4c7c.png"><img alt="_images/246eb71d56084640a254e1e49fb664261e15da593c0779dfd7dbf04d800f4c7c.png" src="_images/246eb71d56084640a254e1e49fb664261e15da593c0779dfd7dbf04d800f4c7c.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Regresion en grupo 1</span>
+<span class="n">model_sample1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">])</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_sample1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y[q == 1] ~ x[q == 1])
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.89659 -0.28366  0.03812  0.31692  2.00987 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.95123    0.07272   13.08   &lt;2e-16 ***
+x[q == 1]    2.11256    0.10498   20.12   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.6757 on 328 degrees of freedom
+Multiple R-squared:  0.5525,	Adjusted R-squared:  0.5511 
+F-statistic:   405 on 1 and 328 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Regresion en grupo 3</span>
+<span class="n">model_sample3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">])</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_sample3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y[q == 3] ~ x[q == 3])
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.0039  -2.9464   0.2363   2.7570  18.9603 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   1.1534     0.9385   1.229     0.22    
+x[q == 3]     1.8514     0.1988   9.310   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 4.771 on 338 degrees of freedom
+Multiple R-squared:  0.2041,	Adjusted R-squared:  0.2018 
+F-statistic: 86.68 on 1 and 338 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">SSE1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">model_sample1</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="n">SSE1</span>
+<span class="n">SSE3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">model_sample3</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="n">SSE3</span>
+<span class="n">n1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">I</span><span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="m">1</span><span class="p">));</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">I</span><span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="m">3</span><span class="p">))</span>
+
+<span class="n">F_stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SSE3</span><span class="o">/</span><span class="p">(</span><span class="n">n2</span><span class="m">-2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">SSE1</span><span class="o">/</span><span class="p">(</span><span class="n">n1</span><span class="m">-2</span><span class="p">));</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;F-Stat =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">F_stat</span><span class="p">)</span>
+<span class="nf">paste</span><span class="p">(</span><span class="s">&quot;p-value =&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">-</span><span class="nf">pf</span><span class="p">(</span><span class="n">F_stat</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="m">-2</span><span class="p">,</span><span class="w"> </span><span class="n">n1</span><span class="m">-2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">149.742935490242</div><div class="output text_html">7694.75238355751</div><div class="output text_html">'F-Stat = 49.8661052900279'</div><div class="output text_html">'p-value = 0'</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">080925</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+<span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span>
+
+<span class="nf">quantile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">probs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.33</span><span class="p">,</span><span class="w"> </span><span class="m">0.66</span><span class="p">))</span>
+<span class="n">q</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">)</span>
+<span class="n">q</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">-1.3183744</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span>
+<span class="n">q</span><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="m">1.1391614</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>33%</dt><dd>-1.31837441755366</dd><dt>66%</dt><dd>1.13916145573334</dd></dl>
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>q
+  1   2   3 
+330 330 340 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Errores</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
+
+<span class="n">colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">markers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">markers</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">q</span><span class="p">)],</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Variable x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Errores (&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">alpha</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="nf">factor</span><span class="p">(</span><span class="n">q</span><span class="p">)],</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/952b008f562f0639e1bc4d101d085a71e43d1422588b58a6cc87a46b1f915a24.png"><img alt="_images/952b008f562f0639e1bc4d101d085a71e43d1422588b58a6cc87a46b1f915a24.png" src="_images/952b008f562f0639e1bc4d101d085a71e43d1422588b58a6cc87a46b1f915a24.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Regresion en grupo 1</span>
+<span class="n">model_sample1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">])</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_sample1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y[q == 1] ~ x[q == 1])
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.8490  -2.0463   0.0468   1.7391  16.0688 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   0.8216     0.4897   1.678   0.0944 .  
+x[q == 1]     1.8570     0.1291  14.389   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 3.814 on 328 degrees of freedom
+Multiple R-squared:  0.387,	Adjusted R-squared:  0.3851 
+F-statistic:   207 on 1 and 328 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Regresion en grupo 3</span>
+<span class="n">model_sample3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">q</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">])</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_sample3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y[q == 3] ~ x[q == 3])
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.2271  -1.6012  -0.0268   1.6582  19.0331 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   1.5672     0.4288   3.655 0.000298 ***
+x[q == 3]     1.7685     0.1211  14.601  &lt; 2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 3.469 on 338 degrees of freedom
+Multiple R-squared:  0.3868,	Adjusted R-squared:  0.385 
+F-statistic: 213.2 on 1 and 338 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">SSE1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">model_sample1</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="n">SSE1</span>
+<span class="n">SSE3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">residuals</span><span class="p">(</span><span class="n">model_sample3</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="n">SSE3</span>
+<span class="n">n1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">I</span><span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="m">1</span><span class="p">));</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="nf">I</span><span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="m">3</span><span class="p">))</span>
+
+<span class="n">F_stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SSE3</span><span class="o">/</span><span class="p">(</span><span class="n">n2</span><span class="m">-2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">SSE1</span><span class="o">/</span><span class="p">(</span><span class="n">n1</span><span class="m">-2</span><span class="p">));</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;F-Stat =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">F_stat</span><span class="p">)</span>
+<span class="nf">paste</span><span class="p">(</span><span class="s">&quot;p-value =&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">-</span><span class="nf">pf</span><span class="p">(</span><span class="n">F_stat</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="m">-2</span><span class="p">,</span><span class="w"> </span><span class="n">n1</span><span class="m">-2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">4770.90813358116</div><div class="output text_html">4066.35788633366</div><div class="output text_html">'F-Stat = 0.827106984562795'</div><div class="output text_html">'p-value = 0.958232609513753'</div></div>
+</div>
 </section>
 <section id="prueba-de-breusch-pagan">
 <h3>2.31.2  Prueba de Breusch-Pagan<a class="headerlink" href="#prueba-de-breusch-pagan" title="Link to this heading">#</a></h3>
@@ -2951,6 +3200,94 @@ p_i = X\alpha + u
 <div class="math notranslate nohighlight">
 \[nR^2 \sim \chi^2_p\]</div>
 <p>donde <span class="math notranslate nohighlight">\(p\)</span> es el número total de regresores (sin la constante) en la regresión auxiliar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.9163  -0.9610  -0.0364   1.1238  18.7384 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.04455    0.09509   10.98   &lt;2e-16 ***
+x            1.90771    0.03140   60.76   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 3.006 on 998 degrees of freedom
+Multiple R-squared:  0.7872,	Adjusted R-squared:  0.787 
+F-statistic:  3691 on 1 and 998 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Prueba de Breusch-Pagan </span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;lmtest&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;lmtest&quot;</span><span class="p">)</span>
+<span class="nf">bptest</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+&quot;package &#39;lmtest&#39; is in use and will not be installed&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	studentized Breusch-Pagan test
+
+data:  model
+BP = 1.4077, df = 1, p-value = 0.2354
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;skedastic&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;skedastic&quot;</span><span class="p">)</span>
+
+<span class="c1">#Prueba de White</span>
+<span class="nf">white</span><span class="p">(</span><span class="n">mainlm</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">interactions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/s.montano42/AppData/Local/R/win-library/4.5&#39;
+(as &#39;lib&#39; is unspecified)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>package &#39;skedastic&#39; successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\s.montano42\AppData\Local\Temp\RtmpOssQ2D\downloaded_packages
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+&quot;package &#39;skedastic&#39; was built under R version 4.5.2&quot;
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 1 × 5</caption>
+<thead>
+	<tr><th scope=col>statistic</th><th scope=col>p.value</th><th scope=col>parameter</th><th scope=col>method</th><th scope=col>alternative</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>228.219</td><td>2.772473e-50</td><td>2</td><td>White's Test</td><td>greater</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
 </section>
 </section>
 <section id="heteroscedasticidad-y-error-de-especificacion">
@@ -2969,6 +3306,95 @@ p_i = X\alpha + u
 <div class="math notranslate nohighlight">
 \[V(u_i) = \sigma^2 + V(\beta_2 x_i^2)\]</div>
 <p>Ya que la varianza de <span class="math notranslate nohighlight">\(u_i\)</span> depende de <span class="math notranslate nohighlight">\(x_i\)</span>, el error de especificación genera heteroscedasticidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">160925</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+
+<span class="c1">#Error de especificación: variable independiente</span>
+<span class="n">beta0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">10</span>
+<span class="n">beta1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.4</span>
+<span class="n">beta2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-0.05</span>
+<span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">beta0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">beta1</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">beta2</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="w"> </span>
+<span class="n">u</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">beta2</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;ivory4&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-9</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;maroon&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">18</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;bottomleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;e&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;u&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;ivory4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;maroon&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">),</span><span class="w"> </span><span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/cdb41cf8e2221c507828890a338164fc99bcc80c156a2d79d865deb895c2858a.png"><img alt="_images/cdb41cf8e2221c507828890a338164fc99bcc80c156a2d79d865deb895c2858a.png" src="_images/cdb41cf8e2221c507828890a338164fc99bcc80c156a2d79d865deb895c2858a.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model_het</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_het</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.3500 -0.6787  0.0153  0.6933  3.1852 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  10.8348     0.0686 157.943   &lt;2e-16 ***
+x            -0.1016     0.0119  -8.535   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.08 on 998 degrees of freedom
+Multiple R-squared:  0.06803,	Adjusted R-squared:  0.0671 
+F-statistic: 72.85 on 1 and 998 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="o">^</span><span class="m">2</span>
+<span class="n">model_hom</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x2</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_hom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x + x2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.1698 -0.6240 -0.0083  0.6783  3.1084 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  9.970432   0.098440 101.285   &lt;2e-16 ***
+x            0.408441   0.045325   9.011   &lt;2e-16 ***
+x2          -0.050724   0.004368 -11.612   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 1.014 on 997 degrees of freedom
+Multiple R-squared:  0.1791,	Adjusted R-squared:  0.1774 
+F-statistic: 108.7 on 2 and 997 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Error de Especificación de la Variable Dependiente</strong></p>
 <p>Considere ahora la regresión</p>
 <div class="math notranslate nohighlight">
@@ -2983,6 +3409,91 @@ p_i = X\alpha + u
 <div class="math notranslate nohighlight">
 \[V(u_i) = (e^{\sigma^2} - 1) e^{2(\beta_0 + \beta_1 x_i)+ \sigma^2}\]</div>
 <p>Ya que la varianza de <span class="math notranslate nohighlight">\(u_i\)</span> depende de <span class="math notranslate nohighlight">\(x_i\)</span>, el error de especificación genera heteroscedasticidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">160925</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">runif</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="n">beta0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span>
+<span class="n">beta1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span>
+<span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">beta0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">beta1</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;ivory4&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">alpha</span><span class="p">(</span><span class="s">&quot;maroon&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">18</span><span class="p">)</span><span class="w"> </span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;log(y)&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;y&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;ivory4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;maroon&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">),</span><span class="w"> </span><span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.064   2.841   4.583   5.532   7.383  19.292 
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/b41790f6348e830970248ac6e41d3fcf99524e034187c5ef1ee752e24c00d2a3.png"><img alt="_images/b41790f6348e830970248ac6e41d3fcf99524e034187c5ef1ee752e24c00d2a3.png" src="_images/b41790f6348e830970248ac6e41d3fcf99524e034187c5ef1ee752e24c00d2a3.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Modelo Heteroscedastico</span>
+<span class="n">model_het</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_het</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.3705 -2.4067 -0.8557  2.1093 11.2585 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   2.8726     0.2044   14.05   &lt;2e-16 ***
+x             5.3201     0.3546   15.00   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 3.218 on 998 degrees of freedom
+Multiple R-squared:  0.184,	Adjusted R-squared:  0.1832 
+F-statistic:   225 on 1 and 998 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Modelo Homocedastico</span>
+<span class="n">model_hom</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">model_hom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = log(y) ~ x)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.00812 -0.48507 -0.00552  0.50241  0.98942 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.01301    0.03669   27.61   &lt;2e-16 ***
+x            0.99369    0.06366   15.61   &lt;2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.5777 on 998 degrees of freedom
+Multiple R-squared:  0.1963,	Adjusted R-squared:  0.1954 
+F-statistic: 243.7 on 1 and 998 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>¿Es posible solucionar la heteroscedasticidad por error de especificación?</strong></p>
 <p>Errores en la especificación pueden generar heteroscedasticidad (además de otros problemas). Sin embargo, usualmente <strong>desconocemos</strong> la especificación correcta.</p>
 <p>Por esta razón necesitamos una manera formal de tratar la heteroscedasticidad.</p>
@@ -3078,6 +3589,105 @@ V(\hat{\beta}|X ) &amp;= E \big[(\hat{\beta} - E[\hat{\beta}])(\hat{\beta} - E[\
 \[
 \widehat{V}(\hat{\beta}) = (X'X)^{-1} S_R (X'X)^{-1}\]</div>
 <p>A estos errores se les conoce como <strong>errores de White</strong> o <strong>robustos</strong>, y corrigen (son robustos) cualquier forma de heteroscedasticidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">ln_fst_wage</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">lit</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">eng</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">program_type_1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">program_type_4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">program_type_3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">female</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age_2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">stratum</span><span class="p">))</span>
+
+<span class="nf">summary</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = ln_fst_wage ~ lit + num + eng + program_type_1 + 
+    program_type_4 + program_type_3 + female + age + age_2 + 
+    factor(stratum))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.03290 -0.40462 -0.07118  0.33958  2.14786 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       9.1862784  0.2339657  39.263  &lt; 2e-16 ***
+lit               0.0185672  0.0049125   3.780 0.000158 ***
+num               0.0590049  0.0051131  11.540  &lt; 2e-16 ***
+eng               0.0192638  0.0053945   3.571 0.000357 ***
+program_type_1    0.0448489  0.0189608   2.365 0.018026 *  
+program_type_4    0.1260553  0.0152519   8.265  &lt; 2e-16 ***
+program_type_3    0.2272664  0.0149212  15.231  &lt; 2e-16 ***
+female           -0.0291473  0.0087733  -3.322 0.000895 ***
+age               0.0669969  0.0167625   3.997 6.45e-05 ***
+age_2            -0.0009596  0.0002962  -3.240 0.001199 ** 
+factor(stratum)2  0.0463390  0.0143304   3.234 0.001225 ** 
+factor(stratum)3  0.0582121  0.0145630   3.997 6.44e-05 ***
+factor(stratum)4  0.0467504  0.0184922   2.528 0.011478 *  
+factor(stratum)5  0.0610309  0.0246481   2.476 0.013294 *  
+factor(stratum)6  0.1367354  0.0302505   4.520 6.23e-06 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.4881 on 14387 degrees of freedom
+Multiple R-squared:  0.06679,	Adjusted R-squared:  0.06589 
+F-statistic: 73.55 on 14 and 14387 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;sandwich&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;lmtest&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#39;sandwich&#39;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&#39;lmtest&#39;</span><span class="p">)</span>
+
+<span class="n">matriz_cov_robusta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">vcovHC</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="nf">coeftest</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">vcov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matriz_cov_robusta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing package into &#39;C:/Users/s.montano42/AppData/Local/R/win-library/4.5&#39;
+(as &#39;lib&#39; is unspecified)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>package &#39;sandwich&#39; successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\s.montano42\AppData\Local\Temp\RtmpOssQ2D\downloaded_packages
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+&quot;package &#39;lmtest&#39; is in use and will not be installed&quot;
+Warning message:
+&quot;package &#39;sandwich&#39; was built under R version 4.5.2&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t test of coefficients:
+
+                   Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept)       9.1862784  0.2249524 40.8365 &lt; 2.2e-16 ***
+lit               0.0185672  0.0049122  3.7798 0.0001576 ***
+num               0.0590049  0.0051739 11.4044 &lt; 2.2e-16 ***
+eng               0.0192638  0.0056583  3.4045 0.0006647 ***
+program_type_1    0.0448489  0.0144558  3.1025 0.0019227 ** 
+program_type_4    0.1260553  0.0123051 10.2441 &lt; 2.2e-16 ***
+program_type_3    0.2272664  0.0121134 18.7615 &lt; 2.2e-16 ***
+female           -0.0291473  0.0088970 -3.2761 0.0010551 ** 
+age               0.0669969  0.0162333  4.1271 3.694e-05 ***
+age_2            -0.0009596  0.0002883 -3.3284 0.0008756 ***
+factor(stratum)2  0.0463390  0.0128267  3.6127 0.0003041 ***
+factor(stratum)3  0.0582121  0.0133824  4.3499 1.371e-05 ***
+factor(stratum)4  0.0467504  0.0185424  2.5213 0.0117040 *  
+factor(stratum)5  0.0610309  0.0265639  2.2975 0.0216038 *  
+factor(stratum)6  0.1367354  0.0348247  3.9264 8.663e-05 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="sesgo-por-error-de-especificacion">
 <h2>2.36 Sesgo por Error de Especificación<a class="headerlink" href="#sesgo-por-error-de-especificacion" title="Link to this heading">#</a></h2>
@@ -3192,6 +3802,15 @@ E(\hat \beta_1) &amp;= \beta_1 + \frac{Cov(x_i^*, \varepsilon_i -  \beta_1 \nu )
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Parte I - Fundamentos</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Modulo_3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Parte III - Modelos de Respuesta Cualitativa</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
