@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Parte III - Modelos de Respuesta Cualitativa &#8212; Microeconometria Aplicada</title>
+    <title>Parte III - Respuesta Cualitativa &#8212; Microeconometria Aplicada</title>
   
   
   
@@ -183,7 +183,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Modulo_1.html">Parte I - Fundamentos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modulo_2.html">Parte II - Regresión Lineal</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Parte III - Modelos de Respuesta Cualitativa</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Parte III - Respuesta Cualitativa</a></li>
 </ul>
 
     </div>
@@ -369,7 +369,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Parte III - Modelos de Respuesta Cualitativa</h1>
+    <h1>Parte III - Respuesta Cualitativa</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,8 +407,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="parte-iii-modelos-de-respuesta-cualitativa">
-<h1>Parte III - Modelos de Respuesta Cualitativa<a class="headerlink" href="#parte-iii-modelos-de-respuesta-cualitativa" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="parte-iii-respuesta-cualitativa">
+<h1>Parte III - Respuesta Cualitativa<a class="headerlink" href="#parte-iii-respuesta-cualitativa" title="Link to this heading">#</a></h1>
 <p>Hasta ahora hemos cubierto modelos de regresión cuya variable dependiente <span class="math notranslate nohighlight">\(y_i\)</span> es continua.</p>
 <p>Sin embargo, es posible que estemos interesados en estudiar la relación entre una variable cualitativa <span class="math notranslate nohighlight">\(y_i\)</span> y un conjunto de <span class="math notranslate nohighlight">\(k\)</span> variables explicativas <span class="math notranslate nohighlight">\(x_{ji}\)</span>, <span class="math notranslate nohighlight">\(j \in \{1, ..., k\}\)</span>.</p>
 <p>Inicialmente consideraremos el caso en que la variable es binaria, es decir, <span class="math notranslate nohighlight">\(y_i \in \{0, 1\}\)</span>.</p>
@@ -539,8 +539,8 @@ y_i &amp;= E[y_i | X]  + \varepsilon_i \\
 <p>Sin embargo, algunos de los supuestos del modelo de regresión no se cumplen. En particular, los errores no se distribuyen normal y el modelo es mecánicamente heteroscedastico. Note que:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>$<span class="math notranslate nohighlight">\(y_i\)</span>$</p></th>
-<th class="head"><p>$<span class="math notranslate nohighlight">\(\varepsilon_i\)</span>$</p></th>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(y_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\varepsilon_i\)</span></p></th>
 </tr>
 </thead>
 <tbody>
@@ -558,19 +558,23 @@ y_i &amp;= E[y_i | X]  + \varepsilon_i \\
 <div class="math notranslate nohighlight">
 \[V(\varepsilon_i) = E(\varepsilon_i^2) - E(\varepsilon_i)^2\]</div>
 <ol class="arabic simple">
-<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i) = 0\)</span>.
-\begin{align*}
-E(\varepsilon_i) &amp;= (1- X_i’\beta)p_i + (- X_i’\beta)(1 - p_i) \
-&amp;= (1- p_i)p_i - (p_i)(1 - p_i) = 0 \
-\end{align*}</p></li>
-<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i^2)\)</span>
-\begin{align*}
-E(\varepsilon_i^2) &amp;= (1- X_i’\beta)^2p_i + (- X_i’\beta)^2(1 - p_i) \
-&amp;= (1- p_i)^2p_i + p_i^2(1 - p_i) \
-&amp;= p_i - 2p_i^2 + p_i^3 + p_i^2 - p_i^3\
-&amp;= p_i - p_i^2 = p_i(1 - p_i)\
-\end{align*}</p></li>
+<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i) = 0\)</span>.</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i) = (1- X_i'\beta)p_i + (- X_i'\beta)(1 - p_i)\]</div>
+<div class="math notranslate nohighlight">
+\[(1- p_i)p_i - (p_i)(1 - p_i) = 0\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Note que <span class="math notranslate nohighlight">\(E(\varepsilon_i^2)\)</span></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i^2) = (1- X_i'\beta)^2p_i + (- X_i'\beta)^2(1 - p_i)\]</div>
+<div class="math notranslate nohighlight">
+\[= (1- p_i)^2p_i + p_i^2(1 - p_i)\]</div>
+<div class="math notranslate nohighlight">
+\[= p_i - 2p_i^2 + p_i^3 + p_i^2 - p_i^3\]</div>
+<div class="math notranslate nohighlight">
+\[= p_i - p_i^2 = p_i(1 - p_i)\]</div>
 <p>Ya que</p>
 <div class="math notranslate nohighlight">
 \[V(\varepsilon_i) = p_i(1 - p_i) = X_i'\beta(1 - X_i'\beta)\]</div>
