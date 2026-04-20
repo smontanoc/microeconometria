@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis Causal &#8212; Microeconometria Aplicada</title>
+    <title>Parte V - Análisis Causal &#8212; Microeconometria Aplicada</title>
   
   
   
@@ -57,9 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Modulo_5';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Parte IV - Variación Temporal" href="Modulo_4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,11 +180,12 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Modulo_1.html">Parte I - Fundamentos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modulo_2.html">Parte II - Regresión Lineal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modulo_3.html">Parte III - Respuesta Cualitativa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Modulo_4.html">Parte IV - Variación Temporal</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Parte V - Análisis Causal</a></li>
 </ul>
 
     </div>
@@ -356,7 +358,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -367,11 +371,62 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Análisis Causal</h1>
+    <h1>Parte V - Análisis Causal</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-resultados-potenciales">5.1 Modelo de Resultados Potenciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-analisis-causal-observability-problem">5.1.1 Problema de Análisis Causal (<em>Observability Problem</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-interes">5.1.2 Parámetros de Interés</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-regresion-y-analisis-causal">5.1.3 Modelo Regresión y Análisis Causal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sesgo-de-autoseleccion">5.1.4 Sesgo de Autoselección</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asignacion-aleatoria-a-tratamiento-rct">5.1.5 Asignación Aleatoria a Tratamiento (RCT)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-instrumentales">5.2 Variables Instrumentales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relevancia-y-exogenidad-de-un-instrumento">5.2.1 Relevancia y Exogenidad de un Instrumento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">5.2.2 Aplicaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-en-dos-etapas-mc2">5.2.3 Mínimos Cuadrados en Dos Etapas (MC2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-estadisticas-de-hat-beta-iv">5.2.4 Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-de-un-instrumento">5.2.5 Validez de un Instrumento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-sobreidentificacion-y-no-identificacion">5.2.6 Identificación, Sobreidentificación, y No Identificación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-sobreidentificacion">5.2.7 Prueba de Sobreidentificación</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua">5.3 Regresión Discontinua</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-nitida">5.3.1 Regresión Discontinua Nítida</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-de-especificacion">Problemas de Especificación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-no-parametrica">Estimación No Paramétrica</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-de-identificacion">Supuestos de Identificación</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-retornos-a-senalizar-habilidades">5.3.2 Aplicación: Retornos a Señalizar Habilidades</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-interna">Validez Interna</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-manipulacion-del-tratamiento">5.3.3 Aplicación: Manipulación del Tratamiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-borrosa">5.3.4 Regresión Discontinua Borrosa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-ser-pilo-paga">5.3.5 Aplicación: Ser Pilo Paga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencias-en-diferencias">5.4 Diferencias en Diferencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-entre-grupos">5.4.1 Comparación entre Grupos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuicion-del-metodo">5.4.2 Intuición del Método</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tendencias-paralelas">5.4.3 Tendencias Paralelas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-salario-minimo-y-empleo">5.4.4 Aplicación: Salario Mínimo y Empleo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-regresion">5.4.5 Modelo de Regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion">5.4.6 Estimación</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -381,8 +436,584 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analisis-causal">
-<h1>Análisis Causal<a class="headerlink" href="#analisis-causal" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="parte-v-analisis-causal">
+<h1>Parte V - Análisis Causal<a class="headerlink" href="#parte-v-analisis-causal" title="Link to this heading">#</a></h1>
+<p>Hasta ahora hemos usado el modelo de regresión para estudiar la relación entre una variable dependiente <span class="math notranslate nohighlight">\(y\)</span> (<em>outcome</em>) y una o múltiples variables independientes <span class="math notranslate nohighlight">\(x\)</span> (covariables o <em>covariates</em>). Sin embargo, <strong>correlación no implica causalidad</strong>.</p>
+<p>En economía, y muchas otras disciplinas, queremos establecer relaciones causales. Es decir, nos interesa responder la pregunta <strong>¿cuál es el efecto o impacto de <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(y\)</span>?</strong></p>
+<p>En el de modelo de regresión, el supuesto clave para interpretar nuestras estimaciones como efectos causales es:</p>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon | x) = 0\]</div>
+<p>Por lo tanto, tratar de argumentar la validez de este supuesto concentrará nuestra atención.</p>
+<section id="modelo-de-resultados-potenciales">
+<h2>5.1 Modelo de Resultados Potenciales<a class="headerlink" href="#modelo-de-resultados-potenciales" title="Link to this heading">#</a></h2>
+<p>Iniciamos nuestro estudio acerca de la causalidad entre variables con el modelo de resultados potenciales de Rubin.</p>
+<p>Suponga que nos interesa determinar el efecto causal de un tratamiento o política sobre una variable <span class="math notranslate nohighlight">\(y\)</span>. Definimos la variable <span class="math notranslate nohighlight">\(D_i\)</span> como un indicador que toma el valor de 1 si el individuo <span class="math notranslate nohighlight">\(i\)</span> recibió el tratamiento y 0 en caso contrario. Es decir, <span class="math notranslate nohighlight">\(D_i\)</span> nos permite identificar los individuos tratados y los no tratados.</p>
+<p><strong>En un mundo ideal</strong> quisieramos observar el cambio (o <strong>efecto</strong>) en la variable <span class="math notranslate nohighlight">\(y_i\)</span> en presencia de tratamiento (<span class="math notranslate nohighlight">\(D_i = 1\)</span>) y ausencia de tratamiento (<span class="math notranslate nohighlight">\(D_i = 0\)</span>). Es decir, el efecto del tratamiento para cada individuo <span class="math notranslate nohighlight">\(i\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[\tau_i = y_i(1) - y_i(0)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(y_i(1)\)</span> es el valor que toma la variable de interés cuando <span class="math notranslate nohighlight">\(i\)</span> es tratado y <span class="math notranslate nohighlight">\(y_i(0)\)</span> es el valor que toma cuando <span class="math notranslate nohighlight">\(i\)</span> no es tratado.</p>
+<section id="problema-de-analisis-causal-observability-problem">
+<h3>5.1.1 Problema de Análisis Causal (<em>Observability Problem</em>)<a class="headerlink" href="#problema-de-analisis-causal-observability-problem" title="Link to this heading">#</a></h3>
+<p>Es evidente que no podemos observar <span class="math notranslate nohighlight">\(y_i(1)\)</span> y <span class="math notranslate nohighlight">\(y_i(0)\)</span> al mismo tiempo.</p>
+<p><strong>Para cada individuo solo observamos un valor <span class="math notranslate nohighlight">\(y_i\)</span></strong>, es decir, solo observamos <span class="math notranslate nohighlight">\(y_i(1)\)</span> para los individuos tratados y solo observamos <span class="math notranslate nohighlight">\(y_i(0)\)</span> para los individuos no tratados. Esto lo podemos resumir de la siguiente manera:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_i = y_i(1) \cdot D_i + y_i(0) \cdot (1 - D_i) =
+    \left\{\begin{array}{lr}
+    y_i(1), &amp; \text{si } D_i = 1 \\
+    y_i(0), &amp; \text{si } D_i = 0 \\
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Note que podemos reescribir <span class="math notranslate nohighlight">\(y_i\)</span> cómo una función de regresión:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \underbrace{\hspace{3pt}\alpha\hspace{3pt}}_{E(y_i(0))} + \underbrace{\hspace{2pt}\tau_i\hspace{2pt}}_{y_i(1) - y_i(0)} D_i + \underbrace{\hspace{2pt}\varepsilon_i\hspace{2pt}}_{y_i(0) - E(y_i(0))}\]</div>
+</section>
+<section id="parametros-de-interes">
+<h3>5.1.2 Parámetros de Interés<a class="headerlink" href="#parametros-de-interes" title="Link to this heading">#</a></h3>
+<p>Debido a que no podemos determinar el efecto del tratamiento para cada individuo <strong>nos concentraremos en el efecto promedio para una población</strong> de estudio. Los siguientes son parámetros de interés que nos interesa considerar:</p>
+<ul class="simple">
+<li><p><strong>Efecto Promedio</strong> (<em>ATE: Average Treatment Effect</em>): Relevante para programas universales</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[E(\tau_i) = E(y_i(1) - y_i(0)) = E(y_i(1)) - E(y_i(0))\]</div>
+<ul class="simple">
+<li><p><strong>Efecto Promedio en Tratados</strong> (<em>ATT: Average Treatment on Treated</em>): Relevante para estimar la efectividad de una política (programa o tratamiento)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[E(\tau_i | D_i = 1) = E(y_i(1)| D_i = 1) - \underbrace{E(y_i(0) | D_i = 1)}_{\text{Contrafactual}}\]</div>
+<ul class="simple">
+<li><p><strong>Efecto Promedio en No Tratados</strong> (<em>ATU: Average Treatment on Untreated</em>): Relevate para estimar como una política puede afectar poblaciones no focalizadas (<em>spillovers</em>)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[E(\tau_i | D_i = 0) = \underbrace{E(y_i(1)| D_i = 0)}_{\text{Contrafactual}} - E(y_i(0) | D_i = 0)\]</div>
+<p>Es importante observar que el promedio contrafactual es un resultado hipotetico, pues no lo podemos observar.</p>
+</section>
+<section id="modelo-regresion-y-analisis-causal">
+<h3>5.1.3 Modelo Regresión y Análisis Causal<a class="headerlink" href="#modelo-regresion-y-analisis-causal" title="Link to this heading">#</a></h3>
+<p>Supongamos por ahora que el efecto del programa es igual para todos los individuos, es decir, suponga que:</p>
+<div class="math notranslate nohighlight">
+\[\tau_i = \tau\]</div>
+<p>De esta manera, nuestro modelo de regresión está dado por:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \alpha + \tau D_i + \varepsilon_i\]</div>
+<p>Observe que</p>
+<div class="math notranslate nohighlight">
+\[E(y_i(1) | D_i = 1) = \alpha + \tau + E(\varepsilon_i | D_i = 1)\]</div>
+<div class="math notranslate nohighlight">
+\[E(y_i(0) | D_i = 0) = \alpha + E(\varepsilon_i | D_i = 0)\]</div>
+</section>
+<section id="sesgo-de-autoseleccion">
+<h3>5.1.4 Sesgo de Autoselección<a class="headerlink" href="#sesgo-de-autoseleccion" title="Link to this heading">#</a></h3>
+<p>A partir de esta ecuaciones podemos determinar que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \tau &amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0) + E(\varepsilon_i | D_i = 1) - E(\varepsilon_i | D_i = 0) \\\\
+     &amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0) + \underbrace{E(y_i(0) | D_i = 1) - E(y_i(0) | D_i = 0)}_{\text{Sesgo de Autoselección}} \\
+     &amp; = ATT + \text{Sesgo de Autoselección} \\
+\end{align*}\]</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(E(\varepsilon_i|D_i) = 0\)</span>, entonces</p>
+<div class="math notranslate nohighlight">
+\[\tau = ATT = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0)\]</div>
+</section>
+<section id="asignacion-aleatoria-a-tratamiento-rct">
+<h3>5.1.5 Asignación Aleatoria a Tratamiento (RCT)<a class="headerlink" href="#asignacion-aleatoria-a-tratamiento-rct" title="Link to this heading">#</a></h3>
+<p>Asignar aleatoriamente el tratamiento implica que los factores observables y no observables que componen el término de error <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> son independiente de <span class="math notranslate nohighlight">\(D_i\)</span>. En otras palabras,</p>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i | D_i) = E(\varepsilon_i) = 0\]</div>
+<p>Si la asignación a tratamiento es aleatoria <span class="math notranslate nohighlight">\(D_i\)</span> también es independiente de los resultados potenciales. Es decir,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+E(y_i | D_i = 1) - E(y_i | D_i = 0) &amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | D_i = 0) \\\\
+&amp; = E(y_i(1) | D_i = 1) - E(y_i(0) | {\color{red} D_i = 1}) \\\\
+&amp; = E(y_i(1) - y_i(0) | {\color{red} D_i = 1})\\\\
+&amp; = E(y_i(1) - y_i(0))\\
+\end{align*}\]</div>
+</section>
+</section>
+<section id="variables-instrumentales">
+<h2>5.2 Variables Instrumentales<a class="headerlink" href="#variables-instrumentales" title="Link to this heading">#</a></h2>
+<p>Suponga que estamos interesados en estudiar el efecto causal que tiene la variable <span class="math notranslate nohighlight">\(x\)</span> sobre la variable de resultado <span class="math notranslate nohighlight">\(y\)</span>. Para determinar esta relación causal usted cuenta con información para <span class="math notranslate nohighlight">\(n\)</span> individuos y quiere estimar la siguiente ecuación de regresión:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</div>
+<p>Usted estima esta regresión a través de MCO. Sin embargo, usted sospecha que el supuesto de exogeneidad no se cumple, es decir:</p>
+<div class="math notranslate nohighlight">
+\[E(\varepsilon_i | x_i) \neq 0 \quad \Rightarrow \quad E(\hat\beta) \neq \beta\]</div>
+<p>Múltiples razones pueden sugerir que el supuesto de exogenidad se viola. Algunas de ellas son:</p>
+<ol class="arabic simple">
+<li><p><strong>Omitir variables relevantes</strong>: factores (observables y no observables) que explican <span class="math notranslate nohighlight">\(y_i\)</span> y que se relaciona de manera importante con <span class="math notranslate nohighlight">\(x_i\)</span>.</p></li>
+<li><p><strong>Error de medición</strong>: si en lugar de observar <span class="math notranslate nohighlight">\(x_i\)</span> solo podemos observar <span class="math notranslate nohighlight">\(x_i^* = x_i + \xi_i\)</span></p></li>
+<li><p><strong>Simultaneidad o causalidad inversa</strong>: Si <span class="math notranslate nohighlight">\(x_i\)</span> afecta <span class="math notranslate nohighlight">\(y_i\)</span> y <span class="math notranslate nohighlight">\(y_i\)</span> afecta <span class="math notranslate nohighlight">\(x_i\)</span></p></li>
+</ol>
+<section id="relevancia-y-exogenidad-de-un-instrumento">
+<h3>5.2.1 Relevancia y Exogenidad de un Instrumento<a class="headerlink" href="#relevancia-y-exogenidad-de-un-instrumento" title="Link to this heading">#</a></h3>
+<p>El método de <strong>variables instrumentales</strong> (IV) es ampliamente usado por analístas e investigadores para estimar el efecto causal de <span class="math notranslate nohighlight">\(x_i\)</span> en <span class="math notranslate nohighlight">\(y_i\)</span>. Es decir, a través de esta estrategia podemos obtener <strong>estimadores consistentes</strong>.</p>
+<p>El uso de este método requiere de una variable <span class="math notranslate nohighlight">\(z_i\)</span> o <strong>instrumento</strong> que cumple dos propiedades importantes:</p>
+<ol class="arabic simple">
+<li><p><strong>Relevancia</strong> : El instrumento <span class="math notranslate nohighlight">\(z_i\)</span> debe está fuertemente correlacionado con la variable endogena <span class="math notranslate nohighlight">\(x_i\)</span>. Es decir,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[Cov(x_i, z_i) \neq 0\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Exogeneidad ó Restricción de Exclusión</strong>: El instrumento <span class="math notranslate nohighlight">\(z_i\)</span> debe ser cuasi-aletorio (<em>as good as random</em>) y solo debe afectar a <span class="math notranslate nohighlight">\(y_i\)</span> a través de <span class="math notranslate nohighlight">\(x_i\)</span>. Es decir,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[Cov(\varepsilon_i, z_i) = 0 \quad \Rightarrow \quad \beta_1 = \frac{Cov(y_i, z_i)}{Cov(x_i, z_i)}\]</div>
+<p>Cabe mencionar que la primera condición se puede probar de manera empírica. Sin embargo, para la segunda condición no existe una prueba formal que nos permita determinar si el instrumento es cuasi-aleatorio.</p>
+</section>
+<section id="aplicaciones">
+<h3>5.2.2 Aplicaciones<a class="headerlink" href="#aplicaciones" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>Angrist (1990 AER)</strong>: Este documento estudia las consecuencias de haber prestado servicio militar en la guerra de Vietnam sobre los ingresos laborales.</p>
+<p><span class="math notranslate nohighlight">\(y_i\)</span> son ingresos, <span class="math notranslate nohighlight">\(x_i\)</span> es el estatus de veterano, <span class="math notranslate nohighlight">\(z_i\)</span> es la elegibilidad para servir en la guerra a partir de una lotería.</p>
+</li>
+<li><p><strong>Angrist y Krueger (1991 QJE)</strong>: Estudian el efecto de la educación sobre los salarios. En Estados Unidos y muchos otros paises, los estudiantes solo pueden ingresar al primer grado del sistema educativo a partir de cierta edad (5 años al 1 de Sep). Además, es obligatorio que los estudiantes estén hasta los 16 años en el sistema educativo.</p>
+<p><span class="math notranslate nohighlight">\(y_i\)</span> son salarios, <span class="math notranslate nohighlight">\(x_i\)</span> los años de educación completa, <span class="math notranslate nohighlight">\(z_i\)</span> es el trimestre de nacimiento (1 = Ene-Ago, 0 = Sep-Dic). Observe que si <span class="math notranslate nohighlight">\(z_i = 1\)</span>, el individuo es obligado a completar mas años educativos antes de poder desertar.</p>
+</li>
+<li><p><strong>Angrist, Graddy, e Imbens (2000 RESTUD)</strong>: Estiman una función de demanda a partir de precios y cantidades vendidas de un producto. Sin embargo, estimar la función de demanda usando esta información tiene problemas de causalidad inversa. Observe que los precios están determinados por la demanda y la oferta al mismo tiempo.</p>
+<p><span class="math notranslate nohighlight">\(y_i\)</span> son cantidades de merluza fresca en el Fulton Fish Market, <span class="math notranslate nohighlight">\(x_i\)</span> es el precio, <span class="math notranslate nohighlight">\(z_i\)</span> es una variable de condiciones climáticas en el mar (viento o temperatura) que afectan la oferta en el mercado.</p>
+</li>
+</ul>
+</section>
+<section id="minimos-cuadrados-en-dos-etapas-mc2">
+<h3>5.2.3 Mínimos Cuadrados en Dos Etapas (MC2)<a class="headerlink" href="#minimos-cuadrados-en-dos-etapas-mc2" title="Link to this heading">#</a></h3>
+<p>Para estimar el modelo de variables instrumentales se realiza un proceso secuencial. Recuerde que nos interesa estimar el efecto causal de la variable <span class="math notranslate nohighlight">\(x_i\)</span> en <span class="math notranslate nohighlight">\(y_i\)</span> a partir de la siguiente función de regresión:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</div>
+<p>Para ello procedemos en dos etapas:</p>
+<ul class="simple">
+<li><p><strong>Primera Etapa</strong>: estimar <span class="math notranslate nohighlight">\(x_i\)</span> usando la variable instrumental <span class="math notranslate nohighlight">\(z_i\)</span>. Si <span class="math notranslate nohighlight">\(Cov(z_i, \varepsilon_i) = 0\)</span>, entonces <span class="math notranslate nohighlight">\(\hat x_i\)</span> contiene variacion que no esta relacionada con <span class="math notranslate nohighlight">\(\varepsilon_i\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[x_i = \pi_0 + \pi_1 z_i + u_i\]</div>
+<ul class="simple">
+<li><p><strong>Segunda Etapa</strong>: estimar <span class="math notranslate nohighlight">\(y_i\)</span> usando los valores predichos <span class="math notranslate nohighlight">\(\hat x_i\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[y_i = \alpha + \beta \hat x_i + \eta_i\]</div>
+<p>Observe que el estimador de <span class="math notranslate nohighlight">\(\beta\)</span> se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} = \frac{\sum_i^n(y_i - \bar y)(\hat x_i - \bar{\hat x})}{\sum_i^n(\hat x_i - \bar{\hat x})^2}\]</div>
+<p>Note ademas que</p>
+<div class="math notranslate nohighlight">
+\[\hat x_i - \bar{\hat x} = \hat\pi_1 (z_i - \bar z)\]</div>
+<p>Entonces</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} = \frac{\sum_i^n(y_i - \bar y)\hat\pi_1 (z_i - \bar z)}{\sum_i^n\hat\pi_1^2 (z_i - \bar z)^2} = \frac{1}{\hat\pi_1} \frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n(z_i - \bar z)^2} = \frac{\sum_i^n(z_i - \bar z)^2}{\sum_i^n (x_i - \bar x) (z_i - \bar z)} \frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n(z_i - \bar z)^2}\]</div>
+<p>Finalmente, el estimador de <span class="math notranslate nohighlight">\(\beta_1\)</span> en 2 etapas esta dado por:</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} = \frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)} = \frac{\hat Cov(y_i, z_i)}{\hat Cov(x_i, z_i)}\]</div>
+</section>
+<section id="propiedades-estadisticas-de-hat-beta-iv">
+<h3>5.2.4 Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span><a class="headerlink" href="#propiedades-estadisticas-de-hat-beta-iv" title="Link to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+E(\hat\beta_{IV}) &amp; = E\left(\frac{\sum_i^n(y_i - \bar y)(z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; =  E\left(\frac{\sum_i^n [(\beta_0 + \beta_1 x_i + \varepsilon_i) - (\beta_0 + \beta_1 \bar x + \bar \varepsilon)] (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; =  E\left(\frac{\sum_i^n [(\beta_1 (x_i - \bar x) + (\varepsilon_i - \bar \varepsilon)] (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; =  E\left(\frac{\beta_1 \sum_i^n (x_i - \bar x)(z_i - \bar z) + \sum_i^n (\varepsilon_i - \bar \varepsilon) (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \\
+&amp; = \beta_1 +  E\left(\frac{\sum_i^n \varepsilon_i (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right)
+\end{align*}\]</div>
+<p>Observe que la condicion de exogeniedad del instrumento implica que <span class="math notranslate nohighlight">\(Cov(\varepsilon_i, z_i) = 0\)</span>, pero no implica que <span class="math notranslate nohighlight">\(E(\varepsilon_i | z_i, x_i) = 0\)</span>. Entonces,</p>
+<div class="math notranslate nohighlight">
+\[E\left(\frac{\sum_i^n \varepsilon_i (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) = E\left(\frac{\sum_i^n E(\varepsilon_i | z_i, x_i) (z_i - \bar z)}{\sum_i^n (x_i - \bar x) (z_i - \bar z)}\right) \neq 0\]</div>
+<p>Es decir, el estimador de minimos cuadrados en dos etapas es sesgado</p>
+<div class="math notranslate nohighlight">
+\[E(\hat\beta_{IV}) \neq \beta\]</div>
+<p>Sin embargo, el estimador es consistente:</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} = \frac{\hat Cov(y_i, z_i)}{\hat Cov(x_i, z_i)} \overset{p}{\to}  \frac{Cov(y_i, z_i)}{Cov(x_i, z_i)} = \beta_1\]</div>
+<p>Se puede demostrar que</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} \overset{d}{\to} N(\beta, \sigma^2_{\beta_{IV}}) \quad \text{ donde } \quad \sigma^2_{\beta_{IV}} = \frac{1}{n}\frac{V \left((z_i - \mu_z) \varepsilon_i\right)}{\left(Cov(x_i, z_i)\right)^2}\]</div>
+<p>La varianza de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span> se puede estimar a partir de la estimacion de la varianza y covarianza de los términos que aparecen en la expresión anterior:</p>
+<div class="math notranslate nohighlight">
+\[se(\hat\beta_{IV}) = \sqrt{\frac{\frac{1}{n} \sum (z_i - \bar z)^2 \hat\varepsilon_i^2}{n \left(\frac{1}{n} \sum (z_i - \bar z) x_i \right)^2}}\]</div>
+<p>Ya que en grandes muestras <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span> se distribuye normal, podemos realizar pruebas de hipotesis computando el <em>t-estadistico</em> y el intervalo de confianza dado por</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} \pm t_{\frac{\alpha}{2}, n - k_2 - 1} \cdot SE(\hat\beta_{IV})\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\alpha\)</span> es el nivel de significancia elegido por el analista, <span class="math notranslate nohighlight">\(n\)</span> es el numero de observaciones, y <span class="math notranslate nohighlight">\(k_2\)</span> es el numero de variables incluidas en la segunda etapa.</p>
+</section>
+<section id="validez-de-un-instrumento">
+<h3>5.2.5 Validez de un Instrumento<a class="headerlink" href="#validez-de-un-instrumento" title="Link to this heading">#</a></h3>
+<p>Argumentar que un instrumento es válido es un ejercicio de suma importancia. La validez dependerá de si los supuestos se cumplen o no.</p>
+<p>Recordemos que</p>
+<div class="math notranslate nohighlight">
+\[\hat\beta_{IV} \overset{d}{\to} \beta_1 + \frac{Cov(y_i, z_i)}{Cov(x_i, z_i)}\]</div>
+<p>Observe que si <span class="math notranslate nohighlight">\(Cov(x_i, z_i) \approx 0\)</span>, entonces el estimador de variables instrumentales será inconsistente. En otras palabras, tener un <strong>instrumento débil</strong> o irrelevante puede agravar el problema por el cual estamos implementando este método.</p>
+<p>Stock y Yogo (2005) muestran que</p>
+<div class="math notranslate nohighlight">
+\[E(\hat\beta_{IV}) - \beta_1 = \frac{E(\hat\beta_{MCO}) -  \beta_1}{E(F)-1}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(E(F)\)</span> es la esperanza del estadístico <em>F</em> de la primera etapa. Entonces, si <span class="math notranslate nohighlight">\(E(F) = 10\)</span> (<strong>regla de oro</strong>), el sesgo de mínimos cuadrados en dos etapas, relativo al sesgo de MCO, es approximadamente <span class="math notranslate nohighlight">\(1/9\)</span>, lo cual es suficientemente aceptable.</p>
+<p>Note además que si el <strong>instrumento no es exogeno</strong>, entonces el estimador será inconsistente.</p>
+<p>Sin embargo, no existe una prueba formal que permita concluir si el instrumento <span class="math notranslate nohighlight">\(z_i\)</span> es exogeno o no. Por lo tanto, el analista debe justificar/argumentar por qué el instrumento no se correlaciona con el término de error. Esto requiere conocimiento detallado de la aplicación o contexto estudiado.</p>
+<p>En ocasiones, la variable instrumental es el resultado de una lotería o proceso aleatorio. En este tipo de situaciones, justificar que el instrumento es exogeno es relativamente sencillo. Más aún, los resultados de este ejercicio son bastante creibles.</p>
+</section>
+<section id="identificacion-sobreidentificacion-y-no-identificacion">
+<h3>5.2.6 Identificación, Sobreidentificación, y No Identificación<a class="headerlink" href="#identificacion-sobreidentificacion-y-no-identificacion" title="Link to this heading">#</a></h3>
+<p>Observe que para estimar el modelo de variables instrumentales requerimos igual o mayor número de instrumentos (<span class="math notranslate nohighlight">\(m\)</span>) que número de variables endogenas (<span class="math notranslate nohighlight">\(k\)</span>).</p>
+<p>La relación entre estas variables dan lugar a la siguiente terminología:</p>
+<ul class="simple">
+<li><p>modelo identificado: <span class="math notranslate nohighlight">\(m = k\)</span></p></li>
+<li><p>modelo sobreidentificado: <span class="math notranslate nohighlight">\(m &gt; k\)</span></p></li>
+<li><p>modelo no indetificado: <span class="math notranslate nohighlight">\(m &lt; k\)</span></p></li>
+</ul>
+<p>Si nuestro modelo está sobreidentificado existe una prueba de hipotesis formal que nos permite determinar si en realidad nuestros instrumentos son exogenos.</p>
+<p>De manera intuitiva, se computa mínimos cuadrados en dos etapas de manera independiente y se comparan los resultados de ambas estimaciones. Si los resultados obtenidos se alejan mucho, entonces es posible que uno o ambos instrumentos no sea exogeno.</p>
+</section>
+<section id="prueba-de-sobreidentificacion">
+<h3>5.2.7 Prueba de Sobreidentificación<a class="headerlink" href="#prueba-de-sobreidentificacion" title="Link to this heading">#</a></h3>
+<p>Nuestro modelo multivariado está dado por:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_k x_{1i} + \beta_{k+1} w_{1i} + ... + \beta_{k+r} w_{ri} + \varepsilon_i\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_i\)</span> es la variable dependiente</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{1i}, ..., x_{ki}\)</span> son <span class="math notranslate nohighlight">\(k\)</span> regresores endogenos</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_{1i}, ..., w_{ri}\)</span> son <span class="math notranslate nohighlight">\(r\)</span> regresores exogenos</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_{1i}, ..., z_{mi}\)</span> son <span class="math notranslate nohighlight">\(m\)</span> instrumentos</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_i\)</span> es el término de error</p></li>
+</ul>
+<p>Usando los <span class="math notranslate nohighlight">\(m\)</span> instrumentos y el método de mínimos cuadrados en dos etapas estimamos el siguiente modelo</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 \hat x_{1i} + \beta_2 \hat x_{2i} + ... + \beta_k \hat x_{1i} + \beta_{k+1} w_{1i} + ... + \beta_{k+r} w_{ri} + \varepsilon_i\]</div>
+<p>A partir de estos resultados estimamos <span class="math notranslate nohighlight">\(\hat\varepsilon_i\)</span> y corremos la siguiente regresión:</p>
+<div class="math notranslate nohighlight">
+\[\hat\varepsilon_i = \delta_0 + \delta_1 z_{1i} + ... + \delta_m z_{mi} + \delta_{k+1} w_{1i} + ... + \delta_{k+r} w_{ri} + u_i\]</div>
+<p>Nuestra prueba de hipótesis está dada por:</p>
+<div class="math notranslate nohighlight">
+\[H_0: \delta_1 = ... = \delta_m = 0\]</div>
+<p>Finalmente el estadístico de prueba de sobreidentificación es</p>
+<div class="math notranslate nohighlight">
+\[J = m F \overset{d}{\to} \chi^2_{m - k}\]</div>
+</section>
+</section>
+<section id="regresion-discontinua">
+<h2>5.3 Regresión Discontinua<a class="headerlink" href="#regresion-discontinua" title="Link to this heading">#</a></h2>
+<p>En ocasiones, para asignar individuos a un tratamiento se define: <span class="math notranslate nohighlight">\((i)\)</span> un puntaje o <strong>variable continua</strong> y un <span class="math notranslate nohighlight">\((ii)\)</span> valor arbitrario o <strong>punto de corte</strong>. El punto de corte genera una discontinuidad en la probabilidad de participar de un tratamiento. El método de regresión discontinua (RD) explota de manera precisa este tipo de reglas de asignación.</p>
+<p>Existen dos tipos de discontinuidades:</p>
+<ol class="arabic simple">
+<li><p><strong>Discontinuidad Nítida</strong>: Se presenta cuando todos los individuos a partir del punto de corte son efectivamente tratados.</p></li>
+<li><p><strong>Discontinuidad Borrosa</strong>: Se presenta cuando a partir del punto de corte existe una fracción positiva de individuos tratados y no tratados. Es decir, si no todos elegibles a ser tratados son efectivamente tratados.</p></li>
+</ol>
+<p>Veremos que en el caso de regresión discontinua borrosa, el método de estimación se puede interpretar como un caso particular de variables instrumentales (IV).</p>
+<section id="regresion-discontinua-nitida">
+<h3>5.3.1 Regresión Discontinua Nítida<a class="headerlink" href="#regresion-discontinua-nitida" title="Link to this heading">#</a></h3>
+<p>Suponga que la variable binaria <span class="math notranslate nohighlight">\(D_i\)</span> identifica los individuos asignados a un tratamiento a partir de la siguiente regla:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+D_i =
+    \left\{\begin{array}{lr}
+    1 &amp; \text{ si } x_i \geq c \\
+    0 &amp; \text{ si } x_i &lt; c
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> es el valor de la variable continua <span class="math notranslate nohighlight">\(X\)</span> (o <em>running variable</em>) para el individuo <span class="math notranslate nohighlight">\(i\)</span>, y</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> es valor que determina si el individuo es o no tratado (es decir, el <em>punto de corte o cutoff</em>).</p></li>
+</ul>
+<p>Para estimar el efecto del tratamiento sobre una variable de resultado <span class="math notranslate nohighlight">\(y_i\)</span>, podemos usar el modelo de resultados potenciales. En particular, sea</p>
+<div class="math notranslate nohighlight">
+\[y_i(0) = \alpha + \beta x_i \]</div>
+<div class="math notranslate nohighlight">
+\[y_i(1) = y_i(0) + \tau \]</div>
+<p>Note que estamos suponiendo que el efecto del tratamiento es identico para todos los individuos (es decir, suponemos <em>homogeneidad del efecto</em>).</p>
+<p>Recuerde que el problema de causalidad (o <em>observability problem</em>) implica que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_i &amp; = y_i(1) \cdot D_i + y_i(0) \cdot (1 - D_i)\\
+&amp; = y_i(0) + (y_i(1) - y_i(0)) \cdot D_i\\
+\end{align*}\]</div>
+<p>De esta manera, para estimar el impacto usamos la siguiente ecuación:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \alpha + \beta x_i + \tau D_i + \varepsilon_i\]</div>
+<p>El <strong>efecto del tratamiento</strong> se puede estimar en <strong>función del puntaje de corte</strong> a partir de la siguiente ecuación:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\tau(c) &amp; = \lim_{x \downarrow c} E(y_i(1) | x_i = x) - \lim_{x \uparrow c} E(y_i(0) | x_i = x) \\
+&amp; = \lim_{x \downarrow c} E(y_i | x_i = x) - \lim_{x \uparrow c} E(y_i | x_i = x) \\
+\end{align*}\]</div>
+<div class="math notranslate nohighlight">
+\[\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Simular datos</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">11102025</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">I</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span>
+<span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="n">tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c1">#Efecto del tratamiento</span>
+
+<span class="n">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tau</span><span class="o">*</span><span class="n">D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="w"> </span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Running Var&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">abline</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#Esperanza condicional</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/85000472fa6a35defe6610e1290316e518cc325b949719f723297970e170b569.png"><img alt="_images/85000472fa6a35defe6610e1290316e518cc325b949719f723297970e170b569.png" src="_images/85000472fa6a35defe6610e1290316e518cc325b949719f723297970e170b569.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<section id="problemas-de-especificacion">
+<h4>Problemas de Especificación<a class="headerlink" href="#problemas-de-especificacion" title="Link to this heading">#</a></h4>
+<p>Observe que a diferencia de las regresiones que hemos estudiado hasta ahora, <span class="math notranslate nohighlight">\(x_i\)</span> no solo es una covariable sino que determina cuales individuos son tratados. La metodología de regresión dicontinua captura el efecto del tratamiento distinguiendo la parte no-lineal y discontinua, <span class="math notranslate nohighlight">\(D_i = 1(x_i \geq c)\)</span>, de la parte continua, <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<p>Sin embargo, es posible que exista una relación no-lineal entre <span class="math notranslate nohighlight">\(x_i\)</span> y <span class="math notranslate nohighlight">\(y_i\)</span>. Es decir, es posible que</p>
+<div class="math notranslate nohighlight">
+\[y_i(0) = f(x_i)\]</div>
+<p>Luego, una alternativa es estimar la ecuación:</p>
+<div class="math notranslate nohighlight">
+\[y_i = f(x_i) + \tau D_i + \varepsilon_i\]</div>
+<p>Una forma de aproximar <span class="math notranslate nohighlight">\(f(\cdot)\)</span> es a través de un polinomio (global) de grado <span class="math notranslate nohighlight">\(k\)</span> . Es decir, se puede estimar:</p>
+<div class="math notranslate nohighlight">
+\[y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + ... + \beta_k x_i^k + \tau D_i + \varepsilon_i\]</div>
+<p><a class="reference external" href="https://doi.org/10.1016/j.jeconom.2007.05.001">Imbens y Lemieux (2008, JE)</a> sugieren usar polinomios de diferentes grados como una forma de evaluar la sensibilidad de los resultados (es decir, como un ejercicio de robustez). A continuación veremos por qué.</p>
+<p>Como señalan Angrist y Pischke (2009), <strong>la validez de las estimaciones</strong> del efecto causal <strong>dependen de</strong> si el <strong>polinomio</strong> usado provee o no una adecuada descripción de <span class="math notranslate nohighlight">\(E(y_i(0) | x_i)\)</span>. De lo contrario, lo que se interpreta como un salto debido al tratamiento, pordría ser simplemente un factor de confunsión (o sesgo) por especificar mal (u omitir la relación no-lineal) la esperanza condicional del contrafactual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Relacion no-lineal</span>
+<span class="n">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tau</span><span class="o">*</span><span class="n">D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span>
+<span class="n">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="m">0.5</span><span class="p">];</span><span class="w"> </span><span class="n">fit0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">3</span>
+<span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&gt;=</span><span class="m">0.5</span><span class="p">];</span><span class="w"> </span><span class="n">fit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tau</span><span class="w"> </span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Running Var&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">fit0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">lines</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">fit1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/6d9c369b191469f56f0806533e34741a2ec303b9f9e008df665f2f6adcd88112.png"><img alt="_images/6d9c369b191469f56f0806533e34741a2ec303b9f9e008df665f2f6adcd88112.png" src="_images/6d9c369b191469f56f0806533e34741a2ec303b9f9e008df665f2f6adcd88112.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Relacion no-lineal vs lineal</span>
+<span class="n">y3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">0.15</span><span class="o">*</span><span class="n">tau</span><span class="o">*</span><span class="n">D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span>
+<span class="n">fit0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x0</span><span class="o">^</span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="n">lfit0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.02658</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">-0.03562</span><span class="o">*</span><span class="n">x0</span>
+<span class="n">fit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="o">*</span><span class="n">x1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.2</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">0.5</span><span class="o">*</span><span class="n">x1</span><span class="o">^</span><span class="m">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">0.15</span><span class="o">*</span><span class="n">tau</span><span class="p">;</span><span class="w"> </span><span class="n">lfit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.128</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2.272</span><span class="o">*</span><span class="n">x1</span><span class="w"> </span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y3</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-5</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">),</span><span class="w"> </span><span class="n">pch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Running Var&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">fit0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">lines</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">fit1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">lfit0</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x0</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">);</span><span class="w"> </span><span class="nf">lines</span><span class="p">(</span><span class="n">x1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">lfit1</span><span class="p">[</span><span class="nf">order</span><span class="p">(</span><span class="n">x1</span><span class="p">)],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/8e4b0aaec83fb3d54c4022cd0e5b0ed474e5520fed8130208f618cb8180a8c37.png"><img alt="_images/8e4b0aaec83fb3d54c4022cd0e5b0ed474e5520fed8130208f618cb8180a8c37.png" src="_images/8e4b0aaec83fb3d54c4022cd0e5b0ed474e5520fed8130208f618cb8180a8c37.png" style="width: 420px; height: 420px;" />
+</a>
+</div>
+</div>
+</section>
+<section id="estimacion-no-parametrica">
+<h4>Estimación No Paramétrica<a class="headerlink" href="#estimacion-no-parametrica" title="Link to this heading">#</a></h4>
+<p>Para reducir la posibilidad de cometer errores, <strong>se considera unicamente los datos de individuos alrededor del punto de corte</strong>, es decir, se define una vecindad <span class="math notranslate nohighlight">\([c - \Delta, c + \Delta]\)</span> donde <span class="math notranslate nohighlight">\(\Delta\)</span> es un valor positivo pequeño, conocido como <em>bandwidth</em>. De esta manera,</p>
+<div class="math notranslate nohighlight">
+\[E(y_i | c - \Delta &lt; x_i &lt; c) \approx E(y_i(0) | x_i = c)\]</div>
+<div class="math notranslate nohighlight">
+\[E(y_i | c \leq x_i &lt; c + \Delta) \approx E(y_i(1) | x_i = c)\]</div>
+<p>Finalmente, el <strong>estimador no-paramétrico del efecto causal</strong> esta dado por:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\tau(c) &amp; = \lim_{\Delta \to 0} E(y_i | c \leq x_i &lt; c + \Delta) - E(y_i | c - \Delta &lt; x_i &lt; c) \\
+&amp; = E(y_i(1)- y_i(0) | x_i = c)
+\end{align*}\]</div>
+<p>Es importante notar que:</p>
+<ul class="simple">
+<li><p><strong>estimar la esperanza</strong> de la variable de resultado, <span class="math notranslate nohighlight">\(y_i\)</span>, <strong>en intervalos pequeños</strong> del running variable <strong>trae inconvenientes</strong>. En particular, el reducido tamaño de muestra genera baja precisión en las estimaciones (i.e., la varianza de las estimaciones es alta).</p></li>
+<li><p>Por otro lado, es necesario seleccionar el parámetro <span class="math notranslate nohighlight">\(\Delta\)</span> de forma que minimize el sesgo por alejarse del punto de corte, pero considerando que para valores pequeños de <span class="math notranslate nohighlight">\(\Delta\)</span>, la varianza de las estimaciones tiende a crecer (<em>bias-variance trade off</em>).</p></li>
+</ul>
+<p>Para solucionar estos problemas se usan métodos no-paramétricos. En particular, se estiman regresiones polinomiales locales (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1468-0262.00183">Hahn, Todd, and van der Klaauw, 2001 ECTA</a>), metodologías para minimizar MSE a partir de <strong>validación cruzada</strong>, y estimadores que corrigen sesgos de cobertura (<a class="reference external" href="https://doi.org/10.3982/ECTA11757">Calonico, Cattaneo, y Titiunik, 2014 ECTA</a>).</p>
+</section>
+<section id="supuestos-de-identificacion">
+<h4>Supuestos de Identificación<a class="headerlink" href="#supuestos-de-identificacion" title="Link to this heading">#</a></h4>
+<p>Antes de realizar cualquier análisis empírico se debe verificar la validez interna de la metodología. Es decir, debemos presentar evidencia de que los diferentes supuestos de identifación del método se cumplen.</p>
+<p>Para el método de regresión discontinua, existen dos supuestos de identificación:</p>
+<ol class="arabic simple">
+<li><p><strong>No existe manipulación del puntaje de asignación al tratamiento</strong>. Este supuesto se puede validar estudiando la distribución de la running variable. Si no existen discontinuidades (o <em>bunching</em>) en la distribución alrededor del puntaje de corte, se puede concluir que no existe manipulación.</p></li>
+<li><p><strong>El punto de corte debe ser arbitrario</strong> (o definido de manera aleatoria). Este supuesto se puede validar evaluando si las covariables o características predeterminadas (es decir, la informacion de los individuos previas al tratamiento) son continuas alrededor del punto de corte.</p></li>
+</ol>
+<p>A través de la siguiente aplicación veremos cómo se evalúa la validez de estos supuestos.</p>
+</section>
+</section>
+<section id="aplicacion-retornos-a-senalizar-habilidades">
+<h3>5.3.2 Aplicación: Retornos a Señalizar Habilidades<a class="headerlink" href="#aplicacion-retornos-a-senalizar-habilidades" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://doi.org/10.1162/REST.a.1635">Busso, Montaño, y Muñoz (2025, RESTAT)</a> estudian el efecto de obtener la distinción del mejor Saber Pro en los salarios de los egresados de educación superior.</p>
+<p>Los autores estiman la siguiente ecuación:</p>
+<div class="math notranslate nohighlight">
+\[\log(Earnings_{ijt}) = \alpha + \beta Z_{ijt} + \tau D_{ijt} + \delta (Z_{ijt} \times D_{ijt}) + X_i'\gamma + \varepsilon_{ijt}\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\log(Earnings_{ijt})\)</span> es el logarítmo natural del primer salario percibido por el individuo <span class="math notranslate nohighlight">\(i\)</span> después de graduarse del programa <span class="math notranslate nohighlight">\(j\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_{ijt} = Puntaje_{i} - c_{jt}\)</span> es el puntaje centrado alrededor del valor mínimo para obtener la distinción del mejor Saber Pro en el programa <span class="math notranslate nohighlight">\(j\)</span> en el año <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D_{ijt} = 1(Puntaje_{i} &gt; c_{jt})\)</span> es una variable binaria que indica si el individuo <span class="math notranslate nohighlight">\(i\)</span> recibió la distinción del mejor Saber Pro</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_i\)</span> es un conjunto de características del individuo, las cuales se observan previo a recibir la distinción (es decir, Saber 11, género, edad, tipo de universidad, etc)</p></li>
+</ul>
+<section id="validez-interna">
+<h4>Validez Interna<a class="headerlink" href="#validez-interna" title="Link to this heading">#</a></h4>
+<p><strong>1. Evidencia de No Manipulación</strong>:</p>
+<p>Las siguientes gráficas presentan evidencia de que alrededor del punto de corte no existe <strong>bunching</strong> (o discontinuidad) en la distribución del running variable.</p>
+<p><a class="reference internal" href="_images/NormalizedDensity.png"><img alt="drawing" class="align-center" src="_images/NormalizedDensity.png" style="width: 350px;" /></a><a class="reference internal" href="_images/ManipulationTest.png"><img alt="drawing" class="align-center" src="_images/ManipulationTest.png" style="width: 350px;" /></a></p>
+<p><strong>2. Evidencia Cuasi-aleatoridad</strong>:</p>
+<p>Las siguentes figuras presentan evidencia de que alrededor del puntaje de corte <strong>no hay discontinuidades en características pre-determinadas</strong>.</p>
+<p><a class="reference internal" href="_images/RDfemale.png"><img alt="Figure 1" src="_images/RDfemale.png" style="width: 350px;" /></a><a class="reference internal" href="_images/RDworking.png"><img alt="Figure 2" src="_images/RDworking.png" style="width: 350px;" /></a></p>
+<p><a class="reference internal" href="_images/RDsb11score.png"><img alt="Figure 1" src="_images/RDsb11score.png" style="width: 350px;" /></a><a class="reference internal" href="_images/RDenglish.png"><img alt="Figure 2" src="_images/RDenglish.png" style="width: 350px;" /></a></p>
+</section>
+<section id="resultados">
+<h4>Resultados<a class="headerlink" href="#resultados" title="Link to this heading">#</a></h4>
+<p>La siguiente tabla presenta estimaciones, a partir del método de regresión discontinua, para el efecto de recibir la distinción del mejor Saber Pro.</p>
+<a class="reference internal image-reference" href="_images/Tabla1.png"><img alt="Table1" src="_images/Tabla1.png" style="width: 550px;" />
+</a>
+</section>
+</section>
+<section id="aplicacion-manipulacion-del-tratamiento">
+<h3>5.3.3 Aplicación: Manipulación del Tratamiento<a class="headerlink" href="#aplicacion-manipulacion-del-tratamiento" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/pol.3.2.41">Camacho y Conover (2011, AEJ: Policy)</a> documentan la evolución a través del tiempo del puntaje del Sisben, el cual es usado para asignar familias a diferentes programas de política social y salud en Colombia. Los autores documentan manipulación de los resultados, lo cual podría explicarse por razones políticas para influir en elecciones y a publicar el algorítmo de calificación en 1997.</p>
+<p><a class="reference internal" href="_images/Sisben94.png"><img alt="Figure 1" src="_images/Sisben94.png" style="width: 400px;" /></a><a class="reference internal" href="_images/Sisben97.png"><img alt="Figure 2" src="_images/Sisben97.png" style="width: 400px;" /></a></p>
+<p><a class="reference internal" href="_images/Sisben98.png"><img alt="Figure 1" src="_images/Sisben98.png" style="width: 400px;" /></a><a class="reference internal" href="_images/Sisben03.png"><img alt="Figure 2" src="_images/Sisben03.png" style="width: 400px;" /></a></p>
+</section>
+<section id="regresion-discontinua-borrosa">
+<h3>5.3.4 Regresión Discontinua Borrosa<a class="headerlink" href="#regresion-discontinua-borrosa" title="Link to this heading">#</a></h3>
+<p>Observe que en regresión discontinua nítida, <span class="math notranslate nohighlight">\(P(D_i = 1 | x_i \geq c) = 1\)</span> y <span class="math notranslate nohighlight">\(P(D_i = 1 | x_i &lt; c) = 0\)</span>. Es decir, todos los individuos elegibles para ser tratados son efectivamente tratados y los no elegibles no reciben tratamiento.</p>
+<p>Sin embargo, lo anterior no ocurre en todos las aplicaciones. Esto es así porque algunos individuos elegibles a recibir tratamiento deciden no formar parte del tratamiento. Más aún, es posible que individuos no elegibles logren recibir tratamiento. El método de <strong>regresión discontinua borrosa</strong> estima el efecto del tratamiento controlando por la falta de cumplimiento (<em>lack of compliance</em>) de la regla de asignación. En particular, se explota el hecho de que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Pr(D_i = 1 | x_i) =
+    \left\{\begin{array}{lr}
+    g_1(x_i) &amp; \text{ si } x_i \geq c \\
+    g_0(x_i) &amp; \text{ si } x_i &lt; c
+    \end{array}\right.
+    \quad \text{ donde }\hspace{5pt} g_1(c) \neq g_0(c)
+\end{equation*}\]</div>
+<p>Sin perdida de generalidad, asumimos que <span class="math notranslate nohighlight">\(g_1(c) &gt; g_0(c)\)</span>, es decir, que la probabilidad de recibir tratamiento aumenta cuando <span class="math notranslate nohighlight">\(x_i \geq c\)</span>.</p>
+<p>La relación entre la probabilidad de recibir tratamiento y <span class="math notranslate nohighlight">\(x_i\)</span> se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[E(D_i | x_i) = Pr(D_i = 1 | x_i) = g_0(x_i) + (g_1(x_i) - g_0(x_i)) \cdot T_i\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[T_i = 1(x_i \geq c)\]</div>
+<p>Es decir, <span class="math notranslate nohighlight">\(T_i\)</span> es una variable binaria que indica el punto en el que la esperanza condicional <span class="math notranslate nohighlight">\(E(D_i | x_i)\)</span> salta de manera discontinua.</p>
+<p>Para estimar el efecto del tratamiento <span class="math notranslate nohighlight">\(D_i\)</span> (LATE) sobre la variable de resultado <span class="math notranslate nohighlight">\(y_i\)</span>, procedemos en dos etapas:</p>
+<ol class="arabic simple">
+<li><p>Estimamos <span class="math notranslate nohighlight">\(E(D_i | x_i)\)</span> a partir de la ecuación:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[D_i = \gamma_0 + \gamma_1 x_i + ... + \gamma_k x^k_i + \pi T_i + \xi_i\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Estimamos el efecto del tratamiento considerando que la probabilidad de ser tratado salta de manera discontinua:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y_i = f(x_i) + \tau \hat D_i + \varepsilon_i\]</div>
+<p>Finalmente, el estimador de regresión discontinua está dado por</p>
+<div class="math notranslate nohighlight">
+\[\tau(c) = E(\tau | D_i = 1, x_i \geq c) = \frac{\lim_{x \downarrow c} E(y_i | x_i = x) - \lim_{x \uparrow c} E(y_i | x_i = x)}{\lim_{x \downarrow c} Pr(D_i = 1 | x_i = x) - \lim_{x \uparrow c} Pr(D_i = 1 | x_i = x) }\]</div>
+<p>Observe que para estimar el efecto de intención de tratamiento (ITT) usamos la siguiente ecuación de forma-reducida:</p>
+<div class="math notranslate nohighlight">
+\[y_i = m(x_i) + \rho T_i + \varepsilon_i = \gamma_0 + \gamma_1 x_i + \gamma_2 x^2_i + ... + \gamma_k x^k_i + \rho T_i + u_i\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[\rho = \pi \cdot \tau \quad \Rightarrow \quad \tau = \frac{\rho}{\pi}\]</div>
+<p>La forma reducia es informativa en muchos casos. Pero de manera importante, <strong>la forma reducida nos permite presentar evidencia gráfica de la discontinuidad en la variable de resultado al rededor del punto corte</strong>.</p>
+<p>Es usual que el analísta presente la evidencia gráfica, mida el impacto usando la forma reducida, y posteriormente estime el efecto promedio local.</p>
+</section>
+<section id="aplicacion-ser-pilo-paga">
+<h3>5.3.5 Aplicación: Ser Pilo Paga<a class="headerlink" href="#aplicacion-ser-pilo-paga" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/pol.20180131">Londoño, Rodríguez, y Sánchez (2020, AEJ: Policy)</a> y <a class="reference external" href="https://www.nber.org/papers/w31737">Londoño, Rodríguez, Sánchez, y Álvarez (2025, JPE)</a> estudian el efecto de ser beneficiario del programa Ser Pilo Paga sobre multiples variables de resultado. En particular, el documento estima efectos sobre:</p>
+<ol class="arabic simple">
+<li><p>Probabilidad de matricularse en educación superior,</p></li>
+<li><p>Tipo de institución donde se matriculan los estudiantes</p></li>
+<li><p>Probabilidad de graduarse</p></li>
+<li><p>Probabilidad de tener empleo formal y salario</p></li>
+</ol>
+<p>Los autores encuentran que los estudiantes beneficiarios tienen mayor probabilidad de matricularse en un programa de educación superior. De manera, especifica, la probabilidad de matricularse aumenta entre 56% y 86%.</p>
+<p>Adicionalmente, los autores proveen evidencia de que la probabilidad de matricularse en una institución de alta calidad aumentó para los beneficiarios, mientras su probabilidad de matricularse en instituciones de baja calidad se redujo. La graduación aumentó en 66.5% (o 26.8 p.p.)</p>
+</section>
+</section>
+<section id="diferencias-en-diferencias">
+<h2>5.4 Diferencias en Diferencias<a class="headerlink" href="#diferencias-en-diferencias" title="Link to this heading">#</a></h2>
+<p>El modelo de diferencias en diferencias (DiD) es una herramienta útil para estimar el efecto causal de políticas que focalizan un grupo de individuos. Bajo ciertos supuestos, este método logra eliminar diferencias pre-existentes entre el grupo focalizado y otros grupos poblacionales (<em>control o contrafactual</em>), y con ello determinar el impacto de una política.</p>
+<p>Para usar este método se requiren datos longitudinales o cortes transversales repetidos en los cuales es posible identificar los individuos afectados (<em>directa o indirectamente</em>) por la política.</p>
+<section id="comparacion-entre-grupos">
+<h3>5.4.1 Comparación entre Grupos<a class="headerlink" href="#comparacion-entre-grupos" title="Link to this heading">#</a></h3>
+<p>El modelo de <strong>diferencias en diferencias combina dos métodos</strong> simples para estimar el efecto causal de la política, <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<ul>
+<li><p><em>Comparar los resultados del grupo de tratados y los resultados del grupo de control en un periodo de tiempo particular</em>. Para implementar esta idea, podemos usar el siguiente estimador:</p>
+<div class="math notranslate nohighlight">
+\[\hat\tau^* = \bar y_{t}(1) - \bar y_t(0)\]</div>
+<p><em>Problema</em>: Esta idea asume que no existen diferencias (pre-existentes) entre el grupo de tratamiento y el grupo de control.</p>
+</li>
+<li><p><em>Comparar los resultados del grupo tratados antes y después de recibir el tratamiento</em>. Para implementar esta idea, podemos usar el siguiente estimador:</p>
+<div class="math notranslate nohighlight">
+\[\hat\tau^{\bullet} = \bar y_{t}(1) - \bar y_{t-1}(1)\]</div>
+<p><em>Problema</em>: Esta idea asume que factores diferentes al tratamiento no afectan la variable de resultado a traves del tiempo.</p>
+</li>
+</ul>
+</section>
+<section id="intuicion-del-metodo">
+<h3>5.4.2 Intuición del Método<a class="headerlink" href="#intuicion-del-metodo" title="Link to this heading">#</a></h3>
+<p>Supongamos que <strong>en un periodo <span class="math notranslate nohighlight">\(t\)</span> se introdujo de manera exogena un cambio de política</strong> (es decir, un tratamiento) que afectó de manera directa a un grupo de individuos, a quienes podemos identificar con una variable binaria <span class="math notranslate nohighlight">\(D_{i}\)</span>.</p>
+<p>El estimador de diferencias en diferencias se puede calcular a partir de los promedios de la variable de resultado para el grupo de tratados y el grupo de control, antes y después de la introducción del tratamiento.</p>
+<p>De manera específica, el estimador de diferencias en diferencias está dado por:</p>
+<div class="math notranslate nohighlight">
+\[\hat\tau^{DiD} = [\bar y_{t}(1) - \bar y_{t-1}(1)] - [\bar y_{t}(0) - \bar y_{t-1}(0)]\]</div>
+<p>Observe que esta expresión es equivalente a estimar:</p>
+<div class="math notranslate nohighlight">
+\[\hat\tau^{DiD} = [\bar y_{t}(1) - \bar y_{t}(0)] - [\bar y_{t-1}(1) - \bar y_{t-1}(0)]\]</div>
+<p>Esta última ecuación permite <strong>interpretar</strong> el estimador de diferencias en diferencias como <strong>la brecha que persiste entre los grupos de tratamiento y control cuando se controla por las diferencias pre-existentes entre ambos grupos</strong>.</p>
+<a class="reference internal image-reference" href="_images/DiD_fig.png"><img alt="_images/DiD_fig.png" src="_images/DiD_fig.png" style="width: 500px;" />
+</a>
+</section>
+<section id="tendencias-paralelas">
+<h3>5.4.3 Tendencias Paralelas<a class="headerlink" href="#tendencias-paralelas" title="Link to this heading">#</a></h3>
+<p>La figura anterior es una representación gráfica del estimador de diferencias en diferencias. Es importante notar dos elementos a partir de esta figura:</p>
+<ol class="arabic simple">
+<li><p>Existen diferencias pre-tratamiento entre los grupos de tratamiento y control</p></li>
+<li><p>La intervención cambia la tendencia (o comportamiento) de la variable de resultado para el grupo de tratamiento, pero no la cambia para el grupo de control.</p></li>
+</ol>
+<p>Para interpretar el estimador de diferencias en diferencias como un parámetro causal, es necesario suponer que la tendencia de la variable dependente, en ausencia del tratamiento, es igual para los grupos de tratamiento y control (<strong>tendencias paralellas</strong>).</p>
+</section>
+<section id="aplicacion-salario-minimo-y-empleo">
+<h3>5.4.4 Aplicación: Salario Mínimo y Empleo<a class="headerlink" href="#aplicacion-salario-minimo-y-empleo" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://davidcard.berkeley.edu/papers/njmin-aer.pdf">Card y Krueger (1994)</a> evalúan el impacto del incremento del salario mínimo en Nueva Jersey en 1992 utilizando un diseño de diferencias en diferencias. Los autores comparan cambios en empleo en restaurantes de comida rápida en Nueva Jersey (tratamiento) con los de Pensilvania (control), donde el salario mínimo no cambió.</p>
+<p>A través de encuestas directas a los establecimientos, los autores encuentran que el aumento del salario mínimo no redujo el empleo; de hecho, reportan un leve incremento en el empleo en Nueva Jersey en comparación con Pensilvania. Esto contradijo la predicción estándar del modelo competitivo de que un salario mínimo reduce el empleo.</p>
+<p>El estudio contribuyó de manera crucial a la literatura al mostrar evidencia empírica que apoya modelos alternativos de mercado laboral, como la competencia monopsonística, y reabrió el debate sobre los efectos del salario mínimo.</p>
+</section>
+<section id="modelo-de-regresion">
+<h3>5.4.5 Modelo de Regresión<a class="headerlink" href="#modelo-de-regresion" title="Link to this heading">#</a></h3>
+<p>El estimador diferencias en diferencias se puede obtener a partir del siguiente modelo de regresión:</p>
+<div class="math notranslate nohighlight">
+\[y_{it} = \beta_0 + \beta_1 Post_{t} + \beta_2 D_i + \beta_3 Post_{t} \times D_i + \varepsilon_{it}\]</div>
+<p>Donde</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+D_i =
+    \left\{\begin{array}{lr}
+    1, &amp; \text{si } i \text{ es tratado} \\
+    0, &amp; \text{otro caso}
+    \end{array}\right.
+\qquad Post_t =
+    \left\{\begin{array}{lr}
+    1, &amp; \text{si } t \text{ es el periodo post-tratamiento} \\
+    0, &amp; \text{otro caso}
+    \end{array}\right.
+\end{equation*}\]</div>
+<p>Obseve que</p>
+<div class="math notranslate nohighlight">
+\[\beta_3 = \underbrace{\Bigl[E(y_{it} | Post_t = 1 , D_i = 1) -  E(y_{it} | Post_t = 1 , D_i = 0)\Bigr]}_{(\beta_0 + \beta_1 + \beta_2 + \beta_3) \hspace{5pt}-\hspace{5pt} (\beta_0 + \beta_1)} - \underbrace{\Bigl[E(y_{it} | Post_t = 0 , D_i = 1) -  E(y_{it} | Post_t = 0 , D_i = 0)\Bigr]}_{(\beta_0 + \beta_2) \hspace{5pt}-\hspace{5pt} \beta_0}\]</div>
+</section>
+<section id="estimacion">
+<h3>5.4.6 Estimación<a class="headerlink" href="#estimacion" title="Link to this heading">#</a></h3>
+<p>El método de mínimos cuadrados ordinarios nos permite estimar el modelo de diferencias en diferencias.</p>
+<p>Observe que una ventaja de usar el modelo de regresión es que podemos <strong>controlar por factores que cambian a través del tiempo</strong>, <span class="math notranslate nohighlight">\(X_{it}\)</span>, y que se relacionan con la variable de resultado. En dicho caso, el modelo se puede reescribir como:</p>
+<div class="math notranslate nohighlight">
+\[y_{it} = \beta_0 + \beta_1 Post_{t} + \beta_2 D_i + \beta_3 Post_{t} \times D_i + {\color{red} X_{it}'\delta} + \varepsilon_{it}\]</div>
+<p>Incluir información adicional en el modelo aumenta la precisión de las estimaciones puntuales.</p>
+<p>En el caso en que tenemos datos longitudinales y contamos con múltiples periodos, podemos <strong>incluir efectos fijos de individuo (o grupo) y de tiempo</strong>:</p>
+<div class="math notranslate nohighlight">
+\[y_{it} = \beta_0 + \beta_1 Post_{t} + \beta_2 D_i + \beta_3 Post_{t} \times D_i + X_{it}'\delta + {\color{red} \mu_i + \mu_t} + \varepsilon_{it}\]</div>
+<p>Recordemos que <span class="math notranslate nohighlight">\(\mu_i\)</span> controla por características del individuo que no cambian a través del tiempo (bien sea observadas o no observadas) y <span class="math notranslate nohighlight">\(\mu_t\)</span> controla por cambios de política o factores que afectan a todos los individuos a lo largo del tiempo.</p>
+<p>Esta última expresion se puede estimar usando los diferentes modelos de datos panel que estudiamos previamente (i.e., primeras diferencias, modelo within, y modelo con variables binarias o dummy).</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -415,12 +1046,79 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Modulo_4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Parte IV - Variación Temporal</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-resultados-potenciales">5.1 Modelo de Resultados Potenciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-de-analisis-causal-observability-problem">5.1.1 Problema de Análisis Causal (<em>Observability Problem</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-interes">5.1.2 Parámetros de Interés</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-regresion-y-analisis-causal">5.1.3 Modelo Regresión y Análisis Causal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sesgo-de-autoseleccion">5.1.4 Sesgo de Autoselección</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asignacion-aleatoria-a-tratamiento-rct">5.1.5 Asignación Aleatoria a Tratamiento (RCT)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-instrumentales">5.2 Variables Instrumentales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relevancia-y-exogenidad-de-un-instrumento">5.2.1 Relevancia y Exogenidad de un Instrumento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">5.2.2 Aplicaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimos-cuadrados-en-dos-etapas-mc2">5.2.3 Mínimos Cuadrados en Dos Etapas (MC2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-estadisticas-de-hat-beta-iv">5.2.4 Propiedades Estadisticas de <span class="math notranslate nohighlight">\(\hat\beta_{IV}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-de-un-instrumento">5.2.5 Validez de un Instrumento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificacion-sobreidentificacion-y-no-identificacion">5.2.6 Identificación, Sobreidentificación, y No Identificación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-de-sobreidentificacion">5.2.7 Prueba de Sobreidentificación</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua">5.3 Regresión Discontinua</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-nitida">5.3.1 Regresión Discontinua Nítida</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problemas-de-especificacion">Problemas de Especificación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-no-parametrica">Estimación No Paramétrica</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-de-identificacion">Supuestos de Identificación</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-retornos-a-senalizar-habilidades">5.3.2 Aplicación: Retornos a Señalizar Habilidades</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validez-interna">Validez Interna</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">Resultados</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-manipulacion-del-tratamiento">5.3.3 Aplicación: Manipulación del Tratamiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-discontinua-borrosa">5.3.4 Regresión Discontinua Borrosa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-ser-pilo-paga">5.3.5 Aplicación: Ser Pilo Paga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diferencias-en-diferencias">5.4 Diferencias en Diferencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-entre-grupos">5.4.1 Comparación entre Grupos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuicion-del-metodo">5.4.2 Intuición del Método</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tendencias-paralelas">5.4.3 Tendencias Paralelas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicacion-salario-minimo-y-empleo">5.4.4 Aplicación: Salario Mínimo y Empleo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-regresion">5.4.5 Modelo de Regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion">5.4.6 Estimación</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
